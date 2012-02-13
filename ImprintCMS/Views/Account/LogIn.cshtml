@@ -1,0 +1,28 @@
+﻿@model ImprintCMS.Models.ViewModels.Login
+@{
+	ViewBag.Title = "Log In";
+}
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+	<fieldset class="login">
+		<p>
+			@Html.LabelFor(model => model.Username, "Username")<br />
+			@Html.TextBoxFor(model => model.Username)
+			@Html.ValidationMessageFor(model => model.Username)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Password, "Password")<br />
+			@Html.PasswordFor(model => model.Password)
+			@Html.ValidationMessageFor(model => model.Password)
+		</p>
+	</fieldset>
+	<fieldset class="hidden">
+		@Html.HiddenFor(model => model.ReturnUrl)
+	</fieldset>
+	<fieldset class="buttons">
+		<p>
+			<input type="submit" value="OK" />
+		</p>
+	</fieldset>
+}

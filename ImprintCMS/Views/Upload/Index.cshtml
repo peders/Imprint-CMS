@@ -1,0 +1,11 @@
+﻿@model IEnumerable<UploadedFile>
+@{
+	ViewBag.Title = "Uploads";
+}
+<ul>
+	@foreach (var file in Model)
+ {
+		<li>@Html.ActionLink(file.Category + "/" + file.FileName, "display", new { category = file.Category, fileName = file.FileName })</li>
+ }
+</ul>
+<p>@Html.ActionLink("New upload", "new")</p>

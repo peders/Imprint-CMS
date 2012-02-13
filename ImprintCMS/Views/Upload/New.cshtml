@@ -1,0 +1,21 @@
+﻿@model FileUpload
+@{
+	ViewBag.Title = "New upload";
+}
+<form action="" method="post" enctype="multipart/form-data">
+@Html.ValidationSummary(false)
+<fieldset>
+	<p>
+		<label for="file">
+			Choose file</label><br />
+		<input type="file" name="file" id="file" />
+	</p>
+	<p>
+		@Html.LabelFor(model => model.FileCategory)<br />
+		@Html.DropDownListFor(model => model.FileCategory, (SelectList)ViewBag.FileCategories)
+	</p>
+	<p>
+		<input type="submit" value="OK" />
+	</p>
+</fieldset>
+</form>

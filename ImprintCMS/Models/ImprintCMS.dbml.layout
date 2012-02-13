@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ImprintCMS">
+  <DataContextMoniker Name="/ImprintCMSDataContext" />
+  <nestedChildShapes>
+    <classShape Id="87fd9474-6b89-4b14-9eb5-4650e1e16436" absoluteBounds="7.5, 2.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ImprintCMSDataContext/UploadedFile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9125f99c-0ee9-476e-949c-037ede30c802" absoluteBounds="7.515, 2.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
