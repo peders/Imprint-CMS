@@ -11,7 +11,7 @@
 	@if (User.Identity.IsAuthenticated)
  {
 		<nav id="account">
-			@Html.ActionLink("Log out", "logout", "account", new { ReturnUrl = Request.Url.AbsolutePath }, null)</nav>
+			@Html.ActionLink("Log out " + User.Identity.Name, "logout", "account", new { ReturnUrl = Request.Url.AbsolutePath }, null)</nav>
  }
 	<header>
 		<h1>@ViewBag.Title</h1>
