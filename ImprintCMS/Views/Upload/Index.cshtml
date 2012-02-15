@@ -2,10 +2,20 @@
 @{
 	ViewBag.Title = "Uploads";
 }
-<ul>
-	@foreach (var file in Model)
- {
-		<li>@Html.ActionLink(file.Category + "/" + file.FileName, "display", new { category = file.Category, fileName = file.FileName })</li>
- }
-</ul>
 <p>@Html.ActionLink("New upload", "new")</p>
+<div class="tabs">
+@foreach (var group in Model.GroupBy(f => f.Category))
+{
+<div id="@String.Format("group_{0}", group.Key)">
+	<h2>@group.Key</h2>
+	<ul>
+		@foreach (var file in group.OrderBy(f => f.FileName))
+  {
+			<li><span class="name">@Html.ActionLink(file.FileName, "display", new { category = file.Category, fileName = file.FileName })</span>
+				@Html.ActionLink("Delete", "delete", new { id = file.Id }, null)
+			</li>
+  }
+	</ul>
+</div>
+}
+</div>

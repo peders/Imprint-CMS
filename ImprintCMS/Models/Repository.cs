@@ -26,10 +26,19 @@ namespace ImprintCMS.Models
 		{
 			return _db.UploadedFiles.SingleOrDefault(f => f.Category == category && f.FileName == fileName);
 		}
+		public UploadedFile GetUploadedFile(int id)
+		{
+			return _db.UploadedFiles.SingleOrDefault(f => f.Id == id);
+		}
 
 		public void Add(UploadedFile file)
 		{
 			_db.UploadedFiles.InsertOnSubmit(file);
+		}
+
+		public void Delete(UploadedFile file)
+		{
+			_db.UploadedFiles.DeleteOnSubmit(file);
 		}
 
 		public void Save()

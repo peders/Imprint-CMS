@@ -31,8 +31,10 @@ namespace ImprintCMS.Controllers
 			var file = Request.Files[0];
 			if (file.ContentLength == 0)
 				ModelState.AddModelError("", "No file or file is empty");
-			if (Repository.GetUploadedFile(vm.FileCategory, file.FileName) != null)
-				ModelState.AddModelError("", "File already exists");
+			if (file.ContentLength > 5242880)
+				ModelState.AddModelError("", "File is too large (max 5 MB)");
+			if (Repository.GetUploadedFile(vm.FileCategory, file.FileName.Sanitise()) != null)
+				ModelState.AddModelError("", "A file with this name already exists in this category. Delete old file first if you want to replace it.");
 			if (!ModelState.IsValid)
 			{
 				ViewBag.FileCategories = new SelectList(Enum.GetValues(typeof(FileCategories)), vm.FileCategory);
@@ -42,12 +44,21 @@ namespace ImprintCMS.Controllers
 			file.InputStream.Read(fileData, 0, fileData.Length);
 			var upload = new UploadedFile
 			{
-				FileName = file.FileName,
+				FileName = file.FileName.Sanitise(),
 				ContentType = file.ContentType,
 				Category = vm.FileCategory,
 				Data = fileData
 			};
 			Repository.Add(upload);
+			Repository.Save();
+			return RedirectToAction("index");
+		}
+
+		public ActionResult Delete(int id)
+		{
+			var file = Repository.GetUploadedFile(id);
+			if (file == null) return HttpNotFound();
+			Repository.Delete(file);
 			Repository.Save();
 			return RedirectToAction("index");
 		}
@@ -61,4 +72,5 @@ namespace ImprintCMS.Controllers
 		}
 
 	}
+
 }
