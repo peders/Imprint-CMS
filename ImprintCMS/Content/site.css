@@ -1,0 +1,6 @@
+body { font-family: "Trebuchet MS" , Verdana, Helvetica, Sans-Serif; color: #000000; background-color: #ffffff; font-size: 0.85em; }
+header, footer, nav, section { display: block; }
+
+a { color: #4880e3; text-decoration: none; }
+a:hover { text-decoration: underline; }
+

@@ -1,3 +1,8 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	if ((string)ViewContext.RouteData.Values["controller"] == "admin" || (string)ViewContext.RouteData.Values["controller"] == "upload" || (string)ViewContext.RouteData.Values["controller"] == "account")
+	{
+		Layout = "~/Views/Shared/_Admin.cshtml";
+	} else {
+		Layout = "~/Views/Shared/_Site.cshtml";
+	}
 }

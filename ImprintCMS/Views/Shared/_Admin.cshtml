@@ -8,7 +8,7 @@
 	<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.17/themes/pepper-grinder/jquery-ui.css"
 		rel="stylesheet" type="text/css" />
 	<script src="@Url.Content("~/scripts/imprint.js")" type="text/javascript"></script>
-	<link href="@Url.Content("~/content/imprint.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/content/admin.css")" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	@if (User.Identity.IsAuthenticated)
@@ -16,9 +16,15 @@
 		<nav id="account">
 			@Html.ActionLink("Log out " + User.Identity.Name, "logout", "account", new { ReturnUrl = Request.Url.AbsolutePath }, null)</nav>
  }
-	<header>
-		<h1>@ViewBag.Title</h1>
-	</header>
-	@RenderBody()
+	<header>@Html.ActionLink("Imprint CMS", "index", "admin")</header>
+	<nav id="breadcrumbs">
+		<ul>
+			<li>@Html.ActionLink("Imprint CMS", "index", "admin")</li>
+			<li><strong>@ViewBag.Title</strong></li>
+		</ul>
+	</nav>
+	<div id="content">
+		@RenderBody()
+	</div>
 </body>
 </html>
