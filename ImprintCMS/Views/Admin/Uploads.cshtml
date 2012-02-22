@@ -5,7 +5,9 @@
 		Phrases.PagenameUploads.ToHtmlString()
 	};
 }
-<p>@Html.ActionLink(Phrases.PagenameCreateUpload, "createupload")</p>
+<ul class="adminactions">
+	<li>@Html.ActionLink(Phrases.PagenameCreateUpload, "createupload")</li>
+</ul>
 <div class="tabs">
 	@foreach (var group in Model.GroupBy(f => f.Category))
  {

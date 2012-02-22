@@ -5,6 +5,7 @@ a { color: #4880e3; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 ul { list-style-type: none; margin: 0; padding: 0; }
+h2 { clear: both; margin: 1em 0 0.2em 0;}
 
 #account { position: absolute; right: 30px; top: 71px; line-height: 40px; z-index: 5; }
 
@@ -19,6 +20,11 @@ header a:hover { text-shadow: 1px 1px 1px rgba(72, 128, 227, 0.5); text-decorati
 #breadcrumbs ul li:last-child { font-weight: bold; }
 
 #content { padding: 0 30px; }
+
+ul.adminactions { float: left; clear: both; margin: 0 0 1em 0; }
+ul.adminactions li { margin-right: 1em; float: left; }
+ul.adminactions a { display: block; float: left; background: #f8f8f8; border: 1px dotted #dddddd; border-radius: 4px; color: #000000; padding: 2px 5px; }
+ul.adminactions a:hover { background: #dddddd; text-decoration: none; }
 
 ul.listing { clear: both; margin: 1em 0; }
 ul.listing li { clear: both; padding: 2px 0; border-bottom: 1px dotted #dddddd; }

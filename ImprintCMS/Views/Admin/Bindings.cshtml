@@ -5,7 +5,9 @@
 		Phrases.PagenameBindings.ToHtmlString()
 	};
 }
-@Html.ActionLink(Phrases.PagenameCreateBinding, "createbinding")
+<ul class="adminactions">
+	<li>@Html.ActionLink(Phrases.PagenameCreateBinding, "createbinding")</li>
+</ul>
 <ul class="listing">
 	@foreach (var binding in Model)
  {
