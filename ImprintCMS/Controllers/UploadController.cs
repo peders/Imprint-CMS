@@ -30,11 +30,11 @@ namespace ImprintCMS.Controllers
 		{
 			var file = Request.Files[0];
 			if (file.ContentLength == 0)
-				ModelState.AddModelError("", "No file or file is empty");
+				ModelState.AddModelError("", Phrases.ValidationEmptyOrNoFile);
 			if (file.ContentLength > 5242880)
-				ModelState.AddModelError("", "File is too large (max 5 MB)");
+				ModelState.AddModelError("", Phrases.ValidationFileTooLarge);
 			if (Repository.GetUploadedFile(vm.FileCategory, file.FileName.Sanitise()) != null)
-				ModelState.AddModelError("", "A file with this name already exists in this category. Delete old file first if you want to replace it.");
+				ModelState.AddModelError("", Phrases.ValidationFileExists);
 			if (!ModelState.IsValid)
 			{
 				ViewBag.FileCategories = new SelectList(Enum.GetValues(typeof(FileCategories)), vm.FileCategory);

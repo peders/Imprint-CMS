@@ -1,25 +1,24 @@
 ﻿@model FileUpload
 @{
-	ViewBag.Title = "New upload";
+	ViewBag.Title = Phrases.PagenameCreateUpload;
 	ViewBag.Breadcrumbs = new[] {
-		Html.ActionLink("Uploads", "index"),
-		"New upload".ToHtmlString()
+		Html.ActionLink(Phrases.PagenameUploads, "index"),
+		Phrases.PagenameCreateUpload.ToHtmlString()
 	};
 }
 <form action="" method="post" enctype="multipart/form-data">
 @Html.ValidationSummary(false)
 <fieldset>
 	<p>
-		<label for="file">
-			Choose file</label><br />
+		<label for="file">@Phrases.LabelSelectFile</label><br />
 		<input type="file" name="file" id="file" />
 	</p>
 	<p>
-		@Html.LabelFor(model => model.FileCategory, "Category")<br />
+		@Html.LabelFor(model => model.FileCategory, Phrases.LabelFileCategory)<br />
 		@Html.DropDownListFor(model => model.FileCategory, (SelectList)ViewBag.FileCategories)
 	</p>
 	<p>
-		<input type="submit" value="OK" />
+		<input type="submit" value="@Phrases.LabelSubmit" />
 	</p>
 </fieldset>
 </form>

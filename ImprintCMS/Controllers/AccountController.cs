@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using ImprintCMS.Models.ViewModels;
 using System.Web.Security;
+using ImprintCMS.Models;
+using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Controllers
 {
@@ -28,7 +26,7 @@ namespace ImprintCMS.Controllers
 			}
 			if (!FormsAuthentication.Authenticate(vm.Username, vm.Password))
 			{
-				ModelState.AddModelError("", "Invalid username/password");
+				ModelState.AddModelError("", Phrases.ValidationInvalidLogin);
 				return View(vm);
 			}
 			FormsAuthentication.SetAuthCookie(vm.Username, true);

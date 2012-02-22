@@ -1,7 +1,7 @@
 ﻿@{
-	ViewBag.Title = "Admin";
+	ViewBag.Title = Phrases.PagenameAdmin;
 	ViewBag.Breadcrumbs = new[] {
-		"Admin".ToHtmlString()
+		Phrases.PagenameAdmin.ToHtmlString()
 	};
 }
-@Html.ActionLink("Uploads", "index", "upload")
+@Html.ActionLink(Phrases.PagenameUploads, "index", "upload")

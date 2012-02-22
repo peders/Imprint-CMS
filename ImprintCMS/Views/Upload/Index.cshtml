@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<UploadedFile>
 @{
-	ViewBag.Title = "Uploads";
+	ViewBag.Title = Phrases.PagenameUploads;
 	ViewBag.Breadcrumbs = new[] {
-		"Uploads".ToHtmlString()
+		Phrases.PagenameUploads.ToHtmlString()
 	};
 }
-<p>@Html.ActionLink("New upload", "new")</p>
+<p>@Html.ActionLink(Phrases.PagenameCreateUpload, "new")</p>
 <div class="tabs">
 @foreach (var group in Model.GroupBy(f => f.Category))
 {
@@ -15,7 +15,7 @@
 		@foreach (var file in group.OrderBy(f => f.FileName))
   {
 			<li><span class="name">@Html.ActionLink(file.FileName, "display", new { category = file.Category, fileName = file.FileName })</span>
-				@Html.ActionLink("Delete", "delete", new { id = file.Id }, null)
+				@Html.ActionLink(Phrases.LabelDelete, "delete", new { id = file.Id }, null)
 			</li>
   }
 	</ul>
