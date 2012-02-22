@@ -1,5 +1,5 @@
 ﻿@{
-	var adminControllers = new[] { "admin", "upload", "account" };
+	var adminControllers = new[] { "admin", "account" };
 	if (adminControllers.Contains((string)ViewContext.RouteData.Values["controller"]))
 	{
 		Layout = "~/Views/Shared/_Admin.cshtml";
