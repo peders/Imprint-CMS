@@ -73,6 +73,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Binding.cs" />
     <Compile Include="Models\ExtensionMethods.cs" />
     <Compile Include="Models\FileCategories.cs" />
     <Compile Include="Models\ImprintCMS.designer.cs">
@@ -124,6 +125,10 @@
     <Content Include="Views\Admin\Uploads.cshtml" />
     <Content Include="Views\Admin\CreateUpload.cshtml" />
     <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\Admin\Bindings.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Binding.cshtml" />
+    <Content Include="Views\Admin\CreateBinding.cshtml" />
+    <Content Include="Views\Admin\EditBinding.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

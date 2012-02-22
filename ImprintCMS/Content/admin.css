@@ -20,12 +20,16 @@ header a:hover { text-shadow: 1px 1px 1px rgba(72, 128, 227, 0.5); text-decorati
 
 #content { padding: 0 30px; }
 
-ul.filelist li { clear: both;}
-ul.filelist .name { width: 500px; display: block; float: left; margin-right: 10px; overflow: hidden; }
-ul.filelist .data{ width: 100px; display: block; float: left; margin-right: 10px; }
+ul.listing { clear: both; margin: 1em 0; }
+ul.listing li { clear: both; padding: 2px 0; border-bottom: 1px dotted #dddddd; }
+ul.listing li:first-child { border-top: 1px dotted #dddddd; }
+ul.listing .name { width: 500px; display: block; float: left; margin-right: 10px; overflow: hidden; }
+ul.listing .data { width: 100px; display: block; float: left; margin-right: 10px; }
 
 fieldset { border: none; margin: 0; padding: 0; }
 fieldset.login label { font-weight: bold; }
+fieldset.fields label { font-weight: bold; }
+fieldset.submit { margin-top: 2em; }
 textarea { min-height: 100px; }
 
 .field-validation-error { color: #ff0000; }

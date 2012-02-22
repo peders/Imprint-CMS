@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Binding>
+@{
+	ViewBag.Title = Phrases.PagenameBindings;
+	ViewBag.Breadcrumbs = new[] {
+		Phrases.PagenameBindings.ToHtmlString()
+	};
+}
+@Html.ActionLink(Phrases.PagenameCreateBinding, "createbinding")
+<ul class="listing">
+	@foreach (var binding in Model)
+ {
+		<li><span class="name">@Html.ActionLink(binding.Name, "editbinding", new { id = binding.Id })</span>
+			@Html.ActionLink(Phrases.LabelDelete, "deletebinding", new { id = binding.Id })</li>
+ }
+</ul>

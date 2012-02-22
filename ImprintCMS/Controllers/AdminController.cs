@@ -1,7 +1,8 @@
-﻿using System.Web.Mvc;
-using ImprintCMS.Models.ViewModels;
+﻿using System;
+using System.Linq;
+using System.Web.Mvc;
 using ImprintCMS.Models;
-using System;
+using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Controllers
 {
@@ -68,6 +69,51 @@ namespace ImprintCMS.Controllers
 			Repository.Delete(file);
 			Repository.Save();
 			return RedirectToAction("uploads");
+		}
+
+		public ActionResult Bindings()
+		{
+			var vm = Repository.Bindings.OrderBy(b => b.Name);
+			return View(vm);
+		}
+
+		public ActionResult CreateBinding()
+		{
+			var vm = new Binding();
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreateBinding(Binding vm)
+		{
+			if (!ModelState.IsValid) return View(vm);
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("bindings");
+		}
+
+		public ActionResult EditBinding(int id)
+		{
+			var vm = Repository.GetBinding(id);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult EditBinding(Binding vm)
+		{
+			if (!ModelState.IsValid) return View(vm);
+			UpdateModel(Repository.GetBinding(vm.Id));
+			Repository.Save();
+			return RedirectToAction("bindings");
+		}
+
+		public ActionResult DeleteBinding(int id)
+		{
+			var binding = Repository.GetBinding(id);
+			if (binding == null) return HttpNotFound();
+			Repository.Delete(binding);
+			Repository.Save();
+			return RedirectToAction("bindings");
 		}
 
 	}

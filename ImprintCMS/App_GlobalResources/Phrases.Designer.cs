@@ -106,11 +106,29 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string LabelName {
+            get {
+                return ResourceManager.GetString("LabelName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string LabelPassword {
             get {
                 return ResourceManager.GetString("LabelPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string LabelSave {
+            get {
+                return ResourceManager.GetString("LabelSave", resourceCulture);
             }
         }
         
@@ -169,11 +187,38 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bindings.
+        /// </summary>
+        public static string PagenameBindings {
+            get {
+                return ResourceManager.GetString("PagenameBindings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New binding.
+        /// </summary>
+        public static string PagenameCreateBinding {
+            get {
+                return ResourceManager.GetString("PagenameCreateBinding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New upload.
         /// </summary>
         public static string PagenameCreateUpload {
             get {
                 return ResourceManager.GetString("PagenameCreateUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit binding.
+        /// </summary>
+        public static string PagenameEditBinding {
+            get {
+                return ResourceManager.GetString("PagenameEditBinding", resourceCulture);
             }
         }
         

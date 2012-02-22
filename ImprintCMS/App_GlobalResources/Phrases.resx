@@ -132,8 +132,14 @@
   <data name="LabelLogOut" xml:space="preserve">
     <value>Log out</value>
   </data>
+  <data name="LabelName" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="LabelPassword" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="LabelSave" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="LabelSelectFile" xml:space="preserve">
     <value>File</value>
@@ -153,8 +159,17 @@
   <data name="PagenameAdmin" xml:space="preserve">
     <value>Admin</value>
   </data>
+  <data name="PagenameBindings" xml:space="preserve">
+    <value>Bindings</value>
+  </data>
+  <data name="PagenameCreateBinding" xml:space="preserve">
+    <value>New binding</value>
+  </data>
   <data name="PagenameCreateUpload" xml:space="preserve">
     <value>New upload</value>
+  </data>
+  <data name="PagenameEditBinding" xml:space="preserve">
+    <value>Edit binding</value>
   </data>
   <data name="PagenameError" xml:space="preserve">
     <value>Error</value>

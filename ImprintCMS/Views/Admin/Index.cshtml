@@ -4,4 +4,7 @@
 		Phrases.PagenameAdmin.ToHtmlString()
 	};
 }
-@Html.ActionLink(Phrases.PagenameUploads, "uploads")
+<ul class="adminactions">
+	<li>@Html.ActionLink(Phrases.PagenameUploads, "uploads")</li>
+	<li>@Html.ActionLink(Phrases.PagenameBindings, "bindings")</li>
+</ul>

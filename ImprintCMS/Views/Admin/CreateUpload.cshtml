@@ -8,7 +8,7 @@
 }
 <form action="" method="post" enctype="multipart/form-data">
 @Html.ValidationSummary(false)
-<fieldset>
+<fieldset class="fields">
 	<p>
 		<label for="file">@Phrases.LabelSelectFile</label><br />
 		<input type="file" name="file" id="file" />
@@ -17,6 +17,8 @@
 		@Html.LabelFor(model => model.FileCategory, Phrases.LabelFileCategory)<br />
 		@Html.DropDownListFor(model => model.FileCategory, (SelectList)ViewBag.FileCategories)
 	</p>
+</fieldset>
+<fieldset class="submit">
 	<p>
 		<input type="submit" value="@Phrases.LabelSubmit" />
 	</p>

@@ -11,7 +11,7 @@
  {
 		<div id="@String.Format("group_{0}", group.Key)">
 			<h2>@group.Key</h2>
-			<ul class="filelist">
+			<ul class="listing">
 				@foreach (var file in group.OrderBy(f => f.FileName))
 	{
 					<li><span class="name">@Html.ActionLink(file.FileName, "display", "upload", new { category = file.Category, fileName = file.FileName }, null)</span>

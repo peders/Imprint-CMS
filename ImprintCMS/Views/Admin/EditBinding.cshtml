@@ -1,0 +1,9 @@
+﻿@model Binding
+@{
+	ViewBag.Title = Phrases.PagenameEditBinding;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameBindings, "bindings"),
+		Phrases.PagenameEditBinding.ToHtmlString()
+	};
+}
+@Html.EditorForModel()
