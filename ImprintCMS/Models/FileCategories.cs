@@ -5,7 +5,11 @@
 		LargeCover,
 		SmallCover,
 		LargePortrait,
-		SmallPortrait
+		SmallPortrait,
+		LargePhoto,
+		SmallPhoto,
+		Excerpt,
+		Attachment
 	}
 
 }

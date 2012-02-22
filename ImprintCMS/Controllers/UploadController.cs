@@ -19,7 +19,7 @@ namespace ImprintCMS.Controllers
 		{
 			var vm = new FileUpload
 			{
-				FileCategory = FileCategories.LargeCover.ToString()
+				FileCategory = FileCategories.Attachment.ToString()
 			};
 			ViewBag.FileCategories = new SelectList(Enum.GetValues(typeof(FileCategories)), vm.FileCategory);
 			return View(vm);
