@@ -123,6 +123,9 @@
   <data name="LabelFileCategory" xml:space="preserve">
     <value>Category</value>
   </data>
+  <data name="LabelLogOut" xml:space="preserve">
+    <value>Log out</value>
+  </data>
   <data name="LabelPassword" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -138,17 +141,26 @@
   <data name="LabelUsername" xml:space="preserve">
     <value>Username</value>
   </data>
+  <data name="MessageUnhandledException" xml:space="preserve">
+    <value>Sorry, this page can not be displayed</value>
+  </data>
   <data name="PagenameAdmin" xml:space="preserve">
     <value>Admin</value>
   </data>
   <data name="PagenameCreateUpload" xml:space="preserve">
     <value>New upload</value>
   </data>
+  <data name="PagenameError" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="PagenameLogIn" xml:space="preserve">
     <value>Log in</value>
   </data>
   <data name="PagenameUploads" xml:space="preserve">
     <value>Uploads</value>
+  </data>
+  <data name="SystemName" xml:space="preserve">
+    <value>Imprint CMS</value>
   </data>
   <data name="ValidationEmptyOrNoFile" xml:space="preserve">
     <value>No file or file is empty</value>

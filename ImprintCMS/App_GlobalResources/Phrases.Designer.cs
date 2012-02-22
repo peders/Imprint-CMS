@@ -79,6 +79,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log out.
+        /// </summary>
+        public static string LabelLogOut {
+            get {
+                return ResourceManager.GetString("LabelLogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string LabelPassword {
@@ -124,6 +133,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sorry, this page can not be displayed.
+        /// </summary>
+        public static string MessageUnhandledException {
+            get {
+                return ResourceManager.GetString("MessageUnhandledException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Admin.
         /// </summary>
         public static string PagenameAdmin {
@@ -142,6 +160,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string PagenameError {
+            get {
+                return ResourceManager.GetString("PagenameError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log in.
         /// </summary>
         public static string PagenameLogIn {
@@ -156,6 +183,15 @@ namespace ImprintCMS.Models {
         public static string PagenameUploads {
             get {
                 return ResourceManager.GetString("PagenameUploads", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Imprint CMS.
+        /// </summary>
+        public static string SystemName {
+            get {
+                return ResourceManager.GetString("SystemName", resourceCulture);
             }
         }
         

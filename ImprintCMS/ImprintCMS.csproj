@@ -89,7 +89,7 @@
     <Content Include="Content\admin.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
-    <Content Include="Scripts\imprint.js" />
+    <Content Include="Scripts\admin.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -7,19 +7,20 @@
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.17/jquery-ui.min.js" type="text/javascript"></script>
 	<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.17/themes/pepper-grinder/jquery-ui.css"
 		rel="stylesheet" type="text/css" />
-	<script src="@Url.Content("~/scripts/imprint.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/scripts/admin.js")" type="text/javascript"></script>
 	<link href="@Url.Content("~/content/admin.css")" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	@if (User.Identity.IsAuthenticated)
  {
 		<nav id="account">
-			@Html.ActionLink("Log out " + User.Identity.Name, "logout", "account", new { ReturnUrl = Request.Url.AbsolutePath }, null)</nav>
+		@User.Identity.Name
+		[@Html.ActionLink(Phrases.LabelLogOut, "logout", "account", new { ReturnUrl = Request.Url.AbsolutePath }, null)]</nav>
  }
-	<header>@Html.ActionLink("Imprint CMS", "index", "admin")</header>
+	<header>@Html.ActionLink(Phrases.SystemName, "index", "admin")</header>
 	<nav id="breadcrumbs">
 		<ul>
-			<li>@Html.ActionLink("Imprint CMS", "index", "admin")</li>
+			<li>@Html.ActionLink(Phrases.SystemName, "index", "admin")</li>
 			@foreach (HtmlString crumb in ViewBag.Breadcrumbs)
    {
 				<li>@crumb</li>
