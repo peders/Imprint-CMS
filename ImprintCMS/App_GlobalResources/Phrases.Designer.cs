@@ -61,6 +61,24 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        public static string FileTypeImage {
+            get {
+                return ResourceManager.GetString("FileTypeImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PDF.
+        /// </summary>
+        public static string FileTypePDF {
+            get {
+                return ResourceManager.GetString("FileTypePDF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string LabelDelete {
@@ -192,6 +210,42 @@ namespace ImprintCMS.Models {
         public static string SystemName {
             get {
                 return ResourceManager.GetString("SystemName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to bytes.
+        /// </summary>
+        public static string UnitBytesPlural {
+            get {
+                return ResourceManager.GetString("UnitBytesPlural", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to byte.
+        /// </summary>
+        public static string UnitBytesSingular {
+            get {
+                return ResourceManager.GetString("UnitBytesSingular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to kB.
+        /// </summary>
+        public static string UnitKiloBytesShort {
+            get {
+                return ResourceManager.GetString("UnitKiloBytesShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MB.
+        /// </summary>
+        public static string UnitMegaBytesShort {
+            get {
+                return ResourceManager.GetString("UnitMegaBytesShort", resourceCulture);
             }
         }
         

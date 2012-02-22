@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FileTypeImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="FileTypePDF" xml:space="preserve">
+    <value>PDF</value>
+  </data>
   <data name="LabelDelete" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -161,6 +167,18 @@
   </data>
   <data name="SystemName" xml:space="preserve">
     <value>Imprint CMS</value>
+  </data>
+  <data name="UnitBytesPlural" xml:space="preserve">
+    <value>bytes</value>
+  </data>
+  <data name="UnitBytesSingular" xml:space="preserve">
+    <value>byte</value>
+  </data>
+  <data name="UnitKiloBytesShort" xml:space="preserve">
+    <value>kB</value>
+  </data>
+  <data name="UnitMegaBytesShort" xml:space="preserve">
+    <value>MB</value>
   </data>
   <data name="ValidationEmptyOrNoFile" xml:space="preserve">
     <value>No file or file is empty</value>

@@ -46,6 +46,7 @@ namespace ImprintCMS.Controllers
 			{
 				FileName = file.FileName.Sanitise(),
 				ContentType = file.ContentType,
+				ContentLength = file.ContentLength,
 				Category = vm.FileCategory,
 				Data = fileData
 			};

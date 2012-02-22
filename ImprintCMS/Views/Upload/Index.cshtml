@@ -7,18 +7,19 @@
 }
 <p>@Html.ActionLink(Phrases.PagenameCreateUpload, "new")</p>
 <div class="tabs">
-@foreach (var group in Model.GroupBy(f => f.Category))
-{
-<div id="@String.Format("group_{0}", group.Key)">
-	<h2>@group.Key</h2>
-	<ul>
-		@foreach (var file in group.OrderBy(f => f.FileName))
-  {
-			<li><span class="name">@Html.ActionLink(file.FileName, "display", new { category = file.Category, fileName = file.FileName })</span>
-				@Html.ActionLink(Phrases.LabelDelete, "delete", new { id = file.Id }, null)
-			</li>
-  }
-	</ul>
-</div>
-}
+	@foreach (var group in Model.GroupBy(f => f.Category))
+ {
+		<div id="@String.Format("group_{0}", group.Key)">
+			<h2>@group.Key</h2>
+			<ul class="filelist">
+				@foreach (var file in group.OrderBy(f => f.FileName))
+	{
+					<li><span class="name">@Html.ActionLink(file.FileName, "display", new { category = file.Category, fileName = file.FileName })</span>
+						<span class="data">@file.ContentLength.ToFileSize()</span> <span class="data">@file.ContentType.AsFileType()</span>
+						@Html.ActionLink(Phrases.LabelDelete, "delete", new { id = file.Id }, null)
+					</li>
+	}
+			</ul>
+		</div>
+ }
 </div>

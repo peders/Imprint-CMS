@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using System.Web;
+using System;
 
 namespace ImprintCMS.Models
 {
@@ -16,6 +17,23 @@ namespace ImprintCMS.Models
 		{
 			return new HtmlString(source);
 		}
+
+		public static string ToFileSize(this int source) {
+			if (source >= 1024*1024)
+				return String.Format("{0:f1} {1}", (float)source/1024/1024, Phrases.UnitMegaBytesShort);
+			if (source >= 1024)
+				return String.Format("{0} {1}", source/1024, Phrases.UnitKiloBytesShort);
+			if (source == 1)
+				return String.Format("{0} {1}", source, Phrases.UnitBytesSingular);
+			return String.Format("{0} {1}", source, Phrases.UnitBytesPlural);
+		}
+
+		public static string AsFileType(this string source) {
+			if (source == "image/jpeg") return Phrases.FileTypeImage;
+			if (source == "application/pdf") return Phrases.FileTypePDF;
+			return source;
+		}
+
 	}
 
 }
