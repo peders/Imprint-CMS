@@ -1,6 +1,10 @@
 ﻿@model FileUpload
 @{
 	ViewBag.Title = "New upload";
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink("Uploads", "index"),
+		"New upload".ToHtmlString()
+	};
 }
 <form action="" method="post" enctype="multipart/form-data">
 @Html.ValidationSummary(false)
@@ -11,7 +15,7 @@
 		<input type="file" name="file" id="file" />
 	</p>
 	<p>
-		@Html.LabelFor(model => model.FileCategory)<br />
+		@Html.LabelFor(model => model.FileCategory, "Category")<br />
 		@Html.DropDownListFor(model => model.FileCategory, (SelectList)ViewBag.FileCategories)
 	</p>
 	<p>

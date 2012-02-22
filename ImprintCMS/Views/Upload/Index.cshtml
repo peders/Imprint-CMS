@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<UploadedFile>
 @{
 	ViewBag.Title = "Uploads";
+	ViewBag.Breadcrumbs = new[] {
+		"Uploads".ToHtmlString()
+	};
 }
 <p>@Html.ActionLink("New upload", "new")</p>
 <div class="tabs">

@@ -20,7 +20,10 @@
 	<nav id="breadcrumbs">
 		<ul>
 			<li>@Html.ActionLink("Imprint CMS", "index", "admin")</li>
-			<li><strong>@ViewBag.Title</strong></li>
+			@foreach (HtmlString crumb in ViewBag.Breadcrumbs)
+   {
+				<li>@crumb</li>
+   }
 		</ul>
 	</nav>
 	<div id="content">

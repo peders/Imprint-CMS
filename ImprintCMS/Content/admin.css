@@ -1,10 +1,12 @@
-body { font-family: "Trebuchet MS" , Verdana, Helvetica, Sans-Serif; color: #000000; background-color: #ffffff; font-size: 0.85em; padding: 70px 0 30px 0; margin: 0; }
+body { font-family: Calibri, Sans-Serif; color: #000000; background-color: #ffffff; font-size: 0.85em; padding: 70px 0 30px 0; margin: 0; }
 header, footer, nav, section { display: block; }
 
 a { color: #4880e3; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-#account { position: absolute; right: 30px; top: 71px; line-height: 40px; z-index: 5;}
+ul { list-style-type: none; margin: 0; padding: 0; }
+
+#account { position: absolute; right: 30px; top: 71px; line-height: 40px; z-index: 5; }
 
 header { position: absolute; left: 20px; top: 10px; font-size: 3em; font-weight: bold; }
 header a { color: #ffffff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
@@ -14,8 +16,11 @@ header a:hover { text-shadow: 1px 1px 1px rgba(72, 128, 227, 0.5); text-decorati
 #breadcrumbs ul { list-style-type: none; padding: 0; margin: 0; }
 #breadcrumbs ul li { float: left; line-height: 20px; margin: 0; padding: 0 10px; border-left: 1px solid #dddddd; }
 #breadcrumbs ul li:first-child { border: none; }
+#breadcrumbs ul li:last-child { font-weight: bold; }
 
 #content { padding: 0 30px; }
+
+ul .name { width: 200px; display: block; float: left; margin-right: 10px; }
 
 fieldset { border: none; margin: 0; padding: 0; }
 fieldset.login label { font-weight: bold; }

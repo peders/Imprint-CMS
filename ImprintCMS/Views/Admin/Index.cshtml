@@ -1,4 +1,7 @@
 ﻿@{
 	ViewBag.Title = "Admin";
+	ViewBag.Breadcrumbs = new[] {
+		"Admin".ToHtmlString()
+	};
 }
 @Html.ActionLink("Uploads", "index", "upload")

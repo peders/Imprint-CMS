@@ -1,8 +1,11 @@
 ﻿@{
-	if ((string)ViewContext.RouteData.Values["controller"] == "admin" || (string)ViewContext.RouteData.Values["controller"] == "upload" || (string)ViewContext.RouteData.Values["controller"] == "account")
+	var adminControllers = new[] { "admin", "upload", "account" };
+	if (adminControllers.Contains((string)ViewContext.RouteData.Values["controller"]))
 	{
 		Layout = "~/Views/Shared/_Admin.cshtml";
-	} else {
+	}
+	else
+	{
 		Layout = "~/Views/Shared/_Site.cshtml";
 	}
 }

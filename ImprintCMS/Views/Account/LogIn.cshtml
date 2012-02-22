@@ -1,6 +1,9 @@
 ﻿@model ImprintCMS.Models.ViewModels.Login
 @{
-	ViewBag.Title = "Log In";
+	ViewBag.Title = "Log in";
+	ViewBag.Breadcrumbs = new[] {
+		"Log in".ToHtmlString()
+	};
 }
 @using (Html.BeginForm())
 {
