@@ -53,10 +53,10 @@
 @if (ViewContext.RouteData.Values["id"] != null)
 {
 	<h2>@Phrases.LabelRightsHolders</h2>
-	<ul class="listing">
-		@foreach (var relation in Model.Relations)
+	<ul class="listing sortable" data-persisturl="@Url.Action("storerelationorder")" data-handlelabel="@Phrases.LabelDragAndDropToSort" data-errorlabel="@Phrases.ValidationAjaxError">
+		@foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
   {
-			<li><span class="name">@Html.ActionLink(relation.ReversePersonName, "editrelation", new { id = relation.Id })</span>
+			<li id="@String.Format("sortitem_{0}", relation.Id)"><span class="name">@Html.ActionLink(relation.ReversePersonName, "editrelation", new { id = relation.Id })</span>
 				@Html.ActionLink(Phrases.LabelDelete, "deleterelation", new { id = relation.Id })</li>
   }
 	</ul>

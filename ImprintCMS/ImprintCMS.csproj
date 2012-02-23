@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\admin.css" />
+    <Content Include="Content\draghandle.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
     <Content Include="Scripts\admin.js" />

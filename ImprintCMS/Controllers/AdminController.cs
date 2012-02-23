@@ -471,6 +471,22 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("editbook", new { id = relation.BookId });
 		}
 
+		[HttpPost]
+		public ActionResult StoreRelationOrder()
+		{
+			var data = Request.Form["sortitem[]"] as string;
+			var ids = data.Split(',').Select(int.Parse);
+			var sequenceIdentifier = 0;
+			foreach (var id in ids)
+			{
+				var relation = Repository.GetRelation(id);
+				relation.SequenceIdentifier = sequenceIdentifier;
+				sequenceIdentifier++;
+			}
+			Repository.Save();
+			return new HttpStatusCodeResult(200);
+		}
+
 		private SelectList FileList(FileCategories category, int? selectedId)
 		{
 			return new SelectList(Repository.UploadedFiles.Where(f => f.Category == category.ToString()).OrderBy(f => f.FileName), "Id", "FileName", selectedId ?? default(int));

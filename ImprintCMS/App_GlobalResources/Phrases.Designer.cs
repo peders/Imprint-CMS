@@ -133,6 +133,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Drag and drop to sort.
+        /// </summary>
+        public static string LabelDragAndDropToSort {
+            get {
+                return ResourceManager.GetString("LabelDragAndDropToSort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Excerpt.
         /// </summary>
         public static string LabelExcerpt {
@@ -723,6 +732,15 @@ namespace ImprintCMS.Models {
         public static string UnitMegaBytesShort {
             get {
                 return ResourceManager.GetString("UnitMegaBytesShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured during an AJAX operation. Please reload the page to see its current state..
+        /// </summary>
+        public static string ValidationAjaxError {
+            get {
+                return ResourceManager.GetString("ValidationAjaxError", resourceCulture);
             }
         }
         

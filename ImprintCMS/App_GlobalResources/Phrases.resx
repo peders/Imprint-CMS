@@ -354,4 +354,10 @@
   <data name="PagenameEditRelation" xml:space="preserve">
     <value>Edit rights holder</value>
   </data>
+  <data name="LabelDragAndDropToSort" xml:space="preserve">
+    <value>Drag and drop to sort</value>
+  </data>
+  <data name="ValidationAjaxError" xml:space="preserve">
+    <value>An error occured during an AJAX operation. Please reload the page to see its current state.</value>
+  </data>
 </root>
