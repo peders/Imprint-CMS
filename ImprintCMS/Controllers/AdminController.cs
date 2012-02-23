@@ -116,5 +116,95 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("bindings");
 		}
 
+		public ActionResult Genres()
+		{
+			var vm = Repository.Genres.OrderBy(g => g.Name);
+			return View(vm);
+		}
+
+		public ActionResult CreateGenre()
+		{
+			var vm = new Genre();
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreateGenre(Genre vm)
+		{
+			if (!ModelState.IsValid) return View(vm);
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("genres");
+		}
+
+		public ActionResult EditGenre(int id)
+		{
+			var vm = Repository.GetGenre(id);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult EditGenre(Genre vm)
+		{
+			if (!ModelState.IsValid) return View(vm);
+			UpdateModel(Repository.GetGenre(vm.Id));
+			Repository.Save();
+			return RedirectToAction("genres");
+		}
+
+		public ActionResult DeleteGenre(int id)
+		{
+			var genre = Repository.GetGenre(id);
+			if (genre == null) return HttpNotFound();
+			Repository.Delete(genre);
+			Repository.Save();
+			return RedirectToAction("genres");
+		}
+
+		public ActionResult Roles()
+		{
+			var vm = Repository.Roles.OrderBy(r => r.Name);
+			return View(vm);
+		}
+
+		public ActionResult CreateRole()
+		{
+			var vm = new Role();
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreateRole(Role vm)
+		{
+			if (!ModelState.IsValid) return View(vm);
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("roles");
+		}
+
+		public ActionResult EditRole(int id)
+		{
+			var vm = Repository.GetRole(id);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult EditRole(Role vm)
+		{
+			if (!ModelState.IsValid) return View(vm);
+			UpdateModel(Repository.GetRole(vm.Id));
+			Repository.Save();
+			return RedirectToAction("roles");
+		}
+
+		public ActionResult DeleteRole(int id)
+		{
+			var role = Repository.GetRole(id);
+			if (role == null) return HttpNotFound();
+			Repository.Delete(role);
+			Repository.Save();
+			return RedirectToAction("roles");
+		}
+
 	}
 }

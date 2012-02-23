@@ -28,6 +28,20 @@ namespace ImprintCMS.Models
 				return _db.Bindings;
 			}
 		}
+		public IEnumerable<Genre> Genres
+		{
+			get
+			{
+				return _db.Genres;
+			}
+		}
+		public IEnumerable<Role> Roles
+		{
+			get
+			{
+				return _db.Roles;
+			}
+		}
 
 		public UploadedFile GetUploadedFile(string category, string fileName)
 		{
@@ -41,6 +55,14 @@ namespace ImprintCMS.Models
 		{
 			return _db.Bindings.SingleOrDefault(b => b.Id == id);
 		}
+		public Genre GetGenre(int id)
+		{
+			return _db.Genres.SingleOrDefault(g => g.Id == id);
+		}
+		public Role GetRole(int id)
+		{
+			return _db.Roles.SingleOrDefault(r => r.Id == id);
+		}
 
 		public void Add(UploadedFile file)
 		{
@@ -50,6 +72,14 @@ namespace ImprintCMS.Models
 		{
 			_db.Bindings.InsertOnSubmit(binding);
 		}
+		public void Add(Genre genre)
+		{
+			_db.Genres.InsertOnSubmit(genre);
+		}
+		public void Add(Role role)
+		{
+			_db.Roles.InsertOnSubmit(role);
+		}
 
 		public void Delete(UploadedFile file)
 		{
@@ -58,6 +88,14 @@ namespace ImprintCMS.Models
 		public void Delete(Binding binding)
 		{
 			_db.Bindings.DeleteOnSubmit(binding);
+		}
+		public void Delete(Genre genre)
+		{
+			_db.Genres.DeleteOnSubmit(genre);
+		}
+		public void Delete(Role role)
+		{
+			_db.Roles.DeleteOnSubmit(role);
 		}
 
 		public void Save()

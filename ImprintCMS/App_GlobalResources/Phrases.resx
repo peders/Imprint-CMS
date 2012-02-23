@@ -144,6 +144,9 @@
   <data name="LabelSelectFile" xml:space="preserve">
     <value>File</value>
   </data>
+  <data name="LabelShortName" xml:space="preserve">
+    <value>Short version</value>
+  </data>
   <data name="LabelSubmit" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -165,17 +168,35 @@
   <data name="PagenameCreateBinding" xml:space="preserve">
     <value>New binding</value>
   </data>
+  <data name="PagenameCreateGenre" xml:space="preserve">
+    <value>New genre</value>
+  </data>
+  <data name="PagenameCreateRole" xml:space="preserve">
+    <value>New role</value>
+  </data>
   <data name="PagenameCreateUpload" xml:space="preserve">
     <value>New upload</value>
   </data>
   <data name="PagenameEditBinding" xml:space="preserve">
     <value>Edit binding</value>
   </data>
+  <data name="PagenameEditGenre" xml:space="preserve">
+    <value>Edit genre</value>
+  </data>
+  <data name="PagenameEditRole" xml:space="preserve">
+    <value>Edit role</value>
+  </data>
   <data name="PagenameError" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="PagenameGenres" xml:space="preserve">
+    <value>Genres</value>
+  </data>
   <data name="PagenameLogIn" xml:space="preserve">
     <value>Log in</value>
+  </data>
+  <data name="PagenameRoles" xml:space="preserve">
+    <value>Roles</value>
   </data>
   <data name="PagenameUploads" xml:space="preserve">
     <value>Uploads</value>

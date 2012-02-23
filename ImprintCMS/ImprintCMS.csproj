@@ -74,6 +74,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Binding.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\ExtensionMethods.cs" />
     <Compile Include="Models\FileCategories.cs" />
     <Compile Include="Models\ImprintCMS.designer.cs">
@@ -129,6 +131,14 @@
     <Content Include="Views\Shared\EditorTemplates\Binding.cshtml" />
     <Content Include="Views\Admin\CreateBinding.cshtml" />
     <Content Include="Views\Admin\EditBinding.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Genre.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Role.cshtml" />
+    <Content Include="Views\Admin\Roles.cshtml" />
+    <Content Include="Views\Admin\Genres.cshtml" />
+    <Content Include="Views\Admin\EditRole.cshtml" />
+    <Content Include="Views\Admin\CreateRole.cshtml" />
+    <Content Include="Views\Admin\CreateGenre.cshtml" />
+    <Content Include="Views\Admin\EditGenre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

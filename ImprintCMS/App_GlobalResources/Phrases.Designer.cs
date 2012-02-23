@@ -142,6 +142,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Short version.
+        /// </summary>
+        public static string LabelShortName {
+            get {
+                return ResourceManager.GetString("LabelShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string LabelSubmit {
@@ -205,6 +214,24 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New genre.
+        /// </summary>
+        public static string PagenameCreateGenre {
+            get {
+                return ResourceManager.GetString("PagenameCreateGenre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New role.
+        /// </summary>
+        public static string PagenameCreateRole {
+            get {
+                return ResourceManager.GetString("PagenameCreateRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New upload.
         /// </summary>
         public static string PagenameCreateUpload {
@@ -223,6 +250,24 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit genre.
+        /// </summary>
+        public static string PagenameEditGenre {
+            get {
+                return ResourceManager.GetString("PagenameEditGenre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit role.
+        /// </summary>
+        public static string PagenameEditRole {
+            get {
+                return ResourceManager.GetString("PagenameEditRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string PagenameError {
@@ -232,11 +277,29 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Genres.
+        /// </summary>
+        public static string PagenameGenres {
+            get {
+                return ResourceManager.GetString("PagenameGenres", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log in.
         /// </summary>
         public static string PagenameLogIn {
             get {
                 return ResourceManager.GetString("PagenameLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roles.
+        /// </summary>
+        public static string PagenameRoles {
+            get {
+                return ResourceManager.GetString("PagenameRoles", resourceCulture);
             }
         }
         

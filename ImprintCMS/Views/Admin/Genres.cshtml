@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Genre>
+@{
+	ViewBag.Title = Phrases.PagenameGenres;
+	ViewBag.Breadcrumbs = new[] {
+		Phrases.PagenameGenres.ToHtmlString()
+	};
+}
+<ul class="adminactions">
+	<li>@Html.ActionLink(Phrases.PagenameCreateGenre, "creategenre")</li>
+</ul>
+<ul class="listing">
+	@foreach (var genre in Model)
+ {
+		<li><span class="name">@Html.ActionLink(genre.Name, "editgenre", new { id = genre.Id })</span>
+			@Html.ActionLink(Phrases.LabelDelete, "deletegenre", new { id = genre.Id })</li>
+ }
+</ul>
