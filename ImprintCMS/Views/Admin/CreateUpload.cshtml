@@ -7,7 +7,7 @@
 	};
 }
 <form action="" method="post" enctype="multipart/form-data">
-@Html.ValidationSummary(false)
+@Html.ValidationSummary(true)
 <fieldset class="fields">
 	<p>
 		<label for="file">@Phrases.LabelSelectFile</label><br />
@@ -15,7 +15,8 @@
 	</p>
 	<p>
 		@Html.LabelFor(model => model.FileCategory, Phrases.LabelFileCategory)<br />
-		@Html.DropDownListFor(model => model.FileCategory, (SelectList)ViewBag.FileCategories)
+		@Html.DropDownListFor(model => model.FileCategory, (SelectList)ViewBag.FileCategories.OrderBy, "–")
+		@Html.ValidationMessageFor(model => model.FileCategory)
 	</p>
 </fieldset>
 <fieldset class="submit">

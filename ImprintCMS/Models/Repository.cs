@@ -42,6 +42,13 @@ namespace ImprintCMS.Models
 				return _db.Roles;
 			}
 		}
+		public IEnumerable<Person> People
+		{
+			get
+			{
+				return _db.Persons;
+			}
+		}
 
 		public UploadedFile GetUploadedFile(string category, string fileName)
 		{
@@ -63,6 +70,10 @@ namespace ImprintCMS.Models
 		{
 			return _db.Roles.SingleOrDefault(r => r.Id == id);
 		}
+		public Person GetPerson(int id)
+		{
+			return _db.Persons.SingleOrDefault(p => p.Id == id);
+		}
 
 		public void Add(UploadedFile file)
 		{
@@ -80,6 +91,10 @@ namespace ImprintCMS.Models
 		{
 			_db.Roles.InsertOnSubmit(role);
 		}
+		public void Add(Person person)
+		{
+			_db.Persons.InsertOnSubmit(person);
+		}
 
 		public void Delete(UploadedFile file)
 		{
@@ -96,6 +111,10 @@ namespace ImprintCMS.Models
 		public void Delete(Role role)
 		{
 			_db.Roles.DeleteOnSubmit(role);
+		}
+		public void Delete(Person person)
+		{
+			_db.Persons.DeleteOnSubmit(person);
 		}
 
 		public void Save()

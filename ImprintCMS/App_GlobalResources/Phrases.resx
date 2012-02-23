@@ -123,20 +123,50 @@
   <data name="FileTypePDF" xml:space="preserve">
     <value>PDF</value>
   </data>
+  <data name="LabelAnthologies" xml:space="preserve">
+    <value>Anthology contributions</value>
+  </data>
+  <data name="LabelAwards" xml:space="preserve">
+    <value>Awards</value>
+  </data>
   <data name="LabelDelete" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="LabelDescription" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="LabelFileCategory" xml:space="preserve">
     <value>Category</value>
   </data>
+  <data name="LabelFirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="LabelHasPage" xml:space="preserve">
+    <value>Show with own page on site</value>
+  </data>
+  <data name="LabelIsVisible" xml:space="preserve">
+    <value>Show on site</value>
+  </data>
+  <data name="LabelLargeImage" xml:space="preserve">
+    <value>Large image</value>
+  </data>
+  <data name="LabelLastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
   <data name="LabelLogOut" xml:space="preserve">
     <value>Log out</value>
+  </data>
+  <data name="LabelMainContent" xml:space="preserve">
+    <value>Main content</value>
   </data>
   <data name="LabelName" xml:space="preserve">
     <value>Name</value>
   </data>
   <data name="LabelPassword" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="LabelPhotographerCredit" xml:space="preserve">
+    <value>Photographer</value>
   </data>
   <data name="LabelSave" xml:space="preserve">
     <value>Save</value>
@@ -147,11 +177,20 @@
   <data name="LabelShortName" xml:space="preserve">
     <value>Short version</value>
   </data>
+  <data name="LabelSmallImage" xml:space="preserve">
+    <value>Small image</value>
+  </data>
   <data name="LabelSubmit" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="LabelSubmitLogin" xml:space="preserve">
     <value>Log in</value>
+  </data>
+  <data name="LabelSupportingContent" xml:space="preserve">
+    <value>Supporting content</value>
+  </data>
+  <data name="LabelTranslations" xml:space="preserve">
+    <value>Translated works</value>
   </data>
   <data name="LabelUsername" xml:space="preserve">
     <value>Username</value>
@@ -171,6 +210,9 @@
   <data name="PagenameCreateGenre" xml:space="preserve">
     <value>New genre</value>
   </data>
+  <data name="PagenameCreatePerson" xml:space="preserve">
+    <value>New person</value>
+  </data>
   <data name="PagenameCreateRole" xml:space="preserve">
     <value>New role</value>
   </data>
@@ -183,6 +225,9 @@
   <data name="PagenameEditGenre" xml:space="preserve">
     <value>Edit genre</value>
   </data>
+  <data name="PagenameEditPerson" xml:space="preserve">
+    <value>Edit person</value>
+  </data>
   <data name="PagenameEditRole" xml:space="preserve">
     <value>Edit role</value>
   </data>
@@ -194,6 +239,9 @@
   </data>
   <data name="PagenameLogIn" xml:space="preserve">
     <value>Log in</value>
+  </data>
+  <data name="PagenamePersons" xml:space="preserve">
+    <value>People</value>
   </data>
   <data name="PagenameRoles" xml:space="preserve">
     <value>Roles</value>

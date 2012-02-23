@@ -79,11 +79,38 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Anthology contributions.
+        /// </summary>
+        public static string LabelAnthologies {
+            get {
+                return ResourceManager.GetString("LabelAnthologies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Awards.
+        /// </summary>
+        public static string LabelAwards {
+            get {
+                return ResourceManager.GetString("LabelAwards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string LabelDelete {
             get {
                 return ResourceManager.GetString("LabelDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string LabelDescription {
+            get {
+                return ResourceManager.GetString("LabelDescription", resourceCulture);
             }
         }
         
@@ -97,11 +124,65 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First name.
+        /// </summary>
+        public static string LabelFirstName {
+            get {
+                return ResourceManager.GetString("LabelFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show with own page on site.
+        /// </summary>
+        public static string LabelHasPage {
+            get {
+                return ResourceManager.GetString("LabelHasPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show on site.
+        /// </summary>
+        public static string LabelIsVisible {
+            get {
+                return ResourceManager.GetString("LabelIsVisible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Large image.
+        /// </summary>
+        public static string LabelLargeImage {
+            get {
+                return ResourceManager.GetString("LabelLargeImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last name.
+        /// </summary>
+        public static string LabelLastName {
+            get {
+                return ResourceManager.GetString("LabelLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log out.
         /// </summary>
         public static string LabelLogOut {
             get {
                 return ResourceManager.GetString("LabelLogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Main content.
+        /// </summary>
+        public static string LabelMainContent {
+            get {
+                return ResourceManager.GetString("LabelMainContent", resourceCulture);
             }
         }
         
@@ -120,6 +201,15 @@ namespace ImprintCMS.Models {
         public static string LabelPassword {
             get {
                 return ResourceManager.GetString("LabelPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photographer.
+        /// </summary>
+        public static string LabelPhotographerCredit {
+            get {
+                return ResourceManager.GetString("LabelPhotographerCredit", resourceCulture);
             }
         }
         
@@ -151,6 +241,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Small image.
+        /// </summary>
+        public static string LabelSmallImage {
+            get {
+                return ResourceManager.GetString("LabelSmallImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string LabelSubmit {
@@ -165,6 +264,24 @@ namespace ImprintCMS.Models {
         public static string LabelSubmitLogin {
             get {
                 return ResourceManager.GetString("LabelSubmitLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supporting content.
+        /// </summary>
+        public static string LabelSupportingContent {
+            get {
+                return ResourceManager.GetString("LabelSupportingContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translated works.
+        /// </summary>
+        public static string LabelTranslations {
+            get {
+                return ResourceManager.GetString("LabelTranslations", resourceCulture);
             }
         }
         
@@ -223,6 +340,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New person.
+        /// </summary>
+        public static string PagenameCreatePerson {
+            get {
+                return ResourceManager.GetString("PagenameCreatePerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New role.
         /// </summary>
         public static string PagenameCreateRole {
@@ -259,6 +385,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit person.
+        /// </summary>
+        public static string PagenameEditPerson {
+            get {
+                return ResourceManager.GetString("PagenameEditPerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit role.
         /// </summary>
         public static string PagenameEditRole {
@@ -291,6 +426,15 @@ namespace ImprintCMS.Models {
         public static string PagenameLogIn {
             get {
                 return ResourceManager.GetString("PagenameLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to People.
+        /// </summary>
+        public static string PagenamePersons {
+            get {
+                return ResourceManager.GetString("PagenamePersons", resourceCulture);
             }
         }
         

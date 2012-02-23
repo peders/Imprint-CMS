@@ -74,6 +74,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Binding.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\ExtensionMethods.cs" />
@@ -140,6 +141,10 @@
     <Content Include="Views\Admin\CreateGenre.cshtml" />
     <Content Include="Views\Admin\EditGenre.cshtml" />
     <Content Include="Views\Shared\NotEmpty.cshtml" />
+    <Content Include="Views\Admin\People.cshtml" />
+    <Content Include="Views\Admin\EditPerson.cshtml" />
+    <Content Include="Views\Admin\CreatePerson.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Person.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

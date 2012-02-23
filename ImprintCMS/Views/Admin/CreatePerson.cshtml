@@ -1,0 +1,9 @@
+﻿@model Person
+@{
+	ViewBag.Title = Phrases.PagenameCreatePerson;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenamePersons, "people"),
+		Phrases.PagenameCreatePerson.ToHtmlString()
+	};
+}
+@Html.EditorForModel()

@@ -5,7 +5,7 @@ a { color: #4880e3; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 ul { list-style-type: none; margin: 0; padding: 0; }
-h2 { clear: both; margin: 1em 0 0.2em 0;}
+h2 { clear: both; margin: 1em 0 0.2em 0; }
 
 #account { position: absolute; right: 30px; top: 71px; line-height: 40px; z-index: 5; }
 
@@ -35,6 +35,9 @@ ul.listing .data { width: 100px; display: block; float: left; margin-right: 10px
 fieldset { border: none; margin: 0; padding: 0; }
 fieldset.login label { font-weight: bold; }
 fieldset.fields label { font-weight: bold; }
+fieldset.fields input { width: 500px; }
+fieldset.fields select { width: 500px; }
+fieldset.fields textarea { width: 500px; height: 100px; }
 fieldset.submit { margin-top: 2em; }
 textarea { min-height: 100px; }
 

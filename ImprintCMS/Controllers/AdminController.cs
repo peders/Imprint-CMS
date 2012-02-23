@@ -26,7 +26,7 @@ namespace ImprintCMS.Controllers
 		{
 			var vm = new FileUpload
 			{
-				FileCategory = FileCategories.Attachment.ToString()
+				FileCategory = string.Empty
 			};
 			ViewBag.FileCategories = new SelectList(Enum.GetValues(typeof(FileCategories)), vm.FileCategory);
 			return View(vm);
@@ -208,6 +208,75 @@ namespace ImprintCMS.Controllers
 			Repository.Delete(role);
 			Repository.Save();
 			return RedirectToAction("roles");
+		}
+
+		public ActionResult People()
+		{
+			var vm = Repository.People.OrderBy(p => p.LastName).ThenBy(p => p.FirstName);
+			return View(vm);
+		}
+
+		public ActionResult CreatePerson()
+		{
+			var vm = new Person
+			{
+				IsVisible = true,
+				HasPage = true
+			};
+			ViewBag.SmallPortraits = ImageList(FileCategories.SmallPortrait, vm.SmallImageId);
+			ViewBag.LargePortraits = ImageList(FileCategories.LargePortrait, vm.LargeImageId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreatePerson(Person vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.SmallPortraits = ImageList(FileCategories.SmallPortrait, vm.SmallImageId);
+				ViewBag.LargePortraits = ImageList(FileCategories.LargePortrait, vm.LargeImageId);
+				return View(vm);
+			}
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("people");
+		}
+
+		public ActionResult EditPerson(int id)
+		{
+			var vm = Repository.GetPerson(id);
+			ViewBag.SmallPortraits = ImageList(FileCategories.SmallPortrait, vm.SmallImageId);
+			ViewBag.LargePortraits = ImageList(FileCategories.LargePortrait, vm.LargeImageId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult EditPerson(Person vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.SmallPortraits = ImageList(FileCategories.SmallPortrait, vm.SmallImageId);
+				ViewBag.LargePortraits = ImageList(FileCategories.LargePortrait, vm.LargeImageId);
+				return View(vm);
+			}
+			UpdateModel(Repository.GetPerson(vm.Id));
+			Repository.Save();
+			return RedirectToAction("people");
+		}
+
+		public ActionResult DeletePerson(int id)
+		{
+			var person = Repository.GetPerson(id);
+			if (person == null) return HttpNotFound();
+			if (person.Relations.Any()) return View("NotEmpty");
+			Repository.Delete(person);
+			Repository.Save();
+			return RedirectToAction("people");
+		}
+
+		private SelectList ImageList(FileCategories category, int? selectedId)
+		{
+			return new SelectList(Repository.UploadedFiles.Where(f => f.Category == category.ToString()), "Id", "FileName", selectedId ?? default(int));
 		}
 
 	}
