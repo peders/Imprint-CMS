@@ -358,6 +358,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This element is referenced by others, and can not be deleted.
+        /// </summary>
+        public static string ValidationElementHasDependenciesAndCanNotBeDeleted {
+            get {
+                return ResourceManager.GetString("ValidationElementHasDependenciesAndCanNotBeDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No file or file is empty.
         /// </summary>
         public static string ValidationEmptyOrNoFile {

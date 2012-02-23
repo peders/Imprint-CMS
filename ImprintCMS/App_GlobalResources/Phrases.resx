@@ -216,6 +216,9 @@
   <data name="UnitMegaBytesShort" xml:space="preserve">
     <value>MB</value>
   </data>
+  <data name="ValidationElementHasDependenciesAndCanNotBeDeleted" xml:space="preserve">
+    <value>This element is referenced by others, and can not be deleted</value>
+  </data>
   <data name="ValidationEmptyOrNoFile" xml:space="preserve">
     <value>No file or file is empty</value>
   </data>

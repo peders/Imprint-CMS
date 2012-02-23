@@ -66,6 +66,7 @@ namespace ImprintCMS.Controllers
 		{
 			var file = Repository.GetUploadedFile(id);
 			if (file == null) return HttpNotFound();
+			if (file.Books.Any() || file.Editions.Any() || file.Editions1.Any() || file.Persons.Any() || file.Persons1.Any()) return View("NotEmpty");
 			Repository.Delete(file);
 			Repository.Save();
 			return RedirectToAction("uploads");
@@ -111,6 +112,7 @@ namespace ImprintCMS.Controllers
 		{
 			var binding = Repository.GetBinding(id);
 			if (binding == null) return HttpNotFound();
+			if (binding.Editions.Any()) return View("NotEmpty");
 			Repository.Delete(binding);
 			Repository.Save();
 			return RedirectToAction("bindings");
@@ -156,6 +158,7 @@ namespace ImprintCMS.Controllers
 		{
 			var genre = Repository.GetGenre(id);
 			if (genre == null) return HttpNotFound();
+			if (genre.Books.Any()) return View("NotEmpty");
 			Repository.Delete(genre);
 			Repository.Save();
 			return RedirectToAction("genres");
@@ -201,6 +204,7 @@ namespace ImprintCMS.Controllers
 		{
 			var role = Repository.GetRole(id);
 			if (role == null) return HttpNotFound();
+			if (role.Relations.Any()) return View("NotEmpty");
 			Repository.Delete(role);
 			Repository.Save();
 			return RedirectToAction("roles");
