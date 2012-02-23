@@ -74,6 +74,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Binding.cs" />
+    <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Role.cs" />
@@ -145,6 +146,10 @@
     <Content Include="Views\Admin\EditPerson.cshtml" />
     <Content Include="Views\Admin\CreatePerson.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Person.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Book.cshtml" />
+    <Content Include="Views\Admin\Books.cshtml" />
+    <Content Include="Views\Admin\CreateBook.cshtml" />
+    <Content Include="Views\Admin\EditBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

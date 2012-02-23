@@ -135,14 +135,23 @@
   <data name="LabelDescription" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="LabelExcerpt" xml:space="preserve">
+    <value>Excerpt</value>
+  </data>
   <data name="LabelFileCategory" xml:space="preserve">
     <value>Category</value>
   </data>
   <data name="LabelFirstName" xml:space="preserve">
     <value>First name</value>
   </data>
+  <data name="LabelGenre" xml:space="preserve">
+    <value>Genre</value>
+  </data>
   <data name="LabelHasPage" xml:space="preserve">
     <value>Show with own page on site</value>
+  </data>
+  <data name="LabelIsDebut" xml:space="preserve">
+    <value>Debut</value>
   </data>
   <data name="LabelIsVisible" xml:space="preserve">
     <value>Show on site</value>
@@ -168,6 +177,9 @@
   <data name="LabelPhotographerCredit" xml:space="preserve">
     <value>Photographer</value>
   </data>
+  <data name="LabelQuotes" xml:space="preserve">
+    <value>Review quotes</value>
+  </data>
   <data name="LabelSave" xml:space="preserve">
     <value>Save</value>
   </data>
@@ -186,8 +198,14 @@
   <data name="LabelSubmitLogin" xml:space="preserve">
     <value>Log in</value>
   </data>
+  <data name="LabelSubtitle" xml:space="preserve">
+    <value>Subtitle</value>
+  </data>
   <data name="LabelSupportingContent" xml:space="preserve">
     <value>Supporting content</value>
+  </data>
+  <data name="LabelTitle" xml:space="preserve">
+    <value>Title</value>
   </data>
   <data name="LabelTranslations" xml:space="preserve">
     <value>Translated works</value>
@@ -204,8 +222,14 @@
   <data name="PagenameBindings" xml:space="preserve">
     <value>Bindings</value>
   </data>
+  <data name="PagenameBooks" xml:space="preserve">
+    <value>Books</value>
+  </data>
   <data name="PagenameCreateBinding" xml:space="preserve">
     <value>New binding</value>
+  </data>
+  <data name="PagenameCreateBook" xml:space="preserve">
+    <value>New book</value>
   </data>
   <data name="PagenameCreateGenre" xml:space="preserve">
     <value>New genre</value>
@@ -221,6 +245,9 @@
   </data>
   <data name="PagenameEditBinding" xml:space="preserve">
     <value>Edit binding</value>
+  </data>
+  <data name="PagenameEditBook" xml:space="preserve">
+    <value>Edit book</value>
   </data>
   <data name="PagenameEditGenre" xml:space="preserve">
     <value>Edit genre</value>

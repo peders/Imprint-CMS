@@ -23,7 +23,7 @@ header a:hover { text-shadow: 1px 1px 1px rgba(72, 128, 227, 0.5); text-decorati
 
 ul.adminactions { float: left; clear: both; margin: 0 0 1em 0; }
 ul.adminactions li { margin-right: 1em; float: left; }
-ul.adminactions a { display: block; float: left; background: #f8f8f8; border: 1px dotted #dddddd; border-radius: 4px; color: #000000; padding: 2px 5px; }
+ul.adminactions a { display: block; float: left; background: #f8f8f8; border: 1px dotted #dddddd; border-radius: 4px; color: #000000; padding: 2px 5px; font-size: 1.2em; text-transform: uppercase; }
 ul.adminactions a:hover { background: #dddddd; text-decoration: none; }
 
 ul.listing { clear: both; margin: 1em 0; }

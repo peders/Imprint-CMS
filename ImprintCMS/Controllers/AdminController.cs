@@ -223,8 +223,8 @@ namespace ImprintCMS.Controllers
 				IsVisible = true,
 				HasPage = true
 			};
-			ViewBag.SmallPortraits = ImageList(FileCategories.SmallPortrait, vm.SmallImageId);
-			ViewBag.LargePortraits = ImageList(FileCategories.LargePortrait, vm.LargeImageId);
+			ViewBag.SmallPortraits = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
+			ViewBag.LargePortraits = FileList(FileCategories.LargePortrait, vm.LargeImageId);
 			return View(vm);
 		}
 
@@ -233,8 +233,8 @@ namespace ImprintCMS.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				ViewBag.SmallPortraits = ImageList(FileCategories.SmallPortrait, vm.SmallImageId);
-				ViewBag.LargePortraits = ImageList(FileCategories.LargePortrait, vm.LargeImageId);
+				ViewBag.SmallPortraits = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
+				ViewBag.LargePortraits = FileList(FileCategories.LargePortrait, vm.LargeImageId);
 				return View(vm);
 			}
 			Repository.Add(vm);
@@ -245,8 +245,8 @@ namespace ImprintCMS.Controllers
 		public ActionResult EditPerson(int id)
 		{
 			var vm = Repository.GetPerson(id);
-			ViewBag.SmallPortraits = ImageList(FileCategories.SmallPortrait, vm.SmallImageId);
-			ViewBag.LargePortraits = ImageList(FileCategories.LargePortrait, vm.LargeImageId);
+			ViewBag.SmallPortraits = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
+			ViewBag.LargePortraits = FileList(FileCategories.LargePortrait, vm.LargeImageId);
 			return View(vm);
 		}
 
@@ -255,8 +255,8 @@ namespace ImprintCMS.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				ViewBag.SmallPortraits = ImageList(FileCategories.SmallPortrait, vm.SmallImageId);
-				ViewBag.LargePortraits = ImageList(FileCategories.LargePortrait, vm.LargeImageId);
+				ViewBag.SmallPortraits = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
+				ViewBag.LargePortraits = FileList(FileCategories.LargePortrait, vm.LargeImageId);
 				return View(vm);
 			}
 			UpdateModel(Repository.GetPerson(vm.Id));
@@ -274,9 +274,76 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("people");
 		}
 
-		private SelectList ImageList(FileCategories category, int? selectedId)
+		public ActionResult Books()
 		{
-			return new SelectList(Repository.UploadedFiles.Where(f => f.Category == category.ToString()), "Id", "FileName", selectedId ?? default(int));
+			var vm = Repository.Books.OrderBy(b => b.Title);
+			return View(vm);
+		}
+
+		public ActionResult CreateBook()
+		{
+			var vm = new Book
+			{
+				IsVisible = true
+			};
+			ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
+			ViewBag.Genres = GenreList(vm.GenreId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreateBook(Book vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
+				ViewBag.Genres = GenreList(vm.GenreId);
+				return View(vm);
+			}
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("books");
+		}
+
+		public ActionResult EditBook(int id)
+		{
+			var vm = Repository.GetBook(id);
+			ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
+			ViewBag.Genres = GenreList(vm.GenreId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult EditBook(Book vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
+				ViewBag.Genres = GenreList(vm.GenreId);
+				return View(vm);
+			}
+			UpdateModel(Repository.GetBook(vm.Id));
+			Repository.Save();
+			return RedirectToAction("books");
+		}
+
+		public ActionResult DeleteBook(int id)
+		{
+			var book = Repository.GetBook(id);
+			if (book == null) return HttpNotFound();
+			if (book.Relations.Any() || book.Editions.Any()) return View("NotEmpty");
+			Repository.Delete(book);
+			Repository.Save();
+			return RedirectToAction("books");
+		}
+
+		private SelectList FileList(FileCategories category, int? selectedId)
+		{
+			return new SelectList(Repository.UploadedFiles.Where(f => f.Category == category.ToString()).OrderBy(f => f.FileName), "Id", "FileName", selectedId ?? default(int));
+		}
+		private SelectList GenreList(int? selectedId)
+		{
+			return new SelectList(Repository.Genres.OrderBy(g => g.Name), "Id", "Name", selectedId ?? default(int));
 		}
 
 	}

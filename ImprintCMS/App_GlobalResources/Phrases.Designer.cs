@@ -115,6 +115,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Excerpt.
+        /// </summary>
+        public static string LabelExcerpt {
+            get {
+                return ResourceManager.GetString("LabelExcerpt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string LabelFileCategory {
@@ -133,11 +142,29 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Genre.
+        /// </summary>
+        public static string LabelGenre {
+            get {
+                return ResourceManager.GetString("LabelGenre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show with own page on site.
         /// </summary>
         public static string LabelHasPage {
             get {
                 return ResourceManager.GetString("LabelHasPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debut.
+        /// </summary>
+        public static string LabelIsDebut {
+            get {
+                return ResourceManager.GetString("LabelIsDebut", resourceCulture);
             }
         }
         
@@ -214,6 +241,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Review quotes.
+        /// </summary>
+        public static string LabelQuotes {
+            get {
+                return ResourceManager.GetString("LabelQuotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string LabelSave {
@@ -268,11 +304,29 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Subtitle.
+        /// </summary>
+        public static string LabelSubtitle {
+            get {
+                return ResourceManager.GetString("LabelSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Supporting content.
         /// </summary>
         public static string LabelSupportingContent {
             get {
                 return ResourceManager.GetString("LabelSupportingContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string LabelTitle {
+            get {
+                return ResourceManager.GetString("LabelTitle", resourceCulture);
             }
         }
         
@@ -322,11 +376,29 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Books.
+        /// </summary>
+        public static string PagenameBooks {
+            get {
+                return ResourceManager.GetString("PagenameBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New binding.
         /// </summary>
         public static string PagenameCreateBinding {
             get {
                 return ResourceManager.GetString("PagenameCreateBinding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New book.
+        /// </summary>
+        public static string PagenameCreateBook {
+            get {
+                return ResourceManager.GetString("PagenameCreateBook", resourceCulture);
             }
         }
         
@@ -372,6 +444,15 @@ namespace ImprintCMS.Models {
         public static string PagenameEditBinding {
             get {
                 return ResourceManager.GetString("PagenameEditBinding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit book.
+        /// </summary>
+        public static string PagenameEditBook {
+            get {
+                return ResourceManager.GetString("PagenameEditBook", resourceCulture);
             }
         }
         

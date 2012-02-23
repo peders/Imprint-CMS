@@ -1,0 +1,52 @@
+﻿@model ImprintCMS.Models.Book
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+	<fieldset class="fields">
+		<p>
+			@Html.LabelFor(model => model.Title, Phrases.LabelTitle)<br />
+			@Html.TextBoxFor(model => model.Title)
+			@Html.ValidationMessageFor(model => model.Title)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Subtitle, Phrases.LabelSubtitle)<br />
+			@Html.TextBoxFor(model => model.Subtitle)
+			@Html.ValidationMessageFor(model => model.Subtitle)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Description, Phrases.LabelDescription)<br />
+			@Html.TextAreaFor(model => model.Description)
+			@Html.ValidationMessageFor(model => model.Description)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Quotes, Phrases.LabelQuotes)<br />
+			@Html.TextAreaFor(model => model.Quotes)
+			@Html.ValidationMessageFor(model => model.Quotes)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.ExcerptId, Phrases.LabelExcerpt)<br />
+			@Html.DropDownListFor(model => model.ExcerptId, (SelectList)ViewBag.Excerpts, "–")
+			@Html.ValidationMessageFor(model => model.ExcerptId)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.GenreId, Phrases.LabelGenre)<br />
+			@Html.DropDownListFor(model => model.GenreId, (SelectList)ViewBag.Genres, "–")
+			@Html.ValidationMessageFor(model => model.GenreId)
+		</p>
+	</fieldset>
+	<fieldset class="options">
+		<p>
+			@Html.CheckBoxFor(model => model.IsVisible)
+			@Html.LabelFor(model => model.IsVisible, Phrases.LabelIsVisible)
+		</p>
+		<p>
+			@Html.CheckBoxFor(model => model.IsDebut)
+			@Html.LabelFor(model => model.IsDebut, Phrases.LabelIsDebut)
+		</p>
+	</fieldset>
+	<fieldset class="submit">
+		<p>
+			<input type="submit" value="@Phrases.LabelSave" />
+		</p>
+	</fieldset>
+}
