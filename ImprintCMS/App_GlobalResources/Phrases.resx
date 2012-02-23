@@ -334,7 +334,7 @@
     <value>A file with this name already exists in this category. Delete old file first if you want to replace it.</value>
   </data>
   <data name="ValidationFileTooLarge" xml:space="preserve">
-    <value>File is too large (max 5 MB)</value>
+    <value>File is too large (max 10 MB)</value>
   </data>
   <data name="ValidationInvalidLogin" xml:space="preserve">
     <value>Invalid username/password</value>

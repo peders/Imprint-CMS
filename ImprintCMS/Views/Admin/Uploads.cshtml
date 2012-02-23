@@ -12,7 +12,7 @@
 	@foreach (var group in Model.GroupBy(f => f.Category).OrderBy(g => g.Key))
  {
 		<div id="@String.Format("group_{0}", group.Key)">
-			<h2>@group.Key</h2>
+			<h2>@String.Format("{0} ({1})", group.Key, group.Count()) </h2>
 			<ul class="listing">
 				@foreach (var file in group.OrderBy(f => f.FileName))
 	{

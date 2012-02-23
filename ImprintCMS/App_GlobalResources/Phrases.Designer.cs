@@ -772,7 +772,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File is too large (max 5 MB).
+        ///   Looks up a localized string similar to File is too large (max 10 MB).
         /// </summary>
         public static string ValidationFileTooLarge {
             get {

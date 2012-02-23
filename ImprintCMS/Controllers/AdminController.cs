@@ -38,7 +38,7 @@ namespace ImprintCMS.Controllers
 			var file = Request.Files[0];
 			if (file.ContentLength == 0)
 				ModelState.AddModelError("", Phrases.ValidationEmptyOrNoFile);
-			if (file.ContentLength > 5242880)
+			if (file.ContentLength > 10485760)
 				ModelState.AddModelError("", Phrases.ValidationFileTooLarge);
 			if (Repository.GetUploadedFile(vm.FileCategory, file.FileName.Sanitise()) != null)
 				ModelState.AddModelError("", Phrases.ValidationFileExists);
