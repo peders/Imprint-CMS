@@ -286,6 +286,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Person.
+        /// </summary>
+        public static string LabelPerson {
+            get {
+                return ResourceManager.GetString("LabelPerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Photographer.
         /// </summary>
         public static string LabelPhotographerCredit {
@@ -318,6 +327,24 @@ namespace ImprintCMS.Models {
         public static string LabelReleaseDate {
             get {
                 return ResourceManager.GetString("LabelReleaseDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rights holders.
+        /// </summary>
+        public static string LabelRightsHolders {
+            get {
+                return ResourceManager.GetString("LabelRightsHolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Role.
+        /// </summary>
+        public static string LabelRole {
+            get {
+                return ResourceManager.GetString("LabelRole", resourceCulture);
             }
         }
         
@@ -502,6 +529,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New rights holder.
+        /// </summary>
+        public static string PagenameCreateRelation {
+            get {
+                return ResourceManager.GetString("PagenameCreateRelation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New role.
         /// </summary>
         public static string PagenameCreateRole {
@@ -570,6 +606,15 @@ namespace ImprintCMS.Models {
         public static string PagenameEditPerson {
             get {
                 return ResourceManager.GetString("PagenameEditPerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit rights holder.
+        /// </summary>
+        public static string PagenameEditRelation {
+            get {
+                return ResourceManager.GetString("PagenameEditRelation", resourceCulture);
             }
         }
         

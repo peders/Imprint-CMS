@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Models\Binding.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Relation.cs" />
     <Compile Include="Models\Edition.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -155,6 +156,9 @@
     <Content Include="Views\Shared\EditorTemplates\Edition.cshtml" />
     <Content Include="Views\Admin\CreateEdition.cshtml" />
     <Content Include="Views\Admin\EditEdition.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Relation.cshtml" />
+    <Content Include="Views\Admin\CreateRelation.cshtml" />
+    <Content Include="Views\Admin\EditRelation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

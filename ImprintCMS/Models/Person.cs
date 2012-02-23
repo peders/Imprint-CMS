@@ -5,6 +5,13 @@ namespace ImprintCMS.Models
 	[MetadataType(typeof(PersonMetadata))]
 	public partial class Person
 	{
+		public string ReverseName
+		{
+			get
+			{
+				return !string.IsNullOrWhiteSpace(FirstName) ? LastName + ", " + FirstName : LastName;
+			}
+		}
 	}
 
 	public class PersonMetadata

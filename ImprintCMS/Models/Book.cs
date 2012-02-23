@@ -1,10 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace ImprintCMS.Models
 {
 	[MetadataType(typeof(BookMetadata))]
 	public partial class Book
 	{
+		public string FullTitle
+		{
+			get
+			{
+				return String.Format("{0} : {1}", Title, Subtitle);
+			}
+		}
 	}
 
 	public class BookMetadata

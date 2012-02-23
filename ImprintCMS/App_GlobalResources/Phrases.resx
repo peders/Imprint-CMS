@@ -339,4 +339,19 @@
   <data name="ValidationInvalidLogin" xml:space="preserve">
     <value>Invalid username/password</value>
   </data>
+  <data name="LabelPerson" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="LabelRightsHolders" xml:space="preserve">
+    <value>Rights holders</value>
+  </data>
+  <data name="PagenameCreateRelation" xml:space="preserve">
+    <value>New rights holder</value>
+  </data>
+  <data name="LabelRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="PagenameEditRelation" xml:space="preserve">
+    <value>Edit rights holder</value>
+  </data>
 </root>

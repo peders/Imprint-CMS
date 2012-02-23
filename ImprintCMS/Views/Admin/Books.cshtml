@@ -11,7 +11,7 @@
 <ul class="listing">
 	@foreach (var book in Model)
  {
-		<li><span class="name">@Html.ActionLink(String.Format("{0} : {1}", book.Title, book.Subtitle), "editbook", new { id = book.Id })</span>
+		<li><span class="name">@Html.ActionLink(book.FullTitle, "editbook", new { id = book.Id })</span>
 			<span class="data">@Html.ActionLink(Phrases.PagenameCreateEdition, "createedition", new { id = book.Id })</span>
 			@Html.ActionLink(Phrases.LabelDelete, "deletebook", new { id = book.Id })</li>
  }

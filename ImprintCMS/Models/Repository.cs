@@ -158,6 +158,19 @@ namespace ImprintCMS.Models
 			_db.Editions.DeleteOnSubmit(edition);
 		}
 
+		public Relation GetRelation(int id)
+		{
+			return _db.Relations.SingleOrDefault(r => r.Id == id);
+		}
+		public void Add(Relation relation)
+		{
+			_db.Relations.InsertOnSubmit(relation);
+		}
+		public void Delete(Relation relation)
+		{
+			_db.Relations.DeleteOnSubmit(relation);
+		}
+
 		public void Save()
 		{
 			_db.SubmitChanges();

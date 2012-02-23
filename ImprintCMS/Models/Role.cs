@@ -11,7 +11,5 @@ namespace ImprintCMS.Models
 	{
 		[Required(ErrorMessage = "*")]
 		public string Name { get; set; }
-		[Required(ErrorMessage = "*")]
-		public string ShortName { get; set; }
 	}
 }

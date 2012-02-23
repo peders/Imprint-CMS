@@ -410,6 +410,67 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("editions");
 		}
 
+		public ActionResult CreateRelation(int id)
+		{
+			var vm = new Relation
+			{
+				BookId = id,
+				Book = Repository.GetBook(id),
+				SequenceIdentifier = int.MaxValue
+			};
+			ViewBag.People = PeopleList(vm.PersonId);
+			ViewBag.Roles = RoleList(vm.RoleId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreateRelation(Relation vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.People = PeopleList(vm.PersonId);
+				ViewBag.Roles = RoleList(vm.RoleId);
+				vm.Book = Repository.GetBook(vm.BookId);
+				return View(vm);
+			}
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("editbook", new { id = vm.BookId });
+		}
+
+		public ActionResult EditRelation(int id)
+		{
+			var vm = Repository.GetRelation(id);
+			ViewBag.People = PeopleList(vm.PersonId);
+			ViewBag.Roles = RoleList(vm.RoleId);
+			vm.Book = Repository.GetBook(vm.BookId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult EditRelation(Relation vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.People = PeopleList(vm.PersonId);
+				ViewBag.Roles = RoleList(vm.RoleId);
+				vm.Book = Repository.GetBook(vm.BookId);
+				return View(vm);
+			}
+			UpdateModel(Repository.GetRelation(vm.Id));
+			Repository.Save();
+			return RedirectToAction("editbook", new { id = vm.BookId });
+		}
+
+		public ActionResult DeleteRelation(int id)
+		{
+			var relation = Repository.GetRelation(id);
+			if (relation == null) return HttpNotFound();
+			Repository.Delete(relation);
+			Repository.Save();
+			return RedirectToAction("editbook", new { id = relation.BookId });
+		}
+
 		private SelectList FileList(FileCategories category, int? selectedId)
 		{
 			return new SelectList(Repository.UploadedFiles.Where(f => f.Category == category.ToString()).OrderBy(f => f.FileName), "Id", "FileName", selectedId ?? default(int));
@@ -422,9 +483,17 @@ namespace ImprintCMS.Controllers
 		{
 			return new SelectList(Repository.Bindings.OrderBy(b => b.Name), "Id", "Name", selectedId ?? default(int));
 		}
+		private SelectList RoleList(int? selectedId)
+		{
+			return new SelectList(Repository.Roles.OrderBy(r => r.Name), "Id", "Name", selectedId ?? default(int));
+		}
 		private SelectList BookList(int? selectedId)
 		{
-			return new SelectList(Repository.Books.OrderBy(b => b.Title), "Id", "Title", selectedId ?? default(int));
+			return new SelectList(Repository.Books.OrderBy(b => b.Title), "Id", "FullTitle", selectedId ?? default(int));
+		}
+		private SelectList PeopleList(int? selectedId)
+		{
+			return new SelectList(Repository.People.OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
 		}
 
 	}
