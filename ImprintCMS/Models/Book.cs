@@ -12,6 +12,6 @@ namespace ImprintCMS.Models
 		[Required(ErrorMessage = "*")]
 		public string Title { get; set; }
 		[Required(ErrorMessage = "*")]
-		public string GenreId { get; set; }
+		public int? GenreId { get; set; }
 	}
 }

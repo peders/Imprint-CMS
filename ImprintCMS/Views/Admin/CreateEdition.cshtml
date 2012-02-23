@@ -1,0 +1,9 @@
+﻿@model Edition
+@{
+	ViewBag.Title = Phrases.PagenameCreateEdition;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameEditions, "editions"),
+		Phrases.PagenameCreateEdition.ToHtmlString()
+	};
+}
+@Html.EditorForModel()

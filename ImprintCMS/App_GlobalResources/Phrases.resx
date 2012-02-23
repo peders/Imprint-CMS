@@ -129,6 +129,12 @@
   <data name="LabelAwards" xml:space="preserve">
     <value>Awards</value>
   </data>
+  <data name="LabelBinding" xml:space="preserve">
+    <value>Binding</value>
+  </data>
+  <data name="LabelBook" xml:space="preserve">
+    <value>Book</value>
+  </data>
   <data name="LabelDelete" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -150,8 +156,14 @@
   <data name="LabelHasPage" xml:space="preserve">
     <value>Show with own page on site</value>
   </data>
+  <data name="LabelIsbn" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
   <data name="LabelIsDebut" xml:space="preserve">
     <value>Debut</value>
+  </data>
+  <data name="LabelIsForSale" xml:space="preserve">
+    <value>For sale</value>
   </data>
   <data name="LabelIsVisible" xml:space="preserve">
     <value>Show on site</value>
@@ -171,14 +183,26 @@
   <data name="LabelName" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="LabelNumber" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="LabelPageCount" xml:space="preserve">
+    <value>Number of pages</value>
+  </data>
   <data name="LabelPassword" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="LabelPhotographerCredit" xml:space="preserve">
     <value>Photographer</value>
   </data>
+  <data name="LabelPrice" xml:space="preserve">
+    <value>Price</value>
+  </data>
   <data name="LabelQuotes" xml:space="preserve">
     <value>Review quotes</value>
+  </data>
+  <data name="LabelReleaseDate" xml:space="preserve">
+    <value>Release date</value>
   </data>
   <data name="LabelSave" xml:space="preserve">
     <value>Save</value>
@@ -231,6 +255,9 @@
   <data name="PagenameCreateBook" xml:space="preserve">
     <value>New book</value>
   </data>
+  <data name="PagenameCreateEdition" xml:space="preserve">
+    <value>New book edition</value>
+  </data>
   <data name="PagenameCreateGenre" xml:space="preserve">
     <value>New genre</value>
   </data>
@@ -249,8 +276,14 @@
   <data name="PagenameEditBook" xml:space="preserve">
     <value>Edit book</value>
   </data>
+  <data name="PagenameEditEdition" xml:space="preserve">
+    <value>Edit book edition</value>
+  </data>
   <data name="PagenameEditGenre" xml:space="preserve">
     <value>Edit genre</value>
+  </data>
+  <data name="PagenameEditions" xml:space="preserve">
+    <value>Book editions</value>
   </data>
   <data name="PagenameEditPerson" xml:space="preserve">
     <value>Edit person</value>

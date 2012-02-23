@@ -9,7 +9,7 @@
 	<li>@Html.ActionLink(Phrases.PagenameCreateUpload, "createupload")</li>
 </ul>
 <div class="tabs">
-	@foreach (var group in Model.GroupBy(f => f.Category))
+	@foreach (var group in Model.GroupBy(f => f.Category).OrderBy(g => g.Key))
  {
 		<div id="@String.Format("group_{0}", group.Key)">
 			<h2>@group.Key</h2>

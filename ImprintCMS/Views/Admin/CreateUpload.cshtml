@@ -15,7 +15,7 @@
 	</p>
 	<p>
 		@Html.LabelFor(model => model.FileCategory, Phrases.LabelFileCategory)<br />
-		@Html.DropDownListFor(model => model.FileCategory, (SelectList)ViewBag.FileCategories.OrderBy, "–")
+		@Html.DropDownListFor(model => model.FileCategory, (SelectList)ViewBag.FileCategories, "–")
 		@Html.ValidationMessageFor(model => model.FileCategory)
 	</p>
 </fieldset>

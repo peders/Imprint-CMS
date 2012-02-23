@@ -337,6 +337,79 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("books");
 		}
 
+		public ActionResult Editions()
+		{
+			var vm = Repository.Editions.OrderBy(e => e.Book.Title).ThenBy(e => e.Number);
+			return View(vm);
+		}
+
+		public ActionResult CreateEdition(int? id)
+		{
+			var vm = new Edition
+			{
+				Number = 1,
+				ReleaseDate = DateTime.Today,
+				IsForSale = true,
+				BookId = id ?? default(int)
+			};
+			ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
+			ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
+			ViewBag.Bindings = BindingList(vm.BindingId);
+			ViewBag.Books = BookList(vm.BookId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreateEdition(Edition vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
+				ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
+				ViewBag.Bindings = BindingList(vm.BindingId);
+				ViewBag.Books = BookList(vm.BookId);
+				return View(vm);
+			}
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("editions");
+		}
+
+		public ActionResult EditEdition(int id)
+		{
+			var vm = Repository.GetEdition(id);
+			ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
+			ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
+			ViewBag.Bindings = BindingList(vm.BindingId);
+			ViewBag.Books = BookList(vm.BookId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult EditEdition(Edition vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
+				ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
+				ViewBag.Bindings = BindingList(vm.BindingId);
+				ViewBag.Books = BookList(vm.BookId);
+				return View(vm);
+			}
+			UpdateModel(Repository.GetEdition(vm.Id));
+			Repository.Save();
+			return RedirectToAction("editions");
+		}
+
+		public ActionResult DeleteEdition(int id)
+		{
+			var edition = Repository.GetEdition(id);
+			if (edition == null) return HttpNotFound();
+			Repository.Delete(edition);
+			Repository.Save();
+			return RedirectToAction("editions");
+		}
+
 		private SelectList FileList(FileCategories category, int? selectedId)
 		{
 			return new SelectList(Repository.UploadedFiles.Where(f => f.Category == category.ToString()).OrderBy(f => f.FileName), "Id", "FileName", selectedId ?? default(int));
@@ -344,6 +417,14 @@ namespace ImprintCMS.Controllers
 		private SelectList GenreList(int? selectedId)
 		{
 			return new SelectList(Repository.Genres.OrderBy(g => g.Name), "Id", "Name", selectedId ?? default(int));
+		}
+		private SelectList BindingList(int? selectedId)
+		{
+			return new SelectList(Repository.Bindings.OrderBy(b => b.Name), "Id", "Name", selectedId ?? default(int));
+		}
+		private SelectList BookList(int? selectedId)
+		{
+			return new SelectList(Repository.Books.OrderBy(b => b.Title), "Id", "Title", selectedId ?? default(int));
 		}
 
 	}

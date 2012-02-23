@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Edition>
+@{
+	ViewBag.Title = Phrases.PagenameEditions;
+	ViewBag.Breadcrumbs = new[] {
+		Phrases.PagenameEditions.ToHtmlString()
+	};
+}
+<ul class="adminactions">
+	<li>@Html.ActionLink(Phrases.PagenameCreateEdition, "createedition")</li>
+</ul>
+<ul class="listing">
+	@foreach (var edition in Model)
+ {
+		<li><span class="name">@Html.ActionLink(String.Format("{0} ({1})", edition.Book.Title, edition.Number), "editedition", new { id = edition.Id })</span>
+			@Html.ActionLink(Phrases.LabelDelete, "deleteedition", new { id = edition.Id })</li>
+ }
+</ul>
