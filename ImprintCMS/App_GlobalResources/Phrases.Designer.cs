@@ -97,6 +97,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back to {0}.
+        /// </summary>
+        public static string LabelBackTo {
+            get {
+                return ResourceManager.GetString("LabelBackTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Binding.
         /// </summary>
         public static string LabelBinding {

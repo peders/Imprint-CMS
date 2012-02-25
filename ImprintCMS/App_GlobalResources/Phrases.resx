@@ -360,4 +360,8 @@
   <data name="ValidationAjaxError" xml:space="preserve">
     <value>An error occured during an AJAX operation. Please reload the page to see its current state.</value>
   </data>
+  <data name="LabelBackTo" xml:space="preserve">
+    <value>Back to {0}</value>
+    <comment>Insert target page name</comment>
+  </data>
 </root>
