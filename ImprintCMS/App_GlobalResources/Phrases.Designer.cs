@@ -151,6 +151,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Book editions.
+        /// </summary>
+        public static string LabelEditions {
+            get {
+                return ResourceManager.GetString("LabelEditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Excerpt.
         /// </summary>
         public static string LabelExcerpt {
@@ -340,20 +349,20 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rights holders.
+        /// </summary>
+        public static string LabelRelations {
+            get {
+                return ResourceManager.GetString("LabelRelations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Release date.
         /// </summary>
         public static string LabelReleaseDate {
             get {
                 return ResourceManager.GetString("LabelReleaseDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rights holders.
-        /// </summary>
-        public static string LabelRightsHolders {
-            get {
-                return ResourceManager.GetString("LabelRightsHolders", resourceCulture);
             }
         }
         
@@ -565,7 +574,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New upload.
+        ///   Looks up a localized string similar to New file.
         /// </summary>
         public static string PagenameCreateUpload {
             get {
@@ -606,15 +615,6 @@ namespace ImprintCMS.Models {
         public static string PagenameEditGenre {
             get {
                 return ResourceManager.GetString("PagenameEditGenre", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Book editions.
-        /// </summary>
-        public static string PagenameEditions {
-            get {
-                return ResourceManager.GetString("PagenameEditions", resourceCulture);
             }
         }
         
@@ -691,7 +691,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uploads.
+        ///   Looks up a localized string similar to Files.
         /// </summary>
         public static string PagenameUploads {
             get {

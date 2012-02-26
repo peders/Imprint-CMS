@@ -33,6 +33,7 @@ ul.listing .name { width: 500px; display: block; float: left; margin-right: 10px
 ul.listing .data { width: 100px; display: block; float: left; margin-right: 10px; }
 
 ul.listing.sortable { }
+ul.listing.sortable .name { width: 475px; }
 ul.listing.sortable li { padding-left: 25px; position: relative; background: #ffffff; height: 17px; }
 ul.listing.sortable li .handle { position: absolute; left: 0; top: 2px; width: 17px; height: 17px; text-indent: -9999em; background: url(draghandle.png) no-repeat 4px 2px; cursor: move; }
 ul.listing.sortable li .handle:hover { background-color: #f8f8f8; }

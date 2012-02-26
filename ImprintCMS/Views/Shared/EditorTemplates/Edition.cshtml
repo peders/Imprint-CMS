@@ -4,14 +4,13 @@
 	@Html.ValidationSummary(true)
 	<fieldset class="fields">
 		<p>
+			<label>@Phrases.LabelBook</label><br />
+			@Model.Book.FullTitle
+		</p>
+		<p>
 			@Html.LabelFor(model => model.Number, Phrases.LabelNumber)<br />
 			@Html.TextBoxFor(model => model.Number)
 			@Html.ValidationMessageFor(model => model.Number)
-		</p>
-		<p>
-			@Html.LabelFor(model => model.BookId, Phrases.LabelBook)<br />
-			@Html.DropDownListFor(model => model.BookId, (SelectList)ViewBag.Books, "–")
-			@Html.ValidationMessageFor(model => model.BookId)
 		</p>
 		<p>
 			@Html.LabelFor(model => model.BindingId, Phrases.LabelBinding)<br />
@@ -49,6 +48,9 @@
 			@Html.CheckBoxFor(model => model.IsForSale)
 			@Html.LabelFor(model => model.IsForSale, Phrases.LabelIsForSale)
 		</p>
+	</fieldset>
+	<fieldset class="hidden">
+			@Html.HiddenFor(model => model.BookId)
 	</fieldset>
 	<fieldset class="submit">
 		<p>

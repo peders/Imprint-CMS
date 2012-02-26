@@ -337,25 +337,21 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("books");
 		}
 
-		public ActionResult Editions()
+		public ActionResult CreateEdition(int id)
 		{
-			var vm = Repository.Editions.OrderBy(e => e.Book.Title).ThenBy(e => e.Number);
-			return View(vm);
-		}
-
-		public ActionResult CreateEdition(int? id)
-		{
+			var book = Repository.GetBook(id);
+			if (book == null) return HttpNotFound();
 			var vm = new Edition
 			{
 				Number = 1,
 				ReleaseDate = DateTime.Today,
 				IsForSale = true,
-				BookId = id ?? default(int)
+				BookId = id,
+				Book = book
 			};
 			ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
 			ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
 			ViewBag.Bindings = BindingList(vm.BindingId);
-			ViewBag.Books = BookList(vm.BookId);
 			return View(vm);
 		}
 
@@ -367,21 +363,22 @@ namespace ImprintCMS.Controllers
 				ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
 				ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
 				ViewBag.Bindings = BindingList(vm.BindingId);
-				ViewBag.Books = BookList(vm.BookId);
+				vm.Book = Repository.GetBook(vm.BookId);
 				return View(vm);
 			}
 			Repository.Add(vm);
 			Repository.Save();
-			return RedirectToAction("editions");
+			return RedirectToAction("editbook", new { id = vm.BookId });
 		}
 
 		public ActionResult EditEdition(int id)
 		{
 			var vm = Repository.GetEdition(id);
+			if (vm == null) return HttpNotFound();
 			ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
 			ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
 			ViewBag.Bindings = BindingList(vm.BindingId);
-			ViewBag.Books = BookList(vm.BookId);
+			vm.Book = Repository.GetBook(vm.BookId);
 			return View(vm);
 		}
 
@@ -393,29 +390,31 @@ namespace ImprintCMS.Controllers
 				ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
 				ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
 				ViewBag.Bindings = BindingList(vm.BindingId);
-				ViewBag.Books = BookList(vm.BookId);
+				vm.Book = Repository.GetBook(vm.BookId);
 				return View(vm);
 			}
 			UpdateModel(Repository.GetEdition(vm.Id));
 			Repository.Save();
-			return RedirectToAction("editions");
+			return RedirectToAction("editbook", new { id = vm.BookId });
 		}
 
 		public ActionResult DeleteEdition(int id)
 		{
-			var edition = Repository.GetEdition(id);
-			if (edition == null) return HttpNotFound();
-			Repository.Delete(edition);
+			var vm = Repository.GetEdition(id);
+			if (vm == null) return HttpNotFound();
+			Repository.Delete(vm);
 			Repository.Save();
-			return RedirectToAction("editions");
+			return RedirectToAction("editbook", new { id = vm.BookId });
 		}
 
 		public ActionResult CreateRelation(int id)
 		{
+			var book = Repository.GetBook(id);
+			if (book == null) return HttpNotFound();
 			var vm = new Relation
 			{
 				BookId = id,
-				Book = Repository.GetBook(id),
+				Book = book,
 				SequenceIdentifier = int.MaxValue
 			};
 			ViewBag.People = PeopleList(vm.PersonId);
@@ -441,6 +440,7 @@ namespace ImprintCMS.Controllers
 		public ActionResult EditRelation(int id)
 		{
 			var vm = Repository.GetRelation(id);
+			if (vm == null) return HttpNotFound();
 			ViewBag.People = PeopleList(vm.PersonId);
 			ViewBag.Roles = RoleList(vm.RoleId);
 			vm.Book = Repository.GetBook(vm.BookId);
@@ -464,11 +464,11 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult DeleteRelation(int id)
 		{
-			var relation = Repository.GetRelation(id);
-			if (relation == null) return HttpNotFound();
-			Repository.Delete(relation);
+			var vm = Repository.GetRelation(id);
+			if (vm == null) return HttpNotFound();
+			Repository.Delete(vm);
 			Repository.Save();
-			return RedirectToAction("editbook", new { id = relation.BookId });
+			return RedirectToAction("editbook", new { id = vm.BookId });
 		}
 
 		[HttpPost]
@@ -502,10 +502,6 @@ namespace ImprintCMS.Controllers
 		private SelectList RoleList(int? selectedId)
 		{
 			return new SelectList(Repository.Roles.OrderBy(r => r.Name), "Id", "Name", selectedId ?? default(int));
-		}
-		private SelectList BookList(int? selectedId)
-		{
-			return new SelectList(Repository.Books.OrderBy(b => b.Title), "Id", "FullTitle", selectedId ?? default(int));
 		}
 		private SelectList PeopleList(int? selectedId)
 		{

@@ -10,6 +10,7 @@ namespace ImprintCMS.Models
 		{
 			get
 			{
+				if (String.IsNullOrWhiteSpace(Subtitle)) return Title;
 				return String.Format("{0} : {1}", Title, Subtitle);
 			}
 		}

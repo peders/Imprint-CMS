@@ -268,7 +268,7 @@
     <value>New role</value>
   </data>
   <data name="PagenameCreateUpload" xml:space="preserve">
-    <value>New upload</value>
+    <value>New file</value>
   </data>
   <data name="PagenameEditBinding" xml:space="preserve">
     <value>Edit binding</value>
@@ -281,9 +281,6 @@
   </data>
   <data name="PagenameEditGenre" xml:space="preserve">
     <value>Edit genre</value>
-  </data>
-  <data name="PagenameEditions" xml:space="preserve">
-    <value>Book editions</value>
   </data>
   <data name="PagenameEditPerson" xml:space="preserve">
     <value>Edit person</value>
@@ -307,7 +304,7 @@
     <value>Roles</value>
   </data>
   <data name="PagenameUploads" xml:space="preserve">
-    <value>Uploads</value>
+    <value>Files</value>
   </data>
   <data name="SystemName" xml:space="preserve">
     <value>Imprint CMS</value>
@@ -342,7 +339,7 @@
   <data name="LabelPerson" xml:space="preserve">
     <value>Person</value>
   </data>
-  <data name="LabelRightsHolders" xml:space="preserve">
+  <data name="LabelRelations" xml:space="preserve">
     <value>Rights holders</value>
   </data>
   <data name="PagenameCreateRelation" xml:space="preserve">
@@ -363,5 +360,8 @@
   <data name="LabelBackTo" xml:space="preserve">
     <value>Back to {0}</value>
     <comment>Insert target page name</comment>
+  </data>
+  <data name="LabelEditions" xml:space="preserve">
+    <value>Book editions</value>
   </data>
 </root>
