@@ -302,7 +302,7 @@ namespace ImprintCMS.Controllers
 			}
 			Repository.Add(vm);
 			Repository.Save();
-			return RedirectToAction("books");
+			return RedirectToAction("editbook", new { id = vm.Id });
 		}
 
 		public ActionResult EditBook(int id)
