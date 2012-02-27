@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
@@ -159,6 +160,7 @@
     <Content Include="Views\Shared\EditorTemplates\Relation.cshtml" />
     <Content Include="Views\Admin\CreateRelation.cshtml" />
     <Content Include="Views\Admin\EditRelation.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

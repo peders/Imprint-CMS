@@ -9,7 +9,9 @@
 		LargePhoto,
 		SmallPhoto,
 		Excerpt,
-		Attachment
+		Attachment,
+		Stylesheet,
+		Script
 	}
 
 }

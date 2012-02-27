@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Book>
+@{
+	ViewBag.Title = Phrases.PagenameBooks;
+}
+@foreach (var group in Model.GroupBy(m => m.Genre))
+{
+	<h2>@group.Key.Name</h2>
+	<ul>
+		@foreach (var book in group)
+  {
+			<li>@book.FullTitle</li>
+  }
+	</ul>
+}
