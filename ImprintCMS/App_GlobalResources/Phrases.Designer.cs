@@ -700,11 +700,56 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Forfattere.
+        /// </summary>
+        public static string SitemenuAuthors {
+            get {
+                return ResourceManager.GetString("SitemenuAuthors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bøker.
+        /// </summary>
+        public static string SitemenuBooks {
+            get {
+                return ResourceManager.GetString("SitemenuBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forside.
+        /// </summary>
+        public static string SitemenuHome {
+            get {
+                return ResourceManager.GetString("SitemenuHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Imprint CMS.
         /// </summary>
         public static string SystemName {
             get {
                 return ResourceManager.GetString("SystemName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kolon Forlag, Postboks 6860 St. Olavs plass, 0130 Oslo, Besøksadresse: Sehestedsgt. 4, 0164 Oslo&lt;br/&gt;Telefon: 22 03 42 02 | &lt;a href=&quot;mailto:redaksjon@kolonforlag.no&quot;&gt;redaksjon@kolonforlag.no&lt;/a&gt;.
+        /// </summary>
+        public static string SystemSiteFooter {
+            get {
+                return ResourceManager.GetString("SystemSiteFooter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kolon.
+        /// </summary>
+        public static string SystemSiteName {
+            get {
+                return ResourceManager.GetString("SystemSiteName", resourceCulture);
             }
         }
         

@@ -4,9 +4,24 @@
 	<meta charset="utf-8" />
 	<title>@ViewBag.Title</title>
 	<link href="@Url.Content("~/content/site.css")" rel="stylesheet" type="text/css" />
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js" type="text/javascript"></script>
+	<script src="@Url.Content("~/scripts/site.js")" type="text/javascript"></script>
 </head>
 <body>
-	<h1>@ViewBag.Title</h1>
-	@RenderBody()
+	<header>
+		<h1>@ViewBag.Title</h1>
+	</header>
+	<nav id="sitemenu">
+		<ul>
+			<li>@Html.ActionLink(Phrases.SitemenuHome, "index", "home", null, new { @class = ViewContext.ControllerName().ToLower() == "home" ? "selected" : string.Empty })</li>
+			<li>@Html.ActionLink(Phrases.SitemenuBooks, "index", "books", null, new { @class = ViewContext.ControllerName().ToLower() == "books" ? "selected" : string.Empty })</li>
+			<li>@Html.ActionLink(Phrases.SitemenuAuthors, "index", "authors", null, new { @class = ViewContext.ControllerName().ToLower() == "authors" ? "selected" : string.Empty })</li>
+		</ul>
+	</nav>
+	<section id="content">
+		@RenderBody()
+	</section>
+	<footer>@(new HtmlString(Phrases.SystemSiteFooter))
+	</footer>
 </body>
 </html>
