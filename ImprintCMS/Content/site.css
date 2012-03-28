@@ -4,15 +4,17 @@ header, footer, nav, section { display: block; }
 a { color: #4880e3; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-header { background: #000000; color: #ffffff; width: 940px; padding: 20px; margin: 0 auto; }
-header h1 { margin: 0; padding: 0; text-align: center; }
+header { width: 920px; padding: 30px; margin: 0 auto; }
+header h1 { margin: 0; padding: 0; width: 170px; height: 100px; text-indent: -9999em; background: url(site_layout/logo.png) no-repeat; }
 
-#sitemenu { width: 940px; padding: 10px 20px; height: 20px; overflow: hidden; margin: 0 auto; background: #ffffff; border-bottom: 1px dashed #dddddd; }
+#sitemenu { width: 940px; padding: 0 20px; height: 30px; overflow: hidden; margin: 0 auto; }
 #sitemenu ul { list-style-type: none; margin: 0; padding: 0; }
-#sitemenu ul li { margin: 0 10px 0 0; padding: 0; float: left; }
-#sitemenu ul li a { display: block; float: left; line-height: 20px; }
+#sitemenu ul li { margin: 0 10px 0 0; padding: 5px 15px; float: left; background: #cccccc; border-radius: 4px 4px 0 0; line-height: 20px; }
+#sitemenu ul li.selected { background-color: #ffffff; }
+#sitemenu ul li a { color: #808080; }
+#sitemenu ul li.selected a { color: #000000; }
 
-#content { width: 940px; padding: 20px; margin: 0 auto; background: #ffffff; }
+#content { width: 910px; padding: 20px 35px; margin: 0 auto; background: #ffffff; border-radius: 4px; }
 
 footer { width: 940px; padding: 20px; margin: 0 auto; color: #808080; }
 footer a { color: #808080; }
