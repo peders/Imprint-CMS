@@ -9,10 +9,10 @@ header h1 { margin: 0; padding: 0; width: 170px; height: 100px; text-indent: -99
 
 #sitemenu { width: 940px; padding: 0 20px; height: 30px; overflow: hidden; margin: 0 auto; }
 #sitemenu ul { list-style-type: none; margin: 0; padding: 0; }
-#sitemenu ul li { margin: 0 10px 0 0; padding: 5px 15px; float: left; background: #cccccc; border-radius: 4px 4px 0 0; line-height: 20px; }
-#sitemenu ul li.selected { background-color: #ffffff; }
-#sitemenu ul li a { color: #808080; }
-#sitemenu ul li.selected a { color: #000000; }
+#sitemenu ul li { margin: 0 10px 0 0; float: left; }
+#sitemenu ul li a { color: #808080; background: #cccccc; display: block; line-height: 20px; padding: 5px 15px; border-radius: 4px 4px 0 0; }
+#sitemenu ul li a:hover { text-decoration: none; color: #000000; background-color: #ffffff;}
+#sitemenu ul li.selected a { color: #000000; background-color: #ffffff;}
 
 #content { width: 910px; padding: 20px 35px; margin: 0 auto; background: #ffffff; border-radius: 4px; }
 
