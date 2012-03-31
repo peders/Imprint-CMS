@@ -14,9 +14,10 @@ header h1 { margin: 0; padding: 0; width: 170px; height: 100px; text-indent: -99
 #sitemenu ul li a:hover { text-decoration: none; color: #000000; background-color: #ffffff; }
 #sitemenu ul li.selected a { color: #000000; background-color: #ffffff; }
 
-#content { width: 910px; padding: 20px 35px; margin: 0 auto; background: #ffffff; border-radius: 4px; }
+#content { width: 910px; padding: 40px 35px; margin: 0 auto; background: #ffffff; border-radius: 4px; }
 
 #content.books.details ul.rightsholders { list-style-type: none; margin: 0 0 0.2em 0; padding: 0; }
+#content.books.details ul.rightsholders a { color: #000000; }
 #content.books.details h1 { font-family: Georgia, "Times New Roman" , Times, Serif; font-weight: normal; margin: 0; }
 #content.books.details p.subtitle { font-family: Georgia, "Times New Roman" , Times, Serif; font-weight: normal; margin: 0 0 2em 0; }
 
@@ -27,9 +28,17 @@ header h1 { margin: 0; padding: 0; width: 170px; height: 100px; text-indent: -99
 #content.books.details table.editions td { padding: 0.3em 1em; border-bottom: 1px dotted #cccccc; }
 #content.books.details table.editions tr:first-child td { border-top: 1px dotted #cccccc; }
 
-#content.books.details #social { margin: 1em 0 2em 0; }
-#content.books.details #social a.twitter { text-indent: -9999em; display: block; background: url(site_layout/twitter.png) no-repeat 0 -10px; width: 54px; height: 10px; margin: 1em 0; }
-#content.books.details #social a.twitter:hover { background-position: 0 0; }
+#social { margin: 1em 0 2em 0; }
+#social a.twitter { text-indent: -9999em; display: block; background: url(site_layout/twitter.png) no-repeat 0 -10px; width: 54px; height: 10px; margin: 1em 0; }
+#social a.twitter:hover { background-position: 0 0; }
+
+span.score { text-indent: -9999em; display: block; float: left; height: 15px; width: 15px; background: url(site_layout/dice.png) no-repeat; margin: 0 0.3em; }
+span.score.level1 { background-position: 0 -15px; }
+span.score.level2 { background-position: 0 -30px; }
+span.score.level3 { background-position: 0 -45px; }
+span.score.level4 { background-position: 0 -60px; }
+span.score.level5 { background-position: 0 -75px; }
+span.score.level6 { background-position: 0 -90px; }
 
 footer { width: 940px; padding: 20px; margin: 0 auto; color: #808080; }
 footer a { color: #808080; }

@@ -403,4 +403,8 @@
   <data name="LabelShareOnTwitter" xml:space="preserve">
     <value>Del på Twitter</value>
   </data>
+  <data name="LabelCoverImage" xml:space="preserve">
+    <value>Omslaget til {0}</value>
+    <comment>Insert book title</comment>
+  </data>
 </root>

@@ -25,7 +25,8 @@ namespace ImprintCMS.Models
 		{
 			source = source.Replace("[i]", "<em>").Replace("[/i]", "</em>");
 			source = source.Replace("[b]", "<strong>").Replace("[/b]", "</strong>");
-			source = source.Replace("\n", "<br />");
+			source = source.Replace("[score]", "<span class=\"score level").Replace("[/score]", "\">[score]</span>");
+			source = source.Replace("\n", "<br />\n");
 			return new HtmlString(source);
 		}
 

@@ -124,6 +124,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Omslaget til {0}.
+        /// </summary>
+        public static string LabelCoverImage {
+            get {
+                return ResourceManager.GetString("LabelCoverImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string LabelDelete {

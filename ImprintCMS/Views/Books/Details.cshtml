@@ -5,7 +5,7 @@
 @if (Model.Cover != null)
 {
 	<div id="cover">
-		<img src="@Url.Action("display", "upload", new { category = Model.Cover.Category, fileName = Model.Cover.FileName }, null)" class="cover" alt="@Model.Title" />
+		<img src="@Url.Action("display", "upload", new { category = Model.Cover.Category, fileName = Model.Cover.FileName }, null)" class="cover" alt="@String.Format(Phrases.LabelCoverImage, Model.Title)" title="@String.Format(Phrases.LabelCoverImage, Model.Title)" />
 	</div>
 }
 <ul class="rightsholders">
