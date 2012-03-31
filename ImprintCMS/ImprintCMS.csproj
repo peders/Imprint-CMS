@@ -90,6 +90,7 @@
       <DependentUpon>ImprintCMS.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\Repository.cs" />
+    <Compile Include="Models\ViewHelpers.cs" />
     <Compile Include="Models\ViewModels\FileUpload.cs" />
     <Compile Include="Models\ViewModels\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +99,7 @@
     <Content Include="Content\admin.css" />
     <Content Include="Content\draghandle.png" />
     <Content Include="Content\site_layout\logo.png" />
+    <Content Include="Content\site_layout\twitter.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
     <Content Include="Scripts\admin.js" />
@@ -165,6 +167,8 @@
     <Content Include="Views\Admin\EditRelation.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Authors\Index.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Authors\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

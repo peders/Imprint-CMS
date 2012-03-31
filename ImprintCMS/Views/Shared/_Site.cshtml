@@ -18,7 +18,7 @@
 			<li class="@(ViewContext.ControllerName().ToLower() == "authors" ? "selected" : string.Empty)">@Html.ActionLink(Phrases.SitemenuAuthors, "index", "authors")</li>
 		</ul>
 	</nav>
-	<section id="content">
+	<section id="content" class="@String.Format("{0} {1}", ViewContext.ControllerName().ToLower(), ViewContext.ActionName().ToLower())">
 		@RenderBody()
 	</section>
 	<footer>@(new HtmlString(Phrases.SystemSiteFooter))

@@ -37,14 +37,6 @@ namespace ImprintCMS.Models
 			return source;
 		}
 
-		public static string ControllerName(this ViewContext source)
-		{
-			var name = source.RouteData.Values["controller"] as string;
-			if (String.IsNullOrWhiteSpace(name)) return null;
-			return name;
-		}
-
-
 	}
 
 }

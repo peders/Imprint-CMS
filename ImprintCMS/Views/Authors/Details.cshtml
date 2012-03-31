@@ -1,0 +1,9 @@
+﻿@model Person
+@{
+	ViewBag.Title = Model.FullName;
+}
+<h1>@Model.FullName</h1>
+@if (!String.IsNullOrWhiteSpace(Model.Description))
+{
+	<p>@Model.Description.ToRichText()</p>
+}

@@ -394,6 +394,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Del på Twitter.
+        /// </summary>
+        public static string LabelShareOnTwitter {
+            get {
+                return ResourceManager.GetString("LabelShareOnTwitter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Short version.
         /// </summary>
         public static string LabelShortName {
@@ -781,6 +790,24 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}. utgave.
+        /// </summary>
+        public static string UnitEdition {
+            get {
+                return ResourceManager.GetString("UnitEdition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ISBN {0}.
+        /// </summary>
+        public static string UnitIsbn {
+            get {
+                return ResourceManager.GetString("UnitIsbn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to kB.
         /// </summary>
         public static string UnitKiloBytesShort {
@@ -795,6 +822,33 @@ namespace ImprintCMS.Models {
         public static string UnitMegaBytesShort {
             get {
                 return ResourceManager.GetString("UnitMegaBytesShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sider.
+        /// </summary>
+        public static string UnitPagesPlural {
+            get {
+                return ResourceManager.GetString("UnitPagesPlural", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to side.
+        /// </summary>
+        public static string UnitPagesSingular {
+            get {
+                return ResourceManager.GetString("UnitPagesSingular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} kr.
+        /// </summary>
+        public static string UnitPrice {
+            get {
+                return ResourceManager.GetString("UnitPrice", resourceCulture);
             }
         }
         

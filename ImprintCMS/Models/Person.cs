@@ -12,6 +12,14 @@ namespace ImprintCMS.Models
 				return !string.IsNullOrWhiteSpace(FirstName) ? LastName + ", " + FirstName : LastName;
 			}
 		}
+
+		public string FullName
+		{
+			get
+			{
+				return !string.IsNullOrWhiteSpace(FirstName) ? FirstName + " " + LastName : LastName;
+			}
+		}
 	}
 
 	public class PersonMetadata

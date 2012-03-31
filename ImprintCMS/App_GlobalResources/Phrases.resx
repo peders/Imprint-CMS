@@ -382,4 +382,25 @@
   <data name="PagenameAuthors" xml:space="preserve">
     <value>Forfattere</value>
   </data>
+  <data name="UnitEdition" xml:space="preserve">
+    <value>{0}. utgave</value>
+    <comment>Insert edition number</comment>
+  </data>
+  <data name="UnitPagesPlural" xml:space="preserve">
+    <value>sider</value>
+  </data>
+  <data name="UnitPagesSingular" xml:space="preserve">
+    <value>side</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>{0} kr</value>
+    <comment>Insert price</comment>
+  </data>
+  <data name="UnitIsbn" xml:space="preserve">
+    <value>ISBN {0}</value>
+    <comment>Insert ISBN</comment>
+  </data>
+  <data name="LabelShareOnTwitter" xml:space="preserve">
+    <value>Del på Twitter</value>
+  </data>
 </root>

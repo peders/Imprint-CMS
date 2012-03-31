@@ -5,10 +5,19 @@
 @foreach (var group in Model.GroupBy(m => m.Genre).OrderBy(g => g.Key.SequenceIdentifier))
 {
 	<h2>@group.Key.Name</h2>
-	<ul>
-		@foreach (var book in group)
+	<table class="listing">
+		<tbody>
+		@foreach (var book in group.OrderBy(b => b.Relations.First().ReversePersonName).ThenBy(b => b.Title))
   {
-			<li>@Html.ActionLink(book.FullTitle, "details", new { id = book.Id })</li>
+			<tr>
+				<td>@String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName))
+				</td>
+				<td>@Html.ActionLink(book.Title, "details", new { id = book.Id })
+				</td>
+				<td>@book.Subtitle
+				</td>
+			</tr>
   }
-	</ul>
+		</tbody>
+	</table>
 }

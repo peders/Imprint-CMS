@@ -12,5 +12,13 @@ namespace ImprintCMS.Controllers
 			return View(vm);
 		}
 
+		public ActionResult Details(int id)
+		{
+			var vm = Repository.GetPerson(id);
+			if (vm == null) return HttpNotFound();
+			if (!vm.IsVisible || !vm.HasPage) return HttpNotFound();
+			return View(vm);
+		}
+
 	}
 }

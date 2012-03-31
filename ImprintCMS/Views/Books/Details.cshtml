@@ -1,0 +1,46 @@
+﻿@model Book
+@{
+	ViewBag.Title = Model.Title;
+}
+@if (Model.Cover != null)
+{
+	<div id="cover">
+		<img src="@Url.Action("display", "upload", new { category = Model.Cover.Category, fileName = Model.Cover.FileName }, null)" class="cover" alt="@Model.Title" />
+	</div>
+}
+<ul class="rightsholders">
+	@foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
+ {
+		<li>@Html.ActionLink(relation.PersonName, "details", "authors", new { id = relation.PersonId }, null)</li>
+ }</ul>
+<h1>@Model.Title</h1>
+@if (!String.IsNullOrWhiteSpace(Model.Subtitle))
+{
+	<p class="subtitle">@Model.Subtitle</p>
+}
+<p>@Model.Description.ToRichText()</p>
+@if (Model.Editions.Any())
+{
+	<table class="editions">
+		<tbody>
+			@foreach (var edition in Model.Editions.OrderBy(edition => edition.Number))
+   {
+				<tr>
+					<td>@String.Format(Phrases.UnitEdition, edition.Number), @edition.ReleaseDate.Year
+					</td>
+					<td>@String.Format(Phrases.UnitIsbn, edition.Isbn)
+					</td>
+					<td>@(edition.PageCount == null ? edition.Binding.Name : edition.Binding.Name + ", " + String.Format("{0} {1}", edition.PageCount, Phrases.UnitPagesPlural))
+					</td>
+					<td>@String.Format(Phrases.UnitPrice, edition.Price)
+					</td>
+				</tr>
+   }
+		</tbody>
+	</table>
+}
+<div id="social">
+	@Html.Twitter()
+	@Html.Facebook()
+</div>
+<p>@Model.Quotes.ToRichText()</p>

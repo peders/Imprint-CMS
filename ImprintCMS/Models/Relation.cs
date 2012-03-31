@@ -10,7 +10,7 @@ namespace ImprintCMS.Models
 		{
 			get
 			{
-				return String.Format("{0} ({1})", Person.ReverseName, Role.Name);
+				return String.Format("{0}{1}", Person.ReverseName, !String.IsNullOrWhiteSpace(Role.ShortName) ? String.Format(" ({0})", Role.ShortName) : string.Empty).Trim();
 			}
 		}
 
