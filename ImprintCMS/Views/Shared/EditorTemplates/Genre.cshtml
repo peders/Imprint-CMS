@@ -9,6 +9,9 @@
 			@Html.ValidationMessageFor(model => model.Name)
 		</p>
 	</fieldset>
+	<fieldset class="hidden">
+		@Html.HiddenFor(model => model.SequenceIdentifier)
+	</fieldset>
 	<fieldset class="submit">
 		<p>
 			<input type="submit" value="@Phrases.LabelSave" />

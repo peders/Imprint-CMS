@@ -23,6 +23,11 @@
 			@Html.ValidationMessageFor(model => model.Isbn)
 		</p>
 		<p>
+			@Html.LabelFor(model => model.Price, Phrases.LabelPrice)<br />
+			@Html.TextBoxFor(model => model.Price)
+			@Html.ValidationMessageFor(model => model.Price)
+		</p>
+		<p>
 			@Html.LabelFor(model => model.PageCount, Phrases.LabelPageCount)<br />
 			@Html.TextBoxFor(model => model.PageCount)
 			@Html.ValidationMessageFor(model => model.PageCount)

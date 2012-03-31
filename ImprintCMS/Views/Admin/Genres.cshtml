@@ -8,10 +8,10 @@
 <ul class="adminactions">
 	<li>@Html.ActionLink(Phrases.PagenameCreateGenre, "creategenre")</li>
 </ul>
-<ul class="listing">
+<ul class="listing sortable" data-persisturl="@Url.Action("storegenreorder")" data-handlelabel="@Phrases.LabelDragAndDropToSort" data-errorlabel="@Phrases.ValidationAjaxError">
 	@foreach (var genre in Model)
  {
-		<li><span class="name">@Html.ActionLink(genre.Name, "editgenre", new { id = genre.Id })</span>
+		<li  id="@String.Format("sortitem_{0}", genre.Id)"><span class="name">@Html.ActionLink(genre.Name, "editgenre", new { id = genre.Id })</span>
 			@Html.ActionLink(Phrases.LabelDelete, "deletegenre", new { id = genre.Id })</li>
  }
 </ul>

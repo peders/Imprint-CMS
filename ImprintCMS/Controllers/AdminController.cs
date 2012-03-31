@@ -120,13 +120,16 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult Genres()
 		{
-			var vm = Repository.Genres.OrderBy(g => g.Name);
+			var vm = Repository.Genres.OrderBy(g => g.SequenceIdentifier);
 			return View(vm);
 		}
 
 		public ActionResult CreateGenre()
 		{
-			var vm = new Genre();
+			var vm = new Genre
+			{
+				SequenceIdentifier = int.MaxValue
+			};
 			return View(vm);
 		}
 
@@ -481,6 +484,22 @@ namespace ImprintCMS.Controllers
 			{
 				var relation = Repository.GetRelation(id);
 				relation.SequenceIdentifier = sequenceIdentifier;
+				sequenceIdentifier++;
+			}
+			Repository.Save();
+			return new HttpStatusCodeResult(200);
+		}
+
+		[HttpPost]
+		public ActionResult StoreGenreOrder()
+		{
+			var data = Request.Form["sortitem[]"] as string;
+			var ids = data.Split(',').Select(int.Parse);
+			var sequenceIdentifier = 0;
+			foreach (var id in ids)
+			{
+				var genre = Repository.GetGenre(id);
+				genre.SequenceIdentifier = sequenceIdentifier;
 				sequenceIdentifier++;
 			}
 			Repository.Save();

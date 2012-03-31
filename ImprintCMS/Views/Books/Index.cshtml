@@ -2,13 +2,13 @@
 @{
 	ViewBag.Title = Phrases.PagenameBooks;
 }
-@foreach (var group in Model.GroupBy(m => m.Genre))
+@foreach (var group in Model.GroupBy(m => m.Genre).OrderBy(g => g.Key.SequenceIdentifier))
 {
 	<h2>@group.Key.Name</h2>
 	<ul>
 		@foreach (var book in group)
   {
-			<li>@book.FullTitle</li>
+			<li>@Html.ActionLink(book.FullTitle, "details", new { id = book.Id })</li>
   }
 	</ul>
 }
