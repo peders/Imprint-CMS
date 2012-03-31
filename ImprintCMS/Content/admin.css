@@ -39,6 +39,7 @@ ul.listing.sortable li .handle { position: absolute; left: 0; top: 2px; width: 1
 ul.listing.sortable li .handle:hover { background-color: #f8f8f8; }
 ul.listing.sortable li.placeholder { background-color: rgba(72, 128, 227, 0.2); height: 17px; border: 1px dashed rgba(72, 128, 227, 0.5); }
 
+input, select, textarea { font-family: Calibri, Sans-Serif; font-size: 1em; }
 fieldset { border: none; margin: 0; padding: 0; }
 fieldset.login label { font-weight: bold; }
 fieldset.fields label { font-weight: bold; }

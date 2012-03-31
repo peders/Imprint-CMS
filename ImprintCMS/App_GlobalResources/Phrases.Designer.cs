@@ -493,6 +493,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Forfattere.
+        /// </summary>
+        public static string PagenameAuthors {
+            get {
+                return ResourceManager.GetString("PagenameAuthors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bindings.
         /// </summary>
         public static string PagenameBindings {

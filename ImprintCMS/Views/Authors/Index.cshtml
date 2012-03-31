@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Person>
+@{
+	ViewBag.Title = Phrases.PagenameAuthors;
+}
+<ul>
+	@foreach (var person in Model)
+ {
+		<li>@Html.ActionLink(person.ReverseName, "details", new { id = person.Id })</li>
+ }
+</ul>

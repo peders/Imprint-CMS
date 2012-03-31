@@ -379,4 +379,7 @@
   <data name="SystemSiteFooter" xml:space="preserve">
     <value>Kolon Forlag, Postboks 6860 St. Olavs plass, 0130 Oslo, Besøksadresse: Sehestedsgt. 4, 0164 Oslo&lt;br/&gt;Telefon: 22 03 42 02 | &lt;a href="mailto:redaksjon@kolonforlag.no"&gt;redaksjon@kolonforlag.no&lt;/a&gt;</value>
   </data>
+  <data name="PagenameAuthors" xml:space="preserve">
+    <value>Forfattere</value>
+  </data>
 </root>
