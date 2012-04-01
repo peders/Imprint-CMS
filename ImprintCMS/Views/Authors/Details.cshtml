@@ -2,6 +2,13 @@
 @{
 	ViewBag.Title = Model.FullName;
 }
+@if (Model.SmallImageId != null)
+{
+	<div id="personimage">
+		<img src="@Url.Action("display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)" class="image" alt="@Model.FullName" title="@Model.FullName" /><br />
+		@String.Format(Phrases.LabelPhotoCredit, Model.PhotographerCredit)
+	</div>
+}
 <h1>@Model.FullName</h1>
 @if (!String.IsNullOrWhiteSpace(Model.Description))
 {

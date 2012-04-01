@@ -331,6 +331,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Foto: {0}.
+        /// </summary>
+        public static string LabelPhotoCredit {
+            get {
+                return ResourceManager.GetString("LabelPhotoCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Photographer.
         /// </summary>
         public static string LabelPhotographerCredit {
@@ -516,15 +525,6 @@ namespace ImprintCMS.Models {
         public static string PagenameAdmin {
             get {
                 return ResourceManager.GetString("PagenameAdmin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Forfattere.
-        /// </summary>
-        public static string PagenameAuthors {
-            get {
-                return ResourceManager.GetString("PagenameAuthors", resourceCulture);
             }
         }
         

@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Book>
 @{
-	ViewBag.Title = Phrases.PagenameBooks;
+	ViewBag.Title = Phrases.SitemenuBooks;
 }
 @foreach (var group in Model.GroupBy(m => m.Genre).OrderBy(g => g.Key.SequenceIdentifier))
 {

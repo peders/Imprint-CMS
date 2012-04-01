@@ -20,6 +20,7 @@
 	</nav>
 	<section id="content" class="@String.Format("{0} {1}", ViewContext.ControllerName().ToLower(), ViewContext.ActionName().ToLower())">
 		@RenderBody()
+		<div id="floatbreaker"></div>
 	</section>
 	<footer>@(new HtmlString(Phrases.SystemSiteFooter))
 	</footer>

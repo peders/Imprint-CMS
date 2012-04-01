@@ -379,9 +379,6 @@
   <data name="SystemSiteFooter" xml:space="preserve">
     <value>Kolon Forlag, Postboks 6860 St. Olavs plass, 0130 Oslo, Besøksadresse: Sehestedsgt. 4, 0164 Oslo&lt;br/&gt;Telefon: 22 03 42 02 | &lt;a href="mailto:redaksjon@kolonforlag.no"&gt;redaksjon@kolonforlag.no&lt;/a&gt;</value>
   </data>
-  <data name="PagenameAuthors" xml:space="preserve">
-    <value>Forfattere</value>
-  </data>
   <data name="UnitEdition" xml:space="preserve">
     <value>{0}. utgave</value>
     <comment>Insert edition number</comment>
@@ -409,5 +406,9 @@
   </data>
   <data name="LabelPublications" xml:space="preserve">
     <value>Utgivelser</value>
+  </data>
+  <data name="LabelPhotoCredit" xml:space="preserve">
+    <value>Foto: {0}</value>
+    <comment>Insert name of photographer</comment>
   </data>
 </root>
