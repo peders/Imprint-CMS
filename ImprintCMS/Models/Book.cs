@@ -25,6 +25,14 @@ namespace ImprintCMS.Models
 			}
 		}
 
+		public int ReleaseYear
+		{
+			get
+			{
+				return Editions.OrderBy(e => e.Number).First().ReleaseDate.Year;
+			}
+		}
+
 	}
 
 	public class BookMetadata

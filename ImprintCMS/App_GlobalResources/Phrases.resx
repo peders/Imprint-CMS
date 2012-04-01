@@ -407,4 +407,7 @@
     <value>Omslaget til {0}</value>
     <comment>Insert book title</comment>
   </data>
+  <data name="LabelPublications" xml:space="preserve">
+    <value>Utgivelser</value>
+  </data>
 </root>

@@ -349,6 +349,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Utgivelser.
+        /// </summary>
+        public static string LabelPublications {
+            get {
+                return ResourceManager.GetString("LabelPublications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Review quotes.
         /// </summary>
         public static string LabelQuotes {
