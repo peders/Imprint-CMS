@@ -79,6 +79,24 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Priser.
+        /// </summary>
+        public static string HeadingAuthorAwards {
+            get {
+                return ResourceManager.GetString("HeadingAuthorAwards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bøker.
+        /// </summary>
+        public static string HeadingAuthorBooks {
+            get {
+                return ResourceManager.GetString("HeadingAuthorBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anthology contributions.
         /// </summary>
         public static string LabelAnthologies {
@@ -174,6 +192,24 @@ namespace ImprintCMS.Models {
         public static string LabelExcerpt {
             get {
                 return ResourceManager.GetString("LabelExcerpt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other publisher.
+        /// </summary>
+        public static string LabelExternalPublisher {
+            get {
+                return ResourceManager.GetString("LabelExternalPublisher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release year (if released by other publisher).
+        /// </summary>
+        public static string LabelExternalReleaseYear {
+            get {
+                return ResourceManager.GetString("LabelExternalReleaseYear", resourceCulture);
             }
         }
         
@@ -354,15 +390,6 @@ namespace ImprintCMS.Models {
         public static string LabelPrice {
             get {
                 return ResourceManager.GetString("LabelPrice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Utgivelser.
-        /// </summary>
-        public static string LabelPublications {
-            get {
-                return ResourceManager.GetString("LabelPublications", resourceCulture);
             }
         }
         
@@ -894,6 +921,15 @@ namespace ImprintCMS.Models {
         public static string ValidationEmptyOrNoFile {
             get {
                 return ResourceManager.GetString("ValidationEmptyOrNoFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release year must be specified for other publishers.
+        /// </summary>
+        public static string ValidationExternalReleaseYear {
+            get {
+                return ResourceManager.GetString("ValidationExternalReleaseYear", resourceCulture);
             }
         }
         

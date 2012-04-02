@@ -29,6 +29,7 @@ namespace ImprintCMS.Models
 		{
 			get
 			{
+				if (!String.IsNullOrWhiteSpace(ExternalPublisher)) return (int)ExternalReleaseYear;
 				return Editions.OrderBy(e => e.Number).First().ReleaseDate.Year;
 			}
 		}

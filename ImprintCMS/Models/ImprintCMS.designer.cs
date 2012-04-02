@@ -289,6 +289,10 @@ namespace ImprintCMS.Models
 		
 		private bool _IsDebut;
 		
+		private string _ExternalPublisher;
+		
+		private System.Nullable<int> _ExternalReleaseYear;
+		
 		private EntitySet<Edition> _Editions;
 		
 		private EntitySet<Relation> _Relations;
@@ -319,6 +323,10 @@ namespace ImprintCMS.Models
     partial void OnGenreIdChanged();
     partial void OnIsDebutChanging(bool value);
     partial void OnIsDebutChanged();
+    partial void OnExternalPublisherChanging(string value);
+    partial void OnExternalPublisherChanged();
+    partial void OnExternalReleaseYearChanging(System.Nullable<int> value);
+    partial void OnExternalReleaseYearChanged();
     #endregion
 		
 		public Book()
@@ -514,6 +522,46 @@ namespace ImprintCMS.Models
 					this._IsDebut = value;
 					this.SendPropertyChanged("IsDebut");
 					this.OnIsDebutChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExternalPublisher", DbType="NVarChar(50)")]
+		public string ExternalPublisher
+		{
+			get
+			{
+				return this._ExternalPublisher;
+			}
+			set
+			{
+				if ((this._ExternalPublisher != value))
+				{
+					this.OnExternalPublisherChanging(value);
+					this.SendPropertyChanging();
+					this._ExternalPublisher = value;
+					this.SendPropertyChanged("ExternalPublisher");
+					this.OnExternalPublisherChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExternalReleaseYear", DbType="Int")]
+		public System.Nullable<int> ExternalReleaseYear
+		{
+			get
+			{
+				return this._ExternalReleaseYear;
+			}
+			set
+			{
+				if ((this._ExternalReleaseYear != value))
+				{
+					this.OnExternalReleaseYearChanging(value);
+					this.SendPropertyChanging();
+					this._ExternalReleaseYear = value;
+					this.SendPropertyChanged("ExternalReleaseYear");
+					this.OnExternalReleaseYearChanged();
 				}
 			}
 		}

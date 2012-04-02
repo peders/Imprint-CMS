@@ -404,11 +404,23 @@
     <value>Omslaget til {0}</value>
     <comment>Insert book title</comment>
   </data>
-  <data name="LabelPublications" xml:space="preserve">
-    <value>Utgivelser</value>
-  </data>
   <data name="LabelPhotoCredit" xml:space="preserve">
     <value>Foto: {0}</value>
     <comment>Insert name of photographer</comment>
+  </data>
+  <data name="LabelExternalPublisher" xml:space="preserve">
+    <value>Other publisher</value>
+  </data>
+  <data name="LabelExternalReleaseYear" xml:space="preserve">
+    <value>Release year (if released by other publisher)</value>
+  </data>
+  <data name="ValidationExternalReleaseYear" xml:space="preserve">
+    <value>Release year must be specified for other publishers</value>
+  </data>
+  <data name="HeadingAuthorAwards" xml:space="preserve">
+    <value>Priser</value>
+  </data>
+  <data name="HeadingAuthorBooks" xml:space="preserve">
+    <value>Bøker</value>
   </data>
 </root>

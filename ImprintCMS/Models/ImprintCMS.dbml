@@ -18,6 +18,8 @@
       <Column Name="ExcerptId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="GenreId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IsDebut" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ExternalPublisher" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ExternalReleaseYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Book_Edition" Member="Editions" ThisKey="Id" OtherKey="BookId" Type="Edition" />
       <Association Name="Book_Relation" Member="Relations" ThisKey="Id" OtherKey="BookId" Type="Relation" />
       <Association Name="Genre_Book" Member="Genre" ThisKey="GenreId" OtherKey="Id" Type="Genre" IsForeignKey="true" />

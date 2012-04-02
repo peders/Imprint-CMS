@@ -33,6 +33,16 @@
 			@Html.DropDownListFor(model => model.GenreId, (SelectList)ViewBag.Genres, "–")
 			@Html.ValidationMessageFor(model => model.GenreId)
 		</p>
+		<p>
+			@Html.LabelFor(model => model.ExternalPublisher, Phrases.LabelExternalPublisher)<br />
+			@Html.TextBoxFor(model => model.ExternalPublisher)
+			@Html.ValidationMessageFor(model => model.ExternalPublisher)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.ExternalReleaseYear, Phrases.LabelExternalReleaseYear)<br />
+			@Html.TextBoxFor(model => model.ExternalReleaseYear)
+			@Html.ValidationMessageFor(model => model.ExternalReleaseYear)
+		</p>
 	</fieldset>
 	<fieldset class="options">
 		<p>

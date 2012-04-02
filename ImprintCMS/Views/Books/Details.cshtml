@@ -18,7 +18,10 @@
 {
 	<p class="subtitle">@Model.Subtitle</p>
 }
-<p>@Model.Description.ToRichText()</p>
+@if (!String.IsNullOrWhiteSpace(Model.Description))
+{
+	<p>@Model.Description.ToRichText()</p>
+}
 @if (Model.Editions.Any())
 {
 	<table class="editions">
@@ -43,4 +46,7 @@
 	@Html.Twitter()
 	@Html.Facebook()
 </div>
-<p>@Model.Quotes.ToRichText()</p>
+@if (!String.IsNullOrWhiteSpace(Model.Quotes))
+{
+	<p>@Model.Quotes.ToRichText()</p>
+}

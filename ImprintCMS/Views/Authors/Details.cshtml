@@ -14,11 +14,11 @@
 {
 	<p>@Model.Description.ToRichText()</p>
 }
-@if (Model.Relations.Any(r => r.Book.IsVisible && r.Book.Editions.Any()))
+@if (Model.Relations.Any(r => r.Book.IsVisible && (r.Book.Editions.Any() || r.Book.ExternalReleaseYear != null)))
 {
-	<h2>@Phrases.LabelPublications</h2>
+	<h2>@Phrases.HeadingAuthorBooks</h2>
 	<ul>
-		@foreach (var book in Model.Relations.Where(r => r.Book.IsVisible && r.Book.Editions.Any()).Select(r => r.Book).Distinct().OrderBy(b => b.ReleaseYear))
+		@foreach (var book in Model.Relations.Where(r => r.Book.IsVisible && (r.Book.Editions.Any() || r.Book.ExternalReleaseYear != null)).Select(r => r.Book).Distinct().OrderBy(b => b.ReleaseYear))
   {
 			<li>@Html.ActionLink(book.Title, "details", "books", new { id = book.Id }, null)
 				@if (!String.IsNullOrWhiteSpace(book.Subtitle))
@@ -28,4 +28,9 @@
 				@String.Format(". {0}", book.ReleaseYear)
 			</li>
   }</ul>
+}
+@if (!String.IsNullOrWhiteSpace(Model.Awards))
+{
+	<h2>@Phrases.HeadingAuthorAwards</h2>
+	<p>@Model.Awards.ToRichText()</p>
 }

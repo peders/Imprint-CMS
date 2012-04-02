@@ -297,6 +297,7 @@ namespace ImprintCMS.Controllers
 		[HttpPost]
 		public ActionResult CreateBook(Book vm)
 		{
+			ValidateExternalPublisher(vm);
 			if (!ModelState.IsValid)
 			{
 				ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
@@ -319,6 +320,7 @@ namespace ImprintCMS.Controllers
 		[HttpPost]
 		public ActionResult EditBook(Book vm)
 		{
+			ValidateExternalPublisher(vm);
 			if (!ModelState.IsValid)
 			{
 				ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
@@ -504,6 +506,14 @@ namespace ImprintCMS.Controllers
 			}
 			Repository.Save();
 			return new HttpStatusCodeResult(200);
+		}
+
+		private void ValidateExternalPublisher(Book vm)
+		{
+			if (!String.IsNullOrWhiteSpace(vm.ExternalPublisher) && vm.ExternalReleaseYear == null)
+			{
+				ModelState.AddModelError("ExternalReleaseYear", Phrases.ValidationExternalReleaseYear);
+			}
 		}
 
 		private SelectList FileList(FileCategories category, int? selectedId)

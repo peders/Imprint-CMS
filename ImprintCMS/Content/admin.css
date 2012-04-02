@@ -30,7 +30,7 @@ ul.listing { clear: both; margin: 1em 0; }
 ul.listing li { clear: both; padding: 2px 0; border-bottom: 1px dotted #dddddd; }
 ul.listing li:first-child { border-top: 1px dotted #dddddd; }
 ul.listing .name { width: 500px; display: block; float: left; margin-right: 10px; overflow: hidden; }
-ul.listing .data { width: 100px; display: block; float: left; margin-right: 10px; }
+ul.listing .data { width: 120px; display: block; float: left; margin-right: 10px; }
 
 ul.listing.sortable { }
 ul.listing.sortable .name { width: 475px; }
