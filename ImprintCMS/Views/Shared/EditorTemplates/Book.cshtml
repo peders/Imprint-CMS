@@ -15,7 +15,7 @@
 		</p>
 		<p>
 			@Html.LabelFor(model => model.Description, Phrases.LabelDescription)<br />
-			@Html.TextAreaFor(model => model.Description)
+			@Html.TextAreaFor(model => model.Description, new { @class = "rich" })
 			@Html.ValidationMessageFor(model => model.Description)
 		</p>
 		<p>

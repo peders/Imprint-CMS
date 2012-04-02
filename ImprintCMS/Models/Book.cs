@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace ImprintCMS.Models
 {
@@ -42,5 +43,7 @@ namespace ImprintCMS.Models
 		public string Title { get; set; }
 		[Required(ErrorMessage = "*")]
 		public int? GenreId { get; set; }
+		[AllowHtml]
+		public string Description { get; set; }
 	}
 }

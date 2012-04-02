@@ -7,8 +7,16 @@
 	<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.17/jquery-ui.min.js" type="text/javascript"></script>
 	<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.17/themes/pepper-grinder/jquery-ui.css"
 		rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="@Url.Content("~/scripts/tiny_mce/jquery.tinymce.js")"></script>
 	<script src="@Url.Content("~/scripts/admin.js")" type="text/javascript"></script>
 	<link href="@Url.Content("~/content/admin.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	$(function () {
+		$('textarea.rich').tinymce({
+			script_url: '@Url.Content("~/scripts/tiny_mce/tiny_mce.js")'
+		});
+	});
+	</script>
 </head>
 <body>
 	@if (User.Identity.IsAuthenticated)
