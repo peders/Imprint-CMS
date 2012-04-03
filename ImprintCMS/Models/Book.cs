@@ -26,12 +26,22 @@ namespace ImprintCMS.Models
 			}
 		}
 
-		public int ReleaseYear
+		public int? ReleaseYear
 		{
 			get
 			{
-				if (!String.IsNullOrWhiteSpace(ExternalPublisher)) return (int)ExternalReleaseYear;
-				return Editions.OrderBy(e => e.Number).First().ReleaseDate.Year;
+				if (!String.IsNullOrWhiteSpace(ExternalPublisher)) return ExternalReleaseYear;
+				if (Editions.Any()) return Editions.OrderBy(e => e.Number).First().ReleaseDate.Year;
+				return null;
+			}
+		}
+
+		public string PersonSortString
+		{
+			get
+			{
+				if (Relations.Any()) return Relations.First().ReversePersonName;
+				return null;
 			}
 		}
 

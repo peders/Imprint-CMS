@@ -7,7 +7,7 @@
 	<h2>@group.Key.Name</h2>
 	<table class="listing">
 		<tbody>
-		@foreach (var book in group.OrderBy(b => b.Relations.First().ReversePersonName).ThenBy(b => b.Title))
+		@foreach (var book in group.OrderBy(b => b.PersonSortString).ThenBy(b => b.Title))
   {
 			<tr>
 				<td>@String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName))

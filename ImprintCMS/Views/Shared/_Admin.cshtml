@@ -13,7 +13,8 @@
 <script type="text/javascript">
 	$(function () {
 		$('textarea.rich').tinymce({
-			script_url: '@Url.Content("~/scripts/tiny_mce/tiny_mce.js")'
+			script_url: '@Url.Content("~/scripts/tiny_mce/tiny_mce.js")',
+			content_css: '@Url.Content("~/content/tiny_mce.css")'
 		});
 	});
 	</script>
