@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Controllers
 {
@@ -14,9 +15,14 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult Details(int id)
 		{
-			var vm = Repository.GetPerson(id);
-			if (vm == null) return HttpNotFound();
-			if (!vm.IsVisible || !vm.HasPage) return HttpNotFound();
+			var person = Repository.GetPerson(id);
+			if (person == null) return HttpNotFound();
+			if (!person.IsVisible || !person.HasPage) return HttpNotFound();
+			var vm = new PersonPage
+			{
+				Person = person,
+				Books = person.Relations.Where(r => r.Book.IsVisible).Select(r => new ListBook(r.Book, Url)).OrderBy(b => b.ReleaseYear)
+			};
 			return View(vm);
 		}
 

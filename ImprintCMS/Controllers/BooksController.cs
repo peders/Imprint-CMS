@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using ImprintCMS.Models.ViewModels;
+using System;
 
 namespace ImprintCMS.Controllers
 {
@@ -8,7 +10,7 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult Index()
 		{
-			var vm = Repository.Books.Where(b => b.IsVisible);
+			var vm = Repository.Books.Where(b => b.IsVisible && !b.HasExternalPublisher).Select(b => new ListBook(b, Url));
 			return View(vm);
 		}
 
@@ -16,7 +18,7 @@ namespace ImprintCMS.Controllers
 		{
 			var vm = Repository.GetBook(id);
 			if (vm == null) return HttpNotFound();
-			if (!vm.IsVisible) return HttpNotFound();
+			if (!vm.IsVisible || vm.HasExternalPublisher) return HttpNotFound();
 			return View(vm);
 		}
 

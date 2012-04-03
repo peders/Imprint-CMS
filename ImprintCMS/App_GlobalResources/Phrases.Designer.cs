@@ -241,6 +241,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Other publisher.
+        /// </summary>
+        public static string LabelHasExternalPublisher {
+            get {
+                return ResourceManager.GetString("LabelHasExternalPublisher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show with own page on site.
         /// </summary>
         public static string LabelHasPage {

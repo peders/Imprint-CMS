@@ -1,36 +1,30 @@
-﻿@model Person
+﻿@model PersonPage
 @{
-	ViewBag.Title = Model.FullName;
+	ViewBag.Title = Model.Person.FullName;
 }
-@if (Model.SmallImageId != null)
+@if (Model.Person.SmallImageId != null)
 {
 	<div id="personimage">
-		<img src="@Url.Action("display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)" class="image" alt="@Model.FullName" title="@Model.FullName" /><br />
-		@String.Format(Phrases.LabelPhotoCredit, Model.PhotographerCredit)
+		<img src="@Url.Action("display", "upload", new { category = Model.Person.UploadedFile.Category, fileName = Model.Person.UploadedFile.FileName }, null)" class="image" alt="@Model.Person.FullName" title="@Model.Person.FullName" /><br />
+		@String.Format(Phrases.LabelPhotoCredit, Model.Person.PhotographerCredit)
 	</div>
 }
-<h1>@Model.FullName</h1>
-@if (!String.IsNullOrWhiteSpace(Model.Description))
+<h1>@Model.Person.FullName</h1>
+@if (!String.IsNullOrWhiteSpace(Model.Person.Description))
 {
-	<p>@Model.Description.ToRichText()</p>
+	<p>@Model.Person.Description.ToRichText()</p>
 }
-@if (Model.Relations.Any(r => r.Book.IsVisible && (r.Book.Editions.Any() || r.Book.ExternalReleaseYear != null)))
+@if (Model.Books.Any())
 {
 	<h2>@Phrases.HeadingAuthorBooks</h2>
 	<ul>
-		@foreach (var book in Model.Relations.Where(r => r.Book.IsVisible && (r.Book.Editions.Any() || r.Book.ExternalReleaseYear != null)).Select(r => r.Book).Distinct().OrderBy(b => b.ReleaseYear))
+		@foreach (var book in Model.Books)
   {
-			<li>@Html.ActionLink(book.Title, "details", "books", new { id = book.Id }, null)
-				@if (!String.IsNullOrWhiteSpace(book.Subtitle))
-	{
-					@String.Format(". {0}", book.Subtitle)
-	}
-				@String.Format(". {0}", book.ReleaseYear)
-			</li>
+			<li>@book.PersonPageEntry</li>
   }</ul>
 }
-@if (!String.IsNullOrWhiteSpace(Model.Awards))
+@if (!String.IsNullOrWhiteSpace(Model.Person.Awards))
 {
 	<h2>@Phrases.HeadingAuthorAwards</h2>
-	<p>@Model.Awards.ToRichText()</p>
+	<p>@Model.Person.Awards.ToRichText()</p>
 }

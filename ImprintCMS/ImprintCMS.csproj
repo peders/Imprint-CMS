@@ -91,7 +91,9 @@
     </Compile>
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\ViewHelpers.cs" />
+    <Compile Include="Models\ViewModels\PersonPage.cs" />
     <Compile Include="Models\ViewModels\FileUpload.cs" />
+    <Compile Include="Models\ViewModels\ListBook.cs" />
     <Compile Include="Models\ViewModels\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

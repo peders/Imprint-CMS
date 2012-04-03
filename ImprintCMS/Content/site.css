@@ -15,7 +15,11 @@ header h1 { margin: 0; padding: 0; width: 170px; height: 100px; text-indent: -99
 #sitemenu ul li.selected a { color: #000000; background-color: #ffffff; }
 
 #content { width: 910px; padding: 40px 35px; margin: 0 auto; background: #ffffff; border-radius: 4px; }
-#content #floatbreaker { clear: both;}
+#content #floatbreaker { clear: both; }
+
+#content.books.index table.listing { width: 100%; }
+#content.books.index table.listing td { width: 40%; padding: 0 1em 0 0; }
+#content.books.index table.listing td:last-child { width: 20%; padding: 0; }
 
 #content.details ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
 

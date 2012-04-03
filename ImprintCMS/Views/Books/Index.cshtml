@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Book>
+﻿@model IEnumerable<ListBook>
 @{
 	ViewBag.Title = Phrases.SitemenuBooks;
 }
@@ -7,12 +7,12 @@
 	<h2>@group.Key.Name</h2>
 	<table class="listing">
 		<tbody>
-		@foreach (var book in group.OrderBy(b => b.PersonSortString).ThenBy(b => b.Title))
+		@foreach (var book in group.OrderBy(b => b.RightsHolders).ThenBy(b => b.Title))
   {
 			<tr>
-				<td>@String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName))
+				<td>@book.RightsHolders
 				</td>
-				<td>@Html.ActionLink(book.Title, "details", new { id = book.Id })
+				<td><a href="@book.Url">@book.Title</a>
 				</td>
 				<td>@book.Subtitle
 				</td>

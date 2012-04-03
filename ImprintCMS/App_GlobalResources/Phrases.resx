@@ -423,4 +423,7 @@
   <data name="HeadingAuthorBooks" xml:space="preserve">
     <value>Bøker</value>
   </data>
+  <data name="LabelHasExternalPublisher" xml:space="preserve">
+    <value>Other publisher</value>
+  </data>
 </root>
