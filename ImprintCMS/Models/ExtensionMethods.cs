@@ -34,6 +34,7 @@ namespace ImprintCMS.Models
 		{
 			if (source == "image/jpeg") return Phrases.FileTypeImage;
 			if (source == "application/pdf") return Phrases.FileTypePDF;
+			if (source == "application/msword") return Phrases.FileTypeWordDocument;
 			return source;
 		}
 
