@@ -429,4 +429,10 @@
 	<data name="FileTypeWordDocument">
 		<value xml:space="preserve">Word document</value>
 	</data>
+	<data name="ValidationNoEditions">
+		<value xml:space="preserve">No editions</value>
+	</data>
+	<data name="ValidationNoRightsHolders">
+		<value xml:space="preserve">No rights holders</value>
+	</data>
 </root>

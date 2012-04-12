@@ -977,5 +977,23 @@ namespace ImprintCMS.Models {
                 return ResourceManager.GetString("ValidationInvalidLogin", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No editions.
+        /// </summary>
+        public static string ValidationNoEditions {
+            get {
+                return ResourceManager.GetString("ValidationNoEditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No rights holders.
+        /// </summary>
+        public static string ValidationNoRightsHolders {
+            get {
+                return ResourceManager.GetString("ValidationNoRightsHolders", resourceCulture);
+            }
+        }
     }
 }
