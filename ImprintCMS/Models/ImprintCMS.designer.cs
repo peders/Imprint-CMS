@@ -36,6 +36,12 @@ namespace ImprintCMS.Models
     partial void InsertBook(Book instance);
     partial void UpdateBook(Book instance);
     partial void DeleteBook(Book instance);
+    partial void InsertBookList(BookList instance);
+    partial void UpdateBookList(BookList instance);
+    partial void DeleteBookList(BookList instance);
+    partial void InsertBookListMembership(BookListMembership instance);
+    partial void UpdateBookListMembership(BookListMembership instance);
+    partial void DeleteBookListMembership(BookListMembership instance);
     partial void InsertEdition(Edition instance);
     partial void UpdateEdition(Edition instance);
     partial void DeleteEdition(Edition instance);
@@ -99,6 +105,22 @@ namespace ImprintCMS.Models
 			get
 			{
 				return this.GetTable<Book>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BookList> BookLists
+		{
+			get
+			{
+				return this.GetTable<BookList>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BookListMembership> BookListMemberships
+		{
+			get
+			{
+				return this.GetTable<BookListMembership>();
 			}
 		}
 		
@@ -293,6 +315,8 @@ namespace ImprintCMS.Models
 		
 		private System.Nullable<int> _ExternalReleaseYear;
 		
+		private EntitySet<BookListMembership> _BookListMemberships;
+		
 		private EntitySet<Edition> _Editions;
 		
 		private EntitySet<Relation> _Relations;
@@ -331,6 +355,7 @@ namespace ImprintCMS.Models
 		
 		public Book()
 		{
+			this._BookListMemberships = new EntitySet<BookListMembership>(new Action<BookListMembership>(this.attach_BookListMemberships), new Action<BookListMembership>(this.detach_BookListMemberships));
 			this._Editions = new EntitySet<Edition>(new Action<Edition>(this.attach_Editions), new Action<Edition>(this.detach_Editions));
 			this._Relations = new EntitySet<Relation>(new Action<Relation>(this.attach_Relations), new Action<Relation>(this.detach_Relations));
 			this._Genre = default(EntityRef<Genre>);
@@ -566,6 +591,19 @@ namespace ImprintCMS.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Book_BookListMembership", Storage="_BookListMemberships", ThisKey="Id", OtherKey="BookId")]
+		public EntitySet<BookListMembership> BookListMemberships
+		{
+			get
+			{
+				return this._BookListMemberships;
+			}
+			set
+			{
+				this._BookListMemberships.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Book_Edition", Storage="_Editions", ThisKey="Id", OtherKey="BookId")]
 		public EntitySet<Edition> Editions
 		{
@@ -680,6 +718,18 @@ namespace ImprintCMS.Models
 			}
 		}
 		
+		private void attach_BookListMemberships(BookListMembership entity)
+		{
+			this.SendPropertyChanging();
+			entity.Book = this;
+		}
+		
+		private void detach_BookListMemberships(BookListMembership entity)
+		{
+			this.SendPropertyChanging();
+			entity.Book = null;
+		}
+		
 		private void attach_Editions(Edition entity)
 		{
 			this.SendPropertyChanging();
@@ -702,6 +752,384 @@ namespace ImprintCMS.Models
 		{
 			this.SendPropertyChanging();
 			entity.Book = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BookList")]
+	public partial class BookList : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Title;
+		
+		private bool _IsVisible;
+		
+		private int _SequenceIdentifier;
+		
+		private EntitySet<BookListMembership> _BookListMemberships;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnIsVisibleChanging(bool value);
+    partial void OnIsVisibleChanged();
+    partial void OnSequenceIdentifierChanging(int value);
+    partial void OnSequenceIdentifierChanged();
+    #endregion
+		
+		public BookList()
+		{
+			this._BookListMemberships = new EntitySet<BookListMembership>(new Action<BookListMembership>(this.attach_BookListMemberships), new Action<BookListMembership>(this.detach_BookListMemberships));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsVisible", DbType="Bit NOT NULL")]
+		public bool IsVisible
+		{
+			get
+			{
+				return this._IsVisible;
+			}
+			set
+			{
+				if ((this._IsVisible != value))
+				{
+					this.OnIsVisibleChanging(value);
+					this.SendPropertyChanging();
+					this._IsVisible = value;
+					this.SendPropertyChanged("IsVisible");
+					this.OnIsVisibleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SequenceIdentifier", DbType="Int NOT NULL")]
+		public int SequenceIdentifier
+		{
+			get
+			{
+				return this._SequenceIdentifier;
+			}
+			set
+			{
+				if ((this._SequenceIdentifier != value))
+				{
+					this.OnSequenceIdentifierChanging(value);
+					this.SendPropertyChanging();
+					this._SequenceIdentifier = value;
+					this.SendPropertyChanged("SequenceIdentifier");
+					this.OnSequenceIdentifierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BookList_BookListMembership", Storage="_BookListMemberships", ThisKey="Id", OtherKey="BookListId")]
+		public EntitySet<BookListMembership> BookListMemberships
+		{
+			get
+			{
+				return this._BookListMemberships;
+			}
+			set
+			{
+				this._BookListMemberships.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BookListMemberships(BookListMembership entity)
+		{
+			this.SendPropertyChanging();
+			entity.BookList = this;
+		}
+		
+		private void detach_BookListMemberships(BookListMembership entity)
+		{
+			this.SendPropertyChanging();
+			entity.BookList = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BookListMembership")]
+	public partial class BookListMembership : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _BookId;
+		
+		private int _BookListId;
+		
+		private int _SequenceIdentifier;
+		
+		private EntityRef<Book> _Book;
+		
+		private EntityRef<BookList> _BookList;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnBookIdChanging(int value);
+    partial void OnBookIdChanged();
+    partial void OnBookListIdChanging(int value);
+    partial void OnBookListIdChanged();
+    partial void OnSequenceIdentifierChanging(int value);
+    partial void OnSequenceIdentifierChanged();
+    #endregion
+		
+		public BookListMembership()
+		{
+			this._Book = default(EntityRef<Book>);
+			this._BookList = default(EntityRef<BookList>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookId", DbType="Int NOT NULL")]
+		public int BookId
+		{
+			get
+			{
+				return this._BookId;
+			}
+			set
+			{
+				if ((this._BookId != value))
+				{
+					if (this._Book.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBookIdChanging(value);
+					this.SendPropertyChanging();
+					this._BookId = value;
+					this.SendPropertyChanged("BookId");
+					this.OnBookIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookListId", DbType="Int NOT NULL")]
+		public int BookListId
+		{
+			get
+			{
+				return this._BookListId;
+			}
+			set
+			{
+				if ((this._BookListId != value))
+				{
+					if (this._BookList.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBookListIdChanging(value);
+					this.SendPropertyChanging();
+					this._BookListId = value;
+					this.SendPropertyChanged("BookListId");
+					this.OnBookListIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SequenceIdentifier", DbType="Int NOT NULL")]
+		public int SequenceIdentifier
+		{
+			get
+			{
+				return this._SequenceIdentifier;
+			}
+			set
+			{
+				if ((this._SequenceIdentifier != value))
+				{
+					this.OnSequenceIdentifierChanging(value);
+					this.SendPropertyChanging();
+					this._SequenceIdentifier = value;
+					this.SendPropertyChanged("SequenceIdentifier");
+					this.OnSequenceIdentifierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Book_BookListMembership", Storage="_Book", ThisKey="BookId", OtherKey="Id", IsForeignKey=true)]
+		public Book Book
+		{
+			get
+			{
+				return this._Book.Entity;
+			}
+			set
+			{
+				Book previousValue = this._Book.Entity;
+				if (((previousValue != value) 
+							|| (this._Book.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Book.Entity = null;
+						previousValue.BookListMemberships.Remove(this);
+					}
+					this._Book.Entity = value;
+					if ((value != null))
+					{
+						value.BookListMemberships.Add(this);
+						this._BookId = value.Id;
+					}
+					else
+					{
+						this._BookId = default(int);
+					}
+					this.SendPropertyChanged("Book");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BookList_BookListMembership", Storage="_BookList", ThisKey="BookListId", OtherKey="Id", IsForeignKey=true)]
+		public BookList BookList
+		{
+			get
+			{
+				return this._BookList.Entity;
+			}
+			set
+			{
+				BookList previousValue = this._BookList.Entity;
+				if (((previousValue != value) 
+							|| (this._BookList.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BookList.Entity = null;
+						previousValue.BookListMemberships.Remove(this);
+					}
+					this._BookList.Entity = value;
+					if ((value != null))
+					{
+						value.BookListMemberships.Add(this);
+						this._BookListId = value.Id;
+					}
+					else
+					{
+						this._BookListId = default(int);
+					}
+					this.SendPropertyChanged("BookList");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

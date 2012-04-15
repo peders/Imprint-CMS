@@ -20,10 +20,30 @@
       <Column Name="IsDebut" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="ExternalPublisher" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ExternalReleaseYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Book_BookListMembership" Member="BookListMemberships" ThisKey="Id" OtherKey="BookId" Type="BookListMembership" />
       <Association Name="Book_Edition" Member="Editions" ThisKey="Id" OtherKey="BookId" Type="Edition" />
       <Association Name="Book_Relation" Member="Relations" ThisKey="Id" OtherKey="BookId" Type="Relation" />
       <Association Name="Genre_Book" Member="Genre" ThisKey="GenreId" OtherKey="Id" Type="Genre" IsForeignKey="true" />
       <Association Name="UploadedFile_Book" Member="UploadedFile" ThisKey="ExcerptId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BookList" Member="BookLists">
+    <Type Name="BookList">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="BookList_BookListMembership" Member="BookListMemberships" ThisKey="Id" OtherKey="BookListId" Type="BookListMembership" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BookListMembership" Member="BookListMemberships">
+    <Type Name="BookListMembership">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Book_BookListMembership" Member="Book" ThisKey="BookId" OtherKey="Id" Type="Book" IsForeignKey="true" />
+      <Association Name="BookList_BookListMembership" Member="BookList" ThisKey="BookListId" OtherKey="Id" Type="BookList" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Edition" Member="Editions">
