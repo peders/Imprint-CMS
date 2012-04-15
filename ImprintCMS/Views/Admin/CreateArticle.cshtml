@@ -1,0 +1,9 @@
+﻿@model Article
+@{
+	ViewBag.Title = Phrases.PagenameCreateNewsArticle;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameNewsArticles, "newsarticles"),
+		Phrases.PagenameCreateNewsArticle.ToHtmlString()
+	};
+}
+@Html.EditorForModel()

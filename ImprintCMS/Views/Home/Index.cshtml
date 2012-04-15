@@ -5,7 +5,7 @@
 <div id="booklists">
 	@foreach (var list in Model.BookLists)
  {
-		<h2>@list.Title</h2>
+		<h1>@list.Title</h1>
 		<ul class="booklist">
 			@foreach (var book in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Book))
    {
@@ -13,5 +13,27 @@
 					@Html.ActionLink(book.Title, "details", "books", new { id = book.Id }, null)</li>
    }
 		</ul>
+ }
+</div>
+<div id="articles">
+	@foreach (var article in Model.Articles)
+ {
+		<article>
+			<h1>@article.Title</h1>
+			<div>@article.Description.ToRichText()</div>
+			@if (article.BookId != null || article.PersonId != null)
+   {
+				<ul class="links">
+					@if (article.Book != null)
+	 {
+						<li>@Html.ActionLink(article.Book.Title, "details", "books", new { id = article.BookId }, null)</li>
+	 }
+					@if (article.Person != null)
+	 {
+						<li>@Html.ActionLink(article.Person.FullName, "details", "authors", new { id = article.PersonId }, null)</li>
+	 }
+				</ul>
+   }
+		</article>
  }
 </div>

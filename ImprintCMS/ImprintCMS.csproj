@@ -75,6 +75,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Binding.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookList.cs" />
@@ -439,6 +440,11 @@
     <Content Include="Views\Admin\EditBookList.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\BookListMembership.cshtml" />
     <Content Include="Views\Admin\CreateBookListMembership.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Article.cshtml" />
+    <Content Include="Views\Admin\NewsArticles.cshtml" />
+    <Content Include="Views\Admin\ContactArticles.cshtml" />
+    <Content Include="Views\Admin\CreateArticle.cshtml" />
+    <Content Include="Views\Admin\EditArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

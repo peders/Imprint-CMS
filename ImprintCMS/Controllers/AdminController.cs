@@ -66,7 +66,7 @@ namespace ImprintCMS.Controllers
 		{
 			var file = Repository.GetUploadedFile(id);
 			if (file == null) return HttpNotFound();
-			if (file.Books.Any() || file.Editions.Any() || file.Editions1.Any() || file.Persons.Any() || file.Persons1.Any()) return View("NotEmpty");
+			if (file.Books.Any() || file.Editions.Any() || file.Editions1.Any() || file.Persons.Any() || file.Persons1.Any() || file.Articles.Any()) return View("NotEmpty");
 			Repository.Delete(file);
 			Repository.Save();
 			return RedirectToAction("uploads");
@@ -271,7 +271,7 @@ namespace ImprintCMS.Controllers
 		{
 			var person = Repository.GetPerson(id);
 			if (person == null) return HttpNotFound();
-			if (person.Relations.Any()) return View("NotEmpty");
+			if (person.Relations.Any() || person.Articles.Any()) return View("NotEmpty");
 			Repository.Delete(person);
 			Repository.Save();
 			return RedirectToAction("people");
@@ -336,7 +336,7 @@ namespace ImprintCMS.Controllers
 		{
 			var book = Repository.GetBook(id);
 			if (book == null) return HttpNotFound();
-			if (book.Relations.Any() || book.Editions.Any()) return View("NotEmpty");
+			if (book.Relations.Any() || book.Editions.Any() || book.BookListMemberships.Any() || book.Articles.Any()) return View("NotEmpty");
 			Repository.Delete(book);
 			Repository.Save();
 			return RedirectToAction("books");
@@ -534,7 +534,7 @@ namespace ImprintCMS.Controllers
 				BookList = list,
 				SequenceIdentifier = int.MaxValue
 			};
-			ViewBag.Books = BooksForBookListList(vm.BookId);
+			ViewBag.Books = LinkableBooksList(vm.BookId);
 			return View(vm);
 		}
 
@@ -543,7 +543,7 @@ namespace ImprintCMS.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				ViewBag.Books = BooksForBookListList(vm.BookId);
+				ViewBag.Books = LinkableBooksList(vm.BookId);
 				vm.BookList = Repository.GetBookList(vm.BookListId);
 				return View(vm);
 			}
@@ -559,6 +559,74 @@ namespace ImprintCMS.Controllers
 			Repository.Delete(vm);
 			Repository.Save();
 			return RedirectToAction("editbooklist", new { id = vm.BookListId });
+		}
+
+		public ActionResult NewsArticles()
+		{
+			var vm = Repository.NewsArticles.OrderByDescending(a => a.Date);
+			return View(vm);
+		}
+
+		public ActionResult CreateNewsArticle()
+		{
+			return CreateArticle(false);
+		}
+
+		[HttpPost]
+		public ActionResult CreateNewsArticle(Article vm)
+		{
+			return CreateArticle(vm);
+		}
+
+		public ActionResult ContactArticles()
+		{
+			var vm = Repository.ContactArticles.OrderByDescending(a => a.Date);
+			return View(vm);
+		}
+
+		public ActionResult CreateContactArticle()
+		{
+			return CreateArticle(true);
+		}
+
+		[HttpPost]
+		public ActionResult CreateContactArticle(Article vm)
+		{
+			return CreateArticle(vm);
+		}
+
+		public ActionResult EditArticle(int id)
+		{
+			var vm = Repository.GetArticle(id);
+			if (vm == null) return HttpNotFound();
+			ViewBag.Books = LinkableBooksList(vm.BookId);
+			ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
+			ViewBag.People = LinkablePeopleList(vm.PersonId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult EditArticle(Article vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.Books = LinkableBooksList(vm.BookId);
+				ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
+				ViewBag.People = LinkablePeopleList(vm.PersonId);
+				return View(vm);
+			}
+			UpdateModel(Repository.GetArticle(vm.Id));
+			Repository.Save();
+			return RedirectToAction(vm.IsForContactPage ? "contactarticles" : "newsarticles");
+		}
+
+		public ActionResult DeleteArticle(int id)
+		{
+			var article = Repository.GetArticle(id);
+			if (article == null) return HttpNotFound();
+			Repository.Delete(article);
+			Repository.Save();
+			return RedirectToAction(article.IsForContactPage ? "contactarticles" : "newsarticles");
 		}
 
 		[HttpPost]
@@ -625,6 +693,33 @@ namespace ImprintCMS.Controllers
 			return new HttpStatusCodeResult(200);
 		}
 
+		private ActionResult CreateArticle(bool isForContactPage)
+		{
+			var vm = new Article
+			{
+				Date = DateTime.Today,
+				IsForContactPage = isForContactPage
+			};
+			ViewBag.Books = LinkableBooksList(vm.BookId);
+			ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
+			ViewBag.People = LinkablePeopleList(vm.PersonId);
+			return View("createarticle", vm);
+		}
+		private ActionResult CreateArticle(Article article)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.Books = LinkableBooksList(article.BookId);
+				ViewBag.Images = FileList(FileCategories.NewsImage, article.ImageId);
+				ViewBag.People = LinkablePeopleList(article.PersonId);
+				return View("createarticle", article);
+			}
+			Repository.Add(article);
+			Repository.Save();
+			return RedirectToAction(article.IsForContactPage ? "contactarticles" : "newsarticles");
+		}
+
+
 		private void ValidateExternalPublisher(Book vm)
 		{
 			if (!String.IsNullOrWhiteSpace(vm.ExternalPublisher) && vm.ExternalReleaseYear == null)
@@ -653,7 +748,11 @@ namespace ImprintCMS.Controllers
 		{
 			return new SelectList(Repository.People.OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
 		}
-		private SelectList BooksForBookListList(int? selectedId)
+		private SelectList LinkablePeopleList(int? selectedId)
+		{
+			return new SelectList(Repository.People.Where(p => p.IsVisible && p.HasPage).OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
+		}
+		private SelectList LinkableBooksList(int? selectedId)
 		{
 			return new SelectList(Repository.Books.Where(b => b.IsVisible && !b.HasExternalPublisher).OrderBy(b => b.Title).ThenBy(b => b.Subtitle), "Id", "FullTitle", selectedId ?? default(int));
 		}

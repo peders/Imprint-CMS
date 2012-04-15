@@ -142,6 +142,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Body text.
+        /// </summary>
+        public static string LabelBodyText {
+            get {
+                return ResourceManager.GetString("LabelBodyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Book.
         /// </summary>
         public static string LabelBook {
@@ -286,6 +295,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Image.
+        /// </summary>
+        public static string LabelImage {
+            get {
+                return ResourceManager.GetString("LabelImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ISBN.
         /// </summary>
         public static string LabelIsbn {
@@ -336,6 +354,24 @@ namespace ImprintCMS.Models {
         public static string LabelLastName {
             get {
                 return ResourceManager.GetString("LabelLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Link to book.
+        /// </summary>
+        public static string LabelLinkToBook {
+            get {
+                return ResourceManager.GetString("LabelLinkToBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Link to person.
+        /// </summary>
+        public static string LabelLinkToPerson {
+            get {
+                return ResourceManager.GetString("LabelLinkToPerson", resourceCulture);
             }
         }
         
@@ -619,6 +655,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact articles.
+        /// </summary>
+        public static string PagenameContactArticles {
+            get {
+                return ResourceManager.GetString("PagenameContactArticles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New binding.
         /// </summary>
         public static string PagenameCreateBinding {
@@ -655,6 +700,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New contact article.
+        /// </summary>
+        public static string PagenameCreateContactArticle {
+            get {
+                return ResourceManager.GetString("PagenameCreateContactArticle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New book edition.
         /// </summary>
         public static string PagenameCreateEdition {
@@ -669,6 +723,15 @@ namespace ImprintCMS.Models {
         public static string PagenameCreateGenre {
             get {
                 return ResourceManager.GetString("PagenameCreateGenre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New news article.
+        /// </summary>
+        public static string PagenameCreateNewsArticle {
+            get {
+                return ResourceManager.GetString("PagenameCreateNewsArticle", resourceCulture);
             }
         }
         
@@ -705,6 +768,15 @@ namespace ImprintCMS.Models {
         public static string PagenameCreateUpload {
             get {
                 return ResourceManager.GetString("PagenameCreateUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit article.
+        /// </summary>
+        public static string PagenameEditArticle {
+            get {
+                return ResourceManager.GetString("PagenameEditArticle", resourceCulture);
             }
         }
         
@@ -804,6 +876,15 @@ namespace ImprintCMS.Models {
         public static string PagenameLogIn {
             get {
                 return ResourceManager.GetString("PagenameLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to News articles.
+        /// </summary>
+        public static string PagenameNewsArticles {
+            get {
+                return ResourceManager.GetString("PagenameNewsArticles", resourceCulture);
             }
         }
         
@@ -1047,6 +1128,15 @@ namespace ImprintCMS.Models {
         public static string ValidationNoRightsHolders {
             get {
                 return ResourceManager.GetString("ValidationNoRightsHolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max 50 characters.
+        /// </summary>
+        public static string ValidationStringLength50 {
+            get {
+                return ResourceManager.GetString("ValidationStringLength50", resourceCulture);
             }
         }
     }

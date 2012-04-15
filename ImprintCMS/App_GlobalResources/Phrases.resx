@@ -453,4 +453,34 @@
   <data name="PagenameCreateBookListMembership" xml:space="preserve">
     <value>New book list member</value>
   </data>
+  <data name="PagenameCreateNewsArticle" xml:space="preserve">
+    <value>New news article</value>
+  </data>
+  <data name="PagenameEditArticle" xml:space="preserve">
+    <value>Edit article</value>
+  </data>
+  <data name="ValidationStringLength50" xml:space="preserve">
+    <value>Max 50 characters</value>
+  </data>
+  <data name="LabelBodyText" xml:space="preserve">
+    <value>Body text</value>
+  </data>
+  <data name="LabelImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="LabelLinkToBook" xml:space="preserve">
+    <value>Link to book</value>
+  </data>
+  <data name="LabelLinkToPerson" xml:space="preserve">
+    <value>Link to person</value>
+  </data>
+  <data name="PagenameContactArticles" xml:space="preserve">
+    <value>Contact articles</value>
+  </data>
+  <data name="PagenameCreateContactArticle" xml:space="preserve">
+    <value>New contact article</value>
+  </data>
+  <data name="PagenameNewsArticles" xml:space="preserve">
+    <value>News articles</value>
+  </data>
 </root>

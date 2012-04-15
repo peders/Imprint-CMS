@@ -1,0 +1,51 @@
+﻿@model Article
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+	<fieldset class="fields">
+		<p>
+			@Html.LabelFor(model => model.Title, Phrases.LabelTitle)<br />
+			@Html.TextBoxFor(model => model.Title)
+			@Html.ValidationMessageFor(model => model.Title)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Description, Phrases.LabelBodyText)<br />
+			@Html.TextAreaFor(model => model.Description, new { @class = "rich" })
+			@Html.ValidationMessageFor(model => model.Description)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Date, Phrases.LabelReleaseDate)<br />
+			@Html.TextBox("Date", String.Format("{0:d}", Model.Date), new { @class = "datepicker" })
+			@Html.ValidationMessageFor(model => model.Date)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.ImageId, Phrases.LabelImage)<br />
+			@Html.DropDownListFor(model => model.ImageId, (SelectList)ViewBag.Images, "–")
+			@Html.ValidationMessageFor(model => model.ImageId)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.PersonId, Phrases.LabelLinkToPerson)<br />
+			@Html.DropDownListFor(model => model.PersonId, (SelectList)ViewBag.People, "–")
+			@Html.ValidationMessageFor(model => model.PersonId)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.BookId, Phrases.LabelLinkToBook)<br />
+			@Html.DropDownListFor(model => model.BookId, (SelectList)ViewBag.Books, "–")
+			@Html.ValidationMessageFor(model => model.BookId)
+		</p>
+	</fieldset>
+	<fieldset class="options">
+		<p>
+			@Html.CheckBoxFor(model => model.IsVisible)
+			@Html.LabelFor(model => model.IsVisible, Phrases.LabelIsVisible)
+		</p>
+	</fieldset>
+	<fieldset class="hidden">
+		@Html.HiddenFor(model => model.IsForContactPage)
+	</fieldset>
+	<fieldset class="buttons">
+		<p>
+			<input type="submit" value="@Phrases.LabelSave" />
+		</p>
+	</fieldset>
+}

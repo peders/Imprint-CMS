@@ -11,7 +11,8 @@ namespace ImprintCMS.Controllers
 		{
 			var vm = new SiteFrontPage
 			{
-				BookLists = Repository.BookLists.Where(l => l.IsVisible).OrderBy(l => l.SequenceIdentifier)
+				BookLists = Repository.BookLists.Where(l => l.IsVisible).OrderBy(l => l.SequenceIdentifier),
+				Articles = Repository.NewsArticles.Where(a => a.IsVisible).OrderByDescending(a => a.Date)
 			};
 			return View(vm);
 		}
