@@ -8,6 +8,7 @@
 		SmallPortrait,
 		LargePhoto,
 		SmallPhoto,
+		NewsImage,
 		Excerpt,
 		Attachment,
 		Stylesheet,
