@@ -138,6 +138,27 @@ namespace ImprintCMS.Models
 			_db.Books.DeleteOnSubmit(book);
 		}
 
+		public IEnumerable<BookList> BookLists
+		{
+			get
+			{
+				return _db.BookLists;
+			}
+		}
+		public BookList GetBookList(int id)
+		{
+			return _db.BookLists.SingleOrDefault(l => l.Id == id);
+		}
+		public void Add(BookList list)
+		{
+			_db.BookLists.InsertOnSubmit(list);
+		}
+		public void Delete(BookList list)
+		{
+			_db.BookListMemberships.DeleteAllOnSubmit(list.BookListMemberships);
+			_db.BookLists.DeleteOnSubmit(list);
+		}
+
 		public Edition GetEdition(int id)
 		{
 			return _db.Editions.SingleOrDefault(e => e.Id == id);
@@ -162,6 +183,19 @@ namespace ImprintCMS.Models
 		public void Delete(Relation relation)
 		{
 			_db.Relations.DeleteOnSubmit(relation);
+		}
+
+		public BookListMembership GetBookListMembership(int id)
+		{
+			return _db.BookListMemberships.SingleOrDefault(m => m.Id == id);
+		}
+		public void Add(BookListMembership membership)
+		{
+			_db.BookListMemberships.InsertOnSubmit(membership);
+		}
+		public void Delete(BookListMembership membership)
+		{
+			_db.BookListMemberships.DeleteOnSubmit(membership);
 		}
 
 		public void Save()

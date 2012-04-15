@@ -77,6 +77,8 @@
     </Compile>
     <Compile Include="Models\Binding.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BookList.cs" />
+    <Compile Include="Models\BookListMembership.cs" />
     <Compile Include="Models\Relation.cs" />
     <Compile Include="Models\Edition.cs" />
     <Compile Include="Models\Person.cs" />
@@ -430,6 +432,12 @@
     <Content Include="Views\Authors\Index.cshtml" />
     <Content Include="Views\Books\Details.cshtml" />
     <Content Include="Views\Authors\Details.cshtml" />
+    <Content Include="Views\Admin\BookLists.cshtml" />
+    <Content Include="Views\Admin\CreateBookList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\BookList.cshtml" />
+    <Content Include="Views\Admin\EditBookList.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\BookListMembership.cshtml" />
+    <Content Include="Views\Admin\CreateBookListMembership.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

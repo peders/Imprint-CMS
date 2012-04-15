@@ -476,6 +476,123 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("editbook", new { id = vm.BookId });
 		}
 
+		public ActionResult BookLists()
+		{
+			var vm = Repository.BookLists.OrderBy(l => l.SequenceIdentifier);
+			return View(vm);
+		}
+
+		public ActionResult CreateBookList()
+		{
+			var vm = new BookList
+			{
+				SequenceIdentifier = int.MaxValue
+			};
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreateBookList(BookList vm)
+		{
+			if (!ModelState.IsValid) return View(vm);
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("booklists");
+		}
+
+		public ActionResult EditBookList(int id)
+		{
+			var vm = Repository.GetBookList(id);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult EditBookList(BookList vm)
+		{
+			if (!ModelState.IsValid) return View(vm);
+			UpdateModel(Repository.GetBookList(vm.Id));
+			Repository.Save();
+			return RedirectToAction("booklists");
+		}
+
+		public ActionResult DeleteBookList(int id)
+		{
+			var list = Repository.GetBookList(id);
+			if (list == null) return HttpNotFound();
+			Repository.Delete(list);
+			Repository.Save();
+			return RedirectToAction("booklists");
+		}
+
+		public ActionResult CreateBookListMembership(int id)
+		{
+			var list = Repository.GetBookList(id);
+			if (list == null) return HttpNotFound();
+			var vm = new BookListMembership
+			{
+				BookListId = id,
+				BookList = list,
+				SequenceIdentifier = int.MaxValue
+			};
+			ViewBag.Books = BookList(vm.BookId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreateBookListMembership(BookListMembership vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.Books = BookList(vm.BookId);
+				vm.BookList = Repository.GetBookList(vm.BookListId);
+				return View(vm);
+			}
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("editbooklist", new { id = vm.BookListId });
+		}
+
+		public ActionResult DeleteBookListMembership(int id)
+		{
+			var vm = Repository.GetBookListMembership(id);
+			if (vm == null) return HttpNotFound();
+			Repository.Delete(vm);
+			Repository.Save();
+			return RedirectToAction("editbooklist", new { id = vm.BookListId });
+		}
+
+		[HttpPost]
+		public ActionResult StoreBookListOrder()
+		{
+			var data = Request.Form["sortitem[]"] as string;
+			var ids = data.Split(',').Select(int.Parse);
+			var sequenceIdentifier = 0;
+			foreach (var id in ids)
+			{
+				var list = Repository.GetBookList(id);
+				list.SequenceIdentifier = sequenceIdentifier;
+				sequenceIdentifier++;
+			}
+			Repository.Save();
+			return new HttpStatusCodeResult(200);
+		}
+
+		[HttpPost]
+		public ActionResult StoreBookListMembershipOrder()
+		{
+			var data = Request.Form["sortitem[]"] as string;
+			var ids = data.Split(',').Select(int.Parse);
+			var sequenceIdentifier = 0;
+			foreach (var id in ids)
+			{
+				var member = Repository.GetBookListMembership(id);
+				member.SequenceIdentifier = sequenceIdentifier;
+				sequenceIdentifier++;
+			}
+			Repository.Save();
+			return new HttpStatusCodeResult(200);
+		}
+
 		[HttpPost]
 		public ActionResult StoreRelationOrder()
 		{
@@ -535,6 +652,10 @@ namespace ImprintCMS.Controllers
 		private SelectList PeopleList(int? selectedId)
 		{
 			return new SelectList(Repository.People.OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
+		}
+		private SelectList BookList(int? selectedId)
+		{
+			return new SelectList(Repository.Books.OrderBy(b => b.Title).ThenBy(b => b.Subtitle), "Id", "FullTitle", selectedId ?? default(int));
 		}
 
 	}

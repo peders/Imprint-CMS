@@ -426,13 +426,31 @@
   <data name="LabelHasExternalPublisher" xml:space="preserve">
     <value>Other publisher</value>
   </data>
-	<data name="FileTypeWordDocument">
-		<value xml:space="preserve">Word document</value>
-	</data>
-	<data name="ValidationNoEditions">
-		<value xml:space="preserve">No editions</value>
-	</data>
-	<data name="ValidationNoRightsHolders">
-		<value xml:space="preserve">No rights holders</value>
-	</data>
+  <data name="FileTypeWordDocument" xml:space="preserve">
+    <value>Word document</value>
+  </data>
+  <data name="ValidationNoEditions" xml:space="preserve">
+    <value>No editions</value>
+  </data>
+  <data name="ValidationNoRightsHolders" xml:space="preserve">
+    <value>No rights holders</value>
+  </data>
+  <data name="PagenameBookLists" xml:space="preserve">
+    <value>Book lists</value>
+  </data>
+  <data name="PagenameCreateBookList" xml:space="preserve">
+    <value>New book list</value>
+  </data>
+  <data name="PagenameEditBookList" xml:space="preserve">
+    <value>Edit book list</value>
+  </data>
+  <data name="LabelBooks" xml:space="preserve">
+    <value>Books</value>
+  </data>
+  <data name="LabelBookList" xml:space="preserve">
+    <value>Book list</value>
+  </data>
+  <data name="PagenameCreateBookListMembership" xml:space="preserve">
+    <value>New book list member</value>
+  </data>
 </root>
