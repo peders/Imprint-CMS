@@ -534,7 +534,7 @@ namespace ImprintCMS.Controllers
 				BookList = list,
 				SequenceIdentifier = int.MaxValue
 			};
-			ViewBag.Books = BookList(vm.BookId);
+			ViewBag.Books = BooksForBookListList(vm.BookId);
 			return View(vm);
 		}
 
@@ -543,7 +543,7 @@ namespace ImprintCMS.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				ViewBag.Books = BookList(vm.BookId);
+				ViewBag.Books = BooksForBookListList(vm.BookId);
 				vm.BookList = Repository.GetBookList(vm.BookListId);
 				return View(vm);
 			}
@@ -653,9 +653,9 @@ namespace ImprintCMS.Controllers
 		{
 			return new SelectList(Repository.People.OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
 		}
-		private SelectList BookList(int? selectedId)
+		private SelectList BooksForBookListList(int? selectedId)
 		{
-			return new SelectList(Repository.Books.OrderBy(b => b.Title).ThenBy(b => b.Subtitle), "Id", "FullTitle", selectedId ?? default(int));
+			return new SelectList(Repository.Books.Where(b => b.IsVisible && !b.HasExternalPublisher).OrderBy(b => b.Title).ThenBy(b => b.Subtitle), "Id", "FullTitle", selectedId ?? default(int));
 		}
 
 	}

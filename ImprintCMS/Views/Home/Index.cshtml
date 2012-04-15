@@ -1,4 +1,17 @@
-﻿@{
+﻿@model SiteFrontPage
+@{
 	ViewBag.Title = Phrases.SystemSiteName;
 }
-@Html.ActionLink("Admin", "index", "admin")
+<div id="booklists">
+	@foreach (var list in Model.BookLists)
+ {
+		<h2>@list.Title</h2>
+		<ul class="booklist">
+			@foreach (var book in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Book))
+   {
+				<li>@String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName)):
+					@Html.ActionLink(book.Title, "details", "books", new { id = book.Id }, null)</li>
+   }
+		</ul>
+ }
+</div>

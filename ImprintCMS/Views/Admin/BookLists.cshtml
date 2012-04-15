@@ -12,6 +12,7 @@
 	@foreach (var list in Model)
  {
 		<li id="@String.Format("sortitem_{0}", list.Id)"><span class="name">@Html.ActionLink(list.Title, "editbooklist", new { id = list.Id })</span>
+			<span class="data">@String.Format("{0}: {1}", Phrases.LabelBooks, list.BookListMemberships.Count())</span>
 			@Html.ActionLink(Phrases.LabelDelete, "deletebooklist", new { id = list.Id })</li>
  }
 </ul>

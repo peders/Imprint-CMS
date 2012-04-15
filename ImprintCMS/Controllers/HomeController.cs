@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
+using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Controllers
 {
@@ -7,7 +9,11 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult Index()
 		{
-			return View();
+			var vm = new SiteFrontPage
+			{
+				BookLists = Repository.BookLists.Where(l => l.IsVisible).OrderBy(l => l.SequenceIdentifier)
+			};
+			return View(vm);
 		}
 
 	}

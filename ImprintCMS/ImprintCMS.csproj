@@ -97,6 +97,7 @@
     <Compile Include="Models\ViewModels\FileUpload.cs" />
     <Compile Include="Models\ViewModels\ListBook.cs" />
     <Compile Include="Models\ViewModels\Login.cs" />
+    <Compile Include="Models\ViewModels\SiteFrontPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
