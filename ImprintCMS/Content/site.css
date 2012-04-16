@@ -17,6 +17,17 @@ header h1 { margin: 0; padding: 0; width: 170px; height: 100px; text-indent: -99
 #content { width: 910px; padding: 40px 35px; margin: 0 auto; background: #ffffff; border-radius: 4px; }
 #content #floatbreaker { clear: both; }
 
+#content.home #booklists { width: 200px; float: right; }
+#content.home #booklists .booklist { margin: 0 0 2em 0; }
+#content.home #booklists .booklist h1 { font-size: 1em; font-weight: bold; margin: 0; padding: 7px 10px; background: #eeeeee; color: #333333; border-radius: 4px 4px 0 0; }
+#content.home #booklists .booklist ul { list-style-type: none; margin: 0; padding: 7px 10px 10px 10px; background: #f8f8f8; border-radius: 0 0 4px 4px; }
+#content.home #booklists .booklist ul a { color: #000000; }
+
+#content.home #articles article { margin: 0 230px 2em 0; }
+#content.home #articles article h1 { font-family: Georgia, serif; font-weight: normal; font-size: 1.5em; letter-spacing: -1px; margin: 0 0 0.2em 0; }
+#content.home #articles article p { margin: 0 0 0.2em 0; }
+#content.home #articles article ul { margin: 0; padding: 0; list-style-type: none; }
+
 #content.books.index table.listing { width: 100%; }
 #content.books.index table.listing td { width: 40%; padding: 0 1em 0 0; }
 #content.books.index table.listing td:last-child { width: 20%; padding: 0; }
