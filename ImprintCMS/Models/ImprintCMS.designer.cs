@@ -705,8 +705,6 @@ namespace ImprintCMS.Models
 		
 		private EntitySet<Article> _Articles;
 		
-		private EntitySet<BookListMembership> _BookListMemberships;
-		
 		private EntitySet<Edition> _Editions;
 		
 		private EntitySet<Relation> _Relations;
@@ -746,7 +744,6 @@ namespace ImprintCMS.Models
 		public Book()
 		{
 			this._Articles = new EntitySet<Article>(new Action<Article>(this.attach_Articles), new Action<Article>(this.detach_Articles));
-			this._BookListMemberships = new EntitySet<BookListMembership>(new Action<BookListMembership>(this.attach_BookListMemberships), new Action<BookListMembership>(this.detach_BookListMemberships));
 			this._Editions = new EntitySet<Edition>(new Action<Edition>(this.attach_Editions), new Action<Edition>(this.detach_Editions));
 			this._Relations = new EntitySet<Relation>(new Action<Relation>(this.attach_Relations), new Action<Relation>(this.detach_Relations));
 			this._Genre = default(EntityRef<Genre>);
@@ -995,19 +992,6 @@ namespace ImprintCMS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Book_BookListMembership", Storage="_BookListMemberships", ThisKey="Id", OtherKey="BookId")]
-		public EntitySet<BookListMembership> BookListMemberships
-		{
-			get
-			{
-				return this._BookListMemberships;
-			}
-			set
-			{
-				this._BookListMemberships.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Book_Edition", Storage="_Editions", ThisKey="Id", OtherKey="BookId")]
 		public EntitySet<Edition> Editions
 		{
@@ -1129,18 +1113,6 @@ namespace ImprintCMS.Models
 		}
 		
 		private void detach_Articles(Article entity)
-		{
-			this.SendPropertyChanging();
-			entity.Book = null;
-		}
-		
-		private void attach_BookListMemberships(BookListMembership entity)
-		{
-			this.SendPropertyChanging();
-			entity.Book = this;
-		}
-		
-		private void detach_BookListMemberships(BookListMembership entity)
 		{
 			this.SendPropertyChanging();
 			entity.Book = null;
@@ -1341,15 +1313,15 @@ namespace ImprintCMS.Models
 		
 		private int _Id;
 		
-		private int _BookId;
+		private int _EditionId;
 		
 		private int _BookListId;
 		
 		private int _SequenceIdentifier;
 		
-		private EntityRef<Book> _Book;
-		
 		private EntityRef<BookList> _BookList;
+		
+		private EntityRef<Edition> _Edition;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1357,8 +1329,8 @@ namespace ImprintCMS.Models
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnBookIdChanging(int value);
-    partial void OnBookIdChanged();
+    partial void OnEditionIdChanging(int value);
+    partial void OnEditionIdChanged();
     partial void OnBookListIdChanging(int value);
     partial void OnBookListIdChanged();
     partial void OnSequenceIdentifierChanging(int value);
@@ -1367,8 +1339,8 @@ namespace ImprintCMS.Models
 		
 		public BookListMembership()
 		{
-			this._Book = default(EntityRef<Book>);
 			this._BookList = default(EntityRef<BookList>);
+			this._Edition = default(EntityRef<Edition>);
 			OnCreated();
 		}
 		
@@ -1392,26 +1364,26 @@ namespace ImprintCMS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookId", DbType="Int NOT NULL")]
-		public int BookId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EditionId", DbType="Int NOT NULL")]
+		public int EditionId
 		{
 			get
 			{
-				return this._BookId;
+				return this._EditionId;
 			}
 			set
 			{
-				if ((this._BookId != value))
+				if ((this._EditionId != value))
 				{
-					if (this._Book.HasLoadedOrAssignedValue)
+					if (this._Edition.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnBookIdChanging(value);
+					this.OnEditionIdChanging(value);
 					this.SendPropertyChanging();
-					this._BookId = value;
-					this.SendPropertyChanged("BookId");
-					this.OnBookIdChanged();
+					this._EditionId = value;
+					this.SendPropertyChanged("EditionId");
+					this.OnEditionIdChanged();
 				}
 			}
 		}
@@ -1460,40 +1432,6 @@ namespace ImprintCMS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Book_BookListMembership", Storage="_Book", ThisKey="BookId", OtherKey="Id", IsForeignKey=true)]
-		public Book Book
-		{
-			get
-			{
-				return this._Book.Entity;
-			}
-			set
-			{
-				Book previousValue = this._Book.Entity;
-				if (((previousValue != value) 
-							|| (this._Book.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Book.Entity = null;
-						previousValue.BookListMemberships.Remove(this);
-					}
-					this._Book.Entity = value;
-					if ((value != null))
-					{
-						value.BookListMemberships.Add(this);
-						this._BookId = value.Id;
-					}
-					else
-					{
-						this._BookId = default(int);
-					}
-					this.SendPropertyChanged("Book");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BookList_BookListMembership", Storage="_BookList", ThisKey="BookListId", OtherKey="Id", IsForeignKey=true)]
 		public BookList BookList
 		{
@@ -1524,6 +1462,40 @@ namespace ImprintCMS.Models
 						this._BookListId = default(int);
 					}
 					this.SendPropertyChanged("BookList");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Edition_BookListMembership", Storage="_Edition", ThisKey="EditionId", OtherKey="Id", IsForeignKey=true)]
+		public Edition Edition
+		{
+			get
+			{
+				return this._Edition.Entity;
+			}
+			set
+			{
+				Edition previousValue = this._Edition.Entity;
+				if (((previousValue != value) 
+							|| (this._Edition.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Edition.Entity = null;
+						previousValue.BookListMemberships.Remove(this);
+					}
+					this._Edition.Entity = value;
+					if ((value != null))
+					{
+						value.BookListMemberships.Add(this);
+						this._EditionId = value.Id;
+					}
+					else
+					{
+						this._EditionId = default(int);
+					}
+					this.SendPropertyChanged("Edition");
 				}
 			}
 		}
@@ -1577,6 +1549,8 @@ namespace ImprintCMS.Models
 		
 		private System.Nullable<decimal> _Price;
 		
+		private EntitySet<BookListMembership> _BookListMemberships;
+		
 		private EntityRef<Binding> _Binding;
 		
 		private EntityRef<Book> _Book;
@@ -1615,6 +1589,7 @@ namespace ImprintCMS.Models
 		
 		public Edition()
 		{
+			this._BookListMemberships = new EntitySet<BookListMembership>(new Action<BookListMembership>(this.attach_BookListMemberships), new Action<BookListMembership>(this.detach_BookListMemberships));
 			this._Binding = default(EntityRef<Binding>);
 			this._Book = default(EntityRef<Book>);
 			this._UploadedFile = default(EntityRef<UploadedFile>);
@@ -1858,6 +1833,19 @@ namespace ImprintCMS.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Edition_BookListMembership", Storage="_BookListMemberships", ThisKey="Id", OtherKey="EditionId")]
+		public EntitySet<BookListMembership> BookListMemberships
+		{
+			get
+			{
+				return this._BookListMemberships;
+			}
+			set
+			{
+				this._BookListMemberships.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Binding_Edition", Storage="_Binding", ThisKey="BindingId", OtherKey="Id", IsForeignKey=true)]
 		public Binding Binding
 		{
@@ -2012,6 +2000,18 @@ namespace ImprintCMS.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_BookListMemberships(BookListMembership entity)
+		{
+			this.SendPropertyChanging();
+			entity.Edition = this;
+		}
+		
+		private void detach_BookListMemberships(BookListMembership entity)
+		{
+			this.SendPropertyChanging();
+			entity.Edition = null;
 		}
 	}
 	

@@ -8,9 +8,9 @@
 			@Model.BookList.Title
 		</p>
 		<p>
-			@Html.LabelFor(model => model.BookId, Phrases.LabelBook)<br />
-			@Html.DropDownListFor(model => model.BookId, (SelectList)ViewBag.Books, "–")
-			@Html.ValidationMessageFor(model => model.BookId)
+			@Html.LabelFor(model => model.EditionId, Phrases.LabelBook)<br />
+			@Html.DropDownListFor(model => model.EditionId, (SelectList)ViewBag.Editions, "–")
+			@Html.ValidationMessageFor(model => model.EditionId)
 		</p>
 	</fieldset>
 	<fieldset class="hidden">

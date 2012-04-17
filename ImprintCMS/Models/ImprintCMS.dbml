@@ -37,7 +37,6 @@
       <Column Name="ExternalPublisher" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ExternalReleaseYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Book_Article" Member="Articles" ThisKey="Id" OtherKey="BookId" Type="Article" />
-      <Association Name="Book_BookListMembership" Member="BookListMemberships" ThisKey="Id" OtherKey="BookId" Type="BookListMembership" />
       <Association Name="Book_Edition" Member="Editions" ThisKey="Id" OtherKey="BookId" Type="Edition" />
       <Association Name="Book_Relation" Member="Relations" ThisKey="Id" OtherKey="BookId" Type="Relation" />
       <Association Name="Genre_Book" Member="Genre" ThisKey="GenreId" OtherKey="Id" Type="Genre" IsForeignKey="true" />
@@ -56,11 +55,11 @@
   <Table Name="dbo.BookListMembership" Member="BookListMemberships">
     <Type Name="BookListMembership">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EditionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="BookListId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Book_BookListMembership" Member="Book" ThisKey="BookId" OtherKey="Id" Type="Book" IsForeignKey="true" />
       <Association Name="BookList_BookListMembership" Member="BookList" ThisKey="BookListId" OtherKey="Id" Type="BookList" IsForeignKey="true" />
+      <Association Name="Edition_BookListMembership" Member="Edition" ThisKey="EditionId" OtherKey="Id" Type="Edition" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Edition" Member="Editions">
@@ -76,6 +75,7 @@
       <Column Name="LargeCoverId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Association Name="Edition_BookListMembership" Member="BookListMemberships" ThisKey="Id" OtherKey="EditionId" Type="BookListMembership" />
       <Association Name="Binding_Edition" Member="Binding" ThisKey="BindingId" OtherKey="Id" Type="Binding" IsForeignKey="true" />
       <Association Name="Book_Edition" Member="Book" ThisKey="BookId" OtherKey="Id" Type="Book" IsForeignKey="true" />
       <Association Name="UploadedFile_Edition" Member="UploadedFile" ThisKey="SmallCoverId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />

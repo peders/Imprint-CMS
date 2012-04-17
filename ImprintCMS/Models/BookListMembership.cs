@@ -11,7 +11,7 @@ namespace ImprintCMS.Models
 	public class BookListMembershipMetadata
 	{
 		[Required(ErrorMessage = "*")]
-		public int BookId { get; set; }
+		public int EditionId { get; set; }
 	}
 
 }

@@ -186,6 +186,13 @@ namespace ImprintCMS.Models
 			_db.Articles.DeleteOnSubmit(article);
 		}
 
+		public IEnumerable<Edition> Editions
+		{
+			get
+			{
+				return _db.Editions;
+			}
+		}
 		public Edition GetEdition(int id)
 		{
 			return _db.Editions.SingleOrDefault(e => e.Id == id);

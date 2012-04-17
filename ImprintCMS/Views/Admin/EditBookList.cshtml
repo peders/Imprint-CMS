@@ -11,7 +11,7 @@
 <ul class="listing sortable" data-persisturl="@Url.Action("storebooklistmembershiporder")" data-handlelabel="@Phrases.LabelDragAndDropToSort" data-errorlabel="@Phrases.ValidationAjaxError">
 	@foreach (var member in Model.BookListMemberships.OrderBy(m => m.SequenceIdentifier))
  {
-		<li id="@String.Format("sortitem_{0}", member.Id)"><span class="name">@member.Book.FullTitle</span>
+		<li id="@String.Format("sortitem_{0}", member.Id)"><span class="name">@member.Edition.Name</span>
 			@Html.ActionLink(Phrases.LabelDelete, "deletebooklistmembership", new { id = member.Id })</li>
  }
 </ul>

@@ -336,7 +336,7 @@ namespace ImprintCMS.Controllers
 		{
 			var book = Repository.GetBook(id);
 			if (book == null) return HttpNotFound();
-			if (book.Relations.Any() || book.Editions.Any() || book.BookListMemberships.Any() || book.Articles.Any()) return View("NotEmpty");
+			if (book.Relations.Any() || book.Editions.Any() || book.Articles.Any()) return View("NotEmpty");
 			Repository.Delete(book);
 			Repository.Save();
 			return RedirectToAction("books");
@@ -405,11 +405,12 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult DeleteEdition(int id)
 		{
-			var vm = Repository.GetEdition(id);
-			if (vm == null) return HttpNotFound();
-			Repository.Delete(vm);
+			var edition = Repository.GetEdition(id);
+			if (edition == null) return HttpNotFound();
+			if (edition.BookListMemberships.Any()) return View("NotEmpty");
+			Repository.Delete(edition);
 			Repository.Save();
-			return RedirectToAction("editbook", new { id = vm.BookId });
+			return RedirectToAction("editbook", new { id = edition.BookId });
 		}
 
 		public ActionResult CreateRelation(int id)
@@ -534,7 +535,7 @@ namespace ImprintCMS.Controllers
 				BookList = list,
 				SequenceIdentifier = int.MaxValue
 			};
-			ViewBag.Books = LinkableBooksList(vm.BookId);
+			ViewBag.Editions = EditionList(vm.EditionId);
 			return View(vm);
 		}
 
@@ -543,7 +544,7 @@ namespace ImprintCMS.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				ViewBag.Books = LinkableBooksList(vm.BookId);
+				ViewBag.Editions = EditionList(vm.EditionId);
 				vm.BookList = Repository.GetBookList(vm.BookListId);
 				return View(vm);
 			}
@@ -739,6 +740,10 @@ namespace ImprintCMS.Controllers
 		private SelectList BindingList(int? selectedId)
 		{
 			return new SelectList(Repository.Bindings.OrderBy(b => b.Name), "Id", "Name", selectedId ?? default(int));
+		}
+		private SelectList EditionList(int? selectedId)
+		{
+			return new SelectList(Repository.Editions.OrderBy(e => e.Name), "Id", "Name", selectedId ?? default(int));
 		}
 		private SelectList RoleList(int? selectedId)
 		{

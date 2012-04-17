@@ -8,9 +8,9 @@
 		<div class="booklist">
 			<h1>@list.Title</h1>
 			<ul>
-				@foreach (var book in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Book))
+				@foreach (var edition in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Edition))
 	{
-					<li>@Html.ActionLink(String.Format("{0}: {1}", String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName)), book.Title), "details", "books", new { id = book.Id }, null)</li>
+					<li>@Html.ActionLink(String.Format("{0}: {1}", String.Join(" / ", edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName)), edition.Book.Title), "details", "books", new { id = edition.BookId }, null)</li>
 	}
 			</ul>
 		</div>
