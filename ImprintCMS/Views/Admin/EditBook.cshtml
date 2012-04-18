@@ -17,11 +17,18 @@
 </ul>
 <p>@Html.ActionLink(Phrases.PagenameCreateRelation, "createrelation", new { id = Model.Id })</p>
 <h2>@Phrases.LabelEditions</h2>
-<ul class="listing">
-	@foreach (var edition in Model.Editions.OrderBy(e => e.Number))
- {
-		<li><span class="name">@Html.ActionLink(String.Format("{0} - {1}", edition.Number, edition.Binding.Name), "editedition", new { id = edition.Id })</span>
-			@Html.ActionLink(Phrases.LabelDelete, "deleteedition", new { id = edition.Id })</li>
- }
-</ul>
-<p>@Html.ActionLink(Phrases.PagenameCreateEdition, "createedition", new { id = Model.Id })</p>
+@if (!Model.HasExternalPublisher)
+{
+	<ul class="listing">
+		@foreach (var edition in Model.Editions.OrderBy(e => e.Number))
+  {
+			<li><span class="name">@Html.ActionLink(String.Format("{0} - {1}", edition.Number, edition.Binding.Name), "editedition", new { id = edition.Id })</span>
+				@Html.ActionLink(Phrases.LabelDelete, "deleteedition", new { id = edition.Id })</li>
+  }
+	</ul>
+	<p>@Html.ActionLink(Phrases.PagenameCreateEdition, "createedition", new { id = Model.Id })</p>
+}
+else
+{
+	<p class="inactive">@Phrases.ValidationNoEditionsForExternalPublisher</p>
+}

@@ -483,4 +483,7 @@
   <data name="PagenameNewsArticles" xml:space="preserve">
     <value>News articles</value>
   </data>
+	<data name="ValidationNoEditionsForExternalPublisher">
+		<value xml:space="preserve">Books from other publishers do not have editions</value>
+	</data>
 </root>

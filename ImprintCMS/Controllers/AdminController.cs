@@ -535,7 +535,7 @@ namespace ImprintCMS.Controllers
 				BookList = list,
 				SequenceIdentifier = int.MaxValue
 			};
-			ViewBag.Editions = EditionList(vm.EditionId);
+			ViewBag.Editions = LinkableEditionsList(vm.EditionId);
 			return View(vm);
 		}
 
@@ -544,7 +544,7 @@ namespace ImprintCMS.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				ViewBag.Editions = EditionList(vm.EditionId);
+				ViewBag.Editions = LinkableEditionsList(vm.EditionId);
 				vm.BookList = Repository.GetBookList(vm.BookListId);
 				return View(vm);
 			}
@@ -741,9 +741,9 @@ namespace ImprintCMS.Controllers
 		{
 			return new SelectList(Repository.Bindings.OrderBy(b => b.Name), "Id", "Name", selectedId ?? default(int));
 		}
-		private SelectList EditionList(int? selectedId)
+		private SelectList LinkableEditionsList(int? selectedId)
 		{
-			return new SelectList(Repository.Editions.OrderBy(e => e.Name), "Id", "Name", selectedId ?? default(int));
+			return new SelectList(Repository.Editions.Where(e => !e.Book.HasExternalPublisher).OrderBy(e => e.Name), "Id", "Name", selectedId ?? default(int));
 		}
 		private SelectList RoleList(int? selectedId)
 		{
