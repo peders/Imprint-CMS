@@ -5,7 +5,8 @@ a { color: #4880e3; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 header { width: 920px; padding: 30px; margin: 0 auto; }
-header h1 { margin: 0; padding: 0; width: 170px; height: 100px; text-indent: -9999em; background: url(site_layout/logo.png) no-repeat; }
+header h1 { margin: 0; padding: 0; width: 170px; height: 100px; }
+header h1 a {display: block; width: 170px; height: 100px; text-indent: -9999em; background: url(site_layout/logo.png) no-repeat; }
 
 #sitemenu { width: 940px; padding: 0 20px; height: 30px; overflow: hidden; margin: 0 auto; }
 #sitemenu ul { list-style-type: none; margin: 0; padding: 0; }
