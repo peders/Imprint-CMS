@@ -71,7 +71,7 @@ namespace ImprintCMS.Controllers
 			};
 			Repository.Add(upload);
 			Repository.Save();
-			return RedirectToAction("uploads", new { id = vm.FileCategory });
+			return RedirectToAction("uploadcategory", new { id = vm.FileCategory });
 		}
 
 		public ActionResult DeleteUpload(int id)
