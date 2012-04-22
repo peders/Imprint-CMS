@@ -6,12 +6,10 @@
 		SmallCover,
 		LargePortrait,
 		SmallPortrait,
-		LargePhoto,
-		SmallPhoto,
 		NewsImage,
 		Excerpt,
 		Attachment,
-		Stylesheet,
+		Layout,
 		Script
 	}
 
