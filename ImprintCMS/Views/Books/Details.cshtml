@@ -20,7 +20,7 @@
 }
 @if (!String.IsNullOrWhiteSpace(Model.Description))
 {
-	<p>@Model.Description.ToRichText()</p>
+	@Model.Description.ToRichText()
 }
 @if (Model.Editions.Any())
 {
@@ -48,5 +48,5 @@
 </div>
 @if (!String.IsNullOrWhiteSpace(Model.Quotes))
 {
-	<p>@Model.Quotes.ToRichText()</p>
+	@Model.Quotes.ToRichText()
 }

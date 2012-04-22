@@ -44,5 +44,7 @@ namespace ImprintCMS.Models
 		public int? GenreId { get; set; }
 		[AllowHtml]
 		public string Description { get; set; }
+		[AllowHtml]
+		public string Quotes { get; set; }
 	}
 }

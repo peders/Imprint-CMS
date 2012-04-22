@@ -20,7 +20,7 @@
 		</p>
 		<p>
 			@Html.LabelFor(model => model.Quotes, Phrases.LabelQuotes)<br />
-			@Html.TextAreaFor(model => model.Quotes)
+			@Html.TextAreaFor(model => model.Quotes, new { @class = "rich" })
 			@Html.ValidationMessageFor(model => model.Quotes)
 		</p>
 		<p>

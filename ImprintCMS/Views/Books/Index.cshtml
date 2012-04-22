@@ -1,23 +1,28 @@
-﻿@model IEnumerable<ListBook>
+﻿@model BookCatalog
 @{
 	ViewBag.Title = Phrases.SitemenuBooks;
 }
-@foreach (var group in Model.GroupBy(m => m.Genre).OrderBy(g => g.Key.SequenceIdentifier))
-{
-	<h2>@group.Key.Name</h2>
-	<table class="listing">
-		<tbody>
-		@foreach (var book in group.OrderBy(b => b.RightsHolders).ThenBy(b => b.Title))
+<ul id="genremenu">
+	@foreach (var genre in Model.Genres)
+ {
+		<li>@(genre == Model.CurrentGenre ? new HtmlString("<strong>" + genre.Name + "</strong>") : Html.ActionLink(genre.Name, "index", new { id = genre.Id }))</li>
+ }
+</ul>
+<div id="booklisting">
+<table>
+	<tbody>
+		@foreach (var book in Model.CurrentBooks.OrderBy(b => b.RightsHolders).ThenBy(b => b.Title))
   {
 			<tr>
 				<td>@book.RightsHolders
 				</td>
-				<td><a href="@book.Url">@book.Title</a>
+				<td>
+					<a href="@book.Url">@book.Title</a>
 				</td>
 				<td>@book.Subtitle
 				</td>
 			</tr>
   }
-		</tbody>
-	</table>
-}
+	</tbody>
+</table>
+</div>

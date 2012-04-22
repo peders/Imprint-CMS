@@ -6,7 +6,7 @@ a:hover { text-decoration: underline; }
 
 header { width: 920px; padding: 30px; margin: 0 auto; }
 header h1 { margin: 0; padding: 0; width: 170px; height: 100px; }
-header h1 a {display: block; width: 170px; height: 100px; text-indent: -9999em; background: url(site_layout/logo.png) no-repeat; }
+header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em; background: url(site_layout/logo.png) no-repeat; }
 
 #sitemenu { width: 940px; padding: 0 20px; height: 30px; overflow: hidden; margin: 0 auto; }
 #sitemenu ul { list-style-type: none; margin: 0; padding: 0; }
@@ -29,9 +29,16 @@ header h1 a {display: block; width: 170px; height: 100px; text-indent: -9999em; 
 #content.home #articles article p { margin: 0 0 0.2em 0; }
 #content.home #articles article ul { margin: 0; padding: 0; list-style-type: none; }
 
-#content.books.index table.listing { width: 100%; }
-#content.books.index table.listing td { width: 40%; padding: 0 1em 0 0; }
-#content.books.index table.listing td:last-child { width: 20%; padding: 0; }
+#content.books.index #genremenu { float: left; width: 200px; list-style-type: none; margin: 0; padding: 0; }
+#content.books.index #genremenu li { margin: 0 0 0.5em 0; padding: 0; }
+#content.books.index #genremenu a { display: block; padding: 5px 8px; background: #f8f8f8; color: #000000;border-radius: 4px;  }
+#content.books.index #genremenu a:hover { background-color: #eeeeee; text-decoration: none; }
+#content.books.index #genremenu strong { display: block; padding: 5px 8px; background: #eeeeee;border-radius: 4px;  }
+
+#content.books.index #booklisting { padding-left: 220px; }
+#content.books.index #booklisting table { width: 100%; }
+#content.books.index #booklisting table td { width: 40%; padding: 0 1em 0 0; }
+#content.books.index #booklisting table td:last-child { width: 20%; padding: 0; }
 
 #content.details ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
 
@@ -51,6 +58,7 @@ header h1 a {display: block; width: 170px; height: 100px; text-indent: -9999em; 
 
 #content.authors.details #personimage { float: right; margin: 0 0 2em 2em; }
 #content.authors.details #personimage img.image { border: 1px solid #808080; }
+#content.authors.details h2 { font-size: 1.2em; margin: 1em 0 0.2em 0; }
 
 #social { margin: 1em 0 2em 0; }
 #social a.twitter { text-indent: -9999em; display: block; background: url(site_layout/twitter.png) no-repeat 0 -10px; width: 54px; height: 10px; margin: 1em 0; }
