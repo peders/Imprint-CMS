@@ -495,4 +495,10 @@
   <data name="UnitFilesSingular" xml:space="preserve">
     <value>file</value>
   </data>
+  <data name="HeadingAuthorAnthologies" xml:space="preserve">
+    <value>Antologibidrag</value>
+  </data>
+  <data name="HeadingAuthorTranslations" xml:space="preserve">
+    <value>Oversettelser</value>
+  </data>
 </root>

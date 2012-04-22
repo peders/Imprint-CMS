@@ -15,22 +15,22 @@
 		</p>
 		<p>
 			@Html.LabelFor(model => model.Description, Phrases.LabelDescription)<br />
-			@Html.TextAreaFor(model => model.Description)
+			@Html.TextAreaFor(model => model.Description, new { @class = "rich" })
 			@Html.ValidationMessageFor(model => model.Description)
 		</p>
 		<p>
 			@Html.LabelFor(model => model.Awards, Phrases.LabelAwards)<br />
-			@Html.TextAreaFor(model => model.Awards)
+			@Html.TextAreaFor(model => model.Awards, new { @class = "rich" })
 			@Html.ValidationMessageFor(model => model.Awards)
 		</p>
 		<p>
 			@Html.LabelFor(model => model.Translations, Phrases.LabelTranslations)<br />
-			@Html.TextAreaFor(model => model.Translations)
+			@Html.TextAreaFor(model => model.Translations, new { @class = "rich" })
 			@Html.ValidationMessageFor(model => model.Translations)
 		</p>
 		<p>
 			@Html.LabelFor(model => model.Anthologies, Phrases.LabelAnthologies)<br />
-			@Html.TextAreaFor(model => model.Anthologies)
+			@Html.TextAreaFor(model => model.Anthologies, new { @class = "rich" })
 			@Html.ValidationMessageFor(model => model.Anthologies)
 		</p>
 		<p>

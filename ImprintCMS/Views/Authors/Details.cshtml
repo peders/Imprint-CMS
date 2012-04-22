@@ -12,7 +12,7 @@
 <h1>@Model.Person.FullName</h1>
 @if (!String.IsNullOrWhiteSpace(Model.Person.Description))
 {
-	<p>@Model.Person.Description.ToRichText()</p>
+	@Model.Person.Description.ToRichText()
 }
 @if (Model.Books.Any())
 {
@@ -26,5 +26,15 @@
 @if (!String.IsNullOrWhiteSpace(Model.Person.Awards))
 {
 	<h2>@Phrases.HeadingAuthorAwards</h2>
-	<p>@Model.Person.Awards.ToRichText()</p>
+	@Model.Person.Awards.ToRichText()
+}
+@if (!String.IsNullOrWhiteSpace(Model.Person.Translations))
+{
+	<h2>@Phrases.HeadingAuthorTranslations</h2>
+	@Model.Person.Translations.ToRichText()
+}
+@if (!String.IsNullOrWhiteSpace(Model.Person.Anthologies))
+{
+	<h2>@Phrases.HeadingAuthorAnthologies</h2>
+	@Model.Person.Anthologies.ToRichText()
 }

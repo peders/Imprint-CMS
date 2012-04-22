@@ -88,6 +88,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Antologibidrag.
+        /// </summary>
+        public static string HeadingAuthorAnthologies {
+            get {
+                return ResourceManager.GetString("HeadingAuthorAnthologies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Priser.
         /// </summary>
         public static string HeadingAuthorAwards {
@@ -102,6 +111,15 @@ namespace ImprintCMS.Models {
         public static string HeadingAuthorBooks {
             get {
                 return ResourceManager.GetString("HeadingAuthorBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oversettelser.
+        /// </summary>
+        public static string HeadingAuthorTranslations {
+            get {
+                return ResourceManager.GetString("HeadingAuthorTranslations", resourceCulture);
             }
         }
         
