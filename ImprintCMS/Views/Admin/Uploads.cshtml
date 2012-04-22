@@ -1,27 +1,15 @@
-﻿@model IEnumerable<UploadedFile>
+﻿@model IEnumerable<UploadCategoryListItem>
 @{
 	ViewBag.Title = Phrases.PagenameUploads;
 	ViewBag.Breadcrumbs = new[] {
 		Phrases.PagenameUploads.ToHtmlString()
 	};
 }
-<ul class="adminactions">
-	<li>@Html.ActionLink(Phrases.PagenameCreateUpload, "createupload")</li>
-</ul>
-<div class="tabs">
-	@foreach (var group in Model.GroupBy(f => f.Category).OrderBy(g => g.Key))
+<ul class="listing">
+	@foreach (var category in Model)
  {
-		<div id="@String.Format("group_{0}", group.Key)">
-			<h2>@String.Format("{0} ({1})", group.Key, group.Count()) </h2>
-			<ul class="listing">
-				@foreach (var file in group.OrderBy(f => f.FileName))
-	{
-					<li><span class="name">@Html.ActionLink(file.FileName, "display", "upload", new { category = file.Category, fileName = file.FileName }, null)</span>
-						<span class="data">@file.ContentLength.ToFileSize()</span> <span class="data">@file.ContentType.AsFileType()</span>
-						@Html.ActionLink(Phrases.LabelDelete, "deleteupload", new { id = file.Id }, null)
-					</li>
-	}
-			</ul>
-		</div>
+		<li><span class="name">@Html.ActionLink(category.Name, "uploadcategory", new { id = category.Name })</span>
+			@String.Format("{0} {1}", category.FileCount, category.FileCount == 1 ? Phrases.UnitFilesSingular
+			: Phrases.UnitFilesPlural)</li>
  }
-</div>
+</ul>

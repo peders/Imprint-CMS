@@ -18,17 +18,30 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult Uploads()
 		{
-			var vm = Repository.UploadedFiles;
+			var vm = Enum.GetNames(typeof(FileCategories)).Select(c => new UploadCategoryListItem
+			{
+				Name = c,
+				FileCount = Repository.UploadedFiles.Count(u => u.Category == c)
+			});
 			return View(vm);
 		}
 
-		public ActionResult CreateUpload()
+		public ActionResult UploadCategory(string id)
+		{
+			var vm = new UploadCategory
+			{
+				Name = id,
+				Files = Repository.UploadedFiles.Where(u => u.Category == id)
+			};
+			return View(vm);
+		}
+
+		public ActionResult CreateUpload(string id)
 		{
 			var vm = new FileUpload
 			{
-				FileCategory = string.Empty
+				FileCategory = id ?? string.Empty
 			};
-			ViewBag.FileCategories = new SelectList(Enum.GetValues(typeof(FileCategories)), vm.FileCategory);
 			return View(vm);
 		}
 
@@ -44,7 +57,6 @@ namespace ImprintCMS.Controllers
 				ModelState.AddModelError("", Phrases.ValidationFileExists);
 			if (!ModelState.IsValid)
 			{
-				ViewBag.FileCategories = new SelectList(Enum.GetValues(typeof(FileCategories)), vm.FileCategory);
 				return View(vm);
 			}
 			var fileData = new byte[file.ContentLength];
@@ -59,7 +71,7 @@ namespace ImprintCMS.Controllers
 			};
 			Repository.Add(upload);
 			Repository.Save();
-			return RedirectToAction("uploads");
+			return RedirectToAction("uploads", new { id = vm.FileCategory });
 		}
 
 		public ActionResult DeleteUpload(int id)

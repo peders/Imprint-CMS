@@ -483,7 +483,16 @@
   <data name="PagenameNewsArticles" xml:space="preserve">
     <value>News articles</value>
   </data>
-	<data name="ValidationNoEditionsForExternalPublisher">
-		<value xml:space="preserve">Books from other publishers do not have editions</value>
-	</data>
+  <data name="ValidationNoEditionsForExternalPublisher" xml:space="preserve">
+    <value>Books from other publishers do not have editions</value>
+  </data>
+  <data name="LabelCreate" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="UnitFilesPlural" xml:space="preserve">
+    <value>files</value>
+  </data>
+  <data name="UnitFilesSingular" xml:space="preserve">
+    <value>file</value>
+  </data>
 </root>

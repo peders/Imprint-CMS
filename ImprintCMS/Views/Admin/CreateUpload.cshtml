@@ -1,9 +1,10 @@
 ﻿@model FileUpload
 @{
-	ViewBag.Title = Phrases.PagenameCreateUpload;
+	ViewBag.Title = String.Format("{0} {1}", Phrases.LabelCreate, Model.FileCategory);
 	ViewBag.Breadcrumbs = new[] {
 		Html.ActionLink(Phrases.PagenameUploads, "uploads"),
-		Phrases.PagenameCreateUpload.ToHtmlString()
+		Html.ActionLink(Model.FileCategory, "uploadcategory", new { id = Model.FileCategory }),
+		Phrases.LabelCreate.ToHtmlString()
 	};
 }
 <form action="" method="post" enctype="multipart/form-data">
@@ -13,11 +14,9 @@
 		<label for="file">@Phrases.LabelSelectFile</label><br />
 		<input type="file" name="file" id="file" />
 	</p>
-	<p>
-		@Html.LabelFor(model => model.FileCategory, Phrases.LabelFileCategory)<br />
-		@Html.DropDownListFor(model => model.FileCategory, (SelectList)ViewBag.FileCategories, "–")
-		@Html.ValidationMessageFor(model => model.FileCategory)
-	</p>
+</fieldset>
+<fieldset class="hidden">
+	@Html.HiddenFor(model => model.FileCategory)
 </fieldset>
 <fieldset class="submit">
 	<p>

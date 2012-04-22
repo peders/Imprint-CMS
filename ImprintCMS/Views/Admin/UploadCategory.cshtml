@@ -1,0 +1,20 @@
+﻿@model UploadCategory
+@{
+	ViewBag.Title = Model.Name;
+	ViewBag.Breadcrumbs = new[] {
+	Html.ActionLink(Phrases.PagenameUploads, "uploads"),
+	Model.Name.ToHtmlString()
+	};
+}
+<ul class="adminactions">
+	<li>@Html.ActionLink(String.Format("{0} {1}", Phrases.LabelCreate, Model.Name), "createupload", new { id = Model.Name })</li>
+</ul>
+<ul class="listing">
+	@foreach (var file in Model.Files.OrderBy(f => f.FileName))
+ {
+		<li><span class="name">@Html.ActionLink(file.FileName, "display", "upload", new { category = file.Category, fileName = file.FileName }, null)</span>
+			<span class="data">@file.ContentLength.ToFileSize()</span> <span class="data">@file.ContentType.AsFileType()</span>
+			@Html.ActionLink(Phrases.LabelDelete, "deleteupload", new { id = file.Id }, null)
+		</li>
+ }
+</ul>
