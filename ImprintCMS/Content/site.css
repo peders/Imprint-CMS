@@ -31,14 +31,13 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 
 #content.books.index #genremenu { float: left; width: 200px; list-style-type: none; margin: 0; padding: 0; }
 #content.books.index #genremenu li { margin: 0 0 0.5em 0; padding: 0; }
-#content.books.index #genremenu a { display: block; padding: 5px 8px; background: #f8f8f8; color: #000000;border-radius: 4px;  }
+#content.books.index #genremenu a { display: block; padding: 5px 8px; background: #f8f8f8; color: #000000; border-radius: 4px; }
 #content.books.index #genremenu a:hover { background-color: #eeeeee; text-decoration: none; }
-#content.books.index #genremenu strong { display: block; padding: 5px 8px; background: #eeeeee;border-radius: 4px;  }
+#content.books.index #genremenu strong { display: block; padding: 5px 8px; background: #eeeeee; border-radius: 4px; }
 
-#content.books.index #booklisting { padding-left: 220px; }
-#content.books.index #booklisting table { width: 100%; }
-#content.books.index #booklisting table td { width: 40%; padding: 0 1em 0 0; }
-#content.books.index #booklisting table td:last-child { width: 20%; padding: 0; }
+#content.books.index #booklisting { padding-left: 240px; }
+#content.books.index #booklisting h2 { font-size: 1.2em; margin: 0 0 0.2em 0; }
+#content.books.index #booklisting ul { list-style-type: none; margin: 0 0 1em 0; padding: 0; }
 
 #content.details ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
 
@@ -53,6 +52,9 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 #content.books.details table.editions { margin: 2em 0 1em 0; border-collapse: collapse; }
 #content.books.details table.editions td { padding: 0.3em 1em; border-bottom: 1px dotted #cccccc; }
 #content.books.details table.editions tr:first-child td { border-top: 1px dotted #cccccc; }
+
+#content.authors.index h2 { font-size: 1.4em; margin: 0 0 0.2em 0; }
+#content.authors.index ul { list-style-type: none; margin: 0 0 2em 0; padding: 0; }
 
 #content.authors.details h1 { font-family: Georgia, "Times New Roman" , Times, Serif; font-weight: normal; margin: 0 0 2em 0; }
 

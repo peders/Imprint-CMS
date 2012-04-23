@@ -2,9 +2,13 @@
 @{
 	ViewBag.Title = Phrases.SitemenuAuthors;
 }
-<ul>
-	@foreach (var person in Model)
- {
-		<li>@Html.ActionLink(person.ReverseName, "details", new { id = person.Id })</li>
- }
-</ul>
+@foreach (var group in Model.GroupBy(p => p.LastName.Substring(0, 1)))
+{
+	<h2>@group.Key</h2>
+	<ul>
+		@foreach (var person in group)
+  {
+			<li>@Html.ActionLink(person.ReverseName, "details", new { id = person.Id })</li>
+  }
+	</ul>
+}

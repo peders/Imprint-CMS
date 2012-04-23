@@ -16,7 +16,7 @@
 			<ul>
 				@foreach (var book in group)
 	{
-					<li>@(new HtmlString(String.Format("<a href=\"{0}\">{1}</a> {2}", book.Url, book.Title, book.Subtitle ?? string.Empty)))</li>
+					<li>@(new HtmlString(String.Format("<a href=\"{0}\">{1}</a>{2}", book.Url, book.Title, book.SubtitleWithSeparator ?? string.Empty)))</li>
 	}
 			</ul>
 		</div>

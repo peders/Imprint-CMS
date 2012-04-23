@@ -53,5 +53,14 @@ namespace ImprintCMS.Models.ViewModels
 					ReleaseYear));
 			}
 		}
+
+		public string SubtitleWithSeparator
+		{
+			get
+			{
+				if (String.IsNullOrWhiteSpace(Subtitle)) return null;
+				return String.Format("{0} {1}", !(Title.EndsWith(".") ||Title.EndsWith("!") ||Title.EndsWith("?")) ? "." : string.Empty, Subtitle);
+			}
+		}
 	}
 }
