@@ -2,26 +2,12 @@
 @{
 	ViewBag.Title = Phrases.SystemSiteName;
 }
-<div id="booklists">
-	@foreach (var list in Model.BookLists)
- {
-		<div class="booklist">
-			<h1>@list.Title</h1>
-			<ul>
-				@foreach (var edition in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Edition))
-	{
-					<li>@Html.ActionLink(String.Format("{0}: {1}", String.Join(" / ", edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName)), edition.Book.Title), "details", "books", new { id = edition.BookId }, null)</li>
-	}
-			</ul>
-		</div>
- }
-</div>
 <div id="articles">
 	@foreach (var article in Model.Articles)
  {
 		<article>
 			<h1>@article.Title</h1>
-			<div>@article.Description.ToRichText()</div>
+			@article.Description.ToRichText()
 			@if (article.BookId != null || article.PersonId != null)
    {
 				<ul class="links">
@@ -36,5 +22,22 @@
 				</ul>
    }
 		</article>
+ }
+</div>
+<div id="booklists">
+	@foreach (var list in Model.BookLists)
+ {
+		<div class="booklist">
+			<h1>@list.Title</h1>
+			<ul>
+				@foreach (var edition in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Edition))
+	{
+					<li>
+						<img src="@Url.Action("display", "upload", new { category = edition.UploadedFile.Category, fileName = edition.UploadedFile.FileName })" alt="@edition.Book.Title" class="cover" />
+						@String.Join(" / ", edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName))<br />
+						@Html.ActionLink(edition.Book.Title, "details", "books", new { id = edition.BookId }, null)</li>
+	}
+			</ul>
+		</div>
  }
 </div>
