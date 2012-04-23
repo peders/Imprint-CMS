@@ -9,20 +9,16 @@
  }
 </ul>
 <div id="booklisting">
-<table>
-	<tbody>
-		@foreach (var book in Model.CurrentBooks.OrderBy(b => b.RightsHolders).ThenBy(b => b.Title))
-  {
-			<tr>
-				<td>@book.RightsHolders
-				</td>
-				<td>
-					<a href="@book.Url">@book.Title</a>
-				</td>
-				<td>@book.Subtitle
-				</td>
-			</tr>
-  }
-	</tbody>
-</table>
+	@foreach (var group in Model.CurrentBooks.OrderBy(b => b.RightsHolders).ThenBy(b => b.Title).GroupBy(b => b.RightsHolders))
+ {
+		<div class="book">
+			<h2>@group.Key</h2>
+			<ul>
+				@foreach (var book in group)
+	{
+					<li>@(new HtmlString(String.Format("<a href=\"{0}\">{1}</a> {2}", book.Url, book.Title, book.Subtitle ?? string.Empty)))</li>
+	}
+			</ul>
+		</div>
+ }
 </div>
