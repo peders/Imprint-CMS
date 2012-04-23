@@ -53,8 +53,9 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 #content.books.details table.editions td { padding: 0.3em 1em; border-bottom: 1px dotted #cccccc; }
 #content.books.details table.editions tr:first-child td { border-top: 1px dotted #cccccc; }
 
-#content.authors.index h2 { font-size: 1.4em; margin: 0 0 0.2em 0; }
-#content.authors.index ul { list-style-type: none; margin: 0 0 2em 0; padding: 0; }
+#content.authors.index #authorlisting { padding-left: 140px; }
+#content.authors.index #authorlisting h2 { font-size: 1.2em; margin: 0 0 0.2em 0; }
+#content.authors.index #authorlisting ul { list-style-type: none; margin: 0 0 1em 0; padding: 0; }
 
 #content.authors.details h1 { font-family: Georgia, "Times New Roman" , Times, Serif; font-weight: normal; margin: 0 0 2em 0; }
 
