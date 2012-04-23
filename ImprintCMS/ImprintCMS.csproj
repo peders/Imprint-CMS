@@ -95,6 +95,7 @@
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\ViewHelpers.cs" />
     <Compile Include="Models\ViewModels\BookCatalog.cs" />
+    <Compile Include="Models\ViewModels\ContactPage.cs" />
     <Compile Include="Models\ViewModels\PersonPage.cs" />
     <Compile Include="Models\ViewModels\FileUpload.cs" />
     <Compile Include="Models\ViewModels\ListBook.cs" />
@@ -449,6 +450,7 @@
     <Content Include="Views\Admin\CreateArticle.cshtml" />
     <Content Include="Views\Admin\EditArticle.cshtml" />
     <Content Include="Views\Admin\UploadCategory.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

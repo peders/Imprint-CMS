@@ -501,4 +501,7 @@
   <data name="HeadingAuthorTranslations" xml:space="preserve">
     <value>Oversettelser</value>
   </data>
+  <data name="SitemenuContact" xml:space="preserve">
+    <value>Kontakt oss</value>
+  </data>
 </root>

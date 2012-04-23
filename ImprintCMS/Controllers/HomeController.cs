@@ -17,5 +17,16 @@ namespace ImprintCMS.Controllers
 			return View(vm);
 		}
 
+		public ActionResult Contact(int? id)
+		{
+			var articles = Repository.ContactArticles.Where(a => a.IsVisible).OrderByDescending(a => a.Date);
+			var vm = new ContactPage
+			{
+				Articles = articles,
+				CurrentArticle = id == null ? articles.First() : Repository.GetArticle((int)id)
+			};
+			return View(vm);
+		}
+
 	}
 }

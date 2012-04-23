@@ -1,0 +1,14 @@
+﻿@model ContactPage
+@{
+	ViewBag.Title = Phrases.SitemenuContact;
+}
+<ul id="articlemenu">
+	@foreach (var article in Model.Articles)
+ {
+		<li>@(article == Model.CurrentArticle ? new HtmlString("<strong>" + article.Title + "</strong>") : Html.ActionLink(article.Title, "contact", new { id = article.Id }))</li>
+ }
+</ul>
+<article>
+	<h1>@Model.CurrentArticle.Title</h1>
+	@Model.CurrentArticle.Description.ToRichText()
+</article>

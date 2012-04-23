@@ -18,16 +18,24 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 #content { width: 910px; padding: 40px 35px; margin: 0 auto; background: #ffffff; border-radius: 4px; }
 #content #floatbreaker { clear: both; }
 
-#content.home #booklists { width: 200px; float: right; }
-#content.home #booklists .booklist { margin: 0 0 2em 0; }
-#content.home #booklists .booklist h1 { font-size: 1em; font-weight: bold; margin: 0; padding: 7px 10px; background: #eeeeee; color: #333333; border-radius: 4px 4px 0 0; }
-#content.home #booklists .booklist ul { list-style-type: none; margin: 0; padding: 7px 10px 10px 10px; background: #f8f8f8; border-radius: 0 0 4px 4px; }
-#content.home #booklists .booklist ul a { color: #000000; }
+#content.home.index #booklists { width: 200px; float: right; }
+#content.home.index #booklists .booklist { margin: 0 0 2em 0; }
+#content.home.index #booklists .booklist h1 { font-size: 1em; font-weight: bold; margin: 0; padding: 7px 10px; background: #eeeeee; color: #333333; border-radius: 4px 4px 0 0; }
+#content.home.index #booklists .booklist ul { list-style-type: none; margin: 0; padding: 7px 10px 10px 10px; background: #f8f8f8; border-radius: 0 0 4px 4px; }
+#content.home.index #booklists .booklist ul a { color: #000000; }
 
-#content.home #articles article { margin: 0 230px 2em 0; }
-#content.home #articles article h1 { font-family: Georgia, serif; font-weight: normal; font-size: 1.5em; letter-spacing: -1px; margin: 0 0 0.2em 0; }
-#content.home #articles article p { margin: 0 0 0.2em 0; }
-#content.home #articles article ul { margin: 0; padding: 0; list-style-type: none; }
+#content.home.index #articles article { margin: 0 230px 2em 0; }
+#content.home.index #articles article h1 { font-family: Georgia, serif; font-weight: normal; font-size: 1.5em; letter-spacing: -1px; margin: 0 0 0.2em 0; }
+#content.home.index #articles article p { margin: 0 0 0.2em 0; }
+#content.home.index #articles article ul { margin: 0; padding: 0; list-style-type: none; }
+
+#content.home.contact #articlemenu { float: left; width: 200px; list-style-type: none; margin: 0; padding: 0; }
+#content.home.contact #articlemenu li { margin: 0 0 0.5em 0; padding: 0; }
+#content.home.contact #articlemenu a { display: block; padding: 5px 8px; background: #f8f8f8; color: #000000; border-radius: 4px; }
+#content.home.contact #articlemenu a:hover { background-color: #eeeeee; text-decoration: none; }
+#content.home.contact #articlemenu strong { display: block; padding: 5px 8px; background: #eeeeee; border-radius: 4px; }
+#content.home.contact article { padding-left: 240px; }
+#content.home.contact article h1 { font-size: 1.4em; margin: 0 0 1em 0;}
 
 #content.books.index #genremenu { float: left; width: 200px; list-style-type: none; margin: 0; padding: 0; }
 #content.books.index #genremenu li { margin: 0 0 0.5em 0; padding: 0; }
@@ -36,7 +44,7 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 #content.books.index #genremenu strong { display: block; padding: 5px 8px; background: #eeeeee; border-radius: 4px; }
 
 #content.books.index #booklisting { padding-left: 240px; }
-#content.books.index #booklisting h2 { font-size: 1.2em; margin: 0 0 0.2em 0; }
+#content.books.index #booklisting h2 { font-size: 1em; margin: 0 0 0.2em 0; }
 #content.books.index #booklisting ul { list-style-type: none; margin: 0 0 1em 0; padding: 0; }
 
 #content.details ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }

@@ -13,9 +13,10 @@
 	</header>
 	<nav id="sitemenu">
 		<ul>
-			<li class="@(ViewContext.ControllerName().ToLower() == "home" ? "selected" : string.Empty)">@Html.ActionLink(Phrases.SitemenuHome, "index", "home")</li>
+			<li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() == "index" ? "selected" : string.Empty)">@Html.ActionLink(Phrases.SitemenuHome, "index", "home")</li>
 			<li class="@(ViewContext.ControllerName().ToLower() == "books" ? "selected" : string.Empty)">@Html.ActionLink(Phrases.SitemenuBooks, "index", "books", new { id = UrlParameter.Optional }, null)</li>
 			<li class="@(ViewContext.ControllerName().ToLower() == "authors" ? "selected" : string.Empty)">@Html.ActionLink(Phrases.SitemenuAuthors, "index", "authors")</li>
+			<li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() == "contact" ? "selected" : string.Empty)">@Html.ActionLink(Phrases.SitemenuContact, "contact", "home")</li>
 		</ul>
 	</nav>
 	<section id="content" class="@String.Format("{0} {1}", ViewContext.ControllerName().ToLower(), ViewContext.ActionName().ToLower())">
