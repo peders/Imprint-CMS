@@ -45,9 +45,10 @@ input, select, textarea { font-family: Calibri, Sans-Serif; font-size: 1em; }
 fieldset { border: none; margin: 0; padding: 0; }
 fieldset.login label { font-weight: bold; }
 fieldset.fields label { font-weight: bold; }
-fieldset.fields input { width: 500px; }
-fieldset.fields select { width: 500px; }
-fieldset.fields textarea { width: 500px; height: 100px; }
+fieldset.fields input { width: 600px; }
+fieldset.fields select { width: 600px; }
+fieldset.fields textarea { width: 600px; height: 100px; }
+fieldset.fields textarea.rich { height: 200px; }
 fieldset.submit { margin-top: 2em; }
 textarea { min-height: 100px; }
 
