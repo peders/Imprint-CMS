@@ -574,38 +574,37 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("editbooklist", new { id = vm.BookListId });
 		}
 
-		public ActionResult NewsArticles()
+		public ActionResult Articles()
 		{
-			var vm = Repository.NewsArticles.OrderByDescending(a => a.Date);
+			var vm = Repository.Articles.OrderByDescending(a => a.Date);
 			return View(vm);
 		}
 
-		public ActionResult CreateNewsArticle()
+		public ActionResult CreateArticle()
 		{
-			return CreateArticle(false);
-		}
-
-		[HttpPost]
-		public ActionResult CreateNewsArticle(Article vm)
-		{
-			return CreateArticle(vm);
-		}
-
-		public ActionResult ContactArticles()
-		{
-			var vm = Repository.ContactArticles.OrderByDescending(a => a.Date);
+			var vm = new Article
+			{
+				Date = DateTime.Today
+			};
+			ViewBag.Books = LinkableBooksList(vm.BookId);
+			ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
+			ViewBag.People = LinkablePeopleList(vm.PersonId);
 			return View(vm);
 		}
 
-		public ActionResult CreateContactArticle()
-		{
-			return CreateArticle(true);
-		}
-
 		[HttpPost]
-		public ActionResult CreateContactArticle(Article vm)
+		public ActionResult CreateArticle(Article vm)
 		{
-			return CreateArticle(vm);
+			if (!ModelState.IsValid)
+			{
+				ViewBag.Books = LinkableBooksList(vm.BookId);
+				ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
+				ViewBag.People = LinkablePeopleList(vm.PersonId);
+				return View(vm);
+			}
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("articles");
 		}
 
 		public ActionResult EditArticle(int id)
@@ -630,7 +629,7 @@ namespace ImprintCMS.Controllers
 			}
 			UpdateModel(Repository.GetArticle(vm.Id));
 			Repository.Save();
-			return RedirectToAction(vm.IsForContactPage ? "contactarticles" : "newsarticles");
+			return RedirectToAction("articles");
 		}
 
 		public ActionResult DeleteArticle(int id)
@@ -639,7 +638,72 @@ namespace ImprintCMS.Controllers
 			if (article == null) return HttpNotFound();
 			Repository.Delete(article);
 			Repository.Save();
-			return RedirectToAction(article.IsForContactPage ? "contactarticles" : "newsarticles");
+			return RedirectToAction("articles");
+		}
+
+		public ActionResult ContactArticles()
+		{
+			var vm = Repository.ContactArticles.OrderBy(a => a.SequenceIdentifier);
+			return View(vm);
+		}
+
+		public ActionResult CreateContactArticle()
+		{
+			var vm = new ContactArticle
+			{
+				SequenceIdentifier = int.MaxValue
+			};
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreateContactArticle(ContactArticle vm)
+		{
+			if (!ModelState.IsValid) return View(vm);
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("contactarticles");
+		}
+
+		public ActionResult EditContactArticle(int id)
+		{
+			var vm = Repository.GetContactArticle(id);
+			if (vm == null) return HttpNotFound();
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult EditContactArticle(ContactArticle vm)
+		{
+			if (!ModelState.IsValid) return View(vm);
+			UpdateModel(Repository.GetContactArticle(vm.Id));
+			Repository.Save();
+			return RedirectToAction("contactarticles");
+		}
+
+		public ActionResult DeleteContactArticle(int id)
+		{
+			var article = Repository.GetContactArticle(id);
+			if (article == null) return HttpNotFound();
+			Repository.Delete(article);
+			Repository.Save();
+			return RedirectToAction("contactarticles");
+		}
+
+		[HttpPost]
+		public ActionResult StoreContactArticleOrder()
+		{
+			var data = Request.Form["sortitem[]"] as string;
+			var ids = data.Split(',').Select(int.Parse);
+			var sequenceIdentifier = 0;
+			foreach (var id in ids)
+			{
+				var list = Repository.GetContactArticle(id);
+				list.SequenceIdentifier = sequenceIdentifier;
+				sequenceIdentifier++;
+			}
+			Repository.Save();
+			return new HttpStatusCodeResult(200);
 		}
 
 		[HttpPost]
@@ -705,33 +769,6 @@ namespace ImprintCMS.Controllers
 			Repository.Save();
 			return new HttpStatusCodeResult(200);
 		}
-
-		private ActionResult CreateArticle(bool isForContactPage)
-		{
-			var vm = new Article
-			{
-				Date = DateTime.Today,
-				IsForContactPage = isForContactPage
-			};
-			ViewBag.Books = LinkableBooksList(vm.BookId);
-			ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
-			ViewBag.People = LinkablePeopleList(vm.PersonId);
-			return View("createarticle", vm);
-		}
-		private ActionResult CreateArticle(Article article)
-		{
-			if (!ModelState.IsValid)
-			{
-				ViewBag.Books = LinkableBooksList(article.BookId);
-				ViewBag.Images = FileList(FileCategories.NewsImage, article.ImageId);
-				ViewBag.People = LinkablePeopleList(article.PersonId);
-				return View("createarticle", article);
-			}
-			Repository.Add(article);
-			Repository.Save();
-			return RedirectToAction(article.IsForContactPage ? "contactarticles" : "newsarticles");
-		}
-
 
 		private void ValidateExternalPublisher(Book vm)
 		{

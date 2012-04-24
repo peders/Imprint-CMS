@@ -159,18 +159,11 @@ namespace ImprintCMS.Models
 			_db.BookLists.DeleteOnSubmit(list);
 		}
 
-		public IEnumerable<Article> NewsArticles
+		public IEnumerable<Article> Articles
 		{
 			get
 			{
-				return _db.Articles.Where(a => !a.IsForContactPage);
-			}
-		}
-		public IEnumerable<Article> ContactArticles
-		{
-			get
-			{
-				return _db.Articles.Where(a => a.IsForContactPage);
+				return _db.Articles;
 			}
 		}
 		public Article GetArticle(int id)
@@ -184,6 +177,26 @@ namespace ImprintCMS.Models
 		public void Delete(Article article)
 		{
 			_db.Articles.DeleteOnSubmit(article);
+		}
+
+		public IEnumerable<ContactArticle> ContactArticles
+		{
+			get
+			{
+				return _db.ContactArticles;
+			}
+		}
+		public ContactArticle GetContactArticle(int id)
+		{
+			return _db.ContactArticles.SingleOrDefault(a => a.Id == id);
+		}
+		public void Add(ContactArticle article)
+		{
+			_db.ContactArticles.InsertOnSubmit(article);
+		}
+		public void Delete(ContactArticle article)
+		{
+			_db.ContactArticles.DeleteOnSubmit(article);
 		}
 
 		public IEnumerable<Edition> Editions

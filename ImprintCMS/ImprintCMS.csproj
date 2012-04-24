@@ -80,6 +80,7 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookList.cs" />
     <Compile Include="Models\BookListMembership.cs" />
+    <Compile Include="Models\ContactArticle.cs" />
     <Compile Include="Models\Relation.cs" />
     <Compile Include="Models\Edition.cs" />
     <Compile Include="Models\Person.cs" />
@@ -445,12 +446,15 @@
     <Content Include="Views\Shared\EditorTemplates\BookListMembership.cshtml" />
     <Content Include="Views\Admin\CreateBookListMembership.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Article.cshtml" />
-    <Content Include="Views\Admin\NewsArticles.cshtml" />
+    <Content Include="Views\Admin\Articles.cshtml" />
     <Content Include="Views\Admin\ContactArticles.cshtml" />
     <Content Include="Views\Admin\CreateArticle.cshtml" />
     <Content Include="Views\Admin\EditArticle.cshtml" />
     <Content Include="Views\Admin\UploadCategory.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ContactArticle.cshtml" />
+    <Content Include="Views\Admin\CreateContactArticle.cshtml" />
+    <Content Include="Views\Admin\EditContactArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

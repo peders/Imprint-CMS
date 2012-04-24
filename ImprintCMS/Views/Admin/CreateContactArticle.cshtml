@@ -1,0 +1,9 @@
+﻿@model ContactArticle
+@{
+	ViewBag.Title = Phrases.PagenameCreateContactArticle;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameContactArticles, "contactarticles"),
+		Phrases.PagenameCreateContactArticle.ToHtmlString()
+	};
+}
+@Html.EditorForModel()

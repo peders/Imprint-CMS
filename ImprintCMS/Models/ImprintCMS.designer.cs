@@ -45,6 +45,9 @@ namespace ImprintCMS.Models
     partial void InsertBookListMembership(BookListMembership instance);
     partial void UpdateBookListMembership(BookListMembership instance);
     partial void DeleteBookListMembership(BookListMembership instance);
+    partial void InsertContactArticle(ContactArticle instance);
+    partial void UpdateContactArticle(ContactArticle instance);
+    partial void DeleteContactArticle(ContactArticle instance);
     partial void InsertEdition(Edition instance);
     partial void UpdateEdition(Edition instance);
     partial void DeleteEdition(Edition instance);
@@ -132,6 +135,14 @@ namespace ImprintCMS.Models
 			get
 			{
 				return this.GetTable<BookListMembership>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ContactArticle> ContactArticles
+		{
+			get
+			{
+				return this.GetTable<ContactArticle>();
 			}
 		}
 		
@@ -1496,6 +1507,140 @@ namespace ImprintCMS.Models
 						this._EditionId = default(int);
 					}
 					this.SendPropertyChanged("Edition");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ContactArticle")]
+	public partial class ContactArticle : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Title;
+		
+		private string _BodyText;
+		
+		private int _SequenceIdentifier;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnBodyTextChanging(string value);
+    partial void OnBodyTextChanged();
+    partial void OnSequenceIdentifierChanging(int value);
+    partial void OnSequenceIdentifierChanged();
+    #endregion
+		
+		public ContactArticle()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BodyText", DbType="NVarChar(MAX)")]
+		public string BodyText
+		{
+			get
+			{
+				return this._BodyText;
+			}
+			set
+			{
+				if ((this._BodyText != value))
+				{
+					this.OnBodyTextChanging(value);
+					this.SendPropertyChanging();
+					this._BodyText = value;
+					this.SendPropertyChanged("BodyText");
+					this.OnBodyTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SequenceIdentifier", DbType="Int NOT NULL")]
+		public int SequenceIdentifier
+		{
+			get
+			{
+				return this._SequenceIdentifier;
+			}
+			set
+			{
+				if ((this._SequenceIdentifier != value))
+				{
+					this.OnSequenceIdentifierChanging(value);
+					this.SendPropertyChanging();
+					this._SequenceIdentifier = value;
+					this.SendPropertyChanged("SequenceIdentifier");
+					this.OnSequenceIdentifierChanged();
 				}
 			}
 		}

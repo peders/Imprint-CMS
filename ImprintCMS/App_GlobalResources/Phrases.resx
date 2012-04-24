@@ -453,8 +453,8 @@
   <data name="PagenameCreateBookListMembership" xml:space="preserve">
     <value>New book list member</value>
   </data>
-  <data name="PagenameCreateNewsArticle" xml:space="preserve">
-    <value>New news article</value>
+  <data name="PagenameCreateArticle" xml:space="preserve">
+    <value>New article</value>
   </data>
   <data name="PagenameEditArticle" xml:space="preserve">
     <value>Edit article</value>
@@ -480,8 +480,8 @@
   <data name="PagenameCreateContactArticle" xml:space="preserve">
     <value>New contact article</value>
   </data>
-  <data name="PagenameNewsArticles" xml:space="preserve">
-    <value>News articles</value>
+  <data name="PagenameArticles" xml:space="preserve">
+    <value>Articles</value>
   </data>
   <data name="ValidationNoEditionsForExternalPublisher" xml:space="preserve">
     <value>Books from other publishers do not have editions</value>
@@ -503,5 +503,8 @@
   </data>
   <data name="SitemenuContact" xml:space="preserve">
     <value>Kontakt oss</value>
+  </data>
+  <data name="PagenameEditContactArticle" xml:space="preserve">
+    <value>Edit contact article</value>
   </data>
 </root>

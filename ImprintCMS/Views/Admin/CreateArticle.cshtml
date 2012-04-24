@@ -1,9 +1,9 @@
 ﻿@model Article
 @{
-	ViewBag.Title = Model.IsForContactPage ? Phrases.PagenameCreateContactArticle : Phrases.PagenameCreateNewsArticle;
+	ViewBag.Title = Phrases.PagenameCreateArticle;
 	ViewBag.Breadcrumbs = new[] {
-		Model.IsForContactPage ? Html.ActionLink(Phrases.PagenameContactArticles, "contactarticles") : Html.ActionLink(Phrases.PagenameNewsArticles, "newsarticles"),
-		new HtmlString(Model.IsForContactPage ? Phrases.PagenameCreateContactArticle : Phrases.PagenameCreateNewsArticle)
+		Html.ActionLink(Phrases.PagenameArticles, "articles"),
+		Phrases.PagenameCreateArticle.ToHtmlString()
 	};
 }
 @Html.EditorForModel()

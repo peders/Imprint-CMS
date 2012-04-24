@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Article>
+﻿@model IEnumerable<ContactArticle>
 @{
 	ViewBag.Title = Phrases.PagenameContactArticles;
 	ViewBag.Breadcrumbs = new[] {
@@ -8,11 +8,10 @@
 <ul class="adminactions">
 	<li>@Html.ActionLink(Phrases.PagenameCreateContactArticle, "createcontactarticle")</li>
 </ul>
-<ul class="listing">
+<ul class="listing sortable" data-persisturl="@Url.Action("storecontactarticleorder")" data-handlelabel="@Phrases.LabelDragAndDropToSort" data-errorlabel="@Phrases.ValidationAjaxError">
 	@foreach (var article in Model)
  {
-		<li><span class="name">@Html.ActionLink(article.Title, "editarticle", new { id = article.Id })</span>
-			<span class="data">@String.Format("{0:D}", article.Date)</span>
-			@Html.ActionLink(Phrases.LabelDelete, "deletearticle", new { id = article.Id })</li>
+		<li id="@String.Format("sortitem_{0}", article.Id)"><span class="name">@Html.ActionLink(article.Title, "editcontactarticle", new { id = article.Id })</span>
+			@Html.ActionLink(Phrases.LabelDelete, "deletecontactarticle", new { id = article.Id })</li>
  }
 </ul>

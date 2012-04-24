@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<Article>
 @{
-	ViewBag.Title = Phrases.PagenameNewsArticles;
+	ViewBag.Title = Phrases.PagenameArticles;
 	ViewBag.Breadcrumbs = new[] {
-		Phrases.PagenameNewsArticles.ToHtmlString()
+		Phrases.PagenameArticles.ToHtmlString()
 	};
 }
 <ul class="adminactions">
-	<li>@Html.ActionLink(Phrases.PagenameCreateNewsArticle, "createnewsarticle")</li>
+	<li>@Html.ActionLink(Phrases.PagenameCreateArticle, "createarticle")</li>
 </ul>
 <ul class="listing">
 	@foreach (var article in Model)

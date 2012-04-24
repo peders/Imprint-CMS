@@ -62,6 +62,14 @@
       <Association Name="Edition_BookListMembership" Member="Edition" ThisKey="EditionId" OtherKey="Id" Type="Edition" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ContactArticle" Member="ContactArticles">
+    <Type Name="ContactArticle">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BodyText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Edition" Member="Editions">
     <Type Name="Edition">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

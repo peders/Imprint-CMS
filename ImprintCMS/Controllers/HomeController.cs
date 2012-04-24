@@ -12,18 +12,18 @@ namespace ImprintCMS.Controllers
 			var vm = new SiteFrontPage
 			{
 				BookLists = Repository.BookLists.Where(l => l.IsVisible).OrderBy(l => l.SequenceIdentifier),
-				Articles = Repository.NewsArticles.Where(a => a.IsVisible).OrderByDescending(a => a.Date)
+				Articles = Repository.Articles.Where(a => a.IsVisible).OrderByDescending(a => a.Date)
 			};
 			return View(vm);
 		}
 
 		public ActionResult Contact(int? id)
 		{
-			var articles = Repository.ContactArticles.Where(a => a.IsVisible).OrderByDescending(a => a.Date);
+			var articles = Repository.ContactArticles.OrderBy(a => a.SequenceIdentifier);
 			var vm = new ContactPage
 			{
 				Articles = articles,
-				CurrentArticle = id == null ? articles.First() : Repository.GetArticle((int)id)
+				CurrentArticle = id == null ? articles.First() : Repository.GetContactArticle((int)id)
 			};
 			return View(vm);
 		}
