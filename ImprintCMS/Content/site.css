@@ -31,6 +31,7 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 #content.home.index #articles article h1 { font-size: 1.2em; margin: 0 0 0.2em 0; }
 #content.home.index #articles article p { margin: 0 0 0.2em 0; }
 #content.home.index #articles article ul { margin: 0; padding: 0; list-style-type: none; }
+#content.home.index #articles article .date { margin: 0.5em 0 0; font-size: 0.8em; color: #cccccc; }
 
 #content.home.contact #articlemenu { float: left; width: 200px; list-style-type: none; margin: 0; padding: 0; }
 #content.home.contact #articlemenu li { margin: 0 0 0.5em 0; padding: 0; }
