@@ -17,6 +17,9 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 
 #content { width: 910px; padding: 40px 35px; margin: 0 auto; background: #ffffff; border-radius: 4px; }
 #content #floatbreaker { clear: both; }
+#content.details ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
+#content.details h1 { font-size: 1.4em; margin: 0 0 1em 0; }
+#content.details h2 { font-size: 1.2em; margin: 1em 0 0.2em 0; }
 
 #content.home.index #booklists { padding-right: 240px; }
 #content.home.index #booklists .booklist { margin: 0 0 2em 0; }
@@ -25,7 +28,6 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 #content.home.index #booklists .booklist ul li { border-top: 1px dotted #dddddd; padding: 17px 0; height: 52px; font-size: 1.2em; }
 #content.home.index #booklists .booklist ul li:first-child { border: none; }
 #content.home.index #booklists .booklist ul li img.cover { float: left; margin: -10px 20px 0 0; height: 70px; border: 1px solid #808080; }
-
 #content.home.index #articles { width: 200px; float: right; }
 #content.home.index #articles article { margin: 0 0 2em 0; }
 #content.home.index #articles article h1 { font-size: 1.2em; margin: 0 0 0.2em 0; }
@@ -46,34 +48,28 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 #content.books.index #genremenu a { display: block; padding: 5px 8px; background: #f8f8f8; color: #000000; border-radius: 4px; }
 #content.books.index #genremenu a:hover { background-color: #eeeeee; text-decoration: none; }
 #content.books.index #genremenu strong { display: block; padding: 5px 8px; background: #eeeeee; border-radius: 4px; }
-
 #content.books.index #booklisting { padding-left: 240px; }
 #content.books.index #booklisting h2 { font-size: 1em; margin: 0 0 0.2em 0; }
 #content.books.index #booklisting ul { list-style-type: none; margin: 0 0 1em 0; padding: 0; }
 
-#content.details ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
-
 #content.books.details ul.rightsholders { list-style-type: none; margin: 0 0 0.2em 0; padding: 0; }
 #content.books.details ul.rightsholders a { color: #000000; }
-#content.books.details h1 { font-family: Georgia, "Times New Roman" , Times, Serif; font-weight: normal; margin: 0; }
-#content.books.details p.subtitle { font-family: Georgia, "Times New Roman" , Times, Serif; font-weight: normal; margin: 0 0 2em 0; }
-
+#content.books.details h1 { margin: 0; }
+#content.books.details p.subtitle { margin: 0 0 2em 0; }
 #content.books.details #cover { float: right; margin: 0 0 2em 2em; }
 #content.books.details #cover img.cover { border: 1px solid #808080; }
-
 #content.books.details table.editions { margin: 2em 0 1em 0; border-collapse: collapse; }
 #content.books.details table.editions td { padding: 0.3em 1em; border-bottom: 1px dotted #cccccc; }
 #content.books.details table.editions tr:first-child td { border-top: 1px dotted #cccccc; }
 
-#content.authors.index #authorlisting { padding-left: 140px; }
+#content.authors.index #authorlisting { padding-left: 187px; }
 #content.authors.index #authorlisting h2 { font-size: 1.2em; margin: 0 0 0.2em 0; }
 #content.authors.index #authorlisting ul { list-style-type: none; margin: 0 0 1em 0; padding: 0; }
 
-#content.authors.details h1 { font-family: Georgia, "Times New Roman" , Times, Serif; font-weight: normal; margin: 0 0 2em 0; }
-
-#content.authors.details #personimage { float: right; margin: 0 0 2em 2em; }
+#content.authors.details #main { padding-left: 187px; }
+#content.authors.details #personimage { float: left; width: 152px; }
 #content.authors.details #personimage img.image { border: 1px solid #808080; }
-#content.authors.details h2 { font-size: 1.2em; margin: 1em 0 0.2em 0; }
+#content.authors.details #personimage .photographer { font-size: 0.8em; color: #cccccc; margin: 0.2em 0 0 0; }
 
 #social { margin: 1em 0 2em 0; }
 #social a.twitter { text-indent: -9999em; display: block; background: url(site_layout/twitter.png) no-repeat 0 -10px; width: 54px; height: 10px; margin: 1em 0; }
