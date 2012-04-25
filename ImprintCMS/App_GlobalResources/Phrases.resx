@@ -507,4 +507,22 @@
   <data name="PagenameEditContactArticle" xml:space="preserve">
     <value>Edit contact article</value>
   </data>
+  <data name="HeadingSearchBooks" xml:space="preserve">
+    <value>Bøker</value>
+  </data>
+  <data name="HeadingSearchPeople" xml:space="preserve">
+    <value>Forfattere</value>
+  </data>
+  <data name="SitemenuSearch" xml:space="preserve">
+    <value>Søk</value>
+  </data>
+  <data name="LabelSearchResultEmpty" xml:space="preserve">
+    <value>Ingen treff</value>
+  </data>
+  <data name="LabelSearch" xml:space="preserve">
+    <value>Søk</value>
+  </data>
+  <data name="LabelSearchPlaceholder" xml:space="preserve">
+    <value>Søk etter bok eller forfatter</value>
+  </data>
 </root>

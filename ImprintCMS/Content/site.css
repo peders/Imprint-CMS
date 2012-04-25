@@ -1,12 +1,15 @@
 body { font-family: Calibri, sans-serif; color: #000000; background-color: #eeeeee; font-size: 0.85em; margin: 20px; }
 header, footer, nav, section { display: block; }
-
 a { color: #4880e3; text-decoration: none; }
 a:hover { text-decoration: underline; }
+input { font-family: Calibri, sans-serif; font-size: 1em; }
 
-header { width: 920px; padding: 30px; margin: 0 auto; }
+header { width: 920px; padding: 30px; margin: 0 auto; position: relative; }
 header h1 { margin: 0; padding: 0; width: 170px; height: 100px; }
 header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em; background: url(site_layout/logo.png) no-repeat; }
+header #searchform { position: absolute; right: 20px; bottom: -30px; }
+header #searchform fieldset { border: none; padding: 0; margin: 0; }
+header #searchform #query { width: 300px; }
 
 #sitemenu { width: 940px; padding: 0 20px; height: 30px; overflow: hidden; margin: 0 auto; }
 #sitemenu ul { list-style-type: none; margin: 0; padding: 0; }
@@ -20,6 +23,7 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 #content.details ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
 #content.details h1 { font-size: 1.4em; margin: 0 0 1em 0; }
 #content.details h2 { font-size: 1.2em; margin: 1em 0 0.2em 0; }
+#content .empty { color: #808080; font-style: italic; }
 
 #content.home.index #booklists { padding-right: 240px; }
 #content.home.index #booklists .booklist { margin: 0 0 2em 0; }
@@ -42,6 +46,12 @@ header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em;
 #content.home.contact #articlemenu strong { display: block; padding: 5px 8px; background: #eeeeee; border-radius: 4px; }
 #content.home.contact article { padding-left: 240px; }
 #content.home.contact article h1 { font-size: 1.4em; margin: 0 0 1em 0; }
+
+#content.home.search h2 { font-size: 1.2em; margin: 1em 0 0.2em 0; }
+#content.home.search ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
+#content.home.search #searchform { padding: 0; margin: 0 0 2em 0; }
+#content.home.search #searchform fieldset { border: none; padding: 0; margin: 0; }
+#content.home.search #searchform #query { width: 300px; }
 
 #content.books.index #genremenu { float: left; width: 200px; list-style-type: none; margin: 0; padding: 0; }
 #content.books.index #genremenu li { margin: 0 0 0.5em 0; padding: 0; }

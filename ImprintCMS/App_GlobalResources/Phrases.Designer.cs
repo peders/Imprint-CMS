@@ -124,6 +124,24 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bøker.
+        /// </summary>
+        public static string HeadingSearchBooks {
+            get {
+                return ResourceManager.GetString("HeadingSearchBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forfattere.
+        /// </summary>
+        public static string HeadingSearchPeople {
+            get {
+                return ResourceManager.GetString("HeadingSearchPeople", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anthology contributions.
         /// </summary>
         public static string LabelAnthologies {
@@ -534,6 +552,33 @@ namespace ImprintCMS.Models {
         public static string LabelSave {
             get {
                 return ResourceManager.GetString("LabelSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Søk.
+        /// </summary>
+        public static string LabelSearch {
+            get {
+                return ResourceManager.GetString("LabelSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Søk etter bok eller forfatter.
+        /// </summary>
+        public static string LabelSearchPlaceholder {
+            get {
+                return ResourceManager.GetString("LabelSearchPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ingen treff.
+        /// </summary>
+        public static string LabelSearchResultEmpty {
+            get {
+                return ResourceManager.GetString("LabelSearchResultEmpty", resourceCulture);
             }
         }
         
@@ -984,6 +1029,15 @@ namespace ImprintCMS.Models {
         public static string SitemenuHome {
             get {
                 return ResourceManager.GetString("SitemenuHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Søk.
+        /// </summary>
+        public static string SitemenuSearch {
+            get {
+                return ResourceManager.GetString("SitemenuSearch", resourceCulture);
             }
         }
         

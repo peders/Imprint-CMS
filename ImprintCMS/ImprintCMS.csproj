@@ -101,6 +101,7 @@
     <Compile Include="Models\ViewModels\FileUpload.cs" />
     <Compile Include="Models\ViewModels\ListBook.cs" />
     <Compile Include="Models\ViewModels\Login.cs" />
+    <Compile Include="Models\ViewModels\SearchResult.cs" />
     <Compile Include="Models\ViewModels\SiteFrontPage.cs" />
     <Compile Include="Models\ViewModels\UploadCategory.cs" />
     <Compile Include="Models\ViewModels\UploadCategoryListItem.cs" />
@@ -455,6 +456,7 @@
     <Content Include="Views\Shared\EditorTemplates\ContactArticle.cshtml" />
     <Content Include="Views\Admin\CreateContactArticle.cshtml" />
     <Content Include="Views\Admin\EditContactArticle.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

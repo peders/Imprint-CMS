@@ -38,5 +38,17 @@ namespace ImprintCMS.Models
 			return new HtmlString("<iframe src=\"http://www.facebook.com/plugins/like.php?href=" + url + "&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:21px;\" allowTransparency=\"true\"></iframe>");
 		}
 
+		public static HtmlString SearchForm(this HtmlHelper helper, string action, string query)
+		{
+			return new HtmlString(String.Format(
+				@"<form method=""get"" action=""{0}"" id=""searchform"">
+<fieldset>
+	<p>
+		<input type=""text"" name=""q"" id=""query"" value=""{1}"" placeholder=""{2}"" />
+		<input type=""submit"" id=""button"" value=""{3}"" /></p>
+</fieldset>
+</form>", action, query, Phrases.LabelSearchPlaceholder, Phrases.LabelSearch));
+		}
+
 	}
 }
