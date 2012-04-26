@@ -40,7 +40,7 @@ namespace ImprintCMS.Controllers
 					People = Repository.People.Where(p => false)
 				});
 			}
-			var cleanQuery = q.ToLower().Trim();
+			var cleanQuery = q.ToLower().Trim().Replace(" ", string.Empty);
 			var vm = new SearchResult
 			{
 				Query = q.Trim(),
@@ -53,13 +53,10 @@ namespace ImprintCMS.Controllers
 						|| b.Relations.Select(r => r.Person).Any(p =>
 							p.IsVisible
 							&& p.HasPage
-							&& p.FirstName.ToLower().Contains(cleanQuery) || p.LastName.ToLower().Contains(cleanQuery)))
+							&& (p.FirstName + p.LastName).Contains(cleanQuery)))
 					.OrderBy(b => b.Title),
 				People = Repository.People
-					.Where(p =>
-						p.IsVisible
-						&& p.HasPage
-						&& p.FirstName.ToLower().Contains(cleanQuery) || p.LastName.ToLower().Contains(cleanQuery))
+					.Where(p => p.IsVisible && p.HasPage && (p.FirstName + p.LastName).ToLower().Replace(" ", string.Empty).Contains(cleanQuery))
 					.OrderBy(p => p.LastName)
 					.ThenBy(p => p.FirstName)
 			};
