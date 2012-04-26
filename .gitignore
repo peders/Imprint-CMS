@@ -17,3 +17,6 @@ Thumbs.db
 
 # OSX Files
 .DS_Store
+
+#Publish settings
+*.Publish.xml
