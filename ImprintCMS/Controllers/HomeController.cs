@@ -53,7 +53,7 @@ namespace ImprintCMS.Controllers
 						|| b.Relations.Select(r => r.Person).Any(p =>
 							p.IsVisible
 							&& p.HasPage
-							&& (p.FirstName + p.LastName).Contains(cleanQuery)))
+							&& (p.FirstName + p.LastName).ToLower().Replace(" ", string.Empty).Contains(cleanQuery)))
 					.OrderBy(b => b.Title),
 				People = Repository.People
 					.Where(p => p.IsVisible && p.HasPage && (p.FirstName + p.LastName).ToLower().Replace(" ", string.Empty).Contains(cleanQuery))
