@@ -11,7 +11,14 @@
 <ul class="rightsholders">
 	@foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
  {
-		<li>@Html.ActionLink(relation.PersonName, "details", "authors", new { id = relation.PersonId }, null)</li>
+		<li>
+			@if (relation.Person.HasPage)
+   {
+				@Html.ActionLink(relation.PersonName, "details", "authors", new { id = relation.PersonId }, null)
+   }
+   else
+   {
+				@relation.PersonName}</li>
  }</ul>
 <h1>@Model.Title</h1>
 @if (!String.IsNullOrWhiteSpace(Model.Subtitle))
