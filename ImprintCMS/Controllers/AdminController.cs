@@ -584,7 +584,8 @@ namespace ImprintCMS.Controllers
 		{
 			var vm = new Article
 			{
-				Date = DateTime.Today
+				Date = DateTime.Today,
+				IsVisible = true
 			};
 			ViewBag.Books = LinkableBooksList(vm.BookId);
 			ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
