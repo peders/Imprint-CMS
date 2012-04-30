@@ -32,6 +32,7 @@ header #searchform #query { width: 300px; }
 #content.home.index #booklists .booklist ul li { border-top: 1px dotted #dddddd; padding: 17px 0; height: 52px; font-size: 1.2em; }
 #content.home.index #booklists .booklist ul li:first-child { border: none; }
 #content.home.index #booklists .booklist ul li img.cover { float: left; margin: -10px 20px 0 0; height: 70px; border: 1px solid #808080; }
+#content.home.index #booklists .booklist ul li .date { margin: 0.5em 0 0; font-size: 0.8em; color: #cccccc; }
 #content.home.index #articles { width: 200px; float: right; }
 #content.home.index #articles article { margin: 0 0 2em 0; }
 #content.home.index #articles article h1 { font-size: 1.2em; margin: 0 0 0.2em 0; }
