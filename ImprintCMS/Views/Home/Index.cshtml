@@ -1,6 +1,6 @@
 ﻿@model SiteFrontPage
 @{
-	ViewBag.Title = Phrases.SystemSiteName;
+	ViewBag.Title = SitePhrases.SiteName;
 }
 <div id="articles">
 	@foreach (var article in Model.Articles)
@@ -37,7 +37,7 @@
 						@if (edition.UploadedFile != null)
 	  {
 							<a href="@Url.Action("details", "books", new { id = edition.BookId })">
-								<img src="@Url.Action("display", "upload", new { category = edition.UploadedFile.Category, fileName = edition.UploadedFile.FileName })" alt="@String.Format(Phrases.LabelCoverImage, edition.Book.Title)" title="@String.Format(Phrases.LabelCoverImage, edition.Book.Title)" class="cover" /></a>
+								<img src="@Url.Action("display", "upload", new { category = edition.UploadedFile.Category, fileName = edition.UploadedFile.FileName })" alt="@String.Format(SitePhrases.LabelCoverImage, edition.Book.Title)" title="@String.Format(SitePhrases.LabelCoverImage, edition.Book.Title)" class="cover" /></a>
 	  }
 						@String.Join(" / ", edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName))<br />
 						@Html.ActionLink(edition.Book.Title, "details", "books", new { id = edition.BookId }, null)<br />

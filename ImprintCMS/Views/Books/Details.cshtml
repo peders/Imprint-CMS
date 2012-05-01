@@ -5,7 +5,7 @@
 @if (Model.Cover != null)
 {
 	<div id="cover">
-		<img src="@Url.Action("display", "upload", new { category = Model.Cover.Category, fileName = Model.Cover.FileName }, null)" class="cover" alt="@String.Format(Phrases.LabelCoverImage, Model.Title)" title="@String.Format(Phrases.LabelCoverImage, Model.Title)" />
+		<img src="@Url.Action("display", "upload", new { category = Model.Cover.Category, fileName = Model.Cover.FileName }, null)" class="cover" alt="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" title="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" />
 	</div>
 }
 <ul class="rightsholders">
@@ -32,6 +32,10 @@
 {
 	@Model.Description.ToRichText()
 }
+@if (Model.ExcerptId != null)
+{
+	<p class="excerpt">@Html.ActionLink(String.Format(SitePhrases.LabelExcerpt, Model.Title), "display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)</p>
+}
 @if (Model.Editions.Any())
 {
 	<table class="editions">
@@ -39,13 +43,13 @@
 			@foreach (var edition in Model.Editions.OrderBy(edition => edition.Number))
    {
 				<tr>
-					<td>@String.Format(Phrases.UnitEdition, edition.Number), @edition.ReleaseDate.Year
+					<td>@String.Format(SitePhrases.LabelEdition, edition.Number), @edition.ReleaseDate.Year
 					</td>
-					<td>@String.Format(Phrases.UnitIsbn, edition.Isbn)
+					<td>@String.Format(SitePhrases.LabelIsbn, edition.Isbn)
 					</td>
-					<td>@(edition.PageCount == null ? edition.Binding.Name : edition.Binding.Name + ", " + String.Format("{0} {1}", edition.PageCount, Phrases.UnitPagesPlural))
+					<td>@(edition.PageCount == null ? edition.Binding.Name : String.Format("{0}, {1} {2}", edition.Binding.Name, edition.PageCount, SitePhrases.UnitPagesPlural))
 					</td>
-					<td>@String.Format(Phrases.UnitPrice, edition.Price)
+					<td>@String.Format(SitePhrases.UnitPrice, edition.Price)
 					</td>
 				</tr>
    }

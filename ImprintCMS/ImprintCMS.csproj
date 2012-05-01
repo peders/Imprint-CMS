@@ -65,6 +65,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Phrases.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\SitePhrases.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SitePhrases.resx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
@@ -386,9 +391,14 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Site.cshtml" />
+    <Content Include="Views\Shared\_SiteLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\SitePhrases.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>ImprintCMS.Models</CustomToolNamespace>
+      <LastGenOutput>SitePhrases.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\Phrases.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Phrases.Designer.cs</LastGenOutput>
@@ -409,7 +419,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Uploads.cshtml" />
     <Content Include="Views\Admin\CreateUpload.cshtml" />
-    <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Bindings.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Binding.cshtml" />
     <Content Include="Views\Admin\CreateBinding.cshtml" />

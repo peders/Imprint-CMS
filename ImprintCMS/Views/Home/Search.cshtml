@@ -1,15 +1,15 @@
 ﻿@model SearchResult
 @{
-	ViewBag.Title = Phrases.SitemenuSearch;
+	ViewBag.Title = SitePhrases.MenuSearch;
 }
 @Html.SearchForm(Url.Action("search", "home"), Model.Query)
 @if (!String.IsNullOrWhiteSpace(Model.Query) && !Model.Books.Any() && !Model.People.Any())
 {
-	<p class="empty">@Phrases.LabelSearchResultEmpty</p>
+	<p class="empty">@SitePhrases.LabelSearchResultEmpty</p>
 }
 @if (Model.Books.Any())
 {
-	<h2>@Phrases.HeadingSearchBooks</h2>
+	<h2>@SitePhrases.HeadingSearchBooks</h2>
 	<ul>
 		@foreach (var book in Model.Books)
   {
@@ -20,7 +20,7 @@
 }
 @if (Model.People.Any())
 {
-	<h2>@Phrases.HeadingSearchPeople</h2>
+	<h2>@SitePhrases.HeadingSearchPeople</h2>
 	<ul>
 		@foreach (var person in Model.People)
   {

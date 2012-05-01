@@ -364,49 +364,8 @@
   <data name="LabelEditions" xml:space="preserve">
     <value>Book editions</value>
   </data>
-  <data name="SitemenuAuthors" xml:space="preserve">
-    <value>Forfattere</value>
-  </data>
-  <data name="SitemenuBooks" xml:space="preserve">
-    <value>Bøker</value>
-  </data>
-  <data name="SitemenuHome" xml:space="preserve">
-    <value>Forside</value>
-  </data>
-  <data name="SystemSiteName" xml:space="preserve">
-    <value>Kolon</value>
-  </data>
-  <data name="SystemSiteFooter" xml:space="preserve">
-    <value>Kolon Forlag, Postboks 6860 St. Olavs plass, 0130 Oslo, Besøksadresse: Sehestedsgt. 4, 0164 Oslo&lt;br/&gt;Telefon: 22 03 42 02 | &lt;a href="mailto:redaksjon@kolonforlag.no"&gt;redaksjon@kolonforlag.no&lt;/a&gt;</value>
-  </data>
-  <data name="UnitEdition" xml:space="preserve">
-    <value>{0}. utgave</value>
-    <comment>Insert edition number</comment>
-  </data>
-  <data name="UnitPagesPlural" xml:space="preserve">
-    <value>sider</value>
-  </data>
-  <data name="UnitPagesSingular" xml:space="preserve">
-    <value>side</value>
-  </data>
-  <data name="UnitPrice" xml:space="preserve">
-    <value>{0} kr</value>
-    <comment>Insert price</comment>
-  </data>
-  <data name="UnitIsbn" xml:space="preserve">
-    <value>ISBN {0}</value>
-    <comment>Insert ISBN</comment>
-  </data>
   <data name="LabelShareOnTwitter" xml:space="preserve">
     <value>Del på Twitter</value>
-  </data>
-  <data name="LabelCoverImage" xml:space="preserve">
-    <value>Omslaget til {0}</value>
-    <comment>Insert book title</comment>
-  </data>
-  <data name="LabelPhotoCredit" xml:space="preserve">
-    <value>Foto: {0}</value>
-    <comment>Insert name of photographer</comment>
   </data>
   <data name="LabelExternalPublisher" xml:space="preserve">
     <value>Other publisher</value>
@@ -416,12 +375,6 @@
   </data>
   <data name="ValidationExternalReleaseYear" xml:space="preserve">
     <value>Release year must be specified for other publishers</value>
-  </data>
-  <data name="HeadingAuthorAwards" xml:space="preserve">
-    <value>Priser</value>
-  </data>
-  <data name="HeadingAuthorBooks" xml:space="preserve">
-    <value>Bøker</value>
   </data>
   <data name="LabelHasExternalPublisher" xml:space="preserve">
     <value>Other publisher</value>
@@ -495,49 +448,7 @@
   <data name="UnitFilesSingular" xml:space="preserve">
     <value>file</value>
   </data>
-  <data name="HeadingAuthorAnthologies" xml:space="preserve">
-    <value>Antologibidrag</value>
-  </data>
-  <data name="HeadingAuthorTranslations" xml:space="preserve">
-    <value>Oversettelser</value>
-  </data>
-  <data name="SitemenuContact" xml:space="preserve">
-    <value>Kontakt oss</value>
-  </data>
   <data name="PagenameEditContactArticle" xml:space="preserve">
     <value>Edit contact article</value>
-  </data>
-  <data name="HeadingSearchBooks" xml:space="preserve">
-    <value>Bøker</value>
-  </data>
-  <data name="HeadingSearchPeople" xml:space="preserve">
-    <value>Forfattere</value>
-  </data>
-  <data name="SitemenuSearch" xml:space="preserve">
-    <value>Søk</value>
-  </data>
-  <data name="LabelSearchResultEmpty" xml:space="preserve">
-    <value>Ingen treff</value>
-  </data>
-  <data name="LabelSearch" xml:space="preserve">
-    <value>Søk</value>
-  </data>
-  <data name="LabelSearchPlaceholder" xml:space="preserve">
-    <value>Søk etter bok eller forfatter</value>
-  </data>
-  <data name="LabelIsPublished" xml:space="preserve">
-    <value>Utkommet</value>
-  </data>
-  <data name="UnitMonthMedio" xml:space="preserve">
-    <value>medio</value>
-  </data>
-  <data name="UnitMonthPremio" xml:space="preserve">
-    <value>premio</value>
-  </data>
-  <data name="UnitMonthUltimo" xml:space="preserve">
-    <value>ultimo</value>
-  </data>
-  <data name="LabelWillBePublished" xml:space="preserve">
-    <value>Kommer</value>
   </data>
 </root>

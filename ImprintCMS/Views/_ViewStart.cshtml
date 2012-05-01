@@ -1,11 +1,11 @@
 ﻿@{
 	var adminControllers = new[] { "admin", "account" };
-	if (adminControllers.Contains((string)ViewContext.RouteData.Values["controller"]))
+	if (adminControllers.Contains((string)ViewContext.ControllerName().ToLower()))
 	{
-		Layout = "~/Views/Shared/_Admin.cshtml";
+		Layout = "~/Views/Shared/_AdminLayout.cshtml";
 	}
 	else
 	{
-		Layout = "~/Views/Shared/_Site.cshtml";
+		Layout = "~/Views/Shared/_SiteLayout.cshtml";
 	}
 }

@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Person>
 @{
-	ViewBag.Title = Phrases.SitemenuAuthors;
+	ViewBag.Title = SitePhrases.MenuAuthors;
 }
 <div id="authorlisting">
 	@foreach (var group in Model.GroupBy(p => p.LastName.Substring(0, 1)))
