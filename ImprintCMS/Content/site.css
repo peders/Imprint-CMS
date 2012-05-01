@@ -25,14 +25,14 @@ header #searchform #query { width: 300px; }
 #content.details h2 { font-size: 1.2em; margin: 1em 0 0.2em 0; }
 #content .empty { color: #808080; font-style: italic; }
 
-#content.home.index #booklists { padding-right: 240px; }
+#content.home.index #booklists { padding-right: 340px; }
 #content.home.index #booklists .booklist { margin: 0 0 2em 0; }
 #content.home.index #booklists .booklist h1 { font-size: 1.4em; font-weight: bold; margin: 0 0 0.5em 0; }
 #content.home.index #booklists .booklist ul { list-style-type: none; margin: 0; padding: 0; }
-#content.home.index #booklists .booklist ul li { border-top: 1px dotted #dddddd; padding: 17px 0; height: 52px; font-size: 1.2em; }
+#content.home.index #booklists .booklist ul li { border-top: 1px dotted #dddddd; padding: 17px 0; height: 82px; font-size: 1.2em; }
 #content.home.index #booklists .booklist ul li:first-child { border: none; }
-#content.home.index #booklists .booklist ul li img.cover { float: left; margin: -10px 20px 0 0; height: 70px; border: 1px solid #808080; }
-#content.home.index #articles { width: 200px; float: right; }
+#content.home.index #booklists .booklist ul li img.cover { float: left; margin: -10px 20px 0 0; height: 100px; border: 1px solid #808080; }
+#content.home.index #articles { width: 300px; float: right; }
 #content.home.index #articles article { margin: 0 0 2em 0; }
 #content.home.index #articles article h1 { font-size: 1.2em; margin: 0 0 0.2em 0; }
 #content.home.index #articles article p { margin: 0 0 0.2em 0; }
