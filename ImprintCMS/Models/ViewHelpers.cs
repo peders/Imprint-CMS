@@ -27,6 +27,15 @@ namespace ImprintCMS.Models
 			return new HtmlString(source);
 		}
 
+		public static string ToBookListDate(this DateTime source)
+		{
+			if (source <= DateTime.Today) return Phrases.LabelIsPublished;
+			var formatString = Phrases.LabelWillBePublished + " {0} " + source.ToString("MMMM");
+			if (source.Day < 11) return String.Format(formatString, Phrases.UnitMonthPremio);
+			if (source.Day < 21) return String.Format(formatString, Phrases.UnitMonthMedio);
+			return String.Format(formatString, Phrases.UnitMonthUltimo);
+		}
+
 		public static HtmlString Twitter(this HtmlHelper helper)
 		{
 			return new HtmlString("<a href=\"http://twitter.com/share\" class=\"twitter\">" + Phrases.LabelShareOnTwitter + "</a>");

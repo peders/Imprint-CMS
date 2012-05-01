@@ -525,4 +525,19 @@
   <data name="LabelSearchPlaceholder" xml:space="preserve">
     <value>Søk etter bok eller forfatter</value>
   </data>
+  <data name="LabelIsPublished" xml:space="preserve">
+    <value>Utkommet</value>
+  </data>
+  <data name="UnitMonthMedio" xml:space="preserve">
+    <value>medio</value>
+  </data>
+  <data name="UnitMonthPremio" xml:space="preserve">
+    <value>premio</value>
+  </data>
+  <data name="UnitMonthUltimo" xml:space="preserve">
+    <value>ultimo</value>
+  </data>
+  <data name="LabelWillBePublished" xml:space="preserve">
+    <value>Kommer</value>
+  </data>
 </root>
