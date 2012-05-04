@@ -19,5 +19,4 @@ Thumbs.db
 .DS_Store
 
 #Publish settings
-*.Publish.xml
 ImprintCMS/ImprintCMS.Publish.xml
