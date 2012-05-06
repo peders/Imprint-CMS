@@ -8,59 +8,61 @@
 		<img src="@Url.Action("display", "upload", new { category = Model.Cover.Category, fileName = Model.Cover.FileName }, null)" class="cover" alt="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" title="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" />
 	</div>
 }
-<ul class="rightsholders">
-	@foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
+<div id="main">
+	<ul class="rightsholders">
+		@foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
+  {
+			<li>
+				@if (relation.Person.HasPage)
+	{
+					@Html.ActionLink(relation.PersonName, "details", "authors", new { id = relation.PersonId }, null)
+	}
+	else
+	{
+					@relation.PersonName
+	}
+			</li>
+  }
+	</ul>
+	<h1>@Model.Title</h1>
+	@if (!String.IsNullOrWhiteSpace(Model.Subtitle))
  {
-		<li>
-			@if (relation.Person.HasPage)
-   {
-				@Html.ActionLink(relation.PersonName, "details", "authors", new { id = relation.PersonId }, null)
-   }
-   else
-   {
-				@relation.PersonName
-   }
-		</li>
+		<p class="subtitle">@Model.Subtitle</p>
  }
-</ul>
-<h1>@Model.Title</h1>
-@if (!String.IsNullOrWhiteSpace(Model.Subtitle))
-{
-	<p class="subtitle">@Model.Subtitle</p>
-}
-@if (!String.IsNullOrWhiteSpace(Model.Description))
-{
-	@Model.Description.ToRichText()
-}
-@if (Model.ExcerptId != null)
-{
-	<p class="excerpt">@Html.ActionLink(String.Format(SitePhrases.LabelExcerpt, Model.Title), "display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)</p>
-}
-@if (Model.Editions.Any())
-{
-	<table class="editions">
-		<tbody>
-			@foreach (var edition in Model.Editions.OrderBy(edition => edition.Number))
-   {
-				<tr>
-					<td>@String.Format(SitePhrases.LabelEdition, edition.Number), @edition.ReleaseDate.Year
-					</td>
-					<td>@String.Format(SitePhrases.LabelIsbn, edition.Isbn)
-					</td>
-					<td>@(edition.PageCount == null ? edition.Binding.Name : String.Format("{0}, {1} {2}", edition.Binding.Name, edition.PageCount, SitePhrases.UnitPagesPlural))
-					</td>
-					<td>@String.Format(SitePhrases.UnitPrice, edition.Price)
-					</td>
-				</tr>
-   }
-		</tbody>
-	</table>
-}
-<div id="social">
-	@Html.Twitter()
-	@Html.Facebook()
+	@if (!String.IsNullOrWhiteSpace(Model.Description))
+ {
+		@Model.Description.ToRichText()
+ }
+	@if (Model.ExcerptId != null)
+ {
+		<p class="excerpt">@Html.ActionLink(String.Format(SitePhrases.LabelExcerpt, Model.Title), "display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)</p>
+ }
+	@if (Model.Editions.Any())
+ {
+		<table class="editions">
+			<tbody>
+				@foreach (var edition in Model.Editions.OrderBy(edition => edition.Number))
+	{
+					<tr>
+						<td>@String.Format(SitePhrases.LabelEdition, edition.Number), @edition.ReleaseDate.Year
+						</td>
+						<td>@String.Format(SitePhrases.LabelIsbn, edition.Isbn)
+						</td>
+						<td>@(edition.PageCount == null ? edition.Binding.Name : String.Format("{0}, {1} {2}", edition.Binding.Name, edition.PageCount, SitePhrases.UnitPagesPlural))
+						</td>
+						<td>@String.Format(SitePhrases.UnitPrice, edition.Price)
+						</td>
+					</tr>
+	}
+			</tbody>
+		</table>
+ }
+	<div id="social">
+		@Html.Twitter()
+		@Html.Facebook()
+	</div>
+	@if (!String.IsNullOrWhiteSpace(Model.Quotes))
+ {
+		@Model.Quotes.ToRichText()
+ }
 </div>
-@if (!String.IsNullOrWhiteSpace(Model.Quotes))
-{
-	@Model.Quotes.ToRichText()
-}

@@ -67,12 +67,13 @@ header #searchform #query { width: 300px; }
 #content.books.index #booklisting h2 { font-size: 1em; margin: 0 0 0.2em 0; }
 #content.books.index #booklisting ul { list-style-type: none; margin: 0 0 1em 0; padding: 0; }
 
+#content.books.details #cover { float: left; width: 152px; }
+#content.books.details #cover img.cover { width: 150px; border: 1px solid #808080; }
+#content.books.details #main { padding-left: 187px; }
 #content.books.details ul.rightsholders { list-style-type: none; margin: 0 0 0.2em 0; padding: 0; }
 #content.books.details ul.rightsholders a { color: #000000; }
 #content.books.details h1 { margin: 0; }
 #content.books.details p.subtitle { margin: 0 0 2em 0; }
-#content.books.details #cover { float: right; margin: 0 0 2em 2em; }
-#content.books.details #cover img.cover { border: 1px solid #808080; }
 #content.books.details table.editions { margin: 2em 0 1em 0; border-collapse: collapse; }
 #content.books.details table.editions td { padding: 0.3em 1em; border-bottom: 1px dotted #cccccc; }
 #content.books.details table.editions tr:first-child td { border-top: 1px dotted #cccccc; }
