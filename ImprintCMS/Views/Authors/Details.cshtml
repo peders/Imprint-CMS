@@ -2,16 +2,18 @@
 @{
 	ViewBag.Title = Model.Person.FullName;
 }
-@if (Model.Person.SmallImageId != null)
-{
-	<div id="personimage">
-		<img src="@Url.Action("display", "upload", new { category = Model.Person.UploadedFile.Category, fileName = Model.Person.UploadedFile.FileName }, null)" class="image" alt="@Model.Person.FullName" title="@Model.Person.FullName" /><br />
-		@if (!String.IsNullOrWhiteSpace(Model.Person.PhotographerCredit))
-  {
-			<p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.Person.PhotographerCredit)</p>
-  }
-	</div>
-}
+<div id="image">
+	@if (Model.Person.SmallImageId != null)
+ {
+		<img src="@Url.Action("display", "upload", new { category = Model.Person.UploadedFile.Category, fileName = Model.Person.UploadedFile.FileName }, null)" class="pageimage"
+			alt="@String.Format(SitePhrases.LabelAuthorImage, Model.Person.FullName)"
+			title="@String.Format(SitePhrases.LabelAuthorImage, Model.Person.FullName)" />
+	 if (!String.IsNullOrWhiteSpace(Model.Person.PhotographerCredit))
+	 {
+		<p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.Person.PhotographerCredit)</p>
+	 }
+ }
+</div>
 <div id="main">
 	<h1>@Model.Person.FullName</h1>
 	@if (!String.IsNullOrWhiteSpace(Model.Person.Description))

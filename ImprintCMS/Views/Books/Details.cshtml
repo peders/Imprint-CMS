@@ -2,12 +2,30 @@
 @{
 	ViewBag.Title = Model.Title;
 }
-@if (Model.Cover != null)
-{
-	<div id="cover">
-		<img src="@Url.Action("display", "upload", new { category = Model.Cover.Category, fileName = Model.Cover.FileName }, null)" class="cover" alt="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" title="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" />
+<div id="image">
+	@if (Model.Cover != null)
+ {
+		<img src="@Url.Action("display", "upload", new { category = Model.Cover.Category, fileName = Model.Cover.FileName }, null)" class="pageimage" alt="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" title="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" />
+ }
+	@if (Model.Editions.Any())
+ {
+		<div id="editions">
+			@foreach (var edition in Model.Editions.OrderBy(edition => edition.Number))
+   {
+				<div class="edition">
+					<h2>@String.Format(SitePhrases.LabelEdition, edition.Number), @edition.ReleaseDate.Year</h2>
+					<p>@String.Format(SitePhrases.LabelIsbn, edition.Isbn)<br />
+						@(edition.PageCount == null ? edition.Binding.Name : String.Format("{0}, {1} {2}", edition.Binding.Name, edition.PageCount, SitePhrases.UnitPagesPlural))<br />
+						@String.Format(SitePhrases.UnitPrice, edition.Price)</p>
+				</div>
+   }
+		</div>
+ }
+	<div id="social">
+		@Html.Twitter()
+		@Html.Facebook()
 	</div>
-}
+</div>
 <div id="main">
 	<ul class="rightsholders">
 		@foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
@@ -37,32 +55,9 @@
  {
 		<p class="excerpt">@Html.ActionLink(String.Format(SitePhrases.LabelExcerpt, Model.Title), "display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)</p>
  }
-	@if (Model.Editions.Any())
- {
-		<table class="editions">
-			<tbody>
-				@foreach (var edition in Model.Editions.OrderBy(edition => edition.Number))
-	{
-					<tr>
-						<td>@String.Format(SitePhrases.LabelEdition, edition.Number), @edition.ReleaseDate.Year
-						</td>
-						<td>@String.Format(SitePhrases.LabelIsbn, edition.Isbn)
-						</td>
-						<td>@(edition.PageCount == null ? edition.Binding.Name : String.Format("{0}, {1} {2}", edition.Binding.Name, edition.PageCount, SitePhrases.UnitPagesPlural))
-						</td>
-						<td>@String.Format(SitePhrases.UnitPrice, edition.Price)
-						</td>
-					</tr>
-	}
-			</tbody>
-		</table>
- }
-	<div id="social">
-		@Html.Twitter()
-		@Html.Facebook()
-	</div>
 	@if (!String.IsNullOrWhiteSpace(Model.Quotes))
  {
+		<h2>@String.Format(SitePhrases.HeadingBookQuotes, Model.Title)</h2>
 		@Model.Quotes.ToRichText()
  }
 </div>

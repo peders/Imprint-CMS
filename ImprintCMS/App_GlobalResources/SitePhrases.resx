@@ -213,4 +213,12 @@
   <data name="HeadingAuthorAnthologies" xml:space="preserve">
     <value>Antologibidrag</value>
   </data>
+  <data name="HeadingBookQuotes" xml:space="preserve">
+    <value>Om {0}</value>
+    <comment>Insert book title</comment>
+  </data>
+  <data name="LabelAuthorImage" xml:space="preserve">
+    <value>Bilde av {0}</value>
+    <comment>Insert name</comment>
+  </data>
 </root>

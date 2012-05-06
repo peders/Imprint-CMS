@@ -97,6 +97,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Om {0}.
+        /// </summary>
+        public static string HeadingBookQuotes {
+            get {
+                return ResourceManager.GetString("HeadingBookQuotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bøker.
         /// </summary>
         public static string HeadingSearchBooks {
@@ -111,6 +120,15 @@ namespace ImprintCMS.Models {
         public static string HeadingSearchPeople {
             get {
                 return ResourceManager.GetString("HeadingSearchPeople", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bilde av {0}.
+        /// </summary>
+        public static string LabelAuthorImage {
+            get {
+                return ResourceManager.GetString("LabelAuthorImage", resourceCulture);
             }
         }
         
