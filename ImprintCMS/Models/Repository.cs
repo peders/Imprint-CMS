@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Models
 {
@@ -36,6 +37,21 @@ namespace ImprintCMS.Models
 		public void Delete(UploadedFile file)
 		{
 			_db.UploadedFiles.DeleteOnSubmit(file);
+		}
+
+		public IEnumerable<ListFile> ListFiles
+		{
+			get
+			{
+				return _db.UploadedFiles.Select(u => new ListFile
+				{
+					Id = u.Id,
+					FileName = u.FileName,
+					Category = u.Category,
+					ContentLength = u.ContentLength,
+					ContentType = u.ContentType
+				});
+			}
 		}
 
 		public IEnumerable<Binding> Bindings
