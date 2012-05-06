@@ -5,7 +5,8 @@
 <div id="image">
 	@if (Model.Person.SmallImageId != null)
  {
-		<img src="@Url.Action("display", "upload", new { category = Model.Person.UploadedFile.Category, fileName = Model.Person.UploadedFile.FileName }, null)" class="pageimage"
+		<img src="@Url.Action("display", "upload", new { category = Model.Person.UploadedFile.Category, fileName = Model.Person.UploadedFile.FileName }, null)"
+			class="pageimage"
 			alt="@String.Format(SitePhrases.LabelAuthorImage, Model.Person.FullName)"
 			title="@String.Format(SitePhrases.LabelAuthorImage, Model.Person.FullName)" />
 	 if (!String.IsNullOrWhiteSpace(Model.Person.PhotographerCredit))

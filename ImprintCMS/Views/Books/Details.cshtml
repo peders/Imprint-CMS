@@ -5,7 +5,10 @@
 <div id="image">
 	@if (Model.Cover != null)
  {
-		<img src="@Url.Action("display", "upload", new { category = Model.Cover.Category, fileName = Model.Cover.FileName }, null)" class="pageimage" alt="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" title="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" />
+		<img src="@Url.Action("display", "upload", new { category = Model.Cover.Category, fileName = Model.Cover.FileName }, null)"
+			class="pageimage"
+			alt="@String.Format(SitePhrases.LabelCoverImage, Model.Title)"
+			title="@String.Format(SitePhrases.LabelCoverImage, Model.Title)" />
  }
 	@if (Model.Editions.Any())
  {

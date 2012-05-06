@@ -14,6 +14,7 @@ namespace ImprintCMS.Models.ViewModels
 		public string RightsHolders { get; set; }
 		public string Url { get; set; }
 		public HtmlString PersonPageEntry { get; set; }
+		public UploadedFile Cover { get; set; }
 
 		public ListBook(Book book, UrlHelper url)
 		{
@@ -52,6 +53,7 @@ namespace ImprintCMS.Models.ViewModels
 					!String.IsNullOrWhiteSpace(book.Subtitle) ? String.Format(". {0}", book.Subtitle) : string.Empty,
 					ReleaseYear));
 			}
+			Cover = book.Cover;
 		}
 
 		public string SubtitleWithSeparator

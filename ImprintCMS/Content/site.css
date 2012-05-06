@@ -61,8 +61,10 @@ header #searchform #query { width: 300px; }
 #content.books.index #genremenu a:hover { background-color: #eeeeee; text-decoration: none; }
 #content.books.index #genremenu strong { display: block; padding: 5px 8px; background: #eeeeee; border-radius: 4px; }
 #content.books.index #booklisting { padding-left: 240px; }
-#content.books.index #booklisting h2 { font-size: 1em; margin: 0 0 0.2em 0; }
+#content.books.index #booklisting h2 { font-size: 1.2em; margin: 0 0 1em 0; }
 #content.books.index #booklisting ul { list-style-type: none; margin: 0 0 1em 0; padding: 0; }
+#content.books.index #booklisting ul li { height: 52px; line-height: 52px; position: relative; padding: 0 0 0 50px; margin: 0 0 0.5em 0; }
+#content.books.index #booklisting ul img.cover { height: 50px; border: 1px solid #808080; position: absolute; left: 0; top: 0; }
 
 #content.authors.index #authorlisting { padding-left: 187px; }
 #content.authors.index #authorlisting h2 { font-size: 1.2em; margin: 0 0 0.2em 0; }
