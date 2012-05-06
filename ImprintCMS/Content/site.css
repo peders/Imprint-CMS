@@ -31,7 +31,8 @@ header #searchform #query { width: 300px; }
 #content.home.index #booklists .booklist ul { list-style-type: none; margin: 0; padding: 0; float: left; }
 #content.home.index #booklists .booklist ul li { height: 232px; float: left; margin: 0 40px 40px 0; position: relative; }
 #content.home.index #booklists .booklist ul li img.cover { height: 230px; border: 1px solid #808080; float: left; }
-#content.home.index #booklists .booklist ul li .info { display: block; position: absolute; left: 0; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); margin: 0; padding: 0.3em 0; color: #ffffff; }
+#content.home.index #booklists .booklist ul li .info { display: block; position: absolute; left: 0; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.6); margin: 0; padding: 0.3em 0; color: #ffffff; }
+#content.home.index #booklists .booklist ul li:hover .info { background-color: rgba(0, 0, 0, 0.9); }
 #content.home.index #booklists .booklist ul li .info span { display: block; padding: 0.3em; }
 #content.home.index #booklists .booklist ul li .people { }
 #content.home.index #booklists .booklist ul li a.title { color: #ffffff; margin: 0.3em; font-style: italic; }

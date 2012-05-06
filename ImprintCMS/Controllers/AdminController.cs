@@ -781,7 +781,7 @@ namespace ImprintCMS.Controllers
 
 		private SelectList FileList(FileCategories category, int? selectedId)
 		{
-			return new SelectList(Repository.UploadedFiles.Where(f => f.Category == category.ToString()).OrderBy(f => f.FileName), "Id", "FileName", selectedId ?? default(int));
+			return new SelectList(Repository.ListFiles.Where(f => f.Category == category.ToString()).OrderBy(f => f.FileName), "Id", "FileName", selectedId ?? default(int));
 		}
 		private SelectList GenreList(int? selectedId)
 		{
