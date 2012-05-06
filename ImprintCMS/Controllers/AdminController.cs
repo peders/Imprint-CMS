@@ -18,7 +18,7 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult Uploads()
 		{
-			var vm = Enum.GetNames(typeof(FileCategories)).Select(c => new UploadCategoryListItem
+			var vm = Enum.GetNames(typeof(FileCategories)).Select(c => new UploadCategory
 			{
 				Name = c,
 				FileCount = Repository.UploadedFiles.Count(u => u.Category == c)
@@ -28,10 +28,17 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult UploadCategory(string id)
 		{
-			var vm = new UploadCategory
+			var vm = new UploadCategoryFiles
 			{
 				Name = id,
-				Files = Repository.UploadedFiles.Where(u => u.Category == id)
+				Files = Repository.UploadedFiles.Where(u => u.Category == id).Select(u => new ListFile
+				{
+					Id = u.Id,
+					FileName = u.FileName,
+					Category = u.Category,
+					ContentLength = u.ContentLength,
+					ContentType = u.ContentType
+				})
 			};
 			return View(vm);
 		}

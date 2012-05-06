@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace ImprintCMS.Models.ViewModels
+﻿namespace ImprintCMS.Models.ViewModels
 {
-	public class UploadCategory
+	public struct UploadCategory
 	{
 		public string Name { get; set; }
-		public IEnumerable<UploadedFile> Files { get; set; }
+		public int FileCount { get; set; }
 	}
 }

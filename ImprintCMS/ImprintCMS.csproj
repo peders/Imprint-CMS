@@ -102,14 +102,15 @@
     <Compile Include="Models\ViewHelpers.cs" />
     <Compile Include="Models\ViewModels\BookCatalog.cs" />
     <Compile Include="Models\ViewModels\ContactPage.cs" />
+    <Compile Include="Models\ViewModels\ListFile.cs" />
     <Compile Include="Models\ViewModels\PersonPage.cs" />
     <Compile Include="Models\ViewModels\FileUpload.cs" />
     <Compile Include="Models\ViewModels\ListBook.cs" />
     <Compile Include="Models\ViewModels\Login.cs" />
     <Compile Include="Models\ViewModels\SearchResult.cs" />
     <Compile Include="Models\ViewModels\SiteFrontPage.cs" />
+    <Compile Include="Models\ViewModels\UploadCategoryFiles.cs" />
     <Compile Include="Models\ViewModels\UploadCategory.cs" />
-    <Compile Include="Models\ViewModels\UploadCategoryListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
