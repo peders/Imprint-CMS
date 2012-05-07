@@ -221,4 +221,22 @@
     <value>Bilde av {0}</value>
     <comment>Insert name</comment>
   </data>
+  <data name="LabelShopEmpty" xml:space="preserve">
+    <value>Du har ingen bøker i handlekurven</value>
+  </data>
+  <data name="MenuShop" xml:space="preserve">
+    <value>Kjøp</value>
+  </data>
+  <data name="LabelAddToShop" xml:space="preserve">
+    <value>Kjøp</value>
+  </data>
+  <data name="LabelNotForSale" xml:space="preserve">
+    <value>Ikke i salg</value>
+  </data>
+  <data name="LabelShopRemoveAll" xml:space="preserve">
+    <value>Tøm handlekurv</value>
+  </data>
+  <data name="LabelShopRemoveOne" xml:space="preserve">
+    <value>Fjern</value>
+  </data>
 </root>

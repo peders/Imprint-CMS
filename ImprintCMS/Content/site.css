@@ -86,6 +86,11 @@ header #searchform #query { width: 300px; }
 #content.books.details #editions .edition h2 { margin: 0; font-size: 1em; font-weight: bold; }
 #content.books.details #editions .edition p { margin: 0; }
 
+#content.shop h1 { font-size: 1.4em; margin: 0 0 1em 0; }
+#content.shop #basket { list-style-type: none; margin: 0 0 2em 0; padding: 0; }
+#content.shop #basket li { height: 62px; position: relative; padding: 0 0 0 70px; margin: 0 0 1em 0; }
+#content.shop #basket img.cover { height: 60px; border: 1px solid #808080; position: absolute; left: 0; top: 0; }
+
 #social { margin: 1em 0 2em 0; }
 #social a.twitter { text-indent: -9999em; display: block; background: url(site_layout/twitter.png) no-repeat 0 -10px; width: 54px; height: 10px; margin: 1em 0; }
 #social a.twitter:hover { background-position: 0 0; }

@@ -76,6 +76,7 @@
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -469,6 +470,7 @@
     <Content Include="Views\Admin\CreateContactArticle.cshtml" />
     <Content Include="Views\Admin\EditContactArticle.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

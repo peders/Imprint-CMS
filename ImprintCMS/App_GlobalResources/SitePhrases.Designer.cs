@@ -124,6 +124,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kjøp.
+        /// </summary>
+        public static string LabelAddToShop {
+            get {
+                return ResourceManager.GetString("LabelAddToShop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bilde av {0}.
         /// </summary>
         public static string LabelAuthorImage {
@@ -178,6 +187,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ikke i salg.
+        /// </summary>
+        public static string LabelNotForSale {
+            get {
+                return ResourceManager.GetString("LabelNotForSale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Foto: {0}.
         /// </summary>
         public static string LabelPhotoCredit {
@@ -219,6 +237,33 @@ namespace ImprintCMS.Models {
         public static string LabelShareOnTwitter {
             get {
                 return ResourceManager.GetString("LabelShareOnTwitter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du har ingen bøker i handlekurven.
+        /// </summary>
+        public static string LabelShopEmpty {
+            get {
+                return ResourceManager.GetString("LabelShopEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tøm handlekurv.
+        /// </summary>
+        public static string LabelShopRemoveAll {
+            get {
+                return ResourceManager.GetString("LabelShopRemoveAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fjern.
+        /// </summary>
+        public static string LabelShopRemoveOne {
+            get {
+                return ResourceManager.GetString("LabelShopRemoveOne", resourceCulture);
             }
         }
         
@@ -273,6 +318,15 @@ namespace ImprintCMS.Models {
         public static string MenuSearch {
             get {
                 return ResourceManager.GetString("MenuSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kjøp.
+        /// </summary>
+        public static string MenuShop {
+            get {
+                return ResourceManager.GetString("MenuShop", resourceCulture);
             }
         }
         

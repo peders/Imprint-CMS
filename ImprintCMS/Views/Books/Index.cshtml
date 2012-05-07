@@ -19,10 +19,11 @@
 					<li>
 						@if (book.Cover != null)
 	  {
-							<img src="@Url.Action("display", "upload", new { category = book.Cover.Category, fileName = book.Cover.FileName }, null)"
+							<a href="@book.Url">
+								<img src="@Url.Action("display", "upload", new { category = book.Cover.Category, fileName = book.Cover.FileName }, null)"
 								class="cover"
 								alt="@String.Format(SitePhrases.LabelCoverImage, book.Title)"
-								title="@String.Format(SitePhrases.LabelCoverImage, book.Title)" />
+								title="@String.Format(SitePhrases.LabelCoverImage, book.Title)" /></a>
 	  }
 						@(new HtmlString(String.Format("<a href=\"{0}\">{1}</a>{2}", book.Url, book.Title, book.SubtitleWithSeparator ?? string.Empty)))</li>
 	}
