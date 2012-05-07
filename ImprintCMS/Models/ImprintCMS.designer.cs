@@ -57,6 +57,12 @@ namespace ImprintCMS.Models
     partial void InsertGenre(Genre instance);
     partial void UpdateGenre(Genre instance);
     partial void DeleteGenre(Genre instance);
+    partial void InsertOrder(Order instance);
+    partial void UpdateOrder(Order instance);
+    partial void DeleteOrder(Order instance);
+    partial void InsertOrderLine(OrderLine instance);
+    partial void UpdateOrderLine(OrderLine instance);
+    partial void DeleteOrderLine(OrderLine instance);
     partial void InsertPerson(Person instance);
     partial void UpdatePerson(Person instance);
     partial void DeletePerson(Person instance);
@@ -167,6 +173,22 @@ namespace ImprintCMS.Models
 			get
 			{
 				return this.GetTable<Genre>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Order> Orders
+		{
+			get
+			{
+				return this.GetTable<Order>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OrderLine> OrderLines
+		{
+			get
+			{
+				return this.GetTable<OrderLine>();
 			}
 		}
 		
@@ -2022,6 +2044,8 @@ namespace ImprintCMS.Models
 		
 		private EntitySet<BookListMembership> _BookListMemberships;
 		
+		private EntitySet<OrderLine> _OrderLines;
+		
 		private EntityRef<Binding> _Binding;
 		
 		private EntityRef<Book> _Book;
@@ -2061,6 +2085,7 @@ namespace ImprintCMS.Models
 		public Edition()
 		{
 			this._BookListMemberships = new EntitySet<BookListMembership>(new Action<BookListMembership>(this.attach_BookListMemberships), new Action<BookListMembership>(this.detach_BookListMemberships));
+			this._OrderLines = new EntitySet<OrderLine>(new Action<OrderLine>(this.attach_OrderLines), new Action<OrderLine>(this.detach_OrderLines));
 			this._Binding = default(EntityRef<Binding>);
 			this._Book = default(EntityRef<Book>);
 			this._UploadedFile = default(EntityRef<UploadedFile>);
@@ -2317,6 +2342,19 @@ namespace ImprintCMS.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Edition_OrderLine", Storage="_OrderLines", ThisKey="Id", OtherKey="EditionId")]
+		public EntitySet<OrderLine> OrderLines
+		{
+			get
+			{
+				return this._OrderLines;
+			}
+			set
+			{
+				this._OrderLines.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Binding_Edition", Storage="_Binding", ThisKey="BindingId", OtherKey="Id", IsForeignKey=true)]
 		public Binding Binding
 		{
@@ -2484,6 +2522,18 @@ namespace ImprintCMS.Models
 			this.SendPropertyChanging();
 			entity.Edition = null;
 		}
+		
+		private void attach_OrderLines(OrderLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.Edition = this;
+		}
+		
+		private void detach_OrderLines(OrderLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.Edition = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Genre")]
@@ -2621,6 +2671,528 @@ namespace ImprintCMS.Models
 		{
 			this.SendPropertyChanging();
 			entity.Genre = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Order]")]
+	public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Guid _ExternalId;
+		
+		private System.DateTime _CreatedAt;
+		
+		private System.Nullable<System.DateTime> _ClosedAt;
+		
+		private string _Name;
+		
+		private string _Address;
+		
+		private string _Email;
+		
+		private string _Phone;
+		
+		private string _City;
+		
+		private string _Postcode;
+		
+		private System.Nullable<decimal> _DistributionCost;
+		
+		private EntitySet<OrderLine> _OrderLines;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnExternalIdChanging(System.Guid value);
+    partial void OnExternalIdChanged();
+    partial void OnCreatedAtChanging(System.DateTime value);
+    partial void OnCreatedAtChanged();
+    partial void OnClosedAtChanging(System.Nullable<System.DateTime> value);
+    partial void OnClosedAtChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPhoneChanging(string value);
+    partial void OnPhoneChanged();
+    partial void OnCityChanging(string value);
+    partial void OnCityChanged();
+    partial void OnPostcodeChanging(string value);
+    partial void OnPostcodeChanged();
+    partial void OnDistributionCostChanging(System.Nullable<decimal> value);
+    partial void OnDistributionCostChanged();
+    #endregion
+		
+		public Order()
+		{
+			this._OrderLines = new EntitySet<OrderLine>(new Action<OrderLine>(this.attach_OrderLines), new Action<OrderLine>(this.detach_OrderLines));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExternalId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid ExternalId
+		{
+			get
+			{
+				return this._ExternalId;
+			}
+			set
+			{
+				if ((this._ExternalId != value))
+				{
+					this.OnExternalIdChanging(value);
+					this.SendPropertyChanging();
+					this._ExternalId = value;
+					this.SendPropertyChanged("ExternalId");
+					this.OnExternalIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedAt", DbType="Date NOT NULL")]
+		public System.DateTime CreatedAt
+		{
+			get
+			{
+				return this._CreatedAt;
+			}
+			set
+			{
+				if ((this._CreatedAt != value))
+				{
+					this.OnCreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedAt = value;
+					this.SendPropertyChanged("CreatedAt");
+					this.OnCreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClosedAt", DbType="Date")]
+		public System.Nullable<System.DateTime> ClosedAt
+		{
+			get
+			{
+				return this._ClosedAt;
+			}
+			set
+			{
+				if ((this._ClosedAt != value))
+				{
+					this.OnClosedAtChanging(value);
+					this.SendPropertyChanging();
+					this._ClosedAt = value;
+					this.SendPropertyChanged("ClosedAt");
+					this.OnClosedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(MAX)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(MAX)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Phone
+		{
+			get
+			{
+				return this._Phone;
+			}
+			set
+			{
+				if ((this._Phone != value))
+				{
+					this.OnPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._Phone = value;
+					this.SendPropertyChanged("Phone");
+					this.OnPhoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string City
+		{
+			get
+			{
+				return this._City;
+			}
+			set
+			{
+				if ((this._City != value))
+				{
+					this.OnCityChanging(value);
+					this.SendPropertyChanging();
+					this._City = value;
+					this.SendPropertyChanged("City");
+					this.OnCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Postcode", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Postcode
+		{
+			get
+			{
+				return this._Postcode;
+			}
+			set
+			{
+				if ((this._Postcode != value))
+				{
+					this.OnPostcodeChanging(value);
+					this.SendPropertyChanging();
+					this._Postcode = value;
+					this.SendPropertyChanged("Postcode");
+					this.OnPostcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DistributionCost", DbType="Decimal(9,2)")]
+		public System.Nullable<decimal> DistributionCost
+		{
+			get
+			{
+				return this._DistributionCost;
+			}
+			set
+			{
+				if ((this._DistributionCost != value))
+				{
+					this.OnDistributionCostChanging(value);
+					this.SendPropertyChanging();
+					this._DistributionCost = value;
+					this.SendPropertyChanged("DistributionCost");
+					this.OnDistributionCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_OrderLine", Storage="_OrderLines", ThisKey="Id", OtherKey="OrderId")]
+		public EntitySet<OrderLine> OrderLines
+		{
+			get
+			{
+				return this._OrderLines;
+			}
+			set
+			{
+				this._OrderLines.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OrderLines(OrderLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = this;
+		}
+		
+		private void detach_OrderLines(OrderLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OrderLine")]
+	public partial class OrderLine : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _OrderId;
+		
+		private int _EditionId;
+		
+		private EntityRef<Edition> _Edition;
+		
+		private EntityRef<Order> _Order;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnOrderIdChanging(int value);
+    partial void OnOrderIdChanged();
+    partial void OnEditionIdChanging(int value);
+    partial void OnEditionIdChanged();
+    #endregion
+		
+		public OrderLine()
+		{
+			this._Edition = default(EntityRef<Edition>);
+			this._Order = default(EntityRef<Order>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderId", DbType="Int NOT NULL")]
+		public int OrderId
+		{
+			get
+			{
+				return this._OrderId;
+			}
+			set
+			{
+				if ((this._OrderId != value))
+				{
+					if (this._Order.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOrderIdChanging(value);
+					this.SendPropertyChanging();
+					this._OrderId = value;
+					this.SendPropertyChanged("OrderId");
+					this.OnOrderIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EditionId", DbType="Int NOT NULL")]
+		public int EditionId
+		{
+			get
+			{
+				return this._EditionId;
+			}
+			set
+			{
+				if ((this._EditionId != value))
+				{
+					if (this._Edition.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEditionIdChanging(value);
+					this.SendPropertyChanging();
+					this._EditionId = value;
+					this.SendPropertyChanged("EditionId");
+					this.OnEditionIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Edition_OrderLine", Storage="_Edition", ThisKey="EditionId", OtherKey="Id", IsForeignKey=true)]
+		public Edition Edition
+		{
+			get
+			{
+				return this._Edition.Entity;
+			}
+			set
+			{
+				Edition previousValue = this._Edition.Entity;
+				if (((previousValue != value) 
+							|| (this._Edition.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Edition.Entity = null;
+						previousValue.OrderLines.Remove(this);
+					}
+					this._Edition.Entity = value;
+					if ((value != null))
+					{
+						value.OrderLines.Add(this);
+						this._EditionId = value.Id;
+					}
+					else
+					{
+						this._EditionId = default(int);
+					}
+					this.SendPropertyChanged("Edition");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_OrderLine", Storage="_Order", ThisKey="OrderId", OtherKey="Id", IsForeignKey=true)]
+		public Order Order
+		{
+			get
+			{
+				return this._Order.Entity;
+			}
+			set
+			{
+				Order previousValue = this._Order.Entity;
+				if (((previousValue != value) 
+							|| (this._Order.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Order.Entity = null;
+						previousValue.OrderLines.Remove(this);
+					}
+					this._Order.Entity = value;
+					if ((value != null))
+					{
+						value.OrderLines.Add(this);
+						this._OrderId = value.Id;
+					}
+					else
+					{
+						this._OrderId = default(int);
+					}
+					this.SendPropertyChanged("Order");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

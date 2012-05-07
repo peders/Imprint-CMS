@@ -419,7 +419,7 @@ namespace ImprintCMS.Controllers
 		{
 			var edition = Repository.GetEdition(id);
 			if (edition == null) return HttpNotFound();
-			if (edition.BookListMemberships.Any()) return View("NotEmpty");
+			if (edition.BookListMemberships.Any() || edition.OrderLines.Any()) return View("NotEmpty");
 			Repository.Delete(edition);
 			Repository.Save();
 			return RedirectToAction("editbook", new { id = edition.BookId });
