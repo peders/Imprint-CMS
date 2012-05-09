@@ -1,5 +1,4 @@
 body { font-family: Calibri, Sans-Serif; color: #000000; background-color: #ffffff; font-size: 0.85em; padding: 70px 0 30px 0; margin: 0; }
-header, footer, nav, section { display: block; }
 
 a { color: #4880e3; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -11,9 +10,9 @@ h2 { clear: both; margin: 1em 0 0.2em 0; }
 
 #account { position: absolute; right: 30px; top: 71px; line-height: 40px; z-index: 5; }
 
-header { position: absolute; left: 20px; top: 10px; font-size: 3em; font-weight: bold; }
-header a { color: #ffffff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
-header a:hover { text-shadow: 1px 1px 1px rgba(72, 128, 227, 0.5); text-decoration: none; }
+#header { position: absolute; left: 20px; top: 10px; font-size: 3em; font-weight: bold; }
+#header a { color: #ffffff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
+#header a:hover { text-shadow: 1px 1px 1px rgba(72, 128, 227, 0.5); text-decoration: none; }
 
 #breadcrumbs { height: 20px; margin: 0 0 2em 0; padding: 10px 20px; background: #f8f8f8; border-color: #dddddd; border-style: dashed; border-width: 1px 0; }
 #breadcrumbs ul { list-style-type: none; padding: 0; margin: 0; }

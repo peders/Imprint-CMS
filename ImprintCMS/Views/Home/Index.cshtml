@@ -5,7 +5,7 @@
 <div id="articles">
 	@foreach (var article in Model.Articles)
  {
-		<article>
+		<div class="article">
 			<h1>@article.Title</h1>
 			@article.Description.ToRichText()
 			@if (article.BookId != null || article.PersonId != null)
@@ -22,7 +22,7 @@
 				</ul>
    }
 			<p class="date">@String.Format("{0:D}", article.Date)</p>
-		</article>
+		</div>
  }
 </div>
 <div id="booklists">

@@ -1,22 +1,20 @@
 body { font-family: Calibri, sans-serif; color: #000000; background-color: #eeeeee; font-size: 0.85em; margin: 20px; }
-header, footer, nav, section { display: block; }
 a { color: #4880e3; text-decoration: none; }
 a:hover { text-decoration: underline; }
 input { font-family: Calibri, sans-serif; font-size: 1em; }
 
-header { width: 920px; padding: 30px; margin: 0 auto; position: relative; }
-header h1 { margin: 0; padding: 0; width: 170px; height: 100px; }
-header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em; background: url(site_layout/logo.png) no-repeat; }
-header #searchform { position: absolute; right: 20px; bottom: -30px; }
-header #searchform fieldset { border: none; padding: 0; margin: 0; }
-header #searchform #query { width: 300px; }
+#header { width: 920px; padding: 30px; margin: 0 auto; position: relative; }
+#header h1 { margin: 0; padding: 0; width: 170px; height: 100px; }
+#header h1 a { display: block; width: 170px; height: 100px; text-indent: -9999em; background: url(site_layout/logo.png) no-repeat; }
+#header #searchform { position: absolute; right: 20px; bottom: -30px; }
+#header #searchform fieldset { border: none; padding: 0; margin: 0; }
+#header #searchform #query { width: 300px; }
 
-#sitemenu { width: 940px; padding: 0 20px; height: 30px; overflow: hidden; margin: 0 auto; }
-#sitemenu ul { list-style-type: none; margin: 0; padding: 0; }
-#sitemenu ul li { margin: 0 10px 0 0; float: left; }
-#sitemenu ul li a { color: #808080; background: #cccccc; display: block; line-height: 20px; padding: 5px 15px; border-radius: 4px 4px 0 0; }
-#sitemenu ul li a:hover { text-decoration: none; color: #000000; background-color: #ffffff; }
-#sitemenu ul li.selected a { color: #000000; background-color: #ffffff; }
+#sitemenu { width: 940px; padding: 0 20px; height: 30px; overflow: hidden; margin: 0 auto; list-style-type: none; }
+#sitemenu li { margin: 0 10px 0 0; float: left; }
+#sitemenu li a { color: #808080; background: #cccccc; display: block; line-height: 20px; padding: 5px 15px; border-radius: 4px 4px 0 0; }
+#sitemenu li a:hover { text-decoration: none; color: #000000; background-color: #ffffff; }
+#sitemenu li.selected a { color: #000000; background-color: #ffffff; }
 
 #content { width: 910px; padding: 40px 35px; margin: 0 auto; background: #ffffff; border-radius: 4px; }
 #content #floatbreaker { clear: both; }
@@ -35,19 +33,19 @@ header #searchform #query { width: 300px; }
 #content.home.index #booklists .booklist ul li a.title { color: #ffffff; margin: 0.3em; font-style: italic; }
 #content.home.index #booklists .booklist ul li .date { }
 #content.home.index #articles { width: 300px; float: right; }
-#content.home.index #articles article { margin: 0 0 2em 0; }
-#content.home.index #articles article h1 { font-size: 1.2em; margin: 0 0 0.2em 0; }
-#content.home.index #articles article p { margin: 0 0 0.2em 0; }
-#content.home.index #articles article ul { margin: 0; padding: 0; list-style-type: none; }
-#content.home.index #articles article .date { margin: 0.5em 0 0; font-size: 0.8em; color: #cccccc; }
+#content.home.index #articles .article { margin: 0 0 2em 0; }
+#content.home.index #articles .article h1 { font-size: 1.2em; margin: 0 0 0.2em 0; }
+#content.home.index #articles .article p { margin: 0 0 0.2em 0; }
+#content.home.index #articles .article ul { margin: 0; padding: 0; list-style-type: none; }
+#content.home.index #articles .article .date { margin: 0.5em 0 0; font-size: 0.8em; color: #cccccc; }
 
 #content.home.contact #articlemenu { float: left; width: 200px; list-style-type: none; margin: 0; padding: 0; }
 #content.home.contact #articlemenu li { margin: 0 0 0.5em 0; padding: 0; }
 #content.home.contact #articlemenu a { display: block; padding: 5px 8px; background: #f8f8f8; color: #000000; border-radius: 4px; }
 #content.home.contact #articlemenu a:hover { background-color: #eeeeee; text-decoration: none; }
 #content.home.contact #articlemenu strong { display: block; padding: 5px 8px; background: #eeeeee; border-radius: 4px; }
-#content.home.contact article { padding-left: 240px; }
-#content.home.contact article h1 { font-size: 1.4em; margin: 0 0 1em 0; }
+#content.home.contact .article { padding-left: 240px; }
+#content.home.contact .article h1 { font-size: 1.4em; margin: 0 0 1em 0; }
 
 #content.home.search h2 { font-size: 1.2em; margin: 1em 0 0.2em 0; }
 #content.home.search ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
@@ -103,6 +101,6 @@ span.score.level4 { background-position: 0 -60px; }
 span.score.level5 { background-position: 0 -75px; }
 span.score.level6 { background-position: 0 -90px; }
 
-footer { width: 940px; padding: 20px; margin: 0 auto; color: #808080; }
-footer a { color: #808080; }
+#footer { width: 940px; padding: 20px; margin: 0 auto; color: #808080; }
+#footer a { color: #808080; }
 

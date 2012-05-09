@@ -27,12 +27,12 @@
 <body>
 	@if (User.Identity.IsAuthenticated)
  {
-		<nav id="account">
+		<div id="account">
 		@User.Identity.Name
-		[@Html.ActionLink(Phrases.LabelLogOut, "logout", "account", new { ReturnUrl = Request.Url.AbsolutePath }, null)]</nav>
+		[@Html.ActionLink(Phrases.LabelLogOut, "logout", "account", new { ReturnUrl = Request.Url.AbsolutePath }, null)]</div>
  }
-	<header>@Html.ActionLink(Phrases.SystemName, "index", "admin")</header>
-	<nav id="breadcrumbs">
+	<div id="header">@Html.ActionLink(Phrases.SystemName, "index", "admin")</div>
+	<div id="breadcrumbs">
 		<ul>
 			<li>@Html.ActionLink(Phrases.SystemName, "index", "admin")</li>
 			@foreach (HtmlString crumb in ViewBag.Breadcrumbs)
@@ -40,7 +40,7 @@
 				<li>@crumb</li>
    }
 		</ul>
-	</nav>
+	</div>
 	<div id="content">
 		@RenderBody()
 	</div>

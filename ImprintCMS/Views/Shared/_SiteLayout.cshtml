@@ -8,29 +8,27 @@
 	<script src="@Url.Content("~/scripts/site.js")" type="text/javascript"></script>
 </head>
 <body>
-	<header>
+	<div id="header">
 		<h1>@Html.ActionLink((string)ViewBag.Title, "index", "home")</h1>
 		@if (ViewContext.ControllerName().ToLower() != "home" || ViewContext.ActionName().ToLower() != "search")
   {
 			@Html.SearchForm(Url.Action("search", "home"), string.Empty)
   }
-	</header>
-	<nav id="sitemenu">
-		<ul>
-			<li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() == "index" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuHome, "index", "home")</li>
-			<li class="@(ViewContext.ControllerName().ToLower() == "books" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuBooks, "index", "books", new { id = UrlParameter.Optional }, null)</li>
-			<li class="@(ViewContext.ControllerName().ToLower() == "authors" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuAuthors, "index", "authors")</li>
-			<li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() == "search" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuSearch, "search", "home")</li>
-			<li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() == "contact" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuContact, "contact", "home", new { id = UrlParameter.Optional }, null)</li>
-			<li class="@(ViewContext.ControllerName().ToLower() == "shop" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuShop, "index", "shop", null, new { id = "shopcounter", data_shop_count_url = Url.Action("count", "shop") })</li>
-		</ul>
-	</nav>
-	<section id="content" class="@String.Format("{0} {1}", ViewContext.ControllerName().ToLower(), ViewContext.ActionName().ToLower())">
+	</div>
+	<ul id="sitemenu">
+		<li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() == "index" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuHome, "index", "home")</li>
+		<li class="@(ViewContext.ControllerName().ToLower() == "books" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuBooks, "index", "books", new { id = UrlParameter.Optional }, null)</li>
+		<li class="@(ViewContext.ControllerName().ToLower() == "authors" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuAuthors, "index", "authors")</li>
+		<li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() == "search" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuSearch, "search", "home")</li>
+		<li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() == "contact" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuContact, "contact", "home", new { id = UrlParameter.Optional }, null)</li>
+		<li class="@(ViewContext.ControllerName().ToLower() == "shop" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuShop, "index", "shop", null, new { id = "shopcounter", data_shop_count_url = Url.Action("count", "shop") })</li>
+	</ul>
+	<div id="content" class="@String.Format("{0} {1}", ViewContext.ControllerName().ToLower(), ViewContext.ActionName().ToLower())">
 		@RenderBody()
 		<div id="floatbreaker">
 		</div>
-	</section>
-	<footer>@(new HtmlString(SitePhrases.SiteFooter))
-	</footer>
+	</div>
+	<div id="footer">@(new HtmlString(SitePhrases.SiteFooter))
+	</div>
 </body>
 </html>

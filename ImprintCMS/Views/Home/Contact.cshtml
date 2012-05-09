@@ -8,7 +8,7 @@
 		<li>@(article == Model.CurrentArticle ? new HtmlString("<strong>" + article.Title + "</strong>") : Html.ActionLink(article.Title, "contact", new { id = article.Id }))</li>
  }
 </ul>
-<article>
+<div class="article">
 	<h1>@Model.CurrentArticle.Title</h1>
 	@Model.CurrentArticle.BodyText.ToRichText()
-</article>
+</div>
