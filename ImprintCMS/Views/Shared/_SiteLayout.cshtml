@@ -28,7 +28,7 @@
 		<div id="floatbreaker">
 		</div>
 	</div>
-	<div id="footer">@(new HtmlString(SitePhrases.SiteFooter))
+	<div id="footer">@(((SiteConfig)ViewBag.Config).Footer)
 	</div>
 </body>
 </html>

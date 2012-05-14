@@ -1,6 +1,6 @@
 ﻿@model SiteFrontPage
 @{
-	ViewBag.Title = SitePhrases.SiteName;
+	ViewBag.Title = ((SiteConfig)ViewBag.Config).Name;
 }
 <div id="articles">
 	@foreach (var article in Model.Articles)

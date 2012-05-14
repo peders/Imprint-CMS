@@ -5,7 +5,7 @@ using System;
 
 namespace ImprintCMS.Controllers
 {
-	public class HomeController : ControllerBase
+	public class HomeController : SiteControllerBase
 	{
 
 		public ActionResult Index()

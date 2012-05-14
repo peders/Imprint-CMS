@@ -6,7 +6,7 @@ using ImprintCMS.Models;
 
 namespace ImprintCMS.Controllers
 {
-	public class ShopController : ControllerBase
+	public class ShopController : SiteControllerBase
 	{
 
 		const string _cookieName = "ImprintCMSShopId";

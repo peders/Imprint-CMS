@@ -4,7 +4,7 @@ using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Controllers
 {
-	public class AuthorsController : ControllerBase
+	public class AuthorsController : SiteControllerBase
 	{
 
 		public ActionResult Index()

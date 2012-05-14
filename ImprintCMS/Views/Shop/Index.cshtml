@@ -23,6 +23,7 @@ else
 				<strong>@String.Join(" / ", line.Edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName)):
 					<em class="title">@line.Edition.Book.Title</em></strong><br />
 				@String.Format("{0}, {1}, {2}", String.Format(SitePhrases.LabelEdition, line.Edition.Number), line.Edition.Binding.Name.ToLower(), line.Edition.ReleaseDate.Year)<br />
+				@String.Format(SitePhrases.UnitPrice, line.Edition.Price)<br />
 				@Html.ActionLink(SitePhrases.LabelShopRemoveOne, "remove", new { id = line.Id })</li>
   }</ul>
 	<p>@Html.ActionLink(SitePhrases.LabelShopRemoveAll, "empty")</p>

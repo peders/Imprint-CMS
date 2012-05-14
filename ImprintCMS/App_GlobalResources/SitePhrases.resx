@@ -126,12 +126,6 @@
   <data name="MenuHome" xml:space="preserve">
     <value>Forside</value>
   </data>
-  <data name="SiteName" xml:space="preserve">
-    <value>Kolon</value>
-  </data>
-  <data name="SiteFooter" xml:space="preserve">
-    <value>Kolon Forlag, Postboks 6860 St. Olavs plass, 0130 Oslo, Besøksadresse: Sehestedsgt. 4, 0164 Oslo&lt;br/&gt;Telefon: 22 03 42 02 | &lt;a href="mailto:redaksjon@kolonforlag.no"&gt;redaksjon@kolonforlag.no&lt;/a&gt;</value>
-  </data>
   <data name="LabelEdition" xml:space="preserve">
     <value>{0}. utgave</value>
     <comment>Insert edition number</comment>
@@ -238,5 +232,13 @@
   </data>
   <data name="LabelShopRemoveOne" xml:space="preserve">
     <value>Fjern</value>
+  </data>
+  <data name="LabelShopDisplayDistributionCost" xml:space="preserve">
+    <value>Frakt på kr {0} tilkommer på ordre opp til kr {1}.</value>
+    <comment>Insert cost and limit</comment>
+  </data>
+  <data name="LabelShopNoDistributionCost" xml:space="preserve">
+    <value>Gratis frakt på alle ordre over kr {0}.</value>
+    <comment>Insert limit</comment>
   </data>
 </root>
