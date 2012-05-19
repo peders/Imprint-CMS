@@ -6,6 +6,13 @@
 	@foreach (var article in Model.Articles)
  {
 		<div class="article">
+			@if (article.PersonId != null && article.Person.SmallImageId != null)
+   {
+				<img src="@Url.Action("display", "upload", new { category = article.Person.UploadedFile.Category, fileName = article.Person.UploadedFile.FileName }, null)"
+						class="articleimage"
+						alt="@String.Format(SitePhrases.LabelAuthorImage, article.Person.FullName)"
+						title="@String.Format(SitePhrases.LabelAuthorImage, article.Person.FullName)" />
+   }
 			<h1>@article.Title</h1>
 			@article.Description.ToRichText()
 			@if (article.BookId != null || article.PersonId != null)
