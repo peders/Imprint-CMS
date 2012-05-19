@@ -451,4 +451,7 @@
   <data name="PagenameEditContactArticle" xml:space="preserve">
     <value>Edit contact article</value>
   </data>
+  <data name="LabelIsNotVisible" xml:space="preserve">
+    <value>Don't show on site</value>
+  </data>
 </root>

@@ -13,6 +13,7 @@
  {
 		<li><span class="name">@Html.ActionLink(article.Title, "editarticle", new { id = article.Id })</span>
 			<span class="data">@String.Format("{0:D}", article.Date)</span>
+			<span class="@String.Format("data{0}", !article.IsVisible ? " inactive" : string.Empty)">@(article.IsVisible ? Phrases.LabelIsVisible : Phrases.LabelIsNotVisible)</span>
 			@Html.ActionLink(Phrases.LabelDelete, "deletearticle", new { id = article.Id })</li>
  }
 </ul>
