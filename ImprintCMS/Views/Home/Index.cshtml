@@ -6,24 +6,23 @@
 	@foreach (var article in Model.Articles)
  {
 		<div class="article">
-			@if (article.PersonId != null)
+			@if (article.PersonId != null && article.Person.IsVisible)
    {
-				@Html.PersonImage(article.Person)
+				<div class="image">
+					@if (article.Person.HasPage)
+	 {
+						<a href="@Url.Action("details", "author", new { id = article.PersonId })">@Html.PersonImage(article.Person)</a>}
+	 else
+	 {
+						@Html.PersonImage(article.Person)
+	 }
+				</div> 
    }
 			<h1>@article.Title</h1>
 			@article.Description.ToRichText()
-			@if (article.BookId != null || article.PersonId != null)
+			@if (article.PersonId != null && article.Person.IsVisible && article.Person.HasPage)
    {
-				<ul class="links">
-					@if (article.Book != null)
-	 {
-						<li>@Html.ActionLink(article.Book.Title, "details", "books", new { id = article.BookId }, null)</li>
-	 }
-					@if (article.Person != null)
-	 {
-						<li>@Html.ActionLink(article.Person.FullName, "details", "authors", new { id = article.PersonId }, null)</li>
-	 }
-				</ul>
+				<p class="personlink">@Html.ActionLink(article.Person.FullName, "details", "authors", new { id = article.PersonId }, null)</p>
    }
 			<p class="date">@String.Format("{0:D}", article.Date)</p>
 		</div>
