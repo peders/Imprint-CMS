@@ -6,12 +6,9 @@
 	@foreach (var article in Model.Articles)
  {
 		<div class="article">
-			@if (article.PersonId != null && article.Person.SmallImageId != null)
+			@if (article.PersonId != null)
    {
-				<img src="@Url.Action("display", "upload", new { category = article.Person.UploadedFile.Category, fileName = article.Person.UploadedFile.FileName }, null)"
-						class="articleimage"
-						alt="@String.Format(SitePhrases.LabelAuthorImage, article.Person.FullName)"
-						title="@String.Format(SitePhrases.LabelAuthorImage, article.Person.FullName)" />
+				@Html.PersonImage(article.Person)
    }
 			<h1>@article.Title</h1>
 			@article.Description.ToRichText()
@@ -41,10 +38,10 @@
 				@foreach (var edition in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Edition))
 	{
 					<li>
-						@if (edition.UploadedFile != null)
+						@if (edition.SmallCoverId != null)
 	  {
 							<a href="@Url.Action("details", "books", new { id = edition.BookId })">
-								<img src="@Url.Action("display", "upload", new { category = edition.UploadedFile.Category, fileName = edition.UploadedFile.FileName })" alt="@String.Format(SitePhrases.LabelCoverImage, edition.Book.Title)" title="@String.Format(SitePhrases.LabelCoverImage, edition.Book.Title)" class="cover" /></a>
+								@Html.CoverImage(edition)</a>
 	  }
 						<p class="info">
 							<span class="people">@String.Join(" / ", edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName))</span>

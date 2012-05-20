@@ -36,6 +36,24 @@ namespace ImprintCMS.Models
 			return String.Format(formatString, SitePhrases.UnitMonthUltimo);
 		}
 
+		public static HtmlString PersonImage(this HtmlHelper helper, Person person)
+		{
+			if (person.SmallImageId == null) return null;
+			var legend = helper.Encode(String.Format(SitePhrases.LabelAuthorImage, person.FullName));
+			var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+			var source = urlHelper.Action("display", "upload", new { category = person.UploadedFile.Category, fileName = person.UploadedFile.FileName });
+			return new HtmlString("<img src=\"" + source + "\" class=\"person\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
+		}
+
+		public static HtmlString CoverImage(this HtmlHelper helper, Edition edition)
+		{
+			if (edition.SmallCoverId == null) return null;
+			var legend = helper.Encode(String.Format(SitePhrases.LabelCoverImage, edition.Book.Title));
+			var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+			var source = urlHelper.Action("display", "upload", new { category = edition.UploadedFile.Category, fileName = edition.UploadedFile.FileName });
+			return new HtmlString("<img src=\"" + source + "\" class=\"cover\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
+		}
+
 		public static HtmlString Twitter(this HtmlHelper helper)
 		{
 			return new HtmlString("<a href=\"http://twitter.com/share\" class=\"twitter\">" + Phrases.LabelShareOnTwitter + "</a>");

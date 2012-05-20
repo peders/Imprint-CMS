@@ -37,7 +37,7 @@ input { font-family: Calibri, sans-serif; font-size: 1em; }
 #content.home.index #articles .article h1 { font-size: 1.2em; margin: 0 0 0.2em 0; line-height: 1em; }
 #content.home.index #articles .article p { margin: 0 0 0.2em 0; }
 #content.home.index #articles .article ul { margin: 0; padding: 0; list-style-type: none; }
-#content.home.index #articles .article img.articleimage { width: 50px; border: 1px solid #808080; float: right; margin: 0 0 10px 10px; }
+#content.home.index #articles .article img.person { width: 50px; border: 1px solid #808080; float: right; margin: 0 0 10px 10px; }
 #content.home.index #articles .article .date { margin: 0.5em 0 0; font-size: 0.8em; color: #cccccc; }
 
 #content.home.contact #articlemenu { float: left; width: 200px; list-style-type: none; margin: 0; padding: 0; }
@@ -71,7 +71,8 @@ input { font-family: Calibri, sans-serif; font-size: 1em; }
 
 #content.details #main { padding-left: 187px; }
 #content.details #image { float: left; width: 152px; }
-#content.details #image img.pageimage { border: 1px solid #808080; }
+#content.details #image img.cover { border: 1px solid #808080; }
+#content.details #image img.person { border: 1px solid #808080; }
 #content.details #image p.photographer { font-size: 0.8em; color: #cccccc; margin: 0.2em 0 0 0; }
 #content.details ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
 #content.details h1 { font-size: 1.4em; margin: 0 0 1em 0; }

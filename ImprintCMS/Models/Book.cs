@@ -17,15 +17,6 @@ namespace ImprintCMS.Models
 			}
 		}
 
-		public UploadedFile Cover
-		{
-			get
-			{
-				if (!Editions.Any(e => e.SmallCoverId != null)) return null;
-				return Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last().UploadedFile;
-			}
-		}
-
 		public bool HasExternalPublisher
 		{
 			get
