@@ -151,6 +151,8 @@ namespace ImprintCMS.Models
 		}
 		public void Delete(Book book)
 		{
+			_db.Editions.DeleteAllOnSubmit(book.Editions);
+			_db.Relations.DeleteAllOnSubmit(book.Relations);
 			_db.Books.DeleteOnSubmit(book);
 		}
 

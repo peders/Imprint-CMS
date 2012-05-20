@@ -178,11 +178,47 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to delete &quot;{0}&quot;?.
+        ///   Looks up a localized string similar to Are you sure you want to delete.
         /// </summary>
-        public static string LabelDeleteConfirmation {
+        public static string LabelDeleteConfirmationPrefix {
             get {
-                return ResourceManager.GetString("LabelDeleteConfirmation", resourceCulture);
+                return ResourceManager.GetString("LabelDeleteConfirmationPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ?.
+        /// </summary>
+        public static string LabelDeleteConfirmationSuffix {
+            get {
+                return ResourceManager.GetString("LabelDeleteConfirmationSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please remove any dependencies before attempting to delete this element..
+        /// </summary>
+        public static string LabelDeleteDependenciesGeneral {
+            get {
+                return ResourceManager.GetString("LabelDeleteDependenciesGeneral", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please remove any dependencies before attempting to delete.
+        /// </summary>
+        public static string LabelDeleteDependenciesPrefix {
+            get {
+                return ResourceManager.GetString("LabelDeleteDependenciesPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to :.
+        /// </summary>
+        public static string LabelDeleteDependenciesSuffix {
+            get {
+                return ResourceManager.GetString("LabelDeleteDependenciesSuffix", resourceCulture);
             }
         }
         
@@ -993,15 +1029,6 @@ namespace ImprintCMS.Models {
         public static string ValidationAjaxError {
             get {
                 return ResourceManager.GetString("ValidationAjaxError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This element is referenced by others, and can not be deleted.
-        /// </summary>
-        public static string ValidationElementHasDependenciesAndCanNotBeDeleted {
-            get {
-                return ResourceManager.GetString("ValidationElementHasDependenciesAndCanNotBeDeleted", resourceCulture);
             }
         }
         

@@ -122,10 +122,15 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult DeleteBinding(int id)
 		{
-			var binding = Repository.GetBinding(id);
-			if (binding == null) return HttpNotFound();
-			if (binding.Editions.Any()) return View("NotEmpty");
-			Repository.Delete(binding);
+			var vm = Repository.GetBinding(id);
+			if (vm == null) return HttpNotFound();
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult DeleteBinding(Binding vm)
+		{
+			Repository.Delete(Repository.GetBinding(vm.Id));
 			Repository.Save();
 			return RedirectToAction("bindings");
 		}
@@ -346,10 +351,14 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult DeleteBook(int id)
 		{
-			var book = Repository.GetBook(id);
-			if (book == null) return HttpNotFound();
-			if (book.Relations.Any() || book.Editions.Any()) return View("NotEmpty");
-			Repository.Delete(book);
+			var vm = Repository.GetBook(id);
+			if (vm == null) return HttpNotFound();
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult DeleteBook(Book vm) {
+			Repository.Delete(Repository.GetBook(vm.Id));
 			Repository.Save();
 			return RedirectToAction("books");
 		}
@@ -627,9 +636,15 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult DeleteArticle(int id)
 		{
-			var article = Repository.GetArticle(id);
-			if (article == null) return HttpNotFound();
-			Repository.Delete(article);
+			var vm = Repository.GetArticle(id);
+			if (vm == null) return HttpNotFound();
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult DeleteArticle(Article vm)
+		{
+			Repository.Delete(Repository.GetArticle(vm.Id));
 			Repository.Save();
 			return RedirectToAction("articles");
 		}

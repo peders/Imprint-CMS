@@ -1,0 +1,31 @@
+﻿@model Binding
+@{
+	ViewBag.Title = Phrases.PagenameDelete;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameBindings, "bindings"),
+		Html.ActionLink(Model.Name, "editbinding", new { id = Model.Id }),
+		Phrases.LabelDelete.ToHtmlString()
+	};
+}
+@if (Model.Editions.Any())
+{
+	<p>@Html.DeleteDependencies(Model.Name)</p>
+	<h2>@Phrases.LabelBooks</h2>
+	<ul>
+		@foreach (var book in Model.Editions.Select(e => e.Book).OrderBy(b => b.Title))
+  {
+			<li>@Html.ActionLink(book.FullTitle, "editbook", new { id = book.Id })</li>
+  }
+	</ul>
+}
+else
+{
+	<p>@Html.DeleteConfirmation(Model.Name)</p>
+	using (Html.BeginForm())
+	{
+	<p>
+		<input type="submit" value="@Phrases.LabelDelete" />
+		@Html.ActionLink(String.Format(Phrases.LabelBackTo, Phrases.PagenameBindings), "bindings")
+	</p>
+	}
+}

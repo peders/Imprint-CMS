@@ -1,0 +1,17 @@
+﻿@model Book
+@{
+	ViewBag.Title = Phrases.PagenameDelete;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameBooks, "books"),
+		Html.ActionLink(Model.FullTitle, "editbook", new { id = Model.Id }),
+		Phrases.LabelDelete.ToHtmlString()
+	};
+}
+<p>@Html.DeleteConfirmation(Model.FullTitle)</p>
+@using (Html.BeginForm())
+{
+	<p>
+		<input type="submit" value="@Phrases.LabelDelete" />
+		@Html.ActionLink(String.Format(Phrases.LabelBackTo, Phrases.PagenameBooks), "books")
+	</p>
+}

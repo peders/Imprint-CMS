@@ -54,6 +54,16 @@ namespace ImprintCMS.Models
 			return new HtmlString("<img src=\"" + source + "\" class=\"cover\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
 		}
 
+		public static HtmlString DeleteConfirmation(this HtmlHelper helper, string name)
+		{
+			return new HtmlString(Phrases.LabelDeleteConfirmationPrefix + " <em>" + helper.Encode(name) + "</em>" + Phrases.LabelDeleteConfirmationSuffix);
+		}
+
+		public static HtmlString DeleteDependencies(this HtmlHelper helper, string name)
+		{
+			return new HtmlString(Phrases.LabelDeleteDependenciesPrefix + " <em>" + helper.Encode(name) + "</em>" + Phrases.LabelDeleteDependenciesSuffix);
+		}
+
 		public static HtmlString Twitter(this HtmlHelper helper)
 		{
 			return new HtmlString("<a href=\"http://twitter.com/share\" class=\"twitter\">" + Phrases.LabelShareOnTwitter + "</a>");

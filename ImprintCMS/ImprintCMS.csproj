@@ -474,6 +474,9 @@
     <Content Include="Views\Admin\EditContactArticle.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Admin\DeleteArticle.cshtml" />
+    <Content Include="Views\Admin\DeleteBinding.cshtml" />
+    <Content Include="Views\Admin\DeleteBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

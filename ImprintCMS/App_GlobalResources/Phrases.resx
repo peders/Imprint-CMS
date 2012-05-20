@@ -321,8 +321,8 @@
   <data name="UnitMegaBytesShort" xml:space="preserve">
     <value>MB</value>
   </data>
-  <data name="ValidationElementHasDependenciesAndCanNotBeDeleted" xml:space="preserve">
-    <value>This element is referenced by others, and can not be deleted</value>
+  <data name="LabelDeleteDependenciesPrefix" xml:space="preserve">
+    <value>Please remove any dependencies before attempting to delete</value>
   </data>
   <data name="ValidationEmptyOrNoFile" xml:space="preserve">
     <value>No file or file is empty</value>
@@ -454,11 +454,19 @@
   <data name="LabelIsNotVisible" xml:space="preserve">
     <value>Don't show on site</value>
   </data>
-  <data name="LabelDeleteConfirmation" xml:space="preserve">
-    <value>Are you sure you want to delete "{0}"?</value>
-    <comment>Insert object name</comment>
+  <data name="LabelDeleteConfirmationPrefix" xml:space="preserve">
+    <value>Are you sure you want to delete</value>
   </data>
   <data name="PagenameDelete" xml:space="preserve">
     <value>Slett</value>
+  </data>
+  <data name="LabelDeleteConfirmationSuffix" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="LabelDeleteDependenciesSuffix" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="LabelDeleteDependenciesGeneral" xml:space="preserve">
+    <value>Please remove any dependencies before attempting to delete this element.</value>
   </data>
 </root>
