@@ -65,9 +65,12 @@ input { font-family: Calibri, sans-serif; font-size: 1em; }
 #content.books.index #booklisting ul li { height: 52px; line-height: 52px; position: relative; padding: 0 0 0 50px; margin: 0 0 0.5em 0; }
 #content.books.index #booklisting ul img.cover { height: 50px; border: 1px solid #808080; position: absolute; left: 0; top: 0; }
 
-#content.authors.index #authorlisting { padding-left: 187px; }
-#content.authors.index #authorlisting h2 { font-size: 1.2em; margin: 0 0 0.2em 0; }
-#content.authors.index #authorlisting ul { list-style-type: none; margin: 0 0 1em 0; padding: 0; }
+#content.authors.index h2 { font-size: 2em; margin: 0; clear: left; }
+#content.authors.index ul { list-style-type: none; margin: -25px 0 20px 0; padding: 0 0 0 70px; float: left; clear: none; }
+#content.authors.index ul li { float: left; height: 200px; margin: 0 30px 30px 0; position: relative; }
+#content.authors.index ul li img.person { height: 200px; }
+#content.authors.index ul li .label { display: block; background: rgba(0,0,0,0.5); color: #ffffff; padding: 7px 10px; position: absolute; bottom: 0; border-radius: 0 4px 0 0; }
+#content.authors.index ul li:hover .label { background-color: rgba(0, 0, 0, 0.9); -webkit-transition: all 0.2s ease; -moz-transition: all 0.2s ease; }
 
 #content.details #main { padding-left: 187px; }
 #content.details #image { float: left; width: 152px; }

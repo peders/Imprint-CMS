@@ -2,15 +2,14 @@
 @{
 	ViewBag.Title = SitePhrases.MenuAuthors;
 }
-<div id="authorlisting">
-	@foreach (var group in Model.GroupBy(p => p.LastName.Substring(0, 1)))
- {
-		<h2>@group.Key</h2>
-		<ul>
-			@foreach (var person in group)
-   {
-				<li>@Html.ActionLink(person.ReverseName, "details", new { id = person.Id })</li>
-   }
-		</ul>
- }
-</div>
+@foreach (var group in Model.GroupBy(p => p.LastName.Substring(0, 1)))
+{
+	<h2>@group.Key</h2>
+	<ul>
+		@foreach (var person in group)
+  {
+			<li><a href="@Url.Action("details", new { id = person.Id })">@Html.PersonImage(person)<span
+				class="label">@person.FullName</span></a></li>
+  }
+	</ul>
+}
