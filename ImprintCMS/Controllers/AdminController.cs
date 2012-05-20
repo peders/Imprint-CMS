@@ -78,7 +78,7 @@ namespace ImprintCMS.Controllers
 		{
 			var file = Repository.GetUploadedFile(id);
 			if (file == null) return HttpNotFound();
-			if (file.Books.Any() || file.Editions.Any() || file.Editions1.Any() || file.Persons.Any() || file.Persons1.Any() || file.Articles.Any()) return View("NotEmpty");
+			if (file.Books.Any() || file.Editions.Any() || file.Editions1.Any() || file.Persons.Any() || file.Persons1.Any()) return View("NotEmpty");
 			Repository.Delete(file);
 			Repository.Save();
 			return RedirectToAction("uploads");
@@ -348,7 +348,7 @@ namespace ImprintCMS.Controllers
 		{
 			var book = Repository.GetBook(id);
 			if (book == null) return HttpNotFound();
-			if (book.Relations.Any() || book.Editions.Any() || book.Articles.Any()) return View("NotEmpty");
+			if (book.Relations.Any() || book.Editions.Any()) return View("NotEmpty");
 			Repository.Delete(book);
 			Repository.Save();
 			return RedirectToAction("books");
@@ -587,8 +587,6 @@ namespace ImprintCMS.Controllers
 				Date = DateTime.Today,
 				IsVisible = true
 			};
-			ViewBag.Books = LinkableBooksList(vm.BookId);
-			ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
 			ViewBag.People = LinkablePeopleList(vm.PersonId);
 			return View(vm);
 		}
@@ -598,8 +596,6 @@ namespace ImprintCMS.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				ViewBag.Books = LinkableBooksList(vm.BookId);
-				ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
 				ViewBag.People = LinkablePeopleList(vm.PersonId);
 				return View(vm);
 			}
@@ -612,8 +608,6 @@ namespace ImprintCMS.Controllers
 		{
 			var vm = Repository.GetArticle(id);
 			if (vm == null) return HttpNotFound();
-			ViewBag.Books = LinkableBooksList(vm.BookId);
-			ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
 			ViewBag.People = LinkablePeopleList(vm.PersonId);
 			return View(vm);
 		}
@@ -623,8 +617,6 @@ namespace ImprintCMS.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				ViewBag.Books = LinkableBooksList(vm.BookId);
-				ViewBag.Images = FileList(FileCategories.NewsImage, vm.ImageId);
 				ViewBag.People = LinkablePeopleList(vm.PersonId);
 				return View(vm);
 			}
@@ -806,10 +798,6 @@ namespace ImprintCMS.Controllers
 		private SelectList LinkablePeopleList(int? selectedId)
 		{
 			return new SelectList(Repository.People.Where(p => p.IsVisible && p.HasPage).OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
-		}
-		private SelectList LinkableBooksList(int? selectedId)
-		{
-			return new SelectList(Repository.Books.Where(b => b.IsVisible && !b.HasExternalPublisher).OrderBy(b => b.Title).ThenBy(b => b.Subtitle), "Id", "FullTitle", selectedId ?? default(int));
 		}
 
 	}

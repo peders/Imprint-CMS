@@ -454,4 +454,11 @@
   <data name="LabelIsNotVisible" xml:space="preserve">
     <value>Don't show on site</value>
   </data>
+  <data name="LabelDeleteConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete "{0}"?</value>
+    <comment>Insert object name</comment>
+  </data>
+  <data name="PagenameDelete" xml:space="preserve">
+    <value>Slett</value>
+  </data>
 </root>

@@ -6,7 +6,6 @@
 		SmallCover,
 		LargePortrait,
 		SmallPortrait,
-		NewsImage,
 		Excerpt,
 		Attachment,
 		Layout,

@@ -178,6 +178,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete &quot;{0}&quot;?.
+        /// </summary>
+        public static string LabelDeleteConfirmation {
+            get {
+                return ResourceManager.GetString("LabelDeleteConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Description.
         /// </summary>
         public static string LabelDescription {
@@ -759,6 +768,15 @@ namespace ImprintCMS.Models {
         public static string PagenameCreateUpload {
             get {
                 return ResourceManager.GetString("PagenameCreateUpload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slett.
+        /// </summary>
+        public static string PagenameDelete {
+            get {
+                return ResourceManager.GetString("PagenameDelete", resourceCulture);
             }
         }
         

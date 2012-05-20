@@ -19,19 +19,9 @@
 			@Html.ValidationMessageFor(model => model.Date)
 		</p>
 		<p>
-			@Html.LabelFor(model => model.ImageId, Phrases.LabelImage)<br />
-			@Html.DropDownListFor(model => model.ImageId, (SelectList)ViewBag.Images, "–")
-			@Html.ValidationMessageFor(model => model.ImageId)
-		</p>
-		<p>
 			@Html.LabelFor(model => model.PersonId, Phrases.LabelLinkToPerson)<br />
 			@Html.DropDownListFor(model => model.PersonId, (SelectList)ViewBag.People, "–")
 			@Html.ValidationMessageFor(model => model.PersonId)
-		</p>
-		<p>
-			@Html.LabelFor(model => model.BookId, Phrases.LabelLinkToBook)<br />
-			@Html.DropDownListFor(model => model.BookId, (SelectList)ViewBag.Books, "–")
-			@Html.ValidationMessageFor(model => model.BookId)
 		</p>
 	</fieldset>
 	<fieldset class="options">
