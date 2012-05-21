@@ -369,7 +369,7 @@ namespace ImprintCMS.Controllers
 			if (book == null) return HttpNotFound();
 			var vm = new Edition
 			{
-				Number = 1,
+				Number = !book.Editions.Any() ? 1 : book.Editions.OrderBy(e => e.Number).Last().Number + 1,
 				ReleaseDate = DateTime.Today,
 				IsForSale = true,
 				BookId = id,
