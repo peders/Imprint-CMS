@@ -11,7 +11,7 @@
 				<div class="image">
 					@if (article.Person.HasPage)
 	 {
-						<a href="@Url.Action("details", "author", new { id = article.PersonId })">@Html.PersonImage(article.Person)</a>}
+						<a href="@Url.Action("details", "authors", new { id = article.PersonId })">@Html.PersonImage(article.Person)</a>}
 	 else
 	 {
 						@Html.PersonImage(article.Person)

@@ -53,7 +53,7 @@ namespace ImprintCMS.Models.ViewModels
 					!String.IsNullOrWhiteSpace(book.Subtitle) ? String.Format(". {0}", book.Subtitle) : string.Empty,
 					ReleaseYear));
 			}
-			CoverEdition = book.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last();
+			CoverEdition = book.Editions.Any(e => e.SmallCoverId != null) ? book.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last() : null;
 		}
 
 		public string SubtitleWithSeparator
