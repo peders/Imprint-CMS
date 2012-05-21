@@ -12,7 +12,7 @@
 	@foreach (var member in Model.BookListMemberships.OrderBy(m => m.SequenceIdentifier))
  {
 		<li id="@String.Format("sortitem_{0}", member.Id)"><span class="name">@member.Edition.Name</span>
-			@Html.ActionLink(Phrases.LabelDelete, "deletebooklistmembership", new { id = member.Id })</li>
+			@Html.ActionLink(Phrases.LabelRemove, "removebooklistmembership", new { id = member.Id })</li>
  }
 </ul>
 <p>@Html.ActionLink(Phrases.PagenameCreateBookListMembership, "createbooklistmembership", new { id = Model.Id })</p>

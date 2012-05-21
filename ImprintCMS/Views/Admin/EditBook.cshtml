@@ -12,7 +12,7 @@
 	@foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
  {
 		<li id="@String.Format("sortitem_{0}", relation.Id)"><span class="name">@Html.ActionLink(relation.ReversePersonName, "editrelation", new { id = relation.Id })</span>
-			@Html.ActionLink(Phrases.LabelDelete, "deleterelation", new { id = relation.Id })</li>
+			@Html.ActionLink(Phrases.LabelRemove, "removerelation", new { id = relation.Id })</li>
  }
 </ul>
 <p>@Html.ActionLink(Phrases.PagenameCreateRelation, "createrelation", new { id = Model.Id })</p>

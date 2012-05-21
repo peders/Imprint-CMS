@@ -357,7 +357,8 @@ namespace ImprintCMS.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult DeleteBook(Book vm) {
+		public ActionResult DeleteBook(Book vm)
+		{
 			Repository.Delete(Repository.GetBook(vm.Id));
 			Repository.Save();
 			return RedirectToAction("books");
@@ -489,7 +490,7 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("editbook", new { id = vm.BookId });
 		}
 
-		public ActionResult DeleteRelation(int id)
+		public ActionResult RemoveRelation(int id)
 		{
 			var vm = Repository.GetRelation(id);
 			if (vm == null) return HttpNotFound();
@@ -539,9 +540,15 @@ namespace ImprintCMS.Controllers
 
 		public ActionResult DeleteBookList(int id)
 		{
-			var list = Repository.GetBookList(id);
-			if (list == null) return HttpNotFound();
-			Repository.Delete(list);
+			var vm = Repository.GetBookList(id);
+			if (vm == null) return HttpNotFound();
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult DeleteBookList(BookList vm)
+		{
+			Repository.Delete(Repository.GetBookList(vm.Id));
 			Repository.Save();
 			return RedirectToAction("booklists");
 		}
@@ -574,13 +581,20 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("editbooklist", new { id = vm.BookListId });
 		}
 
-		public ActionResult DeleteBookListMembership(int id)
+		public ActionResult RemoveBookListMembership(int id)
 		{
 			var vm = Repository.GetBookListMembership(id);
 			if (vm == null) return HttpNotFound();
-			Repository.Delete(vm);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult RemoveBookListMembership(BookListMembership vm)
+		{
+			var membership = Repository.GetBookListMembership(vm.Id);
+			Repository.Delete(membership);
 			Repository.Save();
-			return RedirectToAction("editbooklist", new { id = vm.BookListId });
+			return RedirectToAction("editbooklist", new { id = membership.BookListId });
 		}
 
 		public ActionResult Articles()

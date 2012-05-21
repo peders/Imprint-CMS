@@ -469,4 +469,19 @@
   <data name="LabelDeleteDependenciesGeneral" xml:space="preserve">
     <value>Please remove any dependencies before attempting to delete this element.</value>
   </data>
+  <data name="LabelRemove" xml:space="preserve">
+    <value>Fjern</value>
+  </data>
+  <data name="LabelRemoveConfirmationPrefix" xml:space="preserve">
+    <value>Are you sure you want to remove</value>
+  </data>
+  <data name="LabelRemoveConfirmationMiddlePart" xml:space="preserve">
+    <value>from</value>
+  </data>
+  <data name="LabelRemoveConfirmationSuffix" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="PagenameRemove" xml:space="preserve">
+    <value>Fjern</value>
+  </data>
 </root>

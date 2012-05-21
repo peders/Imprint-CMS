@@ -59,6 +59,11 @@ namespace ImprintCMS.Models
 			return new HtmlString(Phrases.LabelDeleteConfirmationPrefix + " <em>" + helper.Encode(name) + "</em>" + Phrases.LabelDeleteConfirmationSuffix);
 		}
 
+		public static HtmlString RemoveConfirmation(this HtmlHelper helper, string name, string container)
+		{
+			return new HtmlString(Phrases.LabelRemoveConfirmationPrefix + " <em>" + helper.Encode(name) + "</em> " + Phrases.LabelRemoveConfirmationMiddlePart + " <em>" + helper.Encode(container) + "</em>" + Phrases.LabelRemoveConfirmationSuffix);
+		}
+
 		public static HtmlString DeleteDependencies(this HtmlHelper helper, string name)
 		{
 			return new HtmlString(Phrases.LabelDeleteDependenciesPrefix + " <em>" + helper.Encode(name) + "</em>" + Phrases.LabelDeleteDependenciesSuffix);

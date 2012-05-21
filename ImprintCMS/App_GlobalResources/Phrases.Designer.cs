@@ -520,6 +520,42 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fjern.
+        /// </summary>
+        public static string LabelRemove {
+            get {
+                return ResourceManager.GetString("LabelRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to from.
+        /// </summary>
+        public static string LabelRemoveConfirmationMiddlePart {
+            get {
+                return ResourceManager.GetString("LabelRemoveConfirmationMiddlePart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to remove.
+        /// </summary>
+        public static string LabelRemoveConfirmationPrefix {
+            get {
+                return ResourceManager.GetString("LabelRemoveConfirmationPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ?.
+        /// </summary>
+        public static string LabelRemoveConfirmationSuffix {
+            get {
+                return ResourceManager.GetString("LabelRemoveConfirmationSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Role.
         /// </summary>
         public static string LabelRole {
@@ -939,6 +975,15 @@ namespace ImprintCMS.Models {
         public static string PagenamePersons {
             get {
                 return ResourceManager.GetString("PagenamePersons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fjern.
+        /// </summary>
+        public static string PagenameRemove {
+            get {
+                return ResourceManager.GetString("PagenameRemove", resourceCulture);
             }
         }
         
