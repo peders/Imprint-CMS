@@ -30,5 +30,6 @@
 	</div>
 	<div id="footer">@(((SiteConfig)ViewBag.Config).Footer)
 	</div>
+	@Html.GoogleAnalytics(((SiteConfig)ViewBag.Config).GoogleAnalyticsTrackingCode)
 </body>
 </html>

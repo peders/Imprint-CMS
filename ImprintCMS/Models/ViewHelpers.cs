@@ -80,6 +80,12 @@ namespace ImprintCMS.Models
 			return new HtmlString("<iframe src=\"http://www.facebook.com/plugins/like.php?href=" + url + "&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:21px;\" allowTransparency=\"true\"></iframe>");
 		}
 
+		public static HtmlString GoogleAnalytics(this HtmlHelper helper, string trackingCode)
+		{
+			if (String.IsNullOrWhiteSpace(trackingCode)) return null;
+			return new HtmlString("\n<script type=\"text/javascript\">\n\tvar gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n\tdocument.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n</script>\n<script type=\"text/javascript\">\n\ttry {\n\t\tvar pageTracker = _gat._getTracker(\"" + trackingCode + "\");\n\t\tpageTracker._trackPageview();\n\t} catch(err) {}\n</script>");
+		}
+
 		public static HtmlString SearchForm(this HtmlHelper helper, string action, string query)
 		{
 			return new HtmlString(String.Format(

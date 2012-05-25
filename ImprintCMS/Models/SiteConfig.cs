@@ -11,6 +11,7 @@ namespace ImprintCMS.Models
 		public decimal DistributionCostLimit { get; private set; }
 		public string EmailSenderAddress { get; private set; }
 		public string EmailSenderName { get; private set; }
+		public string GoogleAnalyticsTrackingCode { get; set; }
 
 		public SiteConfig()
 		{
@@ -20,6 +21,7 @@ namespace ImprintCMS.Models
 			DistributionCostLimit = GetConfigValue<decimal>("ImprintCMSDistributionCostLimit");
 			EmailSenderAddress = GetConfigValue<string>("ImprintCMSEmailSenderAddress");
 			EmailSenderName = GetConfigValue<string>("ImprintCMSEmailSenderName");
+			GoogleAnalyticsTrackingCode = GetConfigValue<string>("ImprintCMSGoogleAnalyticsTrackingCode");
 		}
 
 		private T GetConfigValue<T>(string name)
