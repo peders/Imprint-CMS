@@ -241,4 +241,16 @@
     <value>Gratis frakt på alle ordre over kr {0}.</value>
     <comment>Insert limit</comment>
   </data>
+  <data name="LabelCancel" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="LabelLargeCover" xml:space="preserve">
+    <value>Stort omslag</value>
+  </data>
+  <data name="LabelLargePortrait" xml:space="preserve">
+    <value>Stort portrett</value>
+  </data>
+  <data name="LabelProceedToDownload" xml:space="preserve">
+    <value>Last ned</value>
+  </data>
 </root>

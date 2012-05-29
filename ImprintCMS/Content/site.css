@@ -76,6 +76,7 @@ input { font-family: Calibri, sans-serif; font-size: 1em; }
 #content.details #image img.cover { border: 1px solid #808080; }
 #content.details #image img.person { border: 1px solid #808080; }
 #content.details #image p.photographer { font-size: 0.8em; color: #cccccc; margin: 0.2em 0 0 0; }
+#content.details #image .notice .message { font-size: 0.85em; }
 #content.details ul { list-style-type: none; padding: 0; margin: 0 0 1em 0; }
 #content.details h1 { font-size: 1.4em; margin: 0 0 1em 0; }
 #content.details h2 { font-size: 1.2em; margin: 1em 0 0.2em 0; }

@@ -1,64 +1,70 @@
 ﻿@model Book
 @{
-	ViewBag.Title = Model.Title;
+    ViewBag.Title = Model.Title;
 }
 <div id="image">
-	@if (Model.Editions.Any(e => e.SmallCoverId != null))
- {
-		@Html.CoverImage(Model.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last())
- }
-	@if (Model.Editions.Any())
- {
-		<div id="editions">
-			@foreach (var edition in Model.Editions.OrderBy(edition => edition.Number))
-   {
-				<div class="edition">
-					<h2>@String.Format(SitePhrases.LabelEdition, edition.Number), @edition.ReleaseDate.Year</h2>
-					<p>@String.Format(SitePhrases.LabelIsbn, edition.Isbn)<br />
-						@(edition.PageCount == null ? edition.Binding.Name : String.Format("{0}, {1} {2}", edition.Binding.Name, edition.PageCount, SitePhrases.UnitPagesPlural))<br />
-						@String.Format(SitePhrases.UnitPrice, edition.Price)<br />
-						@(edition.IsForSale ? Html.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" }) : new HtmlString("<span class=\"inactive\">" + SitePhrases.LabelNotForSale + "</span>"))</p>
-				</div>
-   }
-		</div>
- }
-	<div id="social">
-		@Html.Twitter()
-		@Html.Facebook()
-	</div>
+    @if (Model.Editions.Any(e => e.SmallCoverId != null))
+    {
+        @Html.CoverImage(Model.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last())
+    }
+    @if (Model.Editions.Any(e => e.LargeCoverId != null))
+    {
+        var edition = Model.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last();
+        var url = Url.Action("display", "upload", new { category = edition.UploadedFile1.Category, fileName = edition.UploadedFile1.FileName });
+        <p class="download">@Html.ImageDownload(url, SitePhrases.LabelLargeCover, ((SiteConfig)ViewBag.Config).CoverImageDownloadNotice)</p>
+    }
+    @if (Model.Editions.Any())
+    {
+        <div id="editions">
+            @foreach (var edition in Model.Editions.OrderBy(edition => edition.Number))
+            {
+                <div class="edition">
+                    <h2>@String.Format(SitePhrases.LabelEdition, edition.Number), @edition.ReleaseDate.Year</h2>
+                    <p>@String.Format(SitePhrases.LabelIsbn, edition.Isbn)<br />
+                        @(edition.PageCount == null ? edition.Binding.Name : String.Format("{0}, {1} {2}", edition.Binding.Name, edition.PageCount, SitePhrases.UnitPagesPlural))<br />
+                        @String.Format(SitePhrases.UnitPrice, edition.Price)<br />
+                        @(edition.IsForSale ? Html.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" }) : new HtmlString("<span class=\"inactive\">" + SitePhrases.LabelNotForSale + "</span>"))</p>
+                </div>
+            }
+        </div>
+    }
+    <div id="social">
+        @Html.Twitter()
+        @Html.Facebook()
+    </div>
 </div>
 <div id="main">
-	<ul class="rightsholders">
-		@foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
-  {
-			<li>
-				@if (relation.Person.HasPage)
-	{
-					@Html.ActionLink(relation.PersonName, "details", "authors", new { id = relation.PersonId }, null)
-	}
-	else
-	{
-					@relation.PersonName
-	}
-			</li>
-  }
-	</ul>
-	<h1>@Model.Title</h1>
-	@if (!String.IsNullOrWhiteSpace(Model.Subtitle))
- {
-		<p class="subtitle">@Model.Subtitle</p>
- }
-	@if (!String.IsNullOrWhiteSpace(Model.Description))
- {
-		@Model.Description.ToRichText()
- }
-	@if (Model.ExcerptId != null)
- {
-		<p class="excerpt">@Html.ActionLink(String.Format(SitePhrases.LabelExcerpt, Model.Title), "display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)</p>
- }
-	@if (!String.IsNullOrWhiteSpace(Model.Quotes))
- {
-		<h2>@String.Format(SitePhrases.HeadingBookQuotes, Model.Title)</h2>
-		@Model.Quotes.ToRichText()
- }
+    <ul class="rightsholders">
+        @foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
+        {
+            <li>
+                @if (relation.Person.HasPage)
+                {
+                    @Html.ActionLink(relation.PersonName, "details", "authors", new { id = relation.PersonId }, null)
+                }
+                else
+                {
+                    @relation.PersonName
+                }
+            </li>
+        }
+    </ul>
+    <h1>@Model.Title</h1>
+    @if (!String.IsNullOrWhiteSpace(Model.Subtitle))
+    {
+        <p class="subtitle">@Model.Subtitle</p>
+    }
+    @if (!String.IsNullOrWhiteSpace(Model.Description))
+    {
+        @Model.Description.ToRichText()
+    }
+    @if (Model.ExcerptId != null)
+    {
+        <p class="excerpt">@Html.ActionLink(String.Format(SitePhrases.LabelExcerpt, Model.Title), "display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)</p>
+    }
+    @if (!String.IsNullOrWhiteSpace(Model.Quotes))
+    {
+        <h2>@String.Format(SitePhrases.HeadingBookQuotes, Model.Title)</h2>
+        @Model.Quotes.ToRichText()
+    }
 </div>
