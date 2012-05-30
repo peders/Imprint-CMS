@@ -493,4 +493,10 @@
   <data name="LabelPeople" xml:space="preserve">
     <value>People</value>
   </data>
+  <data name="FileTypeCss" xml:space="preserve">
+    <value>CSS stylesheet</value>
+  </data>
+  <data name="FileTypeJavascript" xml:space="preserve">
+    <value>Javascript</value>
+  </data>
 </root>

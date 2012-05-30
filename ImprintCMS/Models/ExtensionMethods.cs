@@ -32,10 +32,13 @@ namespace ImprintCMS.Models
 
 		public static string AsFileType(this string source)
 		{
-			if (source == "image/jpeg") return Phrases.FileTypeImage;
-			if (source == "application/pdf") return Phrases.FileTypePDF;
-			if (source == "application/msword") return Phrases.FileTypeWordDocument;
-			return source;
+            if (source == "image/jpeg") return Phrases.FileTypeImage;
+            if (source == "image/png") return Phrases.FileTypeImage;
+            if (source == "application/pdf") return Phrases.FileTypePDF;
+            if (source == "application/msword") return Phrases.FileTypeWordDocument;
+            if (source == "application/x-javascript") return Phrases.FileTypeJavascript;
+            if (source == "text/css") return Phrases.FileTypeCss;
+            return source;
 		}
 
 	}

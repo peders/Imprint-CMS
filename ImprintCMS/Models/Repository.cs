@@ -304,6 +304,22 @@ namespace ImprintCMS.Models
             _db.OrderLines.DeleteOnSubmit(line);
         }
 
+        public IEnumerable<UploadedFile> Stylesheets
+        {
+            get
+            {
+                return _db.UploadedFiles.Where(u => u.Category == FileCategories.Layout.ToString() && u.ContentType == "text/css");
+            }
+        }
+
+        public IEnumerable<UploadedFile> Scripts
+        {
+            get
+            {
+                return _db.UploadedFiles.Where(u => u.Category == FileCategories.Script.ToString());
+            }
+        }
+
         public void Save()
         {
             _db.SubmitChanges();

@@ -61,11 +61,29 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CSS stylesheet.
+        /// </summary>
+        public static string FileTypeCss {
+            get {
+                return ResourceManager.GetString("FileTypeCss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image.
         /// </summary>
         public static string FileTypeImage {
             get {
                 return ResourceManager.GetString("FileTypeImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Javascript.
+        /// </summary>
+        public static string FileTypeJavascript {
+            get {
+                return ResourceManager.GetString("FileTypeJavascript", resourceCulture);
             }
         }
         
