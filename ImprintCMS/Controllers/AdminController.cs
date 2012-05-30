@@ -74,17 +74,22 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("uploadcategory", new { id = vm.FileCategory });
 		}
 
-		public ActionResult DeleteUpload(int id)
-		{
-			var file = Repository.GetUploadedFile(id);
-			if (file == null) return HttpNotFound();
-			if (file.Books.Any() || file.Editions.Any() || file.Editions1.Any() || file.Persons.Any() || file.Persons1.Any()) return View("NotEmpty");
-			Repository.Delete(file);
-			Repository.Save();
-			return RedirectToAction("uploads");
-		}
+        public ActionResult DeleteUpload(int id)
+        {
+            var vm = Repository.GetUploadedFile(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
 
-		public ActionResult Bindings()
+        [HttpPost]
+        public ActionResult DeleteUpload(UploadedFile vm)
+        {
+            Repository.Delete(Repository.GetUploadedFile(vm.Id));
+            Repository.Save();
+            return RedirectToAction("uploads");
+        }
+
+        public ActionResult Bindings()
 		{
 			var vm = Repository.Bindings.OrderBy(b => b.Name);
 			return View(vm);
@@ -174,17 +179,22 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("genres");
 		}
 
-		public ActionResult DeleteGenre(int id)
-		{
-			var genre = Repository.GetGenre(id);
-			if (genre == null) return HttpNotFound();
-			if (genre.Books.Any()) return View("NotEmpty");
-			Repository.Delete(genre);
-			Repository.Save();
-			return RedirectToAction("genres");
-		}
+        public ActionResult DeleteGenre(int id)
+        {
+            var vm = Repository.GetGenre(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
 
-		public ActionResult Roles()
+        [HttpPost]
+        public ActionResult DeleteGenre(Genre vm)
+        {
+            Repository.Delete(Repository.GetGenre(vm.Id));
+            Repository.Save();
+            return RedirectToAction("genres");
+        }
+
+        public ActionResult Roles()
 		{
 			var vm = Repository.Roles.OrderBy(r => r.Name);
 			return View(vm);
@@ -220,17 +230,22 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("roles");
 		}
 
-		public ActionResult DeleteRole(int id)
-		{
-			var role = Repository.GetRole(id);
-			if (role == null) return HttpNotFound();
-			if (role.Relations.Any()) return View("NotEmpty");
-			Repository.Delete(role);
-			Repository.Save();
-			return RedirectToAction("roles");
-		}
+        public ActionResult DeleteRole(int id)
+        {
+            var vm = Repository.GetRole(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
 
-		public ActionResult People()
+        [HttpPost]
+        public ActionResult DeleteRole(Role vm)
+        {
+            Repository.Delete(Repository.GetRole(vm.Id));
+            Repository.Save();
+            return RedirectToAction("roles");
+        }
+
+        public ActionResult People()
 		{
 			var vm = Repository.People.OrderBy(p => p.LastName).ThenBy(p => p.FirstName);
 			return View(vm);
@@ -284,17 +299,22 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("people");
 		}
 
-		public ActionResult DeletePerson(int id)
-		{
-			var person = Repository.GetPerson(id);
-			if (person == null) return HttpNotFound();
-			if (person.Relations.Any() || person.Articles.Any()) return View("NotEmpty");
-			Repository.Delete(person);
-			Repository.Save();
-			return RedirectToAction("people");
-		}
+        public ActionResult DeletePerson(int id)
+        {
+            var vm = Repository.GetPerson(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
 
-		public ActionResult Books()
+        [HttpPost]
+        public ActionResult DeletePerson(Person vm)
+        {
+            Repository.Delete(Repository.GetPerson(vm.Id));
+            Repository.Save();
+            return RedirectToAction("people");
+        }
+
+        public ActionResult Books()
 		{
 			var vm = Repository.Books.OrderBy(b => b.Title);
 			return View(vm);
@@ -425,17 +445,24 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("editbook", new { id = vm.BookId });
 		}
 
-		public ActionResult DeleteEdition(int id)
-		{
-			var edition = Repository.GetEdition(id);
-			if (edition == null) return HttpNotFound();
-			if (edition.BookListMemberships.Any() || edition.OrderLines.Any()) return View("NotEmpty");
-			Repository.Delete(edition);
-			Repository.Save();
-			return RedirectToAction("editbook", new { id = edition.BookId });
-		}
+        public ActionResult DeleteEdition(int id)
+        {
+            var vm = Repository.GetEdition(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
 
-		public ActionResult CreateRelation(int id)
+        [HttpPost]
+        public ActionResult DeleteEdition(Edition vm)
+        {
+            var edition = Repository.GetEdition(vm.Id);
+            if (edition == null) return HttpNotFound();
+            Repository.Delete(edition);
+            Repository.Save();
+            return RedirectToAction("editbook", new { id = edition.BookId });
+        }
+
+        public ActionResult CreateRelation(int id)
 		{
 			var book = Repository.GetBook(id);
 			if (book == null) return HttpNotFound();
@@ -490,16 +517,23 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("editbook", new { id = vm.BookId });
 		}
 
-		public ActionResult RemoveRelation(int id)
-		{
-			var vm = Repository.GetRelation(id);
-			if (vm == null) return HttpNotFound();
-			Repository.Delete(vm);
-			Repository.Save();
-			return RedirectToAction("editbook", new { id = vm.BookId });
-		}
+        public ActionResult RemoveRelation(int id)
+        {
+            var vm = Repository.GetRelation(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
 
-		public ActionResult BookLists()
+        [HttpPost]
+        public ActionResult RemoveRelation(Relation vm)
+        {
+            var relation = Repository.GetRelation(vm.Id);
+            Repository.Delete(relation);
+            Repository.Save();
+            return RedirectToAction("editbook", new { id = relation.BookId });
+        }
+
+        public ActionResult BookLists()
 		{
 			var vm = Repository.BookLists.OrderBy(l => l.SequenceIdentifier);
 			return View(vm);
@@ -703,16 +737,22 @@ namespace ImprintCMS.Controllers
 			return RedirectToAction("contactarticles");
 		}
 
-		public ActionResult DeleteContactArticle(int id)
-		{
-			var article = Repository.GetContactArticle(id);
-			if (article == null) return HttpNotFound();
-			Repository.Delete(article);
-			Repository.Save();
-			return RedirectToAction("contactarticles");
-		}
+        public ActionResult DeleteContactArticle(int id)
+        {
+            var vm = Repository.GetContactArticle(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
 
-		[HttpPost]
+        [HttpPost]
+        public ActionResult DeleteContactArticle(ContactArticle vm)
+        {
+            Repository.Delete(Repository.GetContactArticle(vm.Id));
+            Repository.Save();
+            return RedirectToAction("contactarticles");
+        }
+
+        [HttpPost]
 		public ActionResult StoreContactArticleOrder()
 		{
 			var data = Request.Form["sortitem[]"] as string;
