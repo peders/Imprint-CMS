@@ -105,6 +105,11 @@ namespace ImprintCMS.Models
 </form>", action, query, SitePhrases.LabelSearchPlaceholder, SitePhrases.LabelSearch));
         }
 
+        public static HtmlString Legend(this HtmlHelper helper, string text)
+        {
+            return new HtmlString("<span class=\"widget legend\" title=\"" + helper.Encode(text) + "\">" + SitePhrases.LabelLegendPlaceholder + "</span>");
+        }
+
     }
 
 }

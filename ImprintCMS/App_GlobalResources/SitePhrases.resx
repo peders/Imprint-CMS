@@ -137,7 +137,7 @@
     <value>side</value>
   </data>
   <data name="UnitPrice" xml:space="preserve">
-    <value>{0} kr</value>
+    <value>{0:F2} kr</value>
     <comment>Insert price</comment>
   </data>
   <data name="LabelIsbn" xml:space="preserve">
@@ -233,12 +233,8 @@
   <data name="LabelShopRemoveOne" xml:space="preserve">
     <value>Fjern</value>
   </data>
-  <data name="LabelShopDisplayDistributionCost" xml:space="preserve">
-    <value>Frakt på kr {0} tilkommer på ordre opp til kr {1}.</value>
-    <comment>Insert cost and limit</comment>
-  </data>
-  <data name="LabelShopNoDistributionCost" xml:space="preserve">
-    <value>Gratis frakt på alle ordre over kr {0}.</value>
+  <data name="LabelShopDistributionCostLegend" xml:space="preserve">
+    <value>Gratis frakt på alle ordre over {0:F2} kr.</value>
     <comment>Insert limit</comment>
   </data>
   <data name="LabelCancel" xml:space="preserve">
@@ -252,5 +248,20 @@
   </data>
   <data name="LabelProceedToDownload" xml:space="preserve">
     <value>Last ned</value>
+  </data>
+  <data name="LabelLegendPlaceholder" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="LabelNext" xml:space="preserve">
+    <value>Neste</value>
+  </data>
+  <data name="LabelShopDistributionCost" xml:space="preserve">
+    <value>Frakt</value>
+  </data>
+  <data name="LabelShopSubtotal" xml:space="preserve">
+    <value>Subtotal</value>
+  </data>
+  <data name="LabelShopTotal" xml:space="preserve">
+    <value>Å betale</value>
   </data>
 </root>

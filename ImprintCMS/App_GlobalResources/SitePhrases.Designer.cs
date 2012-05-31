@@ -214,6 +214,24 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ?.
+        /// </summary>
+        public static string LabelLegendPlaceholder {
+            get {
+                return ResourceManager.GetString("LabelLegendPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neste.
+        /// </summary>
+        public static string LabelNext {
+            get {
+                return ResourceManager.GetString("LabelNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ikke i salg.
         /// </summary>
         public static string LabelNotForSale {
@@ -277,11 +295,20 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Frakt på kr {0} tilkommer på ordre opp til kr {1}..
+        ///   Looks up a localized string similar to Frakt.
         /// </summary>
-        public static string LabelShopDisplayDistributionCost {
+        public static string LabelShopDistributionCost {
             get {
-                return ResourceManager.GetString("LabelShopDisplayDistributionCost", resourceCulture);
+                return ResourceManager.GetString("LabelShopDistributionCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gratis frakt på alle ordre over {0:F2} kr..
+        /// </summary>
+        public static string LabelShopDistributionCostLegend {
+            get {
+                return ResourceManager.GetString("LabelShopDistributionCostLegend", resourceCulture);
             }
         }
         
@@ -291,15 +318,6 @@ namespace ImprintCMS.Models {
         public static string LabelShopEmpty {
             get {
                 return ResourceManager.GetString("LabelShopEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gratis frakt på alle ordre over kr {0}..
-        /// </summary>
-        public static string LabelShopNoDistributionCost {
-            get {
-                return ResourceManager.GetString("LabelShopNoDistributionCost", resourceCulture);
             }
         }
         
@@ -318,6 +336,24 @@ namespace ImprintCMS.Models {
         public static string LabelShopRemoveOne {
             get {
                 return ResourceManager.GetString("LabelShopRemoveOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subtotal.
+        /// </summary>
+        public static string LabelShopSubtotal {
+            get {
+                return ResourceManager.GetString("LabelShopSubtotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Å betale.
+        /// </summary>
+        public static string LabelShopTotal {
+            get {
+                return ResourceManager.GetString("LabelShopTotal", resourceCulture);
             }
         }
         
@@ -430,7 +466,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} kr.
+        ///   Looks up a localized string similar to {0:F2} kr.
         /// </summary>
         public static string UnitPrice {
             get {

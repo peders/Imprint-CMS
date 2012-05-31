@@ -88,6 +88,7 @@
     <Compile Include="Models\BookList.cs" />
     <Compile Include="Models\BookListMembership.cs" />
     <Compile Include="Models\ContactArticle.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Relation.cs" />
     <Compile Include="Models\Edition.cs" />
     <Compile Include="Models\Person.cs" />
@@ -118,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\admin.css" />
+    <Content Include="Content\sitebase.css" />
     <Content Include="Content\tiny_mce.css" />
     <Content Include="Content\draghandle.png" />
     <Content Include="Global.asax" />

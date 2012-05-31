@@ -1,30 +1,63 @@
 ﻿@model Order
 @{
-	ViewBag.Title = SitePhrases.MenuShop;
+    ViewBag.Title = SitePhrases.MenuShop;
 }
 <h1>@SitePhrases.MenuShop</h1>
 @if (Model == null || !Model.OrderLines.Any())
 {
-	<p class="empty">@SitePhrases.LabelShopEmpty</p>
+    <p class="empty">@SitePhrases.LabelShopEmpty</p>
 }
 else
 {
-	<ul id="basket">
-		@foreach (var line in Model.OrderLines)
-  {
-			<li>
-				@if (line.Edition.SmallCoverId != null)
-	{
-					<img src="@Url.Action("display", "upload", new { category = line.Edition.UploadedFile.Category, fileName = line.Edition.UploadedFile.FileName }, null)"
+    <table class="order">
+        <tbody class="orderlines">
+            @foreach (var line in Model.OrderLines)
+            {
+                <tr>
+                    <td class="image">
+                        @if (line.Edition.SmallCoverId != null)
+                        {
+                            <img src="@Url.Action("display", "upload", new { category = line.Edition.UploadedFile.Category, fileName = line.Edition.UploadedFile.FileName }, null)"
 								class="cover"
 								alt="@String.Format(SitePhrases.LabelCoverImage, line.Edition.Book.Title)"
 								title="@String.Format(SitePhrases.LabelCoverImage, line.Edition.Book.Title)" />
-	}
-				<strong>@String.Join(" / ", line.Edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName)):
-					<em class="title">@line.Edition.Book.Title</em></strong><br />
-				@String.Format("{0}, {1}, {2}", String.Format(SitePhrases.LabelEdition, line.Edition.Number), line.Edition.Binding.Name.ToLower(), line.Edition.ReleaseDate.Year)<br />
-				@String.Format(SitePhrases.UnitPrice, line.Edition.Price)<br />
-				@Html.ActionLink(SitePhrases.LabelShopRemoveOne, "remove", new { id = line.Id })</li>
-  }</ul>
-	<p>@Html.ActionLink(SitePhrases.LabelShopRemoveAll, "empty")</p>
+                        }
+                    </td>
+                    <td class="bookinfo">
+                        <strong>@String.Join(" / ", line.Edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName)):
+                            <em class="title">@line.Edition.Book.Title</em></strong><br />
+                        @String.Format("{0}, {1}, {2}", String.Format(SitePhrases.LabelEdition, line.Edition.Number), line.Edition.Binding.Name.ToLower(), line.Edition.ReleaseDate.Year)
+                    </td>
+                    <td class="action">@Html.ActionLink(SitePhrases.LabelShopRemoveOne, "remove", new { id = line.Id })
+                    </td>
+                    <td class="price">@String.Format(SitePhrases.UnitPrice, line.Edition.Price)
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tbody class="summary">
+            <tr class="subtotal">
+                <td colspan="3">@SitePhrases.LabelShopSubtotal
+                </td>
+                <td>@String.Format(SitePhrases.UnitPrice, Model.Subtotal)
+                </td>
+            </tr>
+            <tr class="distributioncost">
+                <td colspan="3">@SitePhrases.LabelShopDistributionCost
+                    @Html.Legend(String.Format(SitePhrases.LabelShopDistributionCostLegend, ((SiteConfig)ViewBag.Config).DistributionCostLimit))
+                </td>
+                <td>@String.Format(SitePhrases.UnitPrice, Model.DistributionCost)
+                </td>
+            </tr>
+            <tr class="total">
+                <td colspan="3">@SitePhrases.LabelShopTotal
+                </td>
+                <td>@String.Format(SitePhrases.UnitPrice, Model.Subtotal + Model.DistributionCost)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="action">
+        <a href="#" class="proceed">@SitePhrases.LabelNext</a>
+        @Html.ActionLink(SitePhrases.LabelShopRemoveAll, "empty")</p>
 }
