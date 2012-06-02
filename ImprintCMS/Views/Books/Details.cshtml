@@ -20,7 +20,7 @@
             {
                 <div class="edition">
                     <h2>@String.Format(SitePhrases.LabelEdition, edition.Number), @edition.ReleaseDate.Year</h2>
-                    <p>@String.Format(SitePhrases.LabelIsbn, edition.Isbn)<br />
+                    <p>@String.Format(SitePhrases.LabelIsbn, edition.Isbn.AsIsbn())<br />
                         @(edition.PageCount == null ? edition.Binding.Name : String.Format("{0}, {1} {2}", edition.Binding.Name, edition.PageCount, SitePhrases.UnitPagesPlural))<br />
                         @String.Format(SitePhrases.UnitPrice, edition.Price)<br />
                         @(edition.IsForSale ? Html.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" }) : new HtmlString("<span class=\"inactive\">" + SitePhrases.LabelNotForSale + "</span>"))</p>

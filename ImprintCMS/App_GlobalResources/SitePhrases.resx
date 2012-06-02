@@ -264,4 +264,13 @@
   <data name="LabelShopTotal" xml:space="preserve">
     <value>Å betale</value>
   </data>
+  <data name="HeadingShopBasket" xml:space="preserve">
+    <value>Handlekurv</value>
+  </data>
+  <data name="LabelPrevious" xml:space="preserve">
+    <value>Tilbake</value>
+  </data>
+  <data name="LabelShopSendOrder" xml:space="preserve">
+    <value>Send bestilling</value>
+  </data>
 </root>

@@ -124,6 +124,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Handlekurv.
+        /// </summary>
+        public static string HeadingShopBasket {
+            get {
+                return ResourceManager.GetString("HeadingShopBasket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kjøp.
         /// </summary>
         public static string LabelAddToShop {
@@ -250,6 +259,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tilbake.
+        /// </summary>
+        public static string LabelPrevious {
+            get {
+                return ResourceManager.GetString("LabelPrevious", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last ned.
         /// </summary>
         public static string LabelProceedToDownload {
@@ -336,6 +354,15 @@ namespace ImprintCMS.Models {
         public static string LabelShopRemoveOne {
             get {
                 return ResourceManager.GetString("LabelShopRemoveOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send bestilling.
+        /// </summary>
+        public static string LabelShopSendOrder {
+            get {
+                return ResourceManager.GetString("LabelShopSendOrder", resourceCulture);
             }
         }
         

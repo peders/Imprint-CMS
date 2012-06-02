@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = SitePhrases.MenuShop;
 }
-<h1>@SitePhrases.MenuShop</h1>
+<h1>@SitePhrases.HeadingShopBasket</h1>
 @if (Model == null || !Model.OrderLines.Any())
 {
     <p class="empty">@SitePhrases.LabelShopEmpty</p>
@@ -57,7 +57,7 @@ else
             </tr>
         </tbody>
     </table>
+    <p>@Html.ActionLink(SitePhrases.LabelShopRemoveAll, "empty")</p>
     <p class="action">
-        <a href="#" class="proceed">@SitePhrases.LabelNext</a>
-        @Html.ActionLink(SitePhrases.LabelShopRemoveAll, "empty")</p>
+        <a href="#" class="proceed">@SitePhrases.LabelNext</a></p>
 }
