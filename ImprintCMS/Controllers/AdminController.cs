@@ -344,7 +344,7 @@ namespace ImprintCMS.Controllers
             }
             Repository.Add(vm);
             Repository.Save();
-            return RedirectToAction("editbook", new { id = vm.Id });
+            return RedirectToAction("createrelation", new { id = vm.Id });
         }
 
         public ActionResult EditBook(int id)
