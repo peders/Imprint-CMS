@@ -1,29 +1,35 @@
 ﻿@model BookCatalog
 @{
-	ViewBag.Title = SitePhrases.MenuBooks;
+    ViewBag.Title = Model.CurrentGenre.Name;
 }
 <ul id="genremenu">
-	@foreach (var genre in Model.Genres)
- {
-		<li>@(genre == Model.CurrentGenre ? new HtmlString("<strong>" + genre.Name + "</strong>") : Html.ActionLink(genre.Name, "index", new { id = genre.Id }))</li>
- }
+    @foreach (var genre in Model.Genres)
+    {
+        <li>@(genre == Model.CurrentGenre ? new HtmlString("<strong>" + genre.Name + "</strong>") : Html.ActionLink(genre.Name, "index", new { id = genre.Id }))</li>
+    }
 </ul>
 <div id="booklisting">
-	@foreach (var group in Model.CurrentBooks.OrderBy(b => b.RightsHolders).ThenBy(b => b.Title).GroupBy(b => b.RightsHolders))
- {
-		<div class="book">
-			<h2>@group.Key</h2>
-			<ul>
-				@foreach (var book in group)
-	{
-					<li>
-						@if (book.CoverEdition != null)
-	  {
-							<a href="@book.Url">@Html.CoverImage(book.CoverEdition)</a>
-	  }
-						@(new HtmlString(String.Format("<a href=\"{0}\">{1}</a>{2}", book.Url, book.Title, book.SubtitleWithSeparator ?? string.Empty)))</li>
-	}
-			</ul>
-		</div>
- }
+    @foreach (var group in Model.CurrentBooks.OrderBy(b => b.RightsHolders).ThenBy(b => b.Title).GroupBy(b => b.RightsHolders))
+    {
+        <div class="book">
+            <h2>@group.Key</h2>
+            <ul>
+                @foreach (var book in group)
+                {
+                    <li>
+                        @if (book.CoverEdition != null)
+                        {
+                            <a href="@book.Url">@Html.CoverImage(book.CoverEdition)</a>
+                            <a href="@book.Url">@book.Title</a>
+                            if (!String.IsNullOrWhiteSpace(book.Subtitle))
+                            {
+                            <br />
+                            <span class="subtitle">@book.Subtitle</span>
+                            }
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+    }
 </div>
