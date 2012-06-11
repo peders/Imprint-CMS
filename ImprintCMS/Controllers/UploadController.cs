@@ -7,7 +7,7 @@ namespace ImprintCMS.Controllers
 
 	public class UploadController : ControllerBase
 	{
-		[OutputCache(Duration = 60, Location=OutputCacheLocation.Any)]
+        [OutputCache(Duration = int.MaxValue, Location = OutputCacheLocation.Any, SqlDependency = "ImprintCMS:UploadedFile")]
 		public ActionResult Display(string category, string fileName)
 		{
 			var vm = Repository.GetUploadedFile(category, fileName);
