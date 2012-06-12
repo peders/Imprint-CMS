@@ -755,7 +755,7 @@ namespace ImprintCMS.Controllers
 
         public ActionResult Orders()
         {
-            var vm = Repository.Orders.Where(o => o.ClosedAt != null).OrderByDescending(o => o.ClosedAt);
+            var vm = Repository.Orders.Where(o => o.ClosedAt != null).OrderByDescending(o => o.ClosedAt).ThenByDescending(o => o.Id);
             return View(vm);
         }
 
