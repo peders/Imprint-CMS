@@ -110,6 +110,10 @@ namespace ImprintCMS.Models
             return new HtmlString("<span class=\"widget legend\" title=\"" + helper.Encode(text) + "\">" + SitePhrases.LabelLegendPlaceholder + "</span>");
         }
 
+        public static HtmlString Email(this HtmlHelper helper, string email) {
+            return new HtmlString("<a href=\"mailto:" + email + "\">" + email + "</a>");
+        }
+
     }
 
 }

@@ -1,0 +1,21 @@
+﻿@model Order
+@{
+    ViewBag.Title = SitePhrases.MenuShop;
+}
+<h1>@SitePhrases.HeadingShopConfirm</h1>
+@Html.Partial("Basket", Model)
+<p>@Model.Name<br />
+    @Model.Address<br />
+    @Model.Postcode<br />
+    @Model.City</p>
+<p>@Model.Phone<br />
+    @Model.Email</p>
+@using (Html.BeginForm())
+{
+    <fieldset class="shop">
+        <p>
+            <input type="submit" value="@SitePhrases.LabelShopConfirm" class="button" />
+        </p>
+    </fieldset>
+}
+<p class="disclaimer">@(((SiteConfig)ViewBag.Config).ShopDisclaimer)</p>

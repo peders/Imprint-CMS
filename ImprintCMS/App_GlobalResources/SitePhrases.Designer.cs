@@ -133,6 +133,42 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bekreft og send.
+        /// </summary>
+        public static string HeadingShopConfirm {
+            get {
+                return ResourceManager.GetString("HeadingShopConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Navn og adresse.
+        /// </summary>
+        public static string HeadingShopDetails {
+            get {
+                return ResourceManager.GetString("HeadingShopDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bestillingen er sendt.
+        /// </summary>
+        public static string HeadingShopReceipt {
+            get {
+                return ResourceManager.GetString("HeadingShopReceipt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adresse.
+        /// </summary>
+        public static string LabelAddress {
+            get {
+                return ResourceManager.GetString("LabelAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kjøp.
         /// </summary>
         public static string LabelAddToShop {
@@ -160,6 +196,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Poststed.
+        /// </summary>
+        public static string LabelCity {
+            get {
+                return ResourceManager.GetString("LabelCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Omslaget til {0}.
         /// </summary>
         public static string LabelCoverImage {
@@ -174,6 +219,15 @@ namespace ImprintCMS.Models {
         public static string LabelEdition {
             get {
                 return ResourceManager.GetString("LabelEdition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-post.
+        /// </summary>
+        public static string LabelEmail {
+            get {
+                return ResourceManager.GetString("LabelEmail", resourceCulture);
             }
         }
         
@@ -232,6 +286,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Navn.
+        /// </summary>
+        public static string LabelName {
+            get {
+                return ResourceManager.GetString("LabelName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Neste.
         /// </summary>
         public static string LabelNext {
@@ -250,11 +313,29 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Telefon.
+        /// </summary>
+        public static string LabelPhone {
+            get {
+                return ResourceManager.GetString("LabelPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Foto: {0}.
         /// </summary>
         public static string LabelPhotoCredit {
             get {
                 return ResourceManager.GetString("LabelPhotoCredit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Postnummer.
+        /// </summary>
+        public static string LabelPostcode {
+            get {
+                return ResourceManager.GetString("LabelPostcode", resourceCulture);
             }
         }
         
@@ -313,6 +394,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send bestilling.
+        /// </summary>
+        public static string LabelShopConfirm {
+            get {
+                return ResourceManager.GetString("LabelShopConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Frakt.
         /// </summary>
         public static string LabelShopDistributionCost {
@@ -336,6 +426,15 @@ namespace ImprintCMS.Models {
         public static string LabelShopEmpty {
             get {
                 return ResourceManager.GetString("LabelShopEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ved henvendelser om bestillingen, vennligst oppgi ordrenummer {0}..
+        /// </summary>
+        public static string LabelShopReceipt {
+            get {
+                return ResourceManager.GetString("LabelShopReceipt", resourceCulture);
             }
         }
         
@@ -498,6 +597,24 @@ namespace ImprintCMS.Models {
         public static string UnitPrice {
             get {
                 return ResourceManager.GetString("UnitPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dette er ikke en gyldig e-postadresse.
+        /// </summary>
+        public static string ValidationInvalidEmailFormat {
+            get {
+                return ResourceManager.GetString("ValidationInvalidEmailFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *.
+        /// </summary>
+        public static string ValidationRequired {
+            get {
+                return ResourceManager.GetString("ValidationRequired", resourceCulture);
             }
         }
     }

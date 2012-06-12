@@ -14,6 +14,8 @@ namespace ImprintCMS.Models
         public string GoogleAnalyticsTrackingCode { get; set; }
         public string PersonImageDownloadNotice { get; set; }
         public string CoverImageDownloadNotice { get; set; }
+        public string ShopEmailRecipient { get; set; }
+        public HtmlString ShopDisclaimer { get; set; }
 
         public SiteConfig()
         {
@@ -26,6 +28,8 @@ namespace ImprintCMS.Models
             GoogleAnalyticsTrackingCode = GetConfigValue<string>("ImprintCMSGoogleAnalyticsTrackingCode");
             PersonImageDownloadNotice = GetConfigValue<string>("ImprintCMSPersonImageDownloadNotice");
             CoverImageDownloadNotice = GetConfigValue<string>("ImprintCMSCoverImageDownloadNotice");
+            ShopEmailRecipient = GetConfigValue<string>("ImprintCMSShopEmailRecipient");
+            ShopDisclaimer = new HtmlString(GetConfigValue<string>("ImprintCMSShopDisclaimer"));
         }
 
         private T GetConfigValue<T>(string name)

@@ -1,0 +1,46 @@
+﻿@model OrderDetails
+@{
+    ViewBag.Title = SitePhrases.MenuShop;
+}
+<h1>@SitePhrases.HeadingShopDetails</h1>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="fields">
+        <p>
+            @Html.LabelFor(model => model.Name, SitePhrases.LabelName)<br />
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Address, SitePhrases.LabelAddress)<br />
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Postcode, SitePhrases.LabelPostcode)<br />
+            @Html.EditorFor(model => model.Postcode)
+            @Html.ValidationMessageFor(model => model.Postcode)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.City, SitePhrases.LabelCity)<br />
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Phone, SitePhrases.LabelPhone)<br />
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Email, SitePhrases.LabelEmail)<br />
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </p>
+    </fieldset>
+    <fieldset class="shop">
+        <p>
+            <input type="submit" value="@SitePhrases.LabelNext" class="button" />
+        </p>
+    </fieldset>
+}

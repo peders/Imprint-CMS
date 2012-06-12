@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Models
 {
@@ -11,5 +12,6 @@ namespace ImprintCMS.Models
                 return OrderLines.Sum(l => (int)l.Edition.Price);
             }
         }
+
     }
 }

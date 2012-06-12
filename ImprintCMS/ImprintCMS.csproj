@@ -106,6 +106,7 @@
     <Compile Include="Models\ViewModels\BookCatalog.cs" />
     <Compile Include="Models\ViewModels\ContactPage.cs" />
     <Compile Include="Models\ViewModels\ListFile.cs" />
+    <Compile Include="Models\ViewModels\OrderDetails.cs" />
     <Compile Include="Models\ViewModels\PersonPage.cs" />
     <Compile Include="Models\ViewModels\FileUpload.cs" />
     <Compile Include="Models\ViewModels\ListBook.cs" />
@@ -485,6 +486,13 @@
     <Content Include="Views\Admin\DeleteContactArticle.cshtml" />
     <Content Include="Views\Admin\DeleteRole.cshtml" />
     <Content Include="Views\Admin\DeleteUpload.cshtml" />
+    <Content Include="Views\Shop\Details.cshtml" />
+    <Content Include="Views\Shop\Confirm.cshtml" />
+    <Content Include="Views\Shop\Basket.cshtml" />
+    <Content Include="Views\Shop\Receipt.cshtml" />
+    <Content Include="Views\Admin\Orders.cshtml" />
+    <Content Include="Views\Admin\DeleteOrder.cshtml" />
+    <Content Include="Views\Admin\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

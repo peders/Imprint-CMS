@@ -484,6 +484,69 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Orders.
+        /// </summary>
+        public static string LabelOrderContent {
+            get {
+                return ResourceManager.GetString("LabelOrderContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name and address.
+        /// </summary>
+        public static string LabelOrderDetails {
+            get {
+                return ResourceManager.GetString("LabelOrderDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distribution cost.
+        /// </summary>
+        public static string LabelOrderDistributionCost {
+            get {
+                return ResourceManager.GetString("LabelOrderDistributionCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order ID.
+        /// </summary>
+        public static string LabelOrderId {
+            get {
+                return ResourceManager.GetString("LabelOrderId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Books.
+        /// </summary>
+        public static string LabelOrderLines {
+            get {
+                return ResourceManager.GetString("LabelOrderLines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subtotal.
+        /// </summary>
+        public static string LabelOrderSubtotal {
+            get {
+                return ResourceManager.GetString("LabelOrderSubtotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        public static string LabelOrderTotal {
+            get {
+                return ResourceManager.GetString("LabelOrderTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of pages.
         /// </summary>
         public static string LabelPageCount {
@@ -1011,6 +1074,24 @@ namespace ImprintCMS.Models {
         public static string PagenameLogIn {
             get {
                 return ResourceManager.GetString("PagenameLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order details.
+        /// </summary>
+        public static string PagenameOrderDetails {
+            get {
+                return ResourceManager.GetString("PagenameOrderDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orders.
+        /// </summary>
+        public static string PagenameOrders {
+            get {
+                return ResourceManager.GetString("PagenameOrders", resourceCulture);
             }
         }
         

@@ -273,4 +273,44 @@
   <data name="LabelShopSendOrder" xml:space="preserve">
     <value>Send bestilling</value>
   </data>
+  <data name="ValidationInvalidEmailFormat" xml:space="preserve">
+    <value>Dette er ikke en gyldig e-postadresse</value>
+  </data>
+  <data name="ValidationRequired" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="HeadingShopConfirm" xml:space="preserve">
+    <value>Bekreft og send</value>
+  </data>
+  <data name="HeadingShopDetails" xml:space="preserve">
+    <value>Navn og adresse</value>
+  </data>
+  <data name="LabelAddress" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="LabelCity" xml:space="preserve">
+    <value>Poststed</value>
+  </data>
+  <data name="LabelEmail" xml:space="preserve">
+    <value>E-post</value>
+  </data>
+  <data name="LabelName" xml:space="preserve">
+    <value>Navn</value>
+  </data>
+  <data name="LabelPhone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="LabelPostcode" xml:space="preserve">
+    <value>Postnummer</value>
+  </data>
+  <data name="LabelShopConfirm" xml:space="preserve">
+    <value>Send bestilling</value>
+  </data>
+  <data name="HeadingShopReceipt" xml:space="preserve">
+    <value>Bestillingen er sendt</value>
+  </data>
+  <data name="LabelShopReceipt" xml:space="preserve">
+    <value>Ved henvendelser om bestillingen, vennligst oppgi ordrenummer {0}.</value>
+    <comment>Insert order id</comment>
+  </data>
 </root>

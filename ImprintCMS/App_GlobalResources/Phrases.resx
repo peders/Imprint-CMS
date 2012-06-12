@@ -499,4 +499,31 @@
   <data name="FileTypeJavascript" xml:space="preserve">
     <value>Javascript</value>
   </data>
+  <data name="LabelOrderContent" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="LabelOrderDetails" xml:space="preserve">
+    <value>Name and address</value>
+  </data>
+  <data name="LabelOrderDistributionCost" xml:space="preserve">
+    <value>Distribution cost</value>
+  </data>
+  <data name="LabelOrderId" xml:space="preserve">
+    <value>Order ID</value>
+  </data>
+  <data name="LabelOrderLines" xml:space="preserve">
+    <value>Books</value>
+  </data>
+  <data name="LabelOrderSubtotal" xml:space="preserve">
+    <value>Subtotal</value>
+  </data>
+  <data name="LabelOrderTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="PagenameOrderDetails" xml:space="preserve">
+    <value>Order details</value>
+  </data>
+  <data name="PagenameOrders" xml:space="preserve">
+    <value>Orders</value>
+  </data>
 </root>
