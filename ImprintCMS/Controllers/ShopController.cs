@@ -140,6 +140,7 @@ namespace ImprintCMS.Controllers
 		private void SendEmail(string to, string subject, string body)
 		{
 			var email = new MailMessage(Config.EmailSenderAddress, to, subject, body);
+			email.IsBodyHtml = true;
 			var client = new SmtpClient();
 			client.Send(email);
 		}
