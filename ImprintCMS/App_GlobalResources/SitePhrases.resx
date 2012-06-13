@@ -313,10 +313,12 @@
     <value>Ved henvendelser om bestillingen, vennligst oppgi ordrenummer {0}.</value>
     <comment>Insert order id</comment>
   </data>
-	<data name="LabelShopOrderEmailSubject">
-		<value xml:space="preserve">Ny ordre på {0}</value>
-	</data>
-	<data name="LabelShopOrderEmailBody">
-		<value xml:space="preserve">&lt;p style="font-family: sans-serif;"&gt;Ordrenummer: {0}&lt;/p&gt;</value>
-	</data>
+  <data name="LabelShopOrderEmailSubject" xml:space="preserve">
+    <value>Ny ordre på {0}</value>
+    <comment>Insert site name</comment>
+  </data>
+  <data name="LabelShopOrderEmailBody" xml:space="preserve">
+    <value>&lt;p style="font-family: sans-serif;"&gt;{0}&lt;/p&gt;</value>
+    <comment>Insert text as HTML</comment>
+  </data>
 </root>

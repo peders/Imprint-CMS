@@ -430,7 +430,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p style=&quot;font-family: sans-serif;&quot;&gt;Ordrenummer: {0}&lt;/p&gt;.
+        ///   Looks up a localized string similar to &lt;p style=&quot;font-family: sans-serif;&quot;&gt;{0}&lt;/p&gt;.
         /// </summary>
         public static string LabelShopOrderEmailBody {
             get {
