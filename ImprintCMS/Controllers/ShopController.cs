@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using ImprintCMS.Models;
@@ -10,7 +11,7 @@ namespace ImprintCMS.Controllers
     public class ShopController : SiteControllerBase
     {
 
-        const string _cookieName = "ImprintCMSShopId";
+        const string CookieName = "ImprintCMSShopId";
         Guid _shopId;
 
         public ActionResult Index()
@@ -71,6 +72,10 @@ namespace ImprintCMS.Controllers
             if (order == null)
                 return RedirectToAction("index");
             CloseOrder(order);
+			SendEmail(
+				Config.ShopEmailRecipient,
+				String.Format(SitePhrases.LabelShopOrderEmailSubject, Config.Name),
+				String.Format(SitePhrases.LabelShopOrderEmailBody, order.Id));
             return RedirectToAction("receipt", new { id = order.ExternalId });
         }
 
@@ -132,13 +137,20 @@ namespace ImprintCMS.Controllers
             _shopId = Guid.Parse(GetOrSetCookie().Value);
         }
 
-        private void ResetShop()
+		private void SendEmail(string to, string subject, string body)
+		{
+			var email = new MailMessage(Config.EmailSenderAddress, to, subject, body);
+			var client = new SmtpClient();
+			client.Send(email);
+		}
+
+    	private void ResetShop()
         {
             var order = GetOrSetOrder(_shopId);
             if (order == null) return;
             Repository.Delete(order);
             Repository.Save();
-            Response.Cookies[_cookieName].Value = Guid.NewGuid().ToString();
+            Response.Cookies[CookieName].Value = Guid.NewGuid().ToString();
         }
 
         private ActionResult ShopReturn()
@@ -177,15 +189,15 @@ namespace ImprintCMS.Controllers
             CalculateDistributionCost(order);
             order.ClosedAt = DateTime.Now;
             Repository.Save();
-            Response.Cookies[_cookieName].Value = Guid.NewGuid().ToString();
+            Response.Cookies[CookieName].Value = Guid.NewGuid().ToString();
         }
 
         private HttpCookie GetOrSetCookie()
         {
-            var cookie = Request.Cookies[_cookieName];
+            var cookie = Request.Cookies[CookieName];
             if (cookie == null)
             {
-                cookie = new HttpCookie(_cookieName)
+                cookie = new HttpCookie(CookieName)
                 {
                     Expires = DateTime.Today.AddYears(99),
                     Value = Guid.NewGuid().ToString()
