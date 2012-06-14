@@ -14,6 +14,7 @@
  {
 		<li><span class="name">@Html.ActionLink(file.FileName, "display", "upload", new { category = file.Category, fileName = file.FileName }, null)</span>
 			<span class="data">@file.ContentLength.ToFileSize()</span> <span class="data">@file.ContentType.AsFileType()</span>
+			<span class="data">@Html.ActionLink(Phrases.LabelReplace, "replaceupload", new { id = file.Id }, null)</span>
 			@Html.ActionLink(Phrases.LabelDelete, "deleteupload", new { id = file.Id }, null)
 		</li>
  }

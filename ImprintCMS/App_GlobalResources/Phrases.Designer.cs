@@ -664,6 +664,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Replace.
+        /// </summary>
+        public static string LabelReplace {
+            get {
+                return ResourceManager.GetString("LabelReplace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Role.
         /// </summary>
         public static string LabelRole {
@@ -1222,7 +1231,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A file with this name already exists in this category. Delete old file first if you want to replace it..
+        ///   Looks up a localized string similar to A file with this name already exists in this category. Delete old file first if you want to replace it, or use the Replace link..
         /// </summary>
         public static string ValidationFileExists {
             get {

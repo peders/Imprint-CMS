@@ -328,7 +328,7 @@
     <value>No file or file is empty</value>
   </data>
   <data name="ValidationFileExists" xml:space="preserve">
-    <value>A file with this name already exists in this category. Delete old file first if you want to replace it.</value>
+    <value>A file with this name already exists in this category. Delete old file first if you want to replace it, or use the Replace link.</value>
   </data>
   <data name="ValidationFileTooLarge" xml:space="preserve">
     <value>File is too large (max 10 MB)</value>
@@ -525,5 +525,8 @@
   </data>
   <data name="PagenameOrders" xml:space="preserve">
     <value>Orders</value>
+  </data>
+  <data name="LabelReplace" xml:space="preserve">
+    <value>Replace</value>
   </data>
 </root>
