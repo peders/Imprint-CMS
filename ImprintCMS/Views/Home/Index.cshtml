@@ -17,7 +17,7 @@
 	   if (article.ImageEdition != null)
 	   {
 				<div class="image">
-					<a href="@Url.Action("details", "books", new { id = article.ImageEdition.Id })">@Html.CoverImage(article.ImageEdition)</a>
+					<a href="@Url.Action("details", "books", new { id = article.ImageEdition.BookId })">@Html.CoverImage(article.ImageEdition)</a>
 				</div> 
 	   }
    }
