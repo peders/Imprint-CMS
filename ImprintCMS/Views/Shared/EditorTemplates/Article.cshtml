@@ -28,6 +28,7 @@
 	<fieldset class="buttons">
 		<p>
 			<input type="submit" value="@Phrases.LabelSave" />
+			@Html.ActionLink(String.Format(Phrases.LabelBackTo, Phrases.PagenameArticles), "articles", "admin")
 		</p>
 	</fieldset>
 }
