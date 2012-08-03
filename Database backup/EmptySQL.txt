@@ -1,0 +1,17 @@
+delete from AspNet_SqlCacheTablesForChangeNotification
+delete from PersonToArticle
+delete from BookToArticle
+delete from BookListMembership
+delete from Relation
+delete from Article
+delete from OrderLine
+delete from [dbo].[Order]
+delete from BookList
+delete from ContactArticle
+delete from Edition
+delete from [dbo].[Binding]
+delete from [dbo].[Role]
+delete from Book
+delete from Person
+delete from Genre
+delete from UploadedFile
