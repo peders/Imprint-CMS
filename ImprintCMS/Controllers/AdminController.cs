@@ -683,7 +683,6 @@ namespace ImprintCMS.Controllers
 				Date = DateTime.Today,
 				IsVisible = true
 			};
-			ViewBag.People = LinkablePeopleList(vm.PersonId);
 			return View(vm);
 		}
 
@@ -692,7 +691,6 @@ namespace ImprintCMS.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				ViewBag.People = LinkablePeopleList(vm.PersonId);
 				return View(vm);
 			}
 			Repository.Add(vm);
@@ -704,7 +702,6 @@ namespace ImprintCMS.Controllers
 		{
 			var vm = Repository.GetArticle(id);
 			if (vm == null) return HttpNotFound();
-			ViewBag.People = LinkablePeopleList(vm.PersonId);
 			return View(vm);
 		}
 
@@ -713,7 +710,6 @@ namespace ImprintCMS.Controllers
 		{
 			if (!ModelState.IsValid)
 			{
-				ViewBag.People = LinkablePeopleList(vm.PersonId);
 				return View(vm);
 			}
 			UpdateModel(Repository.GetArticle(vm.Id));
@@ -899,6 +895,126 @@ namespace ImprintCMS.Controllers
 			return new HttpStatusCodeResult(200);
 		}
 
+		public ActionResult CreatePersonToArticle(int id)
+		{
+			var article = Repository.GetArticle(id);
+			if (article == null) return HttpNotFound();
+			var vm = new PersonToArticle
+			{
+				ArticleId = id,
+				Article = article,
+				SequenceIdentifier = int.MaxValue
+			};
+			ViewBag.People = LinkablePeopleList(vm.PersonId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreatePersonToArticle(PersonToArticle vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.People = LinkablePeopleList(vm.PersonId);
+				vm.Article = Repository.GetArticle(vm.ArticleId);
+				return View(vm);
+			}
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("editarticle", new { id = vm.ArticleId });
+		}
+
+		public ActionResult RemovePersonToArticle(int id)
+		{
+			var vm = Repository.GetPersonToArticle(id);
+			if (vm == null) return HttpNotFound();
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult RemovePersonToArticle(PersonToArticle vm)
+		{
+			var link = Repository.GetPersonToArticle(vm.Id);
+			Repository.Delete(link);
+			Repository.Save();
+			return RedirectToAction("editarticle", new { id = link.ArticleId });
+		}
+
+		[HttpPost]
+		public ActionResult StorePersonToArticleOrder()
+		{
+			var data = Request.Form["sortitem[]"] as string;
+			var ids = data.Split(',').Select(int.Parse);
+			var sequenceIdentifier = 0;
+			foreach (var id in ids)
+			{
+				var relation = Repository.GetPersonToArticle(id);
+				relation.SequenceIdentifier = sequenceIdentifier;
+				sequenceIdentifier++;
+			}
+			Repository.Save();
+			return new HttpStatusCodeResult(200);
+		}
+
+		public ActionResult CreateBookToArticle(int id)
+		{
+			var article = Repository.GetArticle(id);
+			if (article == null) return HttpNotFound();
+			var vm = new BookToArticle
+			{
+				ArticleId = id,
+				Article = article,
+				SequenceIdentifier = int.MaxValue
+			};
+			ViewBag.Books = LinkableBooksList(vm.BookId);
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult CreateBookToArticle(BookToArticle vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				ViewBag.Books = LinkableBooksList(vm.BookId);
+				vm.Article = Repository.GetArticle(vm.ArticleId);
+				return View(vm);
+			}
+			Repository.Add(vm);
+			Repository.Save();
+			return RedirectToAction("editarticle", new { id = vm.ArticleId });
+		}
+
+		public ActionResult RemoveBookToArticle(int id)
+		{
+			var vm = Repository.GetBookToArticle(id);
+			if (vm == null) return HttpNotFound();
+			return View(vm);
+		}
+
+		[HttpPost]
+		public ActionResult RemoveBookToArticle(BookToArticle vm)
+		{
+			var link = Repository.GetBookToArticle(vm.Id);
+			Repository.Delete(link);
+			Repository.Save();
+			return RedirectToAction("editarticle", new { id = link.ArticleId });
+		}
+
+		[HttpPost]
+		public ActionResult StoreBookToArticleOrder()
+		{
+			var data = Request.Form["sortitem[]"] as string;
+			var ids = data.Split(',').Select(int.Parse);
+			var sequenceIdentifier = 0;
+			foreach (var id in ids)
+			{
+				var relation = Repository.GetBookToArticle(id);
+				relation.SequenceIdentifier = sequenceIdentifier;
+				sequenceIdentifier++;
+			}
+			Repository.Save();
+			return new HttpStatusCodeResult(200);
+		}
+
 		private void ValidateExternalPublisher(Book vm)
 		{
 			if (!String.IsNullOrWhiteSpace(vm.ExternalPublisher) && vm.ExternalReleaseYear == null)
@@ -934,6 +1050,10 @@ namespace ImprintCMS.Controllers
 		private SelectList LinkablePeopleList(int? selectedId)
 		{
 			return new SelectList(Repository.People.Where(p => p.IsVisible && p.HasPage).OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
+		}
+		private SelectList LinkableBooksList(int? selectedId)
+		{
+			return new SelectList(Repository.Books.Where(b => b.IsVisible).OrderBy(b => b.FullTitle), "Id", "FullTitle", selectedId ?? default(int));
 		}
 
 	}

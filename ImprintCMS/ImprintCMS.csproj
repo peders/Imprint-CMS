@@ -87,8 +87,10 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookList.cs" />
     <Compile Include="Models\BookListMembership.cs" />
+    <Compile Include="Models\BookToArticle.cs" />
     <Compile Include="Models\ContactArticle.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\PersonToArticle.cs" />
     <Compile Include="Models\Relation.cs" />
     <Compile Include="Models\Edition.cs" />
     <Compile Include="Models\Person.cs" />
@@ -495,6 +497,10 @@
     <Content Include="Views\Admin\Order.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\FileUpload.cshtml" />
     <Content Include="Views\Admin\ReplaceUpload.cshtml" />
+    <Content Include="Views\Admin\CreatePersonToArticle.cshtml" />
+    <Content Include="Views\Admin\RemovePersonToArticle.cshtml" />
+    <Content Include="Views\Admin\CreateBookToArticle.cshtml" />
+    <Content Include="Views\Admin\RemoveBookToArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -6,23 +6,35 @@
 	@foreach (var article in Model.Articles)
  {
 		<div class="article">
-			@if (article.PersonId != null && article.Person.IsVisible)
+			@if (article.ImagePerson != null)
    {
 				<div class="image">
-					@if (article.Person.HasPage)
-	 {
-						<a href="@Url.Action("details", "authors", new { id = article.PersonId })">@Html.PersonImage(article.Person)</a>}
-	 else
-	 {
-						@Html.PersonImage(article.Person)
-	 }
+					<a href="@Url.Action("details", "authors", new { id = article.ImagePerson.Id })">@Html.PersonImage(article.ImagePerson)</a>
 				</div> 
+   }
+   else
+   {
+	   if (article.ImageEdition != null)
+	   {
+				<div class="image">
+					<a href="@Url.Action("details", "books", new { id = article.ImageEdition.Id })">@Html.CoverImage(article.ImageEdition)</a>
+				</div> 
+	   }
    }
 			<h1>@article.Title</h1>
 			@article.Description.ToRichText()
-			@if (article.PersonId != null && article.Person.IsVisible && article.Person.HasPage)
+			@if (article.PersonToArticles.Any(p => p.Person.IsVisible && p.Person.HasPage) || article.BookToArticles.Any(b => b.Book.IsVisible))
    {
-				<p class="personlink">@Html.ActionLink(article.Person.FullName, "details", "authors", new { id = article.PersonId }, null)</p>
+				<ul class="links">
+					@foreach (var person in article.PersonToArticles.OrderBy(p => p.SequenceIdentifier).Select(p => p.Person))
+	 {
+						<li>@Html.ActionLink(person.FullName, "details", "authors", new { id = person.Id }, null)</li>
+	 }
+					@foreach (var book in article.BookToArticles.OrderBy(b => b.SequenceIdentifier).Select(b => b.Book))
+	 {
+						<li>@Html.ActionLink(book.Title, "details", "books", new { id = book.Id }, null)</li>
+	 }
+				</ul>
    }
 			<p class="date">@String.Format("{0:D}", article.Date)</p>
 		</div>

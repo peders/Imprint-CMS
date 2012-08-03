@@ -18,11 +18,6 @@
 			@Html.TextBox("Date", String.Format("{0:d}", Model.Date), new { @class = "datepicker" })
 			@Html.ValidationMessageFor(model => model.Date)
 		</p>
-		<p>
-			@Html.LabelFor(model => model.PersonId, Phrases.LabelLinkToPerson)<br />
-			@Html.DropDownListFor(model => model.PersonId, (SelectList)ViewBag.People, "–")
-			@Html.ValidationMessageFor(model => model.PersonId)
-		</p>
 	</fieldset>
 	<fieldset class="options">
 		<p>
