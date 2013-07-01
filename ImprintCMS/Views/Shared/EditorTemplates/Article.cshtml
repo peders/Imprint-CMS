@@ -24,6 +24,10 @@
 			@Html.CheckBoxFor(model => model.IsVisible)
 			@Html.LabelFor(model => model.IsVisible, Phrases.LabelIsVisible)
 		</p>
+		<p>
+			@Html.CheckBoxFor(model => model.IsOnFrontPage)
+			@Html.LabelFor(model => model.IsOnFrontPage, Phrases.LabelShowOnFrontPage)
+		</p>
 	</fieldset>
 	<fieldset class="buttons">
 		<p>

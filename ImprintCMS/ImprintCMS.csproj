@@ -513,6 +513,7 @@
     <Content Include="Views\Admin\CreateBookToArticle.cshtml" />
     <Content Include="Views\Admin\RemoveBookToArticle.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <Content Include="Views\Home\Article.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

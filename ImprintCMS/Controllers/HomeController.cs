@@ -13,7 +13,7 @@ namespace ImprintCMS.Controllers
 			var vm = new SiteFrontPage
 			{
 				BookLists = Repository.BookLists.Where(l => l.IsVisible).OrderBy(l => l.SequenceIdentifier),
-				Articles = Repository.Articles.Where(a => a.IsVisible).OrderByDescending(a => a.Date)
+				Articles = Repository.Articles.Where(a => a.IsVisible &&a.IsOnFrontPage).OrderByDescending(a => a.Date)
 			};
 			return View(vm);
 		}
@@ -28,6 +28,13 @@ namespace ImprintCMS.Controllers
 			};
 			return View(vm);
 		}
+
+        public ActionResult Article(int id) {
+            var vm = Repository.GetArticle(id);
+            if (vm == null) return HttpNotFound();
+            if (!vm.IsVisible) return HttpNotFound();
+            return View(vm);
+        }
 
 		public ActionResult Search(string q)
 		{

@@ -327,4 +327,8 @@
   <data name="LabelAllBooks" xml:space="preserve">
     <value>Alle bøker</value>
   </data>
+  <data name="HeadingAuthorArticles" xml:space="preserve">
+    <value>Om {0}</value>
+    <comment>Insert name</comment>
+  </data>
 </root>

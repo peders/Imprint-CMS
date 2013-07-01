@@ -541,4 +541,10 @@
   <data name="LabelEditionBlurb" xml:space="preserve">
     <value>Marketing blurb (shown in front page book lists)</value>
   </data>
+  <data name="LabelDontShowOnFrontPage" xml:space="preserve">
+    <value>Hide from front page</value>
+  </data>
+  <data name="LabelShowOnFrontPage" xml:space="preserve">
+    <value>Show on front page</value>
+  </data>
 </root>
