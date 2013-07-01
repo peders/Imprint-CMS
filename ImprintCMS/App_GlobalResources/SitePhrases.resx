@@ -173,9 +173,6 @@
   <data name="HeadingSearchPeople" xml:space="preserve">
     <value>Forfattere</value>
   </data>
-  <data name="MenuSearch" xml:space="preserve">
-    <value>Søk</value>
-  </data>
   <data name="LabelSearchResultEmpty" xml:space="preserve">
     <value>Ingen treff</value>
   </data>
@@ -320,5 +317,8 @@
   <data name="LabelShopOrderEmailBody" xml:space="preserve">
     <value>&lt;p style="font-family: sans-serif;"&gt;{0}&lt;/p&gt;</value>
     <comment>Insert text as HTML</comment>
+  </data>
+  <data name="MenuSearch" xml:space="preserve">
+    <value>Søk</value>
   </data>
 </root>
