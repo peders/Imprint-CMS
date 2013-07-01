@@ -76,9 +76,9 @@ namespace ImprintCMS.Models
             return new HtmlString(Phrases.LabelDeleteDependenciesPrefix + " <em>" + helper.Encode(name) + "</em>" + Phrases.LabelDeleteDependenciesSuffix);
         }
 
-        public static HtmlString Twitter(this HtmlHelper helper)
+        public static HtmlString Twitter(this HtmlHelper helper, string message, string hashtags)
         {
-            return new HtmlString("<a href=\"http://twitter.com/share\" class=\"twitter\">" + Phrases.LabelShareOnTwitter + "</a>");
+            return new HtmlString("<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-text=\"" + HttpUtility.HtmlEncode(message) + "\" data-lang=\"en\" data-hashtags=\"" + hashtags + "\">Tweet</a>\n<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>");
         }
 
         public static HtmlString Facebook(this HtmlHelper helper)
