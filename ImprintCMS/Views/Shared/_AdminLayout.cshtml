@@ -31,7 +31,8 @@
 		@User.Identity.Name
 		[@Html.ActionLink(Phrases.LabelLogOut, "logout", "account", new { ReturnUrl = Request.Url.AbsolutePath }, null)]</div>
  }
-	<div id="header">@Html.ActionLink(Phrases.SystemName, "index", "admin")</div>
+    <div id="header">@Html.ActionLink(Phrases.SystemName, "index", "admin")</div>
+    <div id="sitelink">@Html.ActionLink(Phrases.SystemViewSite, "index", "home")</div>
 	<div id="breadcrumbs">
 		<ul>
 			<li>@Html.ActionLink(Phrases.SystemName, "index", "admin")</li>

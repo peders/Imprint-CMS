@@ -538,4 +538,7 @@
 	<data name="LabelArticle">
 		<value xml:space="preserve">Article</value>
 	</data>
+  <data name="SystemViewSite" xml:space="preserve">
+    <value>View site</value>
+  </data>
 </root>

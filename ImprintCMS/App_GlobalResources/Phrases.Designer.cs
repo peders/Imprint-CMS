@@ -1177,6 +1177,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View site.
+        /// </summary>
+        public static string SystemViewSite {
+            get {
+                return ResourceManager.GetString("SystemViewSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to bytes.
         /// </summary>
         public static string UnitBytesPlural {
