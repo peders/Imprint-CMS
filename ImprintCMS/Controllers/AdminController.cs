@@ -681,7 +681,8 @@ namespace ImprintCMS.Controllers
 			var vm = new Article
 			{
 				Date = DateTime.Today,
-				IsVisible = true
+				IsVisible = true,
+                IsOnFrontPage = true
 			};
 			return View(vm);
 		}
