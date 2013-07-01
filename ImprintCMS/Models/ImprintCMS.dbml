@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ImprintCMS" Class="ImprintCMSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=ImprintCMS;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ImprintCMSConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Article" Member="Articles">
-    <Type Name="Article">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Article_BookToArticle" Member="BookToArticles" ThisKey="Id" OtherKey="ArticleId" Type="BookToArticle" />
-      <Association Name="Article_PersonToArticle" Member="PersonToArticles" ThisKey="Id" OtherKey="ArticleId" Type="PersonToArticle" />
-    </Type>
-  </Table>
   <Table Name="dbo.UploadedFile" Member="UploadedFiles">
     <Type Name="UploadedFile">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -78,8 +67,8 @@
       <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ArticleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Article_BookToArticle" Member="Article" ThisKey="ArticleId" OtherKey="Id" Type="Article" IsForeignKey="true" />
       <Association Name="Book_BookToArticle" Member="Book" ThisKey="BookId" OtherKey="Id" Type="Book" IsForeignKey="true" />
+      <Association Name="Article_BookToArticle" Member="Article" ThisKey="ArticleId" OtherKey="Id" Type="Article" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ContactArticle" Member="ContactArticles">
@@ -103,6 +92,7 @@
       <Column Name="LargeCoverId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="Blurb" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="Edition_BookListMembership" Member="BookListMemberships" ThisKey="Id" OtherKey="EditionId" Type="BookListMembership" />
       <Association Name="Edition_OrderLine" Member="OrderLines" ThisKey="Id" OtherKey="EditionId" Type="OrderLine" />
       <Association Name="Binding_Edition" Member="Binding" ThisKey="BindingId" OtherKey="Id" Type="Binding" IsForeignKey="true" />
@@ -170,8 +160,8 @@
       <Column Name="PersonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ArticleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Article_PersonToArticle" Member="Article" ThisKey="ArticleId" OtherKey="Id" Type="Article" IsForeignKey="true" />
       <Association Name="Person_PersonToArticle" Member="Person" ThisKey="PersonId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+      <Association Name="Article_PersonToArticle" Member="Article" ThisKey="ArticleId" OtherKey="Id" Type="Article" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Relation" Member="Relations">
@@ -192,6 +182,17 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ShortName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Role_Relation" Member="Relations" ThisKey="Id" OtherKey="RoleId" Type="Relation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Article" Member="Articles">
+    <Type Name="Article">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Article_BookToArticle" Member="BookToArticles" ThisKey="Id" OtherKey="ArticleId" Type="BookToArticle" />
+      <Association Name="Article_PersonToArticle" Member="PersonToArticles" ThisKey="Id" OtherKey="ArticleId" Type="PersonToArticle" />
     </Type>
   </Table>
 </Database>

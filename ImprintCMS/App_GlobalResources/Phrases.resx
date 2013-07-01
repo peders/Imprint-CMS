@@ -538,4 +538,7 @@
   <data name="SystemViewSite" xml:space="preserve">
     <value>View site</value>
   </data>
+  <data name="LabelEditionBlurb" xml:space="preserve">
+    <value>Marketing blurb (shown in front page book lists)</value>
+  </data>
 </root>

@@ -38,6 +38,11 @@
 			@Html.ValidationMessageFor(model => model.ReleaseDate)
 		</p>
 		<p>
+		    @Html.LabelFor(model => model.Blurb, Phrases.LabelEditionBlurb)<br />
+			@Html.TextAreaFor(model => model.Blurb, new { @class = "rich" })
+			@Html.ValidationMessageFor(model => model.Blurb)
+		</p>
+		<p>
 			@Html.LabelFor(model => model.SmallCoverId, Phrases.LabelSmallImage)<br />
 			@Html.DropDownListFor(model => model.SmallCoverId, (SelectList)ViewBag.SmallCovers, "–")
 			@Html.ValidationMessageFor(model => model.SmallCoverId)

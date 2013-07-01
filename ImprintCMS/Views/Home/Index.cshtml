@@ -55,13 +55,15 @@
                         }
                         @String.Join(" / ", edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName))<br />
                         @Html.ActionLink(edition.Book.Title, "details", "books", new { id = edition.BookId }, null)
+                        @if (edition.Book.IsDebut)
+                        { <span class="isdebut"> (@SitePhrases.LabelIsDebut.ToLowerInvariant())</span>
+                        }
                         @(!String.IsNullOrWhiteSpace(edition.Book.Subtitle) ? new HtmlString("<br/>" + edition.Book.Subtitle) : null)<br />
                         <br />
                         <span class="@String.Format("date{0}", edition.ReleaseDate > DateTime.Today ? " tobereleased" : string.Empty)">@edition.ReleaseDate.ToBookListDate()</span>
-                        @if (edition.Book.IsDebut)
-                        {<br />
-                            <br />
-                            <span class="isdebut">@SitePhrases.LabelIsDebut</span>
+                        @if (!String.IsNullOrWhiteSpace(edition.Blurb))
+                        {
+                            @edition.Blurb.ToRichText()
                         }
                     </li>
                 }

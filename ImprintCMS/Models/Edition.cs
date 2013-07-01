@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System;
+using System.Web.Mvc;
 
 namespace ImprintCMS.Models
 {
@@ -27,5 +28,7 @@ namespace ImprintCMS.Models
 		public int Number { get; set; }
 		[Required(ErrorMessage = "*")]
 		public string Isbn { get; set; }
+        [AllowHtml]
+        public string Blurb { get; set; }
 	}
 }

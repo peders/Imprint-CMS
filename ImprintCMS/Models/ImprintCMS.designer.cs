@@ -30,9 +30,6 @@ namespace ImprintCMS.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertArticle(Article instance);
-    partial void UpdateArticle(Article instance);
-    partial void DeleteArticle(Article instance);
     partial void InsertUploadedFile(UploadedFile instance);
     partial void UpdateUploadedFile(UploadedFile instance);
     partial void DeleteUploadedFile(UploadedFile instance);
@@ -78,6 +75,9 @@ namespace ImprintCMS.Models
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
+    partial void InsertArticle(Article instance);
+    partial void UpdateArticle(Article instance);
+    partial void DeleteArticle(Article instance);
     #endregion
 		
 		public ImprintCMSDataContext() : 
@@ -108,14 +108,6 @@ namespace ImprintCMS.Models
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Article> Articles
-		{
-			get
-			{
-				return this.GetTable<Article>();
-			}
 		}
 		
 		public System.Data.Linq.Table<UploadedFile> UploadedFiles
@@ -237,219 +229,13 @@ namespace ImprintCMS.Models
 				return this.GetTable<Role>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Article")]
-	public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Title;
-		
-		private string _Description;
-		
-		private System.DateTime _Date;
-		
-		private bool _IsVisible;
-		
-		private EntitySet<BookToArticle> _BookToArticles;
-		
-		private EntitySet<PersonToArticle> _PersonToArticles;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnDateChanging(System.DateTime value);
-    partial void OnDateChanged();
-    partial void OnIsVisibleChanging(bool value);
-    partial void OnIsVisibleChanged();
-    #endregion
-		
-		public Article()
-		{
-			this._BookToArticles = new EntitySet<BookToArticle>(new Action<BookToArticle>(this.attach_BookToArticles), new Action<BookToArticle>(this.detach_BookToArticles));
-			this._PersonToArticles = new EntitySet<PersonToArticle>(new Action<PersonToArticle>(this.attach_PersonToArticles), new Action<PersonToArticle>(this.detach_PersonToArticles));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		public System.Data.Linq.Table<Article> Articles
 		{
 			get
 			{
-				return this._Id;
+				return this.GetTable<Article>();
 			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsVisible", DbType="Bit NOT NULL")]
-		public bool IsVisible
-		{
-			get
-			{
-				return this._IsVisible;
-			}
-			set
-			{
-				if ((this._IsVisible != value))
-				{
-					this.OnIsVisibleChanging(value);
-					this.SendPropertyChanging();
-					this._IsVisible = value;
-					this.SendPropertyChanged("IsVisible");
-					this.OnIsVisibleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_BookToArticle", Storage="_BookToArticles", ThisKey="Id", OtherKey="ArticleId")]
-		public EntitySet<BookToArticle> BookToArticles
-		{
-			get
-			{
-				return this._BookToArticles;
-			}
-			set
-			{
-				this._BookToArticles.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_PersonToArticle", Storage="_PersonToArticles", ThisKey="Id", OtherKey="ArticleId")]
-		public EntitySet<PersonToArticle> PersonToArticles
-		{
-			get
-			{
-				return this._PersonToArticles;
-			}
-			set
-			{
-				this._PersonToArticles.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_BookToArticles(BookToArticle entity)
-		{
-			this.SendPropertyChanging();
-			entity.Article = this;
-		}
-		
-		private void detach_BookToArticles(BookToArticle entity)
-		{
-			this.SendPropertyChanging();
-			entity.Article = null;
-		}
-		
-		private void attach_PersonToArticles(PersonToArticle entity)
-		{
-			this.SendPropertyChanging();
-			entity.Article = this;
-		}
-		
-		private void detach_PersonToArticles(PersonToArticle entity)
-		{
-			this.SendPropertyChanging();
-			entity.Article = null;
 		}
 	}
 	
@@ -1749,9 +1535,9 @@ namespace ImprintCMS.Models
 		
 		private int _SequenceIdentifier;
 		
-		private EntityRef<Article> _Article;
-		
 		private EntityRef<Book> _Book;
+		
+		private EntityRef<Article> _Article;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1769,8 +1555,8 @@ namespace ImprintCMS.Models
 		
 		public BookToArticle()
 		{
-			this._Article = default(EntityRef<Article>);
 			this._Book = default(EntityRef<Book>);
+			this._Article = default(EntityRef<Article>);
 			OnCreated();
 		}
 		
@@ -1862,40 +1648,6 @@ namespace ImprintCMS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_BookToArticle", Storage="_Article", ThisKey="ArticleId", OtherKey="Id", IsForeignKey=true)]
-		public Article Article
-		{
-			get
-			{
-				return this._Article.Entity;
-			}
-			set
-			{
-				Article previousValue = this._Article.Entity;
-				if (((previousValue != value) 
-							|| (this._Article.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Article.Entity = null;
-						previousValue.BookToArticles.Remove(this);
-					}
-					this._Article.Entity = value;
-					if ((value != null))
-					{
-						value.BookToArticles.Add(this);
-						this._ArticleId = value.Id;
-					}
-					else
-					{
-						this._ArticleId = default(int);
-					}
-					this.SendPropertyChanged("Article");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Book_BookToArticle", Storage="_Book", ThisKey="BookId", OtherKey="Id", IsForeignKey=true)]
 		public Book Book
 		{
@@ -1926,6 +1678,40 @@ namespace ImprintCMS.Models
 						this._BookId = default(int);
 					}
 					this.SendPropertyChanged("Book");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_BookToArticle", Storage="_Article", ThisKey="ArticleId", OtherKey="Id", IsForeignKey=true)]
+		public Article Article
+		{
+			get
+			{
+				return this._Article.Entity;
+			}
+			set
+			{
+				Article previousValue = this._Article.Entity;
+				if (((previousValue != value) 
+							|| (this._Article.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Article.Entity = null;
+						previousValue.BookToArticles.Remove(this);
+					}
+					this._Article.Entity = value;
+					if ((value != null))
+					{
+						value.BookToArticles.Add(this);
+						this._ArticleId = value.Id;
+					}
+					else
+					{
+						this._ArticleId = default(int);
+					}
+					this.SendPropertyChanged("Article");
 				}
 			}
 		}
@@ -2113,6 +1899,8 @@ namespace ImprintCMS.Models
 		
 		private System.Nullable<decimal> _Price;
 		
+		private string _Blurb;
+		
 		private EntitySet<BookListMembership> _BookListMemberships;
 		
 		private EntitySet<OrderLine> _OrderLines;
@@ -2151,6 +1939,8 @@ namespace ImprintCMS.Models
     partial void OnBookIdChanged();
     partial void OnPriceChanging(System.Nullable<decimal> value);
     partial void OnPriceChanged();
+    partial void OnBlurbChanging(string value);
+    partial void OnBlurbChanged();
     #endregion
 		
 		public Edition()
@@ -2396,6 +2186,26 @@ namespace ImprintCMS.Models
 					this._Price = value;
 					this.SendPropertyChanged("Price");
 					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Blurb", DbType="NVarChar(MAX)")]
+		public string Blurb
+		{
+			get
+			{
+				return this._Blurb;
+			}
+			set
+			{
+				if ((this._Blurb != value))
+				{
+					this.OnBlurbChanging(value);
+					this.SendPropertyChanging();
+					this._Blurb = value;
+					this.SendPropertyChanged("Blurb");
+					this.OnBlurbChanged();
 				}
 			}
 		}
@@ -3745,9 +3555,9 @@ namespace ImprintCMS.Models
 		
 		private int _SequenceIdentifier;
 		
-		private EntityRef<Article> _Article;
-		
 		private EntityRef<Person> _Person;
+		
+		private EntityRef<Article> _Article;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3765,8 +3575,8 @@ namespace ImprintCMS.Models
 		
 		public PersonToArticle()
 		{
-			this._Article = default(EntityRef<Article>);
 			this._Person = default(EntityRef<Person>);
+			this._Article = default(EntityRef<Article>);
 			OnCreated();
 		}
 		
@@ -3858,40 +3668,6 @@ namespace ImprintCMS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_PersonToArticle", Storage="_Article", ThisKey="ArticleId", OtherKey="Id", IsForeignKey=true)]
-		public Article Article
-		{
-			get
-			{
-				return this._Article.Entity;
-			}
-			set
-			{
-				Article previousValue = this._Article.Entity;
-				if (((previousValue != value) 
-							|| (this._Article.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Article.Entity = null;
-						previousValue.PersonToArticles.Remove(this);
-					}
-					this._Article.Entity = value;
-					if ((value != null))
-					{
-						value.PersonToArticles.Add(this);
-						this._ArticleId = value.Id;
-					}
-					else
-					{
-						this._ArticleId = default(int);
-					}
-					this.SendPropertyChanged("Article");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Person_PersonToArticle", Storage="_Person", ThisKey="PersonId", OtherKey="Id", IsForeignKey=true)]
 		public Person Person
 		{
@@ -3922,6 +3698,40 @@ namespace ImprintCMS.Models
 						this._PersonId = default(int);
 					}
 					this.SendPropertyChanged("Person");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_PersonToArticle", Storage="_Article", ThisKey="ArticleId", OtherKey="Id", IsForeignKey=true)]
+		public Article Article
+		{
+			get
+			{
+				return this._Article.Entity;
+			}
+			set
+			{
+				Article previousValue = this._Article.Entity;
+				if (((previousValue != value) 
+							|| (this._Article.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Article.Entity = null;
+						previousValue.PersonToArticles.Remove(this);
+					}
+					this._Article.Entity = value;
+					if ((value != null))
+					{
+						value.PersonToArticles.Add(this);
+						this._ArticleId = value.Id;
+					}
+					else
+					{
+						this._ArticleId = default(int);
+					}
+					this.SendPropertyChanged("Article");
 				}
 			}
 		}
@@ -4363,6 +4173,220 @@ namespace ImprintCMS.Models
 		{
 			this.SendPropertyChanging();
 			entity.Role = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Article")]
+	public partial class Article : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Title;
+		
+		private string _Description;
+		
+		private System.DateTime _Date;
+		
+		private bool _IsVisible;
+		
+		private EntitySet<BookToArticle> _BookToArticles;
+		
+		private EntitySet<PersonToArticle> _PersonToArticles;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnIsVisibleChanging(bool value);
+    partial void OnIsVisibleChanged();
+    #endregion
+		
+		public Article()
+		{
+			this._BookToArticles = new EntitySet<BookToArticle>(new Action<BookToArticle>(this.attach_BookToArticles), new Action<BookToArticle>(this.detach_BookToArticles));
+			this._PersonToArticles = new EntitySet<PersonToArticle>(new Action<PersonToArticle>(this.attach_PersonToArticles), new Action<PersonToArticle>(this.detach_PersonToArticles));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsVisible", DbType="Bit NOT NULL")]
+		public bool IsVisible
+		{
+			get
+			{
+				return this._IsVisible;
+			}
+			set
+			{
+				if ((this._IsVisible != value))
+				{
+					this.OnIsVisibleChanging(value);
+					this.SendPropertyChanging();
+					this._IsVisible = value;
+					this.SendPropertyChanged("IsVisible");
+					this.OnIsVisibleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_BookToArticle", Storage="_BookToArticles", ThisKey="Id", OtherKey="ArticleId")]
+		public EntitySet<BookToArticle> BookToArticles
+		{
+			get
+			{
+				return this._BookToArticles;
+			}
+			set
+			{
+				this._BookToArticles.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Article_PersonToArticle", Storage="_PersonToArticles", ThisKey="Id", OtherKey="ArticleId")]
+		public EntitySet<PersonToArticle> PersonToArticles
+		{
+			get
+			{
+				return this._PersonToArticles;
+			}
+			set
+			{
+				this._PersonToArticles.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BookToArticles(BookToArticle entity)
+		{
+			this.SendPropertyChanging();
+			entity.Article = this;
+		}
+		
+		private void detach_BookToArticles(BookToArticle entity)
+		{
+			this.SendPropertyChanging();
+			entity.Article = null;
+		}
+		
+		private void attach_PersonToArticles(PersonToArticle entity)
+		{
+			this.SendPropertyChanging();
+			entity.Article = this;
+		}
+		
+		private void detach_PersonToArticles(PersonToArticle entity)
+		{
+			this.SendPropertyChanging();
+			entity.Article = null;
 		}
 	}
 }
