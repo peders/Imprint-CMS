@@ -106,6 +106,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alle bøker.
+        /// </summary>
+        public static string LabelAllBooks {
+            get {
+                return ResourceManager.GetString("LabelAllBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anthology contributions.
         /// </summary>
         public static string LabelAnthologies {

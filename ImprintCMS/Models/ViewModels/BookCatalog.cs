@@ -7,5 +7,6 @@ namespace ImprintCMS.Models.ViewModels
 		public IEnumerable<Genre> Genres { get; set; }
 		public Genre CurrentGenre { get; set; }
 		public IEnumerable<ListBook> CurrentBooks { get; set; }
+	    public string Title { get; set; }
 	}
 }
