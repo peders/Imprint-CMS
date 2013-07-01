@@ -14,7 +14,7 @@ namespace ImprintCMS.Controllers
             var currentGenre = id != null ? Repository.GetGenre((int) id) : null;
             var vm = new BookCatalog
             {
-                Title = currentGenre != null ? currentGenre.Name : Phrases.LabelAllBooks,
+                Title = currentGenre != null ? currentGenre.Name : SitePhrases.LabelAllBooks,
                 Genres = availableGenres,
                 CurrentGenre = currentGenre,
                 CurrentBooks = id != null ? Repository.Books.Where(b => b.Genre == currentGenre && b.IsVisible && !b.HasExternalPublisher).Select(b => new ListBook(b, Url))

@@ -321,4 +321,10 @@
   <data name="MenuSearch" xml:space="preserve">
     <value>Søk</value>
   </data>
+  <data name="LabelIsDebut" xml:space="preserve">
+    <value>Debut</value>
+  </data>
+  <data name="LabelAllBooks" xml:space="preserve">
+    <value>Alle bøker</value>
+  </data>
 </root>

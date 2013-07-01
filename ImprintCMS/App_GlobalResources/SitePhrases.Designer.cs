@@ -178,6 +178,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alle bøker.
+        /// </summary>
+        public static string LabelAllBooks {
+            get {
+                return ResourceManager.GetString("LabelAllBooks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bilde av {0}.
         /// </summary>
         public static string LabelAuthorImage {
@@ -246,6 +255,15 @@ namespace ImprintCMS.Models {
         public static string LabelIsbn {
             get {
                 return ResourceManager.GetString("LabelIsbn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debut.
+        /// </summary>
+        public static string LabelIsDebut {
+            get {
+                return ResourceManager.GetString("LabelIsDebut", resourceCulture);
             }
         }
         

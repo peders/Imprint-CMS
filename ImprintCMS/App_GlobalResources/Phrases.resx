@@ -364,9 +364,6 @@
   <data name="LabelEditions" xml:space="preserve">
     <value>Book editions</value>
   </data>
-  <data name="LabelShareOnTwitter" xml:space="preserve">
-    <value>Del på Twitter</value>
-  </data>
   <data name="LabelExternalPublisher" xml:space="preserve">
     <value>Other publisher</value>
   </data>
@@ -535,13 +532,10 @@
   <data name="PagenameCreatePersonLink" xml:space="preserve">
     <value>New link to person</value>
   </data>
-	<data name="LabelArticle">
-		<value xml:space="preserve">Article</value>
-	</data>
+  <data name="LabelArticle" xml:space="preserve">
+    <value>Article</value>
+  </data>
   <data name="SystemViewSite" xml:space="preserve">
     <value>View site</value>
-  </data>
-  <data name="LabelAllBooks" xml:space="preserve">
-    <value>Alle bøker</value>
   </data>
 </root>
