@@ -415,6 +415,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <CustomToolNamespace>ImprintCMS.Models</CustomToolNamespace>
       <LastGenOutput>SitePhrases.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\Phrases.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

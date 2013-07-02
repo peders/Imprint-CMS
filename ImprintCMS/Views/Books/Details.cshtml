@@ -23,7 +23,8 @@
                     <p>@String.Format(SitePhrases.LabelIsbn, edition.Isbn.AsIsbn())<br />
                         @(edition.PageCount == null ? edition.Binding.Name : String.Format("{0}, {1} {2}", edition.Binding.Name, edition.PageCount, SitePhrases.UnitPagesPlural))<br />
                         @String.Format(SitePhrases.UnitPrice, edition.Price)<br />
-                        @(edition.IsForSale ? Html.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" }) : new HtmlString("<span class=\"inactive\">" + SitePhrases.LabelNotForSale + "</span>"))</p>
+                        @(edition.IsForSale ? Html.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" }) : new HtmlString("<span class=\"inactive\">" + SitePhrases.LabelNotForSale + "</span>"))
+                    </p>
                 </div>
             }
         </div>
@@ -66,5 +67,16 @@
     {
         <h2>@String.Format(SitePhrases.HeadingBookQuotes, Model.Title)</h2>
         @Model.Quotes.ToRichText()
+    }
+    @if (Model.BookToArticles.Any(a => a.Article.IsVisible))
+    {
+        <h2>@String.Format(SitePhrases.HeadingArticlesAbout, Model.Title)</h2>
+        <ul>
+            @foreach (var article in Model.BookToArticles.Where(a => a.Article.IsVisible).Select(a => a.Article).OrderByDescending(a => a.Date))
+            {
+                <li>@Html.ActionLink(article.Title, "article", "home", new { id = article.Id }, null)
+                    @String.Format("{0:D}", article.Date)</li>
+            }
+        </ul>
     }
 </div>

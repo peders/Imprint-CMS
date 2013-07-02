@@ -49,7 +49,7 @@
     }
     @if (Model.Person.PersonToArticles.Any(a => a.Article.IsVisible))
     {
-        <h2>@String.Format(SitePhrases.HeadingAuthorArticles, Model.Person.FullName)</h2>
+        <h2>@String.Format(SitePhrases.HeadingArticlesAbout, Model.Person.FullName)</h2>
         <ul>
             @foreach (var article in Model.Person.PersonToArticles.Where(a => a.Article.IsVisible).Select(a => a.Article).OrderByDescending(a => a.Date))
             {
