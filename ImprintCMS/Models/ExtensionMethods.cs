@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System;
 using System.Web.Mvc;
@@ -67,13 +68,32 @@ namespace ImprintCMS.Models
             var imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("display", "upload", new { category = person.UploadedFile.Category, fileName = person.UploadedFile.FileName });
             var pageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("details", "authors", new { id = person.Id });
             return new OpenGraph
-                {
-                    Title = person.FullName,
-                    Type = "article",
-                    ImageUrl = imageUrl,
-                    Url = pageUrl,
-                    SiteName = siteName
-                };
+            {
+                Title = person.FullName,
+                Type = "article",
+                ImageUrl = imageUrl,
+                Url = pageUrl,
+                SiteName = siteName
+            };
+        }
+
+        public static OpenGraph OpenGraph(this Book book, string siteName, RequestContext context)
+        {
+            if (book.HasExternalPublisher) return null;
+            if (!book.Editions.Any()) return null;
+            if (book.Editions.All(e => e.SmallCoverId == null)) return null;
+            var coverEdition = book.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last();
+            var urlHelper = new UrlHelper(context);
+            var imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("display", "upload", new { category = coverEdition.UploadedFile.Category, fileName = coverEdition.UploadedFile.FileName });
+            var pageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("details", "books", new { id = book.Id });
+            return new OpenGraph
+            {
+                Title = book.Title,
+                Type = "article",
+                ImageUrl = imageUrl,
+                Url = pageUrl,
+                SiteName = siteName
+            };
         }
 
     }
