@@ -2,6 +2,8 @@
 using System.Web;
 using System;
 using System.Web.Mvc;
+using System.Web.Routing;
+using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Models
 {
@@ -47,6 +49,31 @@ namespace ImprintCMS.Models
             if (source == "application/x-javascript") return Phrases.FileTypeJavascript;
             if (source == "text/css") return Phrases.FileTypeCss;
             return source;
+        }
+
+        public static string UrlBase(this HttpRequestBase request)
+        {
+            var url = "http";
+            if (request.IsSecureConnection) url += "s";
+            url += "://" + request.ServerVariables["SERVER_NAME"];
+            if (request.ServerVariables["SERVER_PORT"] != "80") url += ":" + request.ServerVariables["SERVER_PORT"];
+            return url;
+        }
+
+        public static OpenGraph OpenGraph(this Person person, string siteName, RequestContext context)
+        {
+            if (person.UploadedFile == null) return null;
+            var urlHelper = new UrlHelper(context);
+            var imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("display", "upload", new { category = person.UploadedFile.Category, fileName = person.UploadedFile.FileName });
+            var pageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("details", "authors", new { id = person.Id });
+            return new OpenGraph
+                {
+                    Title = person.FullName,
+                    Type = "article",
+                    ImageUrl = imageUrl,
+                    Url = pageUrl,
+                    SiteName = siteName
+                };
         }
 
     }

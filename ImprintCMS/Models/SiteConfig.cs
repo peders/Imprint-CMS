@@ -32,7 +32,7 @@ namespace ImprintCMS.Models
             ShopDisclaimer = new HtmlString(GetConfigValue<string>("ImprintCMSShopDisclaimer"));
         }
 
-        private T GetConfigValue<T>(string name)
+        private static T GetConfigValue<T>(string name)
         {
             var reader = new AppSettingsReader();
             return (T)reader.GetValue(name, typeof(T));
