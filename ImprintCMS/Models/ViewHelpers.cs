@@ -21,6 +21,16 @@ namespace ImprintCMS.Models
             return name;
         }
 
+        public static bool IsForController(this ViewContext context, string name)
+        {
+            return context.ControllerName().Equals(name, StringComparison.InvariantCultureIgnoreCase);
+        }
+
+        public static bool IsForAction(this ViewContext context, string name)
+        {
+            return context.ActionName().Equals(name, StringComparison.InvariantCultureIgnoreCase);
+        }
+
         public static HtmlString ToRichText(this string source)
         {
             source = source.Replace("[score]", "<span class=\"score level").Replace("[/score]", "\">[score]</span>");
@@ -110,9 +120,35 @@ namespace ImprintCMS.Models
             return new HtmlString("<span class=\"widget legend\" title=\"" + helper.Encode(text) + "\">" + SitePhrases.LabelLegendPlaceholder + "</span>");
         }
 
-        public static HtmlString Email(this HtmlHelper helper, string email) {
+        public static HtmlString Email(this HtmlHelper helper, string email)
+        {
             return new HtmlString("<a href=\"mailto:" + email + "\">" + email + "</a>");
         }
+
+        public static HtmlString EditShortcut(this HtmlHelper helper)
+        {
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var actionUrl = urlHelper.Action("index", "admin");
+            var actionLabel = Phrases.PagenameAdmin;
+            if (helper.ViewContext.IsForController("books") && helper.ViewContext.IsForAction("details"))
+            {
+                actionUrl = urlHelper.Action("editbook", "admin", new { id = helper.ViewContext.RouteData.Values["id"] as string }, null);
+                actionLabel = Phrases.PagenameEditBook;
+            }
+            if (helper.ViewContext.IsForController("authors") && helper.ViewContext.IsForAction("details"))
+            {
+                actionUrl = urlHelper.Action("editperson", "admin", new { id = helper.ViewContext.RouteData.Values["id"] as string }, null);
+                actionLabel = Phrases.PagenameEditPerson;
+            }
+            return new HtmlString(String.Format(
+                @"
+<div id=""editshortcut"">
+    <a href=""{0}"">{1}</a>
+    |
+    <a href=""{2}"">{3}</a>
+</div>", actionUrl, actionLabel, urlHelper.Action("logout", "account", new { ReturnUrl = helper.ViewContext.HttpContext.Request.Url.AbsolutePath }, null), Phrases.LabelLogOut));
+        }
+
 
     }
 

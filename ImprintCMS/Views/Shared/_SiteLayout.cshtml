@@ -27,6 +27,10 @@
     }
 </head>
 <body>
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.EditShortcut()
+    }
     <div id="header">
         <h1>@Html.ActionLink((string)ViewBag.Title, "index", "home")</h1>
         @if (ViewContext.ControllerName().ToLower() != "home" || ViewContext.ActionName().ToLower() != "search")
