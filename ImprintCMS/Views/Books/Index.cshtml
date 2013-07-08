@@ -10,7 +10,7 @@
     }
 </ul>
 <div id="booklisting">
-    @foreach (var group in Model.CurrentBooks.OrderBy(b => b.RightsHolders).ThenBy(b => b.Title).GroupBy(b => b.RightsHolders))
+    @foreach (var group in Model.CurrentBooks.OrderBy(b => b.RightsHolders).ThenBy(b => b.ReleaseYear).GroupBy(b => b.RightsHolders))
     {
         <div class="book">
             <h2>@group.Key</h2>
@@ -21,12 +21,12 @@
                         @if (book.CoverEdition != null)
                         {
                             <a href="@book.Url">@Html.CoverImage(book.CoverEdition)</a>
-                            <a href="@book.Url">@book.Title</a>
-                            if (!String.IsNullOrWhiteSpace(book.Subtitle))
-                            {
+                        }
+                        <a href="@book.Url">@book.Title</a>
+                        @if (!String.IsNullOrWhiteSpace(book.Subtitle))
+                        {
                             <br />
                             <span class="subtitle">@book.Subtitle</span>
-                            }
                         }
                     </li>
                 }
