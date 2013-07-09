@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web;
+using System.Web.Mvc.Html;
 
 namespace ImprintCMS.Models
 {
@@ -140,6 +141,7 @@ namespace ImprintCMS.Models
                 actionUrl = urlHelper.Action("editperson", "admin", new { id = helper.ViewContext.RouteData.Values["id"] as string }, null);
                 actionLabel = Phrases.PagenameEditPerson;
             }
+            if (helper.ViewContext.HttpContext.Request.Url == null) return null;
             return new HtmlString(String.Format(
                 @"
 <div id=""editshortcut"">
@@ -147,6 +149,13 @@ namespace ImprintCMS.Models
     |
     <a href=""{2}"">{3}</a>
 </div>", actionUrl, actionLabel, urlHelper.Action("logout", "account", new { ReturnUrl = helper.ViewContext.HttpContext.Request.Url.AbsolutePath }, null), Phrases.LabelLogOut));
+        }
+
+        public static HtmlString RelationLinkOrName(this HtmlHelper helper, Relation relation)
+        {
+            return relation.Person.HasPage
+                ? helper.ActionLink(relation.ReversePersonName, "details", "authors", new { id = relation.PersonId }, null)
+                : new HtmlString(relation.ReversePersonName);
         }
 
     }

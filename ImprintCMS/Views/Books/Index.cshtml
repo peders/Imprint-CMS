@@ -15,18 +15,17 @@
         <div class="book">
             <h2>@if (group.First().HasRightsHolders)
                 {
-                    foreach (var relation in group.First().RightsHolders)
+                    var rightsHolders = group.First().RightsHolders.ToList();
+                @Html.RelationLinkOrName(rightsHolders.First())
+                    foreach (var relation in rightsHolders.Skip(1))
                     {
-                @(relation.Person.HasPage ? Html.ActionLink(relation.ReversePersonName, "details", "authors", new { id = relation.PersonId }, null) : new HtmlString(relation.ReversePersonName))
-                        if (relation != group.First().RightsHolders.Last())
-                        {
                 @(" / ")
-                        }
+                @Html.RelationLinkOrName(relation)
                     }
                 }
                 else
                 {
-                @group.Key
+                @("–")
                 }
             </h2>
             <ul>

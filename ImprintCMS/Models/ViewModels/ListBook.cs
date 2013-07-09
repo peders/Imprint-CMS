@@ -27,14 +27,7 @@ namespace ImprintCMS.Models.ViewModels
             Url = url.Action("details", "books", new { id = book.Id });
             HasRightsHolders = book.Relations.Any();
             RightsHolders = book.Relations.OrderBy(r => r.SequenceIdentifier);
-            if (!book.Relations.Any())
-            {
-                RightsHoldersDisplay = "–";
-            }
-            else
-            {
-                RightsHoldersDisplay = String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName));
-            }
+            RightsHoldersDisplay = String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName));
             if (!book.Editions.Any())
             {
                 ReleaseYear = book.ExternalReleaseYear ?? default(int);
