@@ -10,7 +10,7 @@
     }
 </ul>
 <div id="booklisting">
-    @foreach (var group in Model.CurrentBooks.OrderBy(b => b.RightsHolders).ThenBy(b => b.ReleaseYear).GroupBy(b => b.RightsHolders))
+    @foreach (var group in Model.CurrentBooks.OrderByDescending(b => b.HasRightsHolders).ThenBy(b => b.RightsHoldersDisplay).ThenBy(b => b.ReleaseYear).GroupBy(b => b.RightsHoldersDisplay))
     {
         <div class="book">
             <h2>@group.Key</h2>
