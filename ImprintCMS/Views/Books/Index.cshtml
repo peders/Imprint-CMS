@@ -15,10 +15,10 @@
         <div class="book">
             <h2>@if (group.First().HasRightsHolders)
                 {
-                    foreach (var person in group.First().RightsHolders)
+                    foreach (var relation in group.First().RightsHolders)
                     {
-                @(person.HasPage ? Html.ActionLink(person.ReverseName, "details", "authors", new { id = person.Id }, null) : new HtmlString(person.ReverseName))
-                        if (person != group.First().RightsHolders.Last())
+                @(relation.Person.HasPage ? Html.ActionLink(relation.ReversePersonName, "details", "authors", new { id = relation.PersonId }, null) : new HtmlString(relation.ReversePersonName))
+                        if (relation != group.First().RightsHolders.Last())
                         {
                 @(" / ")
                         }

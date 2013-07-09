@@ -14,7 +14,7 @@ namespace ImprintCMS.Models.ViewModels
         public int ReleaseYear { get; set; }
         public string RightsHoldersDisplay { get; set; }
         public bool HasRightsHolders { get; set; }
-        public IEnumerable<Person> RightsHolders { get; set; }
+        public IEnumerable<Relation> RightsHolders { get; set; }
         public string Url { get; set; }
         public HtmlString PersonPageEntry { get; set; }
         public Edition CoverEdition { get; set; }
@@ -26,7 +26,7 @@ namespace ImprintCMS.Models.ViewModels
             Genre = book.Genre;
             Url = url.Action("details", "books", new { id = book.Id });
             HasRightsHolders = book.Relations.Any();
-            RightsHolders = book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.Person);
+            RightsHolders = book.Relations.OrderBy(r => r.SequenceIdentifier);
             if (!book.Relations.Any())
             {
                 RightsHoldersDisplay = "–";
