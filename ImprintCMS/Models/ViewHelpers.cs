@@ -149,7 +149,6 @@ namespace ImprintCMS.Models
 </div>", actionUrl, actionLabel, urlHelper.Action("logout", "account", new { ReturnUrl = helper.ViewContext.HttpContext.Request.Url.AbsolutePath }, null), Phrases.LabelLogOut));
         }
 
-
     }
 
 }

@@ -13,7 +13,22 @@
     @foreach (var group in Model.CurrentBooks.OrderByDescending(b => b.HasRightsHolders).ThenBy(b => b.RightsHoldersDisplay).ThenBy(b => b.ReleaseYear).GroupBy(b => b.RightsHoldersDisplay))
     {
         <div class="book">
-            <h2>@group.Key</h2>
+            <h2>@if (group.First().HasRightsHolders)
+                {
+                    foreach (var person in group.First().RightsHolders)
+                    {
+                @(person.HasPage ? Html.ActionLink(person.ReverseName, "details", "authors", new { id = person.Id }, null) : new HtmlString(person.ReverseName))
+                        if (person != group.First().RightsHolders.Last())
+                        {
+                @(" / ")
+                        }
+                    }
+                }
+                else
+                {
+                @group.Key
+                }
+            </h2>
             <ul>
                 @foreach (var book in group)
                 {
