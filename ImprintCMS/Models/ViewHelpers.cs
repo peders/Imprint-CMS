@@ -41,7 +41,7 @@ namespace ImprintCMS.Models
         {
             if (source <= DateTime.Today) return SitePhrases.LabelIsReleased;
             var formatString = SitePhrases.LabelToBeReleased + " {0} " + source.ToString("MMMM");
-            if (source.Day < 11) return String.Format(formatString, SitePhrases.UnitMonthPremio);
+            if (source.Day < 11) return String.Format(formatString, SitePhrases.UnitMonthPrimo);
             if (source.Day < 21) return String.Format(formatString, SitePhrases.UnitMonthMedio);
             return String.Format(formatString, SitePhrases.UnitMonthUltimo);
         }

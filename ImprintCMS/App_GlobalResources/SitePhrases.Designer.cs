@@ -601,11 +601,11 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to premio.
+        ///   Looks up a localized string similar to primo.
         /// </summary>
-        public static string UnitMonthPremio {
+        public static string UnitMonthPrimo {
             get {
-                return ResourceManager.GetString("UnitMonthPremio", resourceCulture);
+                return ResourceManager.GetString("UnitMonthPrimo", resourceCulture);
             }
         }
         

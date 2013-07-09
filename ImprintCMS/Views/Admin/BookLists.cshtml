@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<BookList>
 @{
-	ViewBag.Title = Phrases.PagenameBookLists;
-	ViewBag.Breadcrumbs = new[] {
+    ViewBag.Title = Phrases.PagenameBookLists;
+    ViewBag.Breadcrumbs = new[] {
 		Phrases.PagenameBookLists.ToHtmlString()
 	};
 }
 <ul class="adminactions">
-	<li>@Html.ActionLink(Phrases.PagenameCreateBookList, "createbooklist")</li>
+    <li>@Html.ActionLink(Phrases.PagenameCreateBookList, "createbooklist")</li>
 </ul>
 <ul class="listing sortable" data-persisturl="@Url.Action("storebooklistorder")" data-handlelabel="@Phrases.LabelDragAndDropToSort" data-errorlabel="@Phrases.ValidationAjaxError">
-	@foreach (var list in Model)
- {
-		<li id="@String.Format("sortitem_{0}", list.Id)"><span class="name">@Html.ActionLink(list.Title, "editbooklist", new { id = list.Id })</span>
-			<span class="data">@String.Format("{0}: {1}", Phrases.LabelBooks, list.BookListMemberships.Count())</span>
-			@Html.ActionLink(Phrases.LabelDelete, "deletebooklist", new { id = list.Id })</li>
- }
+    @foreach (var list in Model)
+    {
+        <li id="@String.Format("sortitem_{0}", list.Id)"><span class="name">@Html.ActionLink(list.Title, "editbooklist", new { id = list.Id })</span>
+            <span class="data">@String.Format("{0}: {1}", Phrases.LabelBooks, list.BookListMemberships.Count())</span>
+            <span class="@String.Format("data{0}", !list.IsVisible ? " inactive" : string.Empty)">@(list.IsVisible ? Phrases.LabelIsVisible : Phrases.LabelIsNotVisible)</span>
+            @Html.ActionLink(Phrases.LabelDelete, "deletebooklist", new { id = list.Id })</li>
+    }
 </ul>

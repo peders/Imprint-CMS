@@ -188,8 +188,8 @@
   <data name="UnitMonthMedio" xml:space="preserve">
     <value>medio</value>
   </data>
-  <data name="UnitMonthPremio" xml:space="preserve">
-    <value>premio</value>
+  <data name="UnitMonthPrimo" xml:space="preserve">
+    <value>primo</value>
   </data>
   <data name="UnitMonthUltimo" xml:space="preserve">
     <value>ultimo</value>
