@@ -25,6 +25,7 @@
         <meta property="og:type" content="@openGraph.Type"/>
         <meta property="og:url" content="@openGraph.Url"/>
     }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     @if (User.Identity.IsAuthenticated)
@@ -33,7 +34,7 @@
     }
     <div id="header">
         <h1>@Html.ActionLink((string)ViewBag.Title, "index", "home")</h1>
-        @if (ViewContext.ControllerName().ToLower() != "home" || ViewContext.ActionName().ToLower() != "search")
+        @if (!ViewContext.IsForController("home") || !ViewContext.IsForAction("search"))
         {
             @Html.SearchForm(Url.Action("search", "home"), string.Empty)
         }
