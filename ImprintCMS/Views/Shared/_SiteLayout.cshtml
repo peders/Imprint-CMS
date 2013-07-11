@@ -16,6 +16,12 @@
     { 
         <link href="@url" rel="stylesheet" type="text/css" />
     }
+    <!--[if lte IE 8]>
+    @foreach (var url in ViewBag.LegacyStylesheetUrls)
+    { 
+        <link href="@url" rel="stylesheet" type="text/css" />
+    }
+<![endif]-->
     @{ var openGraph = ViewBag.OpenGraph as OpenGraph;}
     @if (openGraph != null)
     {
