@@ -2,6 +2,37 @@
 @{
     ViewBag.Title = ((SiteConfig)ViewBag.Config).Name;
 }
+<div id="booklists">
+    @foreach (var list in Model.BookLists)
+    {
+        <div class="booklist">
+            <h1>@list.Title</h1>
+            <ul>
+                @foreach (var edition in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Edition))
+                {
+                    <li>
+                        @if (edition.SmallCoverId != null)
+                        {
+                            <a href="@Url.Action("details", "books", new { id = edition.BookId })" class="book">@Html.CoverImage(edition)</a>
+                        }
+                        @String.Join(" / ", edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName))<br />
+                        @Html.ActionLink(edition.Book.Title, "details", "books", new { id = edition.BookId }, null)
+                        @if (edition.Book.IsDebut)
+                        { <span class="isdebut"> (@SitePhrases.LabelIsDebut.ToLowerInvariant())</span>
+                        }
+                        @(!String.IsNullOrWhiteSpace(edition.Book.Subtitle) ? new HtmlString("<br/>" + edition.Book.Subtitle) : null)<br />
+                        <br />
+                        <span class="@String.Format("date{0}", edition.ReleaseDate > DateTime.Today ? " tobereleased" : string.Empty)">@edition.ReleaseDate.ToBookListDate()</span>
+                        @if (!String.IsNullOrWhiteSpace(edition.Blurb))
+                        {
+                            @edition.Blurb.ToRichText()
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>
 <div id="articles">
     @foreach (var article in Model.Articles)
     {
@@ -37,37 +68,6 @@
                 </ul>
             }
             <p class="date">@String.Format("{0:D}", article.Date)</p>
-        </div>
-    }
-</div>
-<div id="booklists">
-    @foreach (var list in Model.BookLists)
-    {
-        <div class="booklist">
-            <h1>@list.Title</h1>
-            <ul>
-                @foreach (var edition in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Edition))
-                {
-                    <li>
-                        @if (edition.SmallCoverId != null)
-                        {
-                            <a href="@Url.Action("details", "books", new { id = edition.BookId })" class="book">@Html.CoverImage(edition)</a>
-                        }
-                        @String.Join(" / ", edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName))<br />
-                        @Html.ActionLink(edition.Book.Title, "details", "books", new { id = edition.BookId }, null)
-                        @if (edition.Book.IsDebut)
-                        { <span class="isdebut"> (@SitePhrases.LabelIsDebut.ToLowerInvariant())</span>
-                        }
-                        @(!String.IsNullOrWhiteSpace(edition.Book.Subtitle) ? new HtmlString("<br/>" + edition.Book.Subtitle) : null)<br />
-                        <br />
-                        <span class="@String.Format("date{0}", edition.ReleaseDate > DateTime.Today ? " tobereleased" : string.Empty)">@edition.ReleaseDate.ToBookListDate()</span>
-                        @if (!String.IsNullOrWhiteSpace(edition.Blurb))
-                        {
-                            @edition.Blurb.ToRichText()
-                        }
-                    </li>
-                }
-            </ul>
         </div>
     }
 </div>
