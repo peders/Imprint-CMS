@@ -18,7 +18,7 @@ namespace ImprintCMS.Controllers
                 Title = currentGenre != null ? currentGenre.Name : SitePhrases.LabelAllBooks,
                 Genres = availableGenres,
                 CurrentGenre = currentGenre,
-                CurrentBooks = currentBooks.Select(b => new ListBook(b, Url))
+                CurrentBooks = currentBooks.OrderByDescending(b => b.Relations.Any()).ThenBy(b => b.RightsHoldersDisplayText()).ThenBy(b => b.ReleaseYear())
             };
             return View(vm);
         }

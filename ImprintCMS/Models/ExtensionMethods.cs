@@ -98,6 +98,20 @@ namespace ImprintCMS.Models
             };
         }
 
+        public static int ReleaseYear(this Book book)
+        {
+            if (book.Editions.Any())
+            {
+                return book.Editions.OrderBy(e => e.Number).First().ReleaseDate.Year;
+            }
+            return book.ExternalReleaseYear ?? default(int);
+        }
+
+        public static string RightsHoldersDisplayText(this Book book)
+        {
+            return String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName));
+        }
+
     }
 
 }

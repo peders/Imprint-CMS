@@ -122,7 +122,6 @@
     <Compile Include="Models\ViewModels\OrderDetails.cs" />
     <Compile Include="Models\ViewModels\PersonPage.cs" />
     <Compile Include="Models\ViewModels\FileUpload.cs" />
-    <Compile Include="Models\ViewModels\ListBook.cs" />
     <Compile Include="Models\ViewModels\Login.cs" />
     <Compile Include="Models\ViewModels\SearchResult.cs" />
     <Compile Include="Models\SiteConfig.cs" />

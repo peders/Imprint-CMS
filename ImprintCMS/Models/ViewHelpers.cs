@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web;
 using System.Web.Mvc.Html;
+using System.Web.Routing;
+using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Models
 {
@@ -158,6 +161,23 @@ namespace ImprintCMS.Models
                 : new HtmlString(relation.ReversePersonName);
         }
 
-    }
+        public static HtmlString BookPersonPageEntry(this HtmlHelper helper, Book book)
+        {
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            if (book.HasExternalPublisher)
+            {
+                return new HtmlString(String.Format("{0}{1}. {2}, {3}",
+                      book.Title,
+                      !String.IsNullOrWhiteSpace(book.Subtitle) ? String.Format(". {0}", book.Subtitle) : string.Empty,
+                      book.ExternalPublisher,
+                      book.ReleaseYear()));
+            }
+            return new HtmlString(String.Format("{0}{1}, {2}",
+                "<a href=\"" + urlHelper.Action("details", "books", new { id = book.Id }, null) + "\">" + book.Title + "</a>",
+                !String.IsNullOrWhiteSpace(book.Subtitle) ? String.Format(". {0}", book.Subtitle) : string.Empty,
+                book.ReleaseYear()));
+        }
+
+     }
 
 }

@@ -5,6 +5,6 @@ namespace ImprintCMS.Models.ViewModels
 	public class PersonPage
 	{
 		public Person Person { get; set; }
-		public IEnumerable<ListBook> Books { get; set; }
+		public IEnumerable<Book> Books { get; set; }
 	}
 }

@@ -28,7 +28,7 @@
         <ul>
             @foreach (var book in Model.Books)
             {
-                <li>@book.PersonPageEntry</li>
+                <li>@Html.BookPersonPageEntry(book)</li>
             }
         </ul>
     }

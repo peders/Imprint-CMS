@@ -10,12 +10,12 @@
     }
 </ul>
 <div id="booklisting">
-    @foreach (var group in Model.CurrentBooks.OrderByDescending(b => b.HasRightsHolders).ThenBy(b => b.RightsHoldersDisplay).ThenBy(b => b.ReleaseYear).GroupBy(b => b.RightsHoldersDisplay))
+    @foreach (var group in Model.CurrentBooks.GroupBy(b => b.RightsHoldersDisplayText()))
     {
+        var rightsHolders = group.First().Relations.Where(r => r.Person.IsVisible).OrderBy(r => r.SequenceIdentifier).ToList();
         <div class="book">
-            <h2>@if (group.First().HasRightsHolders)
+            <h2>@if (rightsHolders.Any())
                 {
-                    var rightsHolders = group.First().RightsHolders.ToList();
                 @Html.RelationLinkOrName(rightsHolders.First())
                     foreach (var relation in rightsHolders.Skip(1))
                     {
@@ -32,11 +32,12 @@
                 @foreach (var book in group)
                 {
                     <li>
-                        @if (book.CoverEdition != null)
+                        @if (book.Editions.Any(e => e.SmallCoverId != null))
                         {
-                            <a href="@book.Url">@Html.CoverImage(book.CoverEdition)</a>
+                            <a href="@Url.Action("Details", new { id = book.Id })">@Html.CoverImage(book.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last())</a>
                         }
-                        <a href="@book.Url">@book.Title</a>
+
+                        @Html.ActionLink(book.Title, "Details", new { id = book.Id })
                         @if (!String.IsNullOrWhiteSpace(book.Subtitle))
                         {
                             <br />
@@ -44,7 +45,7 @@
                         }
                         <br />
                         <br />
-                        <span class="releaseyear">@book.ReleaseYear</span>
+                        <span class="releaseyear">@book.ReleaseYear()</span>
                     </li>
                 }
             </ul>
