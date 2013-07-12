@@ -10,7 +10,7 @@
     }
 </ul>
 <div id="booklisting">
-    @foreach (var group in Model.CurrentBooks.GroupBy(b => b.RightsHoldersDisplayText()))
+    @foreach (var group in Model.CurrentBooks.GroupBy(b => b.CachedRightsHoldersText))
     {
         var rightsHolders = group.First().Relations.Where(r => r.Person.IsVisible).OrderBy(r => r.SequenceIdentifier).ToList();
         <div class="book">

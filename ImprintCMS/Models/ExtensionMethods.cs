@@ -107,7 +107,7 @@ namespace ImprintCMS.Models
             return book.ExternalReleaseYear ?? default(int);
         }
 
-        public static string RightsHoldersDisplayText(this Book book)
+        public static string GenerateRightsHoldersText(this Book book)
         {
             return String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.ReversePersonName));
         }

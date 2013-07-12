@@ -1,234 +1,234 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.375, 15.25" name="ImprintCMS">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.375, 15.5" name="ImprintCMS">
   <DataContextMoniker Name="/ImprintCMSDataContext" />
   <nestedChildShapes>
-    <classShape Id="481071ea-1bcf-4590-815c-a7d132c50a2c" absoluteBounds="3.5, 2.25, 2, 1.9631982421875005">
+    <classShape Id="1d13b693-5c26-464a-967a-d98eaa673771" absoluteBounds="3.5, 2.625, 2, 1.9631982421875005">
       <DataClassMoniker Name="/ImprintCMSDataContext/Article" />
       <nestedChildShapes>
-        <elementListCompartment Id="f8503b6b-1a66-41d6-b5a3-66fd7439f544" absoluteBounds="3.515, 2.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9531027d-05a0-426c-95ba-cd67e1eb72af" absoluteBounds="3.515, 3.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f8556086-d0fc-4daa-8f4c-ad8b2ad89e22" absoluteBounds="6.5, 4, 2, 1.193992513020834">
-      <DataClassMoniker Name="/ImprintCMSDataContext/Binding" />
-      <nestedChildShapes>
-        <elementListCompartment Id="06a85c3c-4eb4-48fb-a804-d77348098f51" absoluteBounds="6.515, 4.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="08f2a5c1-da56-4824-951f-34cb6fd9aa6d" absoluteBounds="3.5, 5.875, 2, 2.9247054036458326">
-      <DataClassMoniker Name="/ImprintCMSDataContext/Book" />
-      <nestedChildShapes>
-        <elementListCompartment Id="dc27ed28-d9cc-4223-aa0a-af424931dfbd" absoluteBounds="3.515, 6.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="d3589ebb-338a-4dfc-b253-209aafcc303e" absoluteBounds="9.25, 0.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/ImprintCMSDataContext/BookList" />
-      <nestedChildShapes>
-        <elementListCompartment Id="8f4b55eb-a131-4f1f-9004-4a4ee6ce2242" absoluteBounds="9.265, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="322219b0-de3d-4a5c-88a8-7ce6de726f00" absoluteBounds="12, 1.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/ImprintCMSDataContext/BookListMembership" />
-      <nestedChildShapes>
-        <elementListCompartment Id="2cded09c-69e4-4666-9b3e-e3a43b2c9f4a" absoluteBounds="12.015, 2.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="2d479ea9-aef4-49af-bd0d-9185fe70f695" absoluteBounds="6.25, 6.5, 2, 1.5785953776041657">
-      <DataClassMoniker Name="/ImprintCMSDataContext/BookToArticle" />
-      <nestedChildShapes>
-        <elementListCompartment Id="4e7c8f8e-90d1-4eac-8786-3301bd931d95" absoluteBounds="6.265, 6.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="dabff0fd-7905-48ca-8f2d-6843a6e97751" absoluteBounds="11.75, 7.375, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/ImprintCMSDataContext/ContactArticle" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d37d676d-4cbd-431e-9321-9c99d9db0899" absoluteBounds="11.765, 7.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="5104d694-5390-41f2-b456-b67735e728a2" absoluteBounds="9.25, 4, 2, 3.1170068359375005">
-      <DataClassMoniker Name="/ImprintCMSDataContext/Edition" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ecbd1bd1-4198-4ca6-b156-6436a6c586a1" absoluteBounds="9.265, 4.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="edc50996-5a56-483f-b30f-da39b82fef6c" absoluteBounds="0.75, 4.625, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/ImprintCMSDataContext/Genre" />
-      <nestedChildShapes>
-        <elementListCompartment Id="871a5042-648f-492a-ba88-445c06de076f" absoluteBounds="0.765, 5.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="b8d9d403-a372-4591-b866-a4ace44a0da2" absoluteBounds="9.25, 12.125, 2, 2.9247054036458309">
-      <DataClassMoniker Name="/ImprintCMSDataContext/Order" />
-      <nestedChildShapes>
-        <elementListCompartment Id="f7e73823-9316-4d85-b003-dbf1a7bcd38b" absoluteBounds="9.265, 12.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="f83e969b-3205-439e-9b6e-0831c08c9aa5" absoluteBounds="12, 4.875, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/ImprintCMSDataContext/OrderLine" />
-      <nestedChildShapes>
-        <elementListCompartment Id="3884e1cc-b49d-4f38-9ecc-2083eaa91ebe" absoluteBounds="12.015, 5.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="c62f1bba-091a-4ab6-a9b3-b1455ec3f179" absoluteBounds="3.5, 10.375, 2, 3.1170068359375023">
-      <DataClassMoniker Name="/ImprintCMSDataContext/Person" />
-      <nestedChildShapes>
-        <elementListCompartment Id="9f2a5bf4-4c62-4042-9ef6-a8d48520d5d9" absoluteBounds="3.515, 10.835, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="8c7af6ae-2f30-4061-ac9b-12e427109633" absoluteBounds="6.25, 11.125, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/ImprintCMSDataContext/PersonToArticle" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5c960ccf-0e67-4176-830b-e02cbc2b378e" absoluteBounds="6.265, 11.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="b41a5943-572b-49b4-8872-b0f2c2c3dcf5" absoluteBounds="9.25, 8.75, 2, 1.7708968098958344">
-      <DataClassMoniker Name="/ImprintCMSDataContext/Relation" />
-      <nestedChildShapes>
-        <elementListCompartment Id="45b439ab-7312-4c45-a303-294e89136849" absoluteBounds="9.265, 9.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="1a0443ca-73bd-4d4c-9a87-3aad85ba4169" absoluteBounds="6.5, 9, 2, 1.3862939453124987">
-      <DataClassMoniker Name="/ImprintCMSDataContext/Role" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b96e0305-82d5-489e-8789-6c083d4f5252" absoluteBounds="6.515, 9.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="2780c725-cc76-49f5-a7bc-66492e0df37f" absoluteBounds="0.75, 7.25, 2, 1.9631982421874996">
+    <classShape Id="b29209f8-d85b-4d4c-9b6b-5a51fdd2e788" absoluteBounds="0.75, 6.625, 2, 1.9631982421874996">
       <DataClassMoniker Name="/ImprintCMSDataContext/UploadedFile" />
       <nestedChildShapes>
-        <elementListCompartment Id="760763e6-b5d2-4488-ad4c-d47db344ffba" absoluteBounds="0.765, 7.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6b2d3f87-012e-48c6-98e8-c0600d113a52" absoluteBounds="0.765, 7.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(11.25 : 2.03929768880208); (12 : 2.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/BookList/BookList_BookListMembership" />
-      <nodes>
-        <classShapeMoniker Id="d3589ebb-338a-4dfc-b253-209aafcc303e" />
-        <classShapeMoniker Id="322219b0-de3d-4a5c-88a8-7ce6de726f00" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 3.09375); (6.34375 : 3.09375); (6.34375 : 6.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Article/Article_BookToArticle" />
-      <nodes>
-        <classShapeMoniker Id="481071ea-1bcf-4590-815c-a7d132c50a2c" />
-        <classShapeMoniker Id="2d479ea9-aef4-49af-bd0d-9185fe70f695" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 7.28929768880208); (5.79166666666667 : 7.28929768880208 : JumpStart); (5.95833333333333 : 7.28929768880208 : JumpEnd); (6.25 : 7.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Book/Book_BookToArticle" />
-      <nodes>
-        <classShapeMoniker Id="08f2a5c1-da56-4824-951f-34cb6fd9aa6d" />
-        <classShapeMoniker Id="2d479ea9-aef4-49af-bd0d-9185fe70f695" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(11.25 : 4); (11.625 : 3.625); (11.625 : 2.71519853320312); (12 : 2.71519853320312)]" fixedFrom="NotFixed" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Edition/Edition_BookListMembership" />
-      <nodes>
-        <classShapeMoniker Id="5104d694-5390-41f2-b456-b67735e728a2" />
-        <classShapeMoniker Id="322219b0-de3d-4a5c-88a8-7ce6de726f00" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 4.59699625651042); (9.25 : 4.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Binding/Binding_Edition" />
-      <nodes>
-        <classShapeMoniker Id="f8556086-d0fc-4daa-8f4c-ad8b2ad89e22" />
-        <classShapeMoniker Id="5104d694-5390-41f2-b456-b67735e728a2" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 6.15625); (5.79166666666667 : 6.15625 : JumpStart); (5.95833333333333 : 6.15625 : JumpEnd); (6.26041666666667 : 6.15625 : JumpStart); (6.42708333333333 : 6.15625 : JumpEnd); (9.25 : 6.15625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Book/Book_Edition" />
-      <nodes>
-        <classShapeMoniker Id="08f2a5c1-da56-4824-951f-34cb6fd9aa6d" />
-        <classShapeMoniker Id="5104d694-5390-41f2-b456-b67735e728a2" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.2499995); (4.5 : 5.2499995); (4.5 : 5.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Genre/Genre_Book" />
-      <nodes>
-        <classShapeMoniker Id="edc50996-5a56-483f-b30f-da39b82fef6c" />
-        <classShapeMoniker Id="08f2a5c1-da56-4824-951f-34cb6fd9aa6d" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(11.25 : 5.56814697265625); (12 : 5.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Edition/Edition_OrderLine" />
-      <nodes>
-        <classShapeMoniker Id="5104d694-5390-41f2-b456-b67735e728a2" />
-        <classShapeMoniker Id="f83e969b-3205-439e-9b6e-0831c08c9aa5" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(11.25 : 13.5873527018229); (13.90625 : 13.5873527018229); (13.90625 : 6.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Order/Order_OrderLine" />
-      <nodes>
-        <classShapeMoniker Id="b8d9d403-a372-4591-b866-a4ace44a0da2" />
-        <classShapeMoniker Id="f83e969b-3205-439e-9b6e-0831c08c9aa5" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 4.2131982421875); (5.875 : 4.5881982421875); (5.875 : 11.9142976888021); (5.91666666666667 : 11.9142976888021 : JumpStart); (6.08333333333333 : 11.9142976888021 : JumpEnd); (6.25 : 11.9142976888021)]" fixedFrom="NotFixed" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Article/Article_PersonToArticle" />
-      <nodes>
-        <classShapeMoniker Id="481071ea-1bcf-4590-815c-a7d132c50a2c" />
-        <classShapeMoniker Id="8c7af6ae-2f30-4061-ac9b-12e427109633" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 11.457148844401); (5.79166666666667 : 11.457148844401 : JumpStart); (6.08333333333333 : 11.457148844401 : JumpEnd); (6.25 : 11.457148844401)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Person/Person_PersonToArticle" />
-      <nodes>
-        <classShapeMoniker Id="c62f1bba-091a-4ab6-a9b3-b1455ec3f179" />
-        <classShapeMoniker Id="8c7af6ae-2f30-4061-ac9b-12e427109633" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 8.73816594210737); (5.81607443490112 : 9.05424037700849 : JumpStart); (5.93392556509888 : 9.17209150720625 : JumpEnd); (6.1875 : 9.42566594210737); (6.1875 : 8.375); (8.875 : 8.375); (9.25 : 8.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Book/Book_Relation" />
-      <nodes>
-        <classShapeMoniker Id="08f2a5c1-da56-4824-951f-34cb6fd9aa6d" />
-        <classShapeMoniker Id="b41a5943-572b-49b4-8872-b0f2c2c3dcf5" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 12.7031517623698); (6 : 12.7031517623698); (6 : 10.875); (10.25 : 10.875); (10.25 : 10.5208968098958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Person/Person_Relation" />
-      <nodes>
-        <classShapeMoniker Id="c62f1bba-091a-4ab6-a9b3-b1455ec3f179" />
-        <classShapeMoniker Id="b41a5943-572b-49b4-8872-b0f2c2c3dcf5" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 9.69314697265625); (9.25 : 9.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ImprintCMSDataContext/Role/Role_Relation" />
-      <nodes>
-        <classShapeMoniker Id="1a0443ca-73bd-4d4c-9a87-3aad85ba4169" />
-        <classShapeMoniker Id="b41a5943-572b-49b4-8872-b0f2c2c3dcf5" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.02485270182292); (3.5 : 8.02485270182292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="17bf1088-2403-469f-af07-14080e4935cf" absoluteBounds="6.5, 4.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ImprintCMSDataContext/Binding" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d189d43c-e745-4282-8520-f1e73563a1d5" absoluteBounds="6.515, 4.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9ed4688a-bf92-4856-a919-9cf7bb976062" absoluteBounds="3.5, 6.125, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/ImprintCMSDataContext/Book" />
+      <nestedChildShapes>
+        <elementListCompartment Id="64ce0dd6-adee-4f58-8b20-690c32793d81" absoluteBounds="3.515, 6.585, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4f4fcb29-9592-43ea-a7c9-9bdbaa8d6c6e" absoluteBounds="9.25, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ImprintCMSDataContext/BookList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d42cf8f-5b94-45ec-9472-9f63edf4da31" absoluteBounds="9.265, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="360e5f5b-56e5-45bd-a3de-b6d6b941c352" absoluteBounds="12, 1.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ImprintCMSDataContext/BookListMembership" />
+      <nestedChildShapes>
+        <elementListCompartment Id="151534aa-bf99-4ddf-a24a-6afb7db12579" absoluteBounds="12.015, 2.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="52aac8c7-006a-4f40-b87c-c0bfed23d846" absoluteBounds="6.25, 6.875, 2, 1.5785953776041657">
+      <DataClassMoniker Name="/ImprintCMSDataContext/BookToArticle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3f5a234-bc22-4b13-8735-c93e218bbca1" absoluteBounds="6.265, 7.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5506bef7-b7d1-45eb-8084-cc38fa89e9c8" absoluteBounds="11.75, 7.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ImprintCMSDataContext/ContactArticle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c7b081b-8f8c-4a25-99bc-dd6b7b6ce7e3" absoluteBounds="11.765, 8.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0897391d-8731-45ab-9e5a-d381287b219f" absoluteBounds="9.25, 4.125, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/ImprintCMSDataContext/Edition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22736322-e9a2-4101-9c58-654141436064" absoluteBounds="9.265, 4.585, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e0cb6b8b-0d78-4377-ab80-102965219afe" absoluteBounds="0.75, 4, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/ImprintCMSDataContext/Genre" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef2ceead-a716-4b7a-9c7c-4e899d10c7eb" absoluteBounds="0.765, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="64d72065-4eef-4569-92ca-892586e9fc98" absoluteBounds="9.25, 12.25, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/ImprintCMSDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7019efeb-b766-40de-8e09-3a4e4ae23d77" absoluteBounds="9.265, 12.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="54c8a87c-ab83-439e-b342-bbed1bdcd756" absoluteBounds="12, 5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/ImprintCMSDataContext/OrderLine" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e29e62ab-9f88-41d9-a39e-56ff6167a8a5" absoluteBounds="12.015, 5.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="450b0c2d-6c2f-4500-94f0-d68a3e8f7140" absoluteBounds="3.5, 10, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/ImprintCMSDataContext/Person" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8baecc2d-b9bf-4721-9226-019d36a307aa" absoluteBounds="3.515, 10.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="14bbe6bb-f016-4001-8bbc-531fd05634ad" absoluteBounds="6.25, 10.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ImprintCMSDataContext/PersonToArticle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="848cc328-f818-41e8-b2c5-bc7cd8fd03b8" absoluteBounds="6.265, 11.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="70bd6ba7-891f-4f39-b707-37efbef15c25" absoluteBounds="9.25, 8.75, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/ImprintCMSDataContext/Relation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c9ed81f-aaf6-4120-be83-e283d0b13675" absoluteBounds="9.265, 9.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="93d145b5-675d-4d0b-886c-71a2746de947" absoluteBounds="6.5, 13.875, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/ImprintCMSDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e0cf7f7-2fed-4c27-b501-2f63e78f5c8e" absoluteBounds="6.515, 14.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 7.60659912109375); (3.10416666666667 : 7.60659912109375 : JumpStart); (3.33333333333333 : 7.60659912109375 : JumpEnd); (3.5 : 7.60659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ImprintCMSDataContext/UploadedFile/UploadedFile_Book" />
       <nodes>
-        <classShapeMoniker Id="2780c725-cc76-49f5-a7bc-66492e0df37f" />
-        <classShapeMoniker Id="08f2a5c1-da56-4824-951f-34cb6fd9aa6d" />
+        <classShapeMoniker Id="b29209f8-d85b-4d4c-9b6b-5a51fdd2e788" />
+        <classShapeMoniker Id="9ed4688a-bf92-4856-a919-9cf7bb976062" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 7.25); (1.75 : 6.2612939453125); (3 : 6.2612939453125); (3 : 5.53449625651042); (4.41666666666667 : 5.53449625651042 : JumpStart); (4.58333333333333 : 5.53449625651042 : JumpEnd); (5.79166666666667 : 5.53449625651042 : JumpStart); (5.95833333333333 : 5.53449625651042 : JumpEnd); (6.26041666666667 : 5.53449625651042 : JumpStart); (6.42708333333333 : 5.53449625651042 : JumpEnd); (9.25 : 5.53449625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(11.25 : 2.16429768880208); (12 : 2.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/BookList/BookList_BookListMembership" />
+      <nodes>
+        <classShapeMoniker Id="4f4fcb29-9592-43ea-a7c9-9bdbaa8d6c6e" />
+        <classShapeMoniker Id="360e5f5b-56e5-45bd-a3de-b6d6b941c352" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 3.34375); (6.34375 : 3.34375); (6.34375 : 6.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Article/Article_BookToArticle" />
+      <nodes>
+        <classShapeMoniker Id="1d13b693-5c26-464a-967a-d98eaa673771" />
+        <classShapeMoniker Id="52aac8c7-006a-4f40-b87c-c0bfed23d846" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.66429768880208); (5.79166666666667 : 7.66429768880208 : JumpStart); (5.95833333333333 : 7.66429768880208 : JumpEnd); (6.25 : 7.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Book/Book_BookToArticle" />
+      <nodes>
+        <classShapeMoniker Id="9ed4688a-bf92-4856-a919-9cf7bb976062" />
+        <classShapeMoniker Id="52aac8c7-006a-4f40-b87c-c0bfed23d846" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 4.125); (11.625 : 3.75); (11.625 : 2.84019853320312); (12 : 2.84019853320312)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Edition/Edition_BookListMembership" />
+      <nodes>
+        <classShapeMoniker Id="0897391d-8731-45ab-9e5a-d381287b219f" />
+        <classShapeMoniker Id="360e5f5b-56e5-45bd-a3de-b6d6b941c352" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 4.72199625651042); (9.25 : 4.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Binding/Binding_Edition" />
+      <nodes>
+        <classShapeMoniker Id="17bf1088-2403-469f-af07-14080e4935cf" />
+        <classShapeMoniker Id="0897391d-8731-45ab-9e5a-d381287b219f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.46875); (5.79166666666667 : 6.46875 : JumpStart); (5.95833333333333 : 6.46875 : JumpEnd); (6.26041666666667 : 6.46875 : JumpStart); (6.42708333333333 : 6.46875 : JumpEnd); (9.25 : 6.46875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Book/Book_Edition" />
+      <nodes>
+        <classShapeMoniker Id="9ed4688a-bf92-4856-a919-9cf7bb976062" />
+        <classShapeMoniker Id="0897391d-8731-45ab-9e5a-d381287b219f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.08454756054687); (3.125 : 7.08454756054687); (3.125 : 5.72199625651042); (5.79166666666667 : 5.72199625651042 : JumpStart); (5.95833333333333 : 5.72199625651042 : JumpEnd); (6.26041666666667 : 5.72199625651042 : JumpStart); (6.42708333333333 : 5.72199625651042 : JumpEnd); (9.25 : 5.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ImprintCMSDataContext/UploadedFile/UploadedFile_Edition" />
       <nodes>
-        <classShapeMoniker Id="2780c725-cc76-49f5-a7bc-66492e0df37f" />
-        <classShapeMoniker Id="5104d694-5390-41f2-b456-b67735e728a2" />
+        <classShapeMoniker Id="b29209f8-d85b-4d4c-9b6b-5a51fdd2e788" />
+        <classShapeMoniker Id="0897391d-8731-45ab-9e5a-d381287b219f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.281252 : 7.25); (2.281252 : 6.5112939453125); (3.25 : 6.5112939453125); (3.25 : 5.70475062825521); (4.41666666666667 : 5.70475062825521 : JumpStart); (4.58333333333333 : 5.70475062825521 : JumpEnd); (5.79166666666667 : 5.70475062825521 : JumpStart); (5.95833333333333 : 5.70475062825521 : JumpEnd); (6.26041666666667 : 5.70475062825521 : JumpStart); (6.42708333333333 : 5.70475062825521 : JumpEnd); (9.25 : 5.70475062825521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 8.12865068164063); (3.25 : 8.12865068164063); (3.25 : 5.92350062825521); (5.79166666666667 : 5.92350062825521 : JumpStart); (5.95833333333333 : 5.92350062825521 : JumpEnd); (6.26041666666667 : 5.92350062825521 : JumpStart); (6.42708333333333 : 5.92350062825521 : JumpEnd); (9.25 : 5.92350062825521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ImprintCMSDataContext/UploadedFile/UploadedFile_Edition1" />
       <nodes>
-        <classShapeMoniker Id="2780c725-cc76-49f5-a7bc-66492e0df37f" />
-        <classShapeMoniker Id="5104d694-5390-41f2-b456-b67735e728a2" />
+        <classShapeMoniker Id="b29209f8-d85b-4d4c-9b6b-5a51fdd2e788" />
+        <classShapeMoniker Id="0897391d-8731-45ab-9e5a-d381287b219f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 9.2131982421875); (1.75 : 11.9335034179688); (3.5 : 11.9335034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.3244429077524); (3.1875 : 5.7619429077524); (3.1875 : 8.68532825878906); (3.5 : 8.68532825878906)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Genre/Genre_Book" />
+      <nodes>
+        <classShapeMoniker Id="e0cb6b8b-0d78-4377-ab80-102965219afe" />
+        <classShapeMoniker Id="9ed4688a-bf92-4856-a919-9cf7bb976062" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 5.69314697265625); (12 : 5.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Edition/Edition_OrderLine" />
+      <nodes>
+        <classShapeMoniker Id="0897391d-8731-45ab-9e5a-d381287b219f" />
+        <classShapeMoniker Id="54c8a87c-ab83-439e-b342-bbed1bdcd756" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 13.7123527018229); (13.90625 : 13.7123527018229); (13.90625 : 6.3862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Order/Order_OrderLine" />
+      <nodes>
+        <classShapeMoniker Id="64d72065-4eef-4569-92ca-892586e9fc98" />
+        <classShapeMoniker Id="54c8a87c-ab83-439e-b342-bbed1bdcd756" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 8.5881982421875); (1.75 : 11.5585034179688); (3.5 : 11.5585034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ImprintCMSDataContext/UploadedFile/UploadedFile_Person" />
       <nodes>
-        <classShapeMoniker Id="2780c725-cc76-49f5-a7bc-66492e0df37f" />
-        <classShapeMoniker Id="c62f1bba-091a-4ab6-a9b3-b1455ec3f179" />
+        <classShapeMoniker Id="b29209f8-d85b-4d4c-9b6b-5a51fdd2e788" />
+        <classShapeMoniker Id="450b0c2d-6c2f-4500-94f0-d68a3e8f7140" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.2812525 : 9.2131982421875); (2.2812525 : 11.1229992089844); (3.5 : 11.1229992089844)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.2812525 : 8.5881982421875); (2.2812525 : 10.7479992089844); (3.5 : 10.7479992089844)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ImprintCMSDataContext/UploadedFile/UploadedFile_Person1" />
       <nodes>
-        <classShapeMoniker Id="2780c725-cc76-49f5-a7bc-66492e0df37f" />
-        <classShapeMoniker Id="c62f1bba-091a-4ab6-a9b3-b1455ec3f179" />
+        <classShapeMoniker Id="b29209f8-d85b-4d4c-9b6b-5a51fdd2e788" />
+        <classShapeMoniker Id="450b0c2d-6c2f-4500-94f0-d68a3e8f7140" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.5881982421875); (5.875 : 4.9631982421875); (5.875 : 11.5392976888021); (6.25 : 11.5392976888021)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Article/Article_PersonToArticle" />
+      <nodes>
+        <classShapeMoniker Id="1d13b693-5c26-464a-967a-d98eaa673771" />
+        <classShapeMoniker Id="14bbe6bb-f016-4001-8bbc-531fd05634ad" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 11.082148844401); (5.79166666666667 : 11.082148844401 : JumpStart); (5.95833333333333 : 11.082148844401 : JumpEnd); (6.25 : 11.082148844401)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Person/Person_PersonToArticle" />
+      <nodes>
+        <classShapeMoniker Id="450b0c2d-6c2f-4500-94f0-d68a3e8f7140" />
+        <classShapeMoniker Id="14bbe6bb-f016-4001-8bbc-531fd05634ad" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.99600341796875); (5.79166666666667 : 8.99600341796875 : JumpStart); (5.95833333333333 : 8.99600341796875 : JumpEnd); (9.25 : 8.99600341796875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Book/Book_Relation" />
+      <nodes>
+        <classShapeMoniker Id="9ed4688a-bf92-4856-a919-9cf7bb976062" />
+        <classShapeMoniker Id="70bd6ba7-891f-4f39-b707-37efbef15c25" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 10.2604484049479); (5.79166666666667 : 10.2604484049479 : JumpStart); (5.95833333333333 : 10.2604484049479 : JumpEnd); (8.32291666666667 : 10.2604484049479 : JumpStart); (8.48958333333333 : 10.2604484049479 : JumpEnd); (9.25 : 10.2604484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Person/Person_Relation" />
+      <nodes>
+        <classShapeMoniker Id="450b0c2d-6c2f-4500-94f0-d68a3e8f7140" />
+        <classShapeMoniker Id="70bd6ba7-891f-4f39-b707-37efbef15c25" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.40625 : 13.875); (8.40625 : 9.62822591145833); (9.25 : 9.62822591145833)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImprintCMSDataContext/Role/Role_Relation" />
+      <nodes>
+        <classShapeMoniker Id="93d145b5-675d-4d0b-886c-71a2746de947" />
+        <classShapeMoniker Id="70bd6ba7-891f-4f39-b707-37efbef15c25" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
