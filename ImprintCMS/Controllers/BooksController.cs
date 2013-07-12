@@ -12,13 +12,13 @@ namespace ImprintCMS.Controllers
         {
             var availableGenres = Repository.Books.Where(b => b.IsVisible && !b.HasExternalPublisher).Select(b => b.Genre).Distinct().OrderBy(g => g.SequenceIdentifier);
             var currentGenre = id != null ? Repository.GetGenre((int)id) : null;
+            var currentBooks = id != null ? Repository.Books.Where(b => b.GenreId == id && b.IsVisible && !b.HasExternalPublisher) : Repository.Books.Where(b => b.IsVisible && !b.HasExternalPublisher);
             var vm = new BookCatalog
             {
                 Title = currentGenre != null ? currentGenre.Name : SitePhrases.LabelAllBooks,
                 Genres = availableGenres,
                 CurrentGenre = currentGenre,
-                CurrentBooks = id != null ? Repository.Books.Where(b => b.Genre == currentGenre && b.IsVisible && !b.HasExternalPublisher).Select(b => new ListBook(b, Url))
-                    : Repository.Books.Where(b => b.IsVisible && !b.HasExternalPublisher).Select(b => new ListBook(b, Url))
+                CurrentBooks = currentBooks.Select(b => new ListBook(b, Url))
             };
             return View(vm);
         }
