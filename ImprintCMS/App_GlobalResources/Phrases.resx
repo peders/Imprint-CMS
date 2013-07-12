@@ -491,7 +491,7 @@
     <value>People</value>
   </data>
   <data name="FileTypeCss" xml:space="preserve">
-    <value>CSS stylesheet</value>
+    <value>Stylesheet</value>
   </data>
   <data name="FileTypeJavascript" xml:space="preserve">
     <value>Javascript</value>
@@ -546,5 +546,11 @@
   </data>
   <data name="LabelShowOnFrontPage" xml:space="preserve">
     <value>Show on front page</value>
+  </data>
+  <data name="FileTypeLegacyCss" xml:space="preserve">
+    <value>Legacy stylesheet</value>
+  </data>
+  <data name="LabelLegacyStylesheetLegend" xml:space="preserve">
+    <value>Legacy stylesheet (a CSS file starting with 'legacy_') will only be served for Internet Explorer versions 8 and older.</value>
   </data>
 </root>

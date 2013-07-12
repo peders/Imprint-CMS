@@ -22,15 +22,28 @@ namespace ImprintCMS.Models
             return new HtmlString(source);
         }
 
-        public static string ToFileSize(this int source)
+        public static string FileSizeDisplayName(this ListFile file)
         {
-            if (source >= 1024 * 1024)
-                return String.Format("{0:f1} {1}", (float)source / 1024 / 1024, Phrases.UnitMegaBytesShort);
-            if (source >= 1024)
-                return String.Format("{0} {1}", source / 1024, Phrases.UnitKiloBytesShort);
-            if (source == 1)
-                return String.Format("{0} {1}", source, Phrases.UnitBytesSingular);
-            return String.Format("{0} {1}", source, Phrases.UnitBytesPlural);
+            var size = file.ContentLength;
+            if (size >= 1024 * 1024)
+                return String.Format("{0:f1} {1}", (float)size / 1024 / 1024, Phrases.UnitMegaBytesShort);
+            if (size >= 1024)
+                return String.Format("{0} {1}", size / 1024, Phrases.UnitKiloBytesShort);
+            if (size == 1)
+                return String.Format("{0} {1}", size, Phrases.UnitBytesSingular);
+            return String.Format("{0} {1}", size, Phrases.UnitBytesPlural);
+        }
+
+        public static string FileTypeDisplayName(this ListFile file)
+        {
+            if (file.ContentType == "image/jpeg") return Phrases.FileTypeImage;
+            if (file.ContentType == "image/png") return Phrases.FileTypeImage;
+            if (file.ContentType == "application/pdf") return Phrases.FileTypePDF;
+            if (file.ContentType == "application/msword") return Phrases.FileTypeWordDocument;
+            if (file.ContentType == "application/x-javascript") return Phrases.FileTypeJavascript;
+            if (file.ContentType == "text/css" && file.FileName.StartsWith("legacy_")) return Phrases.FileTypeLegacyCss;
+            if (file.ContentType == "text/css") return Phrases.FileTypeCss;
+            return file.ContentType;
         }
 
         public static string AsIsbn(this string source)
@@ -39,17 +52,6 @@ namespace ImprintCMS.Models
             if (clean.Length == 13) return String.Format("{0}-{1}-{2}-{3}-{4}", clean.Substring(0, 3), clean.Substring(3, 2), clean.Substring(5, 2), clean.Substring(7, 5), clean.Substring(12, 1));
             if (clean.Length == 10) return String.Format("{0}-{1}-{2}-{3}", clean.Substring(0, 2), clean.Substring(2, 4), clean.Substring(4, 5), clean.Substring(9, 1));
             return clean;
-        }
-
-        public static string AsFileType(this string source)
-        {
-            if (source == "image/jpeg") return Phrases.FileTypeImage;
-            if (source == "image/png") return Phrases.FileTypeImage;
-            if (source == "application/pdf") return Phrases.FileTypePDF;
-            if (source == "application/msword") return Phrases.FileTypeWordDocument;
-            if (source == "application/x-javascript") return Phrases.FileTypeJavascript;
-            if (source == "text/css") return Phrases.FileTypeCss;
-            return source;
         }
 
         public static string UrlBase(this HttpRequestBase request)
