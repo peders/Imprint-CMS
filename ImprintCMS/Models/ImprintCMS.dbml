@@ -48,6 +48,7 @@
       <Column Name="ExternalPublisher" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ExternalReleaseYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CachedRightsHoldersText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CachedReleaseYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Book_BookToArticle" Member="BookToArticles" ThisKey="Id" OtherKey="BookId" Type="BookToArticle" />
       <Association Name="Book_Edition" Member="Editions" ThisKey="Id" OtherKey="BookId" Type="Edition" />
       <Association Name="Book_Relation" Member="Relations" ThisKey="Id" OtherKey="BookId" Type="Relation" />

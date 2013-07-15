@@ -380,6 +380,7 @@ namespace ImprintCMS.Controllers
                 ViewBag.Genres = GenreList(vm.GenreId);
                 return View(vm);
             }
+            vm.CachedReleaseYear = vm.GenerateReleaseYear();
             Repository.Add(vm);
             Repository.Save();
             return RedirectToAction("createrelation", new {id = vm.Id});
@@ -403,6 +404,7 @@ namespace ImprintCMS.Controllers
                 ViewBag.Genres = GenreList(vm.GenreId);
                 return View(vm);
             }
+            vm.CachedReleaseYear = vm.GenerateReleaseYear();
             UpdateModel(Repository.GetBook(vm.Id));
             Repository.Save();
             return RedirectToAction("books");
@@ -454,7 +456,7 @@ namespace ImprintCMS.Controllers
             }
             Repository.Add(vm);
             Repository.Save();
-            return RedirectToAction("editbook", new {id = vm.BookId});
+            return RedirectToAction("updatereleaseyearcache", new { id = vm.BookId });
         }
 
         public ActionResult EditEdition(int id)
@@ -481,7 +483,7 @@ namespace ImprintCMS.Controllers
             }
             UpdateModel(Repository.GetEdition(vm.Id));
             Repository.Save();
-            return RedirectToAction("editbook", new {id = vm.BookId});
+            return RedirectToAction("updatereleaseyearcache", new { id = vm.BookId });
         }
 
         public ActionResult DeleteEdition(int id)
@@ -498,7 +500,7 @@ namespace ImprintCMS.Controllers
             if (edition == null) return HttpNotFound();
             Repository.Delete(edition);
             Repository.Save();
-            return RedirectToAction("editbook", new {id = edition.BookId});
+            return RedirectToAction("updatereleaseyearcache", new { id = edition.BookId });
         }
 
         public ActionResult CreateRelation(int id)
@@ -577,6 +579,15 @@ namespace ImprintCMS.Controllers
             var vm = Repository.GetBook(id);
             if (vm == null) return HttpNotFound();
             vm.CachedRightsHoldersText = vm.GenerateRightsHoldersText();
+            Repository.Save();
+            return RedirectToAction("editbook", new { id = vm.Id });
+        }
+
+        public ActionResult UpdateReleaseYearCache(int id)
+        {
+            var vm = Repository.GetBook(id);
+            if (vm == null) return HttpNotFound();
+            vm.CachedReleaseYear = vm.GenerateReleaseYear();
             Repository.Save();
             return RedirectToAction("editbook", new { id = vm.Id });
         }
@@ -1033,6 +1044,7 @@ namespace ImprintCMS.Controllers
             foreach (var book in Repository.Books)
             {
                 book.CachedRightsHoldersText = book.GenerateRightsHoldersText();
+                book.CachedReleaseYear = book.GenerateReleaseYear();
             }
             Repository.Save();
             return RedirectToAction("index");

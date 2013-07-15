@@ -98,7 +98,7 @@ namespace ImprintCMS.Models
             };
         }
 
-        public static int ReleaseYear(this Book book)
+        public static int GenerateReleaseYear(this Book book)
         {
             if (book.Editions.Any())
             {

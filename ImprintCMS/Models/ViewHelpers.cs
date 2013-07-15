@@ -170,12 +170,12 @@ namespace ImprintCMS.Models
                       book.Title,
                       !String.IsNullOrWhiteSpace(book.Subtitle) ? String.Format(". {0}", book.Subtitle) : string.Empty,
                       book.ExternalPublisher,
-                      book.ReleaseYear()));
+                      book.CachedReleaseYear));
             }
             return new HtmlString(String.Format("{0}{1}, {2}",
                 "<a href=\"" + urlHelper.Action("details", "books", new { id = book.Id }, null) + "\">" + book.Title + "</a>",
                 !String.IsNullOrWhiteSpace(book.Subtitle) ? String.Format(". {0}", book.Subtitle) : string.Empty,
-                book.ReleaseYear()));
+                book.CachedReleaseYear));
         }
 
      }

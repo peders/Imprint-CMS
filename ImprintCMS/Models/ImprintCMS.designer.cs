@@ -943,6 +943,8 @@ namespace ImprintCMS.Models
 		
 		private string _CachedRightsHoldersText;
 		
+		private System.Nullable<int> _CachedReleaseYear;
+		
 		private EntitySet<BookToArticle> _BookToArticles;
 		
 		private EntitySet<Edition> _Editions;
@@ -981,6 +983,8 @@ namespace ImprintCMS.Models
     partial void OnExternalReleaseYearChanged();
     partial void OnCachedRightsHoldersTextChanging(string value);
     partial void OnCachedRightsHoldersTextChanged();
+    partial void OnCachedReleaseYearChanging(System.Nullable<int> value);
+    partial void OnCachedReleaseYearChanged();
     #endregion
 		
 		public Book()
@@ -1237,6 +1241,26 @@ namespace ImprintCMS.Models
 					this._CachedRightsHoldersText = value;
 					this.SendPropertyChanged("CachedRightsHoldersText");
 					this.OnCachedRightsHoldersTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CachedReleaseYear", DbType="Int")]
+		public System.Nullable<int> CachedReleaseYear
+		{
+			get
+			{
+				return this._CachedReleaseYear;
+			}
+			set
+			{
+				if ((this._CachedReleaseYear != value))
+				{
+					this.OnCachedReleaseYearChanging(value);
+					this.SendPropertyChanging();
+					this._CachedReleaseYear = value;
+					this.SendPropertyChanged("CachedReleaseYear");
+					this.OnCachedReleaseYearChanged();
 				}
 			}
 		}
