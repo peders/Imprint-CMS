@@ -15,3 +15,4 @@ delete from Book
 delete from Person
 delete from Genre
 delete from UploadedFile
+delete from ExternalStore
