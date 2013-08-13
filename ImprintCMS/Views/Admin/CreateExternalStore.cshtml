@@ -1,0 +1,9 @@
+﻿@model ExternalStore
+@{
+	ViewBag.Title = Phrases.PagenameCreateExternalStore;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameExternalStores, "externalstores"),
+		Phrases.PagenameCreateExternalStore.ToHtmlString()
+	};
+}
+@Html.EditorForModel()

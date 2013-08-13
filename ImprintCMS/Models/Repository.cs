@@ -295,6 +295,25 @@ namespace ImprintCMS.Models
             _db.BookListMemberships.DeleteOnSubmit(membership);
         }
 
+        public IEnumerable<ExternalStore> ExternalStores
+        {
+            get
+            {
+                return _db.ExternalStores;
+            }
+        }
+        public ExternalStore GetExternalStore(int id)
+        {
+            return _db.ExternalStores.SingleOrDefault(s => s.Id == id);
+        }
+        public void Add(ExternalStore store)
+        {
+            _db.ExternalStores.InsertOnSubmit(store);
+        }
+        public void Delete(ExternalStore store)
+        {
+            _db.ExternalStores.DeleteOnSubmit(store);
+        }
 
         public IEnumerable<Order> Orders
         {

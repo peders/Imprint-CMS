@@ -188,9 +188,9 @@ namespace ImprintCMS.Controllers
         public ActionResult CreateGenre()
         {
             var vm = new Genre
-                {
-                    SequenceIdentifier = int.MaxValue
-                };
+            {
+                SequenceIdentifier = int.MaxValue
+            };
             return View(vm);
         }
 
@@ -231,6 +231,60 @@ namespace ImprintCMS.Controllers
             Repository.Delete(Repository.GetGenre(vm.Id));
             Repository.Save();
             return RedirectToAction("genres");
+        }
+
+        public ActionResult ExternalStores()
+        {
+            var vm = Repository.ExternalStores.OrderBy(s => s.SequenceIdentifier);
+            return View(vm);
+        }
+
+        public ActionResult CreateExternalStore()
+        {
+            var vm = new ExternalStore
+            {
+                SequenceIdentifier = int.MaxValue
+            };
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult CreateExternalStore(ExternalStore vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+            Repository.Add(vm);
+            Repository.Save();
+            return RedirectToAction("externalstores");
+        }
+
+        public ActionResult EditExternalStore(int id)
+        {
+            var vm = Repository.GetExternalStore(id);
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult EditExternalStore(ExternalStore vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+            UpdateModel(Repository.GetExternalStore(vm.Id));
+            Repository.Save();
+            return RedirectToAction("externalstores");
+        }
+
+        public ActionResult DeleteExternalStore(int id)
+        {
+            var vm = Repository.GetExternalStore(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteExternalStore(ExternalStore vm)
+        {
+            Repository.Delete(Repository.GetExternalStore(vm.Id));
+            Repository.Save();
+            return RedirectToAction("externalstores");
         }
 
         public ActionResult Roles()
@@ -913,6 +967,22 @@ namespace ImprintCMS.Controllers
             {
                 var genre = Repository.GetGenre(id);
                 genre.SequenceIdentifier = sequenceIdentifier;
+                sequenceIdentifier++;
+            }
+            Repository.Save();
+            return new HttpStatusCodeResult(200);
+        }
+
+        [HttpPost]
+        public ActionResult StoreExternalStoreOrder()
+        {
+            var data = Request.Form["sortitem[]"] as string;
+            var ids = data.Split(',').Select(int.Parse);
+            var sequenceIdentifier = 0;
+            foreach (var id in ids)
+            {
+                var store = Repository.GetExternalStore(id);
+                store.SequenceIdentifier = sequenceIdentifier;
                 sequenceIdentifier++;
             }
             Repository.Save();

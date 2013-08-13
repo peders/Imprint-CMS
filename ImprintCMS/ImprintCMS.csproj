@@ -99,6 +99,7 @@
     <Compile Include="Models\BookListMembership.cs" />
     <Compile Include="Models\BookToArticle.cs" />
     <Compile Include="Models\ContactArticle.cs" />
+    <Compile Include="Models\ExternalStore.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PersonToArticle.cs" />
     <Compile Include="Models\Relation.cs" />
@@ -515,6 +516,11 @@
     <Content Include="Views\Admin\RemoveBookToArticle.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <Content Include="Views\Home\Article.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ExternalStore.cshtml" />
+    <Content Include="Views\Admin\ExternalStores.cshtml" />
+    <Content Include="Views\Admin\CreateExternalStore.cshtml" />
+    <Content Include="Views\Admin\DeleteExternalStore.cshtml" />
+    <Content Include="Views\Admin\EditExternalStore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

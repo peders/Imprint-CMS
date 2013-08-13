@@ -9,6 +9,12 @@
 			@Html.ValidationMessageFor(model => model.Name)
 		</p>
 	</fieldset>
+	<fieldset class="options">
+        <p>
+            @Html.CheckBoxFor(model => model.UsesExternalStores)
+            @Html.LabelFor(model => model.UsesExternalStores, Phrases.LabelUsesExternalStores)
+        </p>
+	</fieldset>
 	<fieldset class="submit">
 		<p>
 			<input type="submit" value="@Phrases.LabelSave" />

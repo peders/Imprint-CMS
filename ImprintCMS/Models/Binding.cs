@@ -11,5 +11,6 @@ namespace ImprintCMS.Models
 	{
 		[Required(ErrorMessage = "*")]
 		public string Name { get; set; }
+
 	}
 }

@@ -455,7 +455,7 @@
     <value>Are you sure you want to delete</value>
   </data>
   <data name="PagenameDelete" xml:space="preserve">
-    <value>Slett</value>
+    <value>Delete</value>
   </data>
   <data name="LabelDeleteConfirmationSuffix" xml:space="preserve">
     <value>?</value>
@@ -552,5 +552,23 @@
   </data>
   <data name="LabelLegacyStylesheetLegend" xml:space="preserve">
     <value>Legacy stylesheet (a CSS file starting with 'legacy_') will only be served for Internet Explorer versions 8 and older.</value>
+  </data>
+  <data name="LabelUrlPostfix" xml:space="preserve">
+    <value>Part of URL after ISBN</value>
+  </data>
+  <data name="LabelUrlPrefix" xml:space="preserve">
+    <value>Part of URL before ISBN</value>
+  </data>
+  <data name="LabelUsesExternalStores" xml:space="preserve">
+    <value>Sell through external stores</value>
+  </data>
+  <data name="PagenameCreateExternalStore" xml:space="preserve">
+    <value>New external store</value>
+  </data>
+  <data name="PagenameEditExternalStore" xml:space="preserve">
+    <value>Edit external store</value>
+  </data>
+  <data name="PagenameExternalStores" xml:space="preserve">
+    <value>External stores</value>
   </data>
 </root>

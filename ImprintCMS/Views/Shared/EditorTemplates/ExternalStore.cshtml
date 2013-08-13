@@ -1,0 +1,31 @@
+﻿@model ExternalStore
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+	<fieldset class="fields">
+		<p>
+			@Html.LabelFor(model => model.Name, Phrases.LabelName)<br />
+			@Html.EditorFor(model => model.Name)
+			@Html.ValidationMessageFor(model => model.Name)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.UrlPrefix, Phrases.LabelUrlPrefix)<br />
+			@Html.EditorFor(model => model.UrlPrefix)
+			@Html.ValidationMessageFor(model => model.UrlPrefix)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.UrlPostfix, Phrases.LabelUrlPostfix)<br />
+			@Html.EditorFor(model => model.UrlPostfix)
+			@Html.ValidationMessageFor(model => model.UrlPostfix)
+		</p>
+	</fieldset>
+	<fieldset class="hidden">
+		@Html.HiddenFor(model => model.SequenceIdentifier)
+	</fieldset>
+	<fieldset class="buttons">
+		<p>
+			<input type="submit" value="@Phrases.LabelSave" />
+			@Html.ActionLink(String.Format(Phrases.LabelBackTo, Phrases.PagenameExternalStores), "externalstores", "admin")
+		</p>
+	</fieldset>
+}

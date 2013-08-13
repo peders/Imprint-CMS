@@ -331,4 +331,7 @@
     <value>Nyheter om {0}</value>
     <comment>Insert name</comment>
   </data>
+  <data name="LabelBuyThroughExternalStores" xml:space="preserve">
+    <value>Kjøp hos …</value>
+  </data>
 </root>

@@ -31,6 +31,7 @@
     <Type Name="Binding">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UsesExternalStores" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Binding_Edition" Member="Editions" ThisKey="Id" OtherKey="BindingId" Type="Edition" />
     </Type>
   </Table>
@@ -113,6 +114,15 @@
       <Association Name="Book_Edition" Member="Book" ThisKey="BookId" OtherKey="Id" Type="Book" IsForeignKey="true" />
       <Association Name="UploadedFile_Edition" Member="UploadedFile" ThisKey="SmallCoverId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
       <Association Name="UploadedFile_Edition1" Member="UploadedFile1" ThisKey="LargeCoverId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExternalStore" Member="ExternalStores">
+    <Type Name="ExternalStore">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UrlPrefix" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="UrlPostfix" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.Genre" Member="Genres">
