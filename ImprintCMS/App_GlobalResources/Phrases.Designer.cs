@@ -394,6 +394,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide edition number on site.
+        /// </summary>
+        public static string LabelHideEditionNumber {
+            get {
+                return ResourceManager.GetString("LabelHideEditionNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image.
         /// </summary>
         public static string LabelImage {
@@ -1231,7 +1240,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fjern.
+        ///   Looks up a localized string similar to Remove.
         /// </summary>
         public static string PagenameRemove {
             get {

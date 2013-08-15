@@ -479,7 +479,7 @@
     <value>?</value>
   </data>
   <data name="PagenameRemove" xml:space="preserve">
-    <value>Fjern</value>
+    <value>Remove</value>
   </data>
   <data name="LabelClosedOrders" xml:space="preserve">
     <value>Closed orders</value>
@@ -570,5 +570,8 @@
   </data>
   <data name="PagenameExternalStores" xml:space="preserve">
     <value>External stores</value>
+  </data>
+  <data name="LabelHideEditionNumber" xml:space="preserve">
+    <value>Hide edition number on site</value>
   </data>
 </root>
