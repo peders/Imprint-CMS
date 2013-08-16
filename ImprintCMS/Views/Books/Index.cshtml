@@ -34,10 +34,10 @@
                     <li>
                         @if (book.Editions.Any(e => e.SmallCoverId != null))
                         {
-                            <a href="@Url.Action("Details", new { id = book.Id })">@Html.CoverImage(book.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last())</a>
+                            <a href="@Url.Action("details", new { id = book.Id })">@Html.CoverImage(book.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last())</a>
                         }
 
-                        @Html.ActionLink(book.Title, "Details", new { id = book.Id })
+                        @Html.ActionLink(book.Title, "details", new { id = book.Id })
                         @if (!String.IsNullOrWhiteSpace(book.Subtitle))
                         {
                             <br />
