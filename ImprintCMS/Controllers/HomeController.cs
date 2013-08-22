@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using ImprintCMS.Models;
 using ImprintCMS.Models.ViewModels;
 using System;
 
@@ -33,6 +34,7 @@ namespace ImprintCMS.Controllers
             var vm = Repository.GetArticle(id);
             if (vm == null) return HttpNotFound();
             if (!vm.IsVisible) return HttpNotFound();
+            ViewBag.OpenGraph = vm.OpenGraph(Config.Name, Request.RequestContext);
             return View(vm);
         }
 

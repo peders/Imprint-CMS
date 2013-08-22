@@ -98,6 +98,31 @@ namespace ImprintCMS.Models
             };
         }
 
+        public static OpenGraph OpenGraph(this Article article, string siteName, RequestContext context)
+        {
+            if (!article.IsVisible) return null;
+            if (article.ImagePerson == null && article.ImageEdition == null) return null;
+            var urlHelper = new UrlHelper(context);
+            var imageUrl = string.Empty;
+            if (article.ImagePerson != null)
+            {
+                imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("display", "upload", new { category = article.ImagePerson.UploadedFile.Category, fileName = article.ImagePerson.UploadedFile.FileName });
+            }
+            else
+            {
+                imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("display", "upload", new { category = article.ImageEdition.UploadedFile.Category, fileName = article.ImageEdition.UploadedFile.FileName });
+            }
+            var pageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("article", "home", new { id = article.Id });
+            return new OpenGraph
+            {
+                Title = article.Title,
+                Type = "article",
+                ImageUrl = imageUrl,
+                Url = pageUrl,
+                SiteName = siteName
+            };
+        }
+
         public static int GenerateReleaseYear(this Book book)
         {
             if (book.Editions.Any())

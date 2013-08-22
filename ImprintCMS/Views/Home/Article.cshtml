@@ -36,4 +36,8 @@
         </ul>
     }
     <p class="date">@String.Format("{0:D}", Model.Date)</p>
+    <p class="social">
+        @Html.Twitter(Model.Title, string.Empty)<br />
+        @Html.Facebook()
+    </p>
 </div>

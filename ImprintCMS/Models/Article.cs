@@ -12,7 +12,7 @@ namespace ImprintCMS.Models
 		{
 			get
 			{
-				var personToArticle = PersonToArticles.Where(p => p.Person.IsVisible && p.Person.HasPage).OrderBy(p => p.SequenceIdentifier).FirstOrDefault();
+				var personToArticle = PersonToArticles.Where(p => p.Person.IsVisible && p.Person.HasPage && p.Person.SmallImageId != null).OrderBy(p => p.SequenceIdentifier).FirstOrDefault();
 				return personToArticle == null ? null : personToArticle.Person;
 			}
 		}
