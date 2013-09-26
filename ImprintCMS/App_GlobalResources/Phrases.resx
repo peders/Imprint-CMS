@@ -574,4 +574,7 @@
   <data name="LabelHideEditionNumber" xml:space="preserve">
     <value>Hide edition number on site</value>
   </data>
+  <data name="ValidationRequiredDefault" xml:space="preserve">
+    <value>*</value>
+  </data>
 </root>

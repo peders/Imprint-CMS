@@ -59,6 +59,13 @@
 			@Html.LabelFor(model => model.IsForSale, Phrases.LabelIsForSale)
 		</p>
 	</fieldset>
+	<fieldset class="fields">
+		<p>
+			@Html.LabelFor(model => model.AlternativeNotForSaleMessage, "Alternative message to be shown if not for sale")<br />
+			@Html.TextBoxFor(model => model.AlternativeNotForSaleMessage)
+			@Html.ValidationMessageFor(model => model.AlternativeNotForSaleMessage)
+		</p>
+	</fieldset>
 	<fieldset class="hidden">
 			@Html.HiddenFor(model => model.BookId)
 	</fieldset>

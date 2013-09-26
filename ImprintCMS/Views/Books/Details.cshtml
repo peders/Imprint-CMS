@@ -52,7 +52,7 @@
                     }
                     else
                     {
-                        <p class="notforsale">@SitePhrases.LabelNotForSale</p>                  
+                        <p class="notforsale">@(!String.IsNullOrWhiteSpace(edition.AlternativeNotForSaleMessage) ? edition.AlternativeNotForSaleMessage : SitePhrases.LabelNotForSale)</p>                  
                     }
                 </div>
             }
