@@ -578,6 +578,7 @@ namespace ImprintCMS.Controllers
         [HttpPost]
         public ActionResult CreateRelation(Relation vm)
         {
+            if (Repository.Relations.Any(r => r.PersonId == vm.PersonId && r.BookId == vm.BookId)) ModelState.AddModelError("PersonId", Phrases.ValidationPersonHasRelationToBook);
             if (!ModelState.IsValid)
             {
                 ViewBag.People = PeopleList(vm.PersonId);
@@ -603,6 +604,7 @@ namespace ImprintCMS.Controllers
         [HttpPost]
         public ActionResult EditRelation(Relation vm)
         {
+            if (Repository.Relations.Any(r => r.PersonId == vm.PersonId && r.BookId == vm.BookId && r.Id != vm.Id)) ModelState.AddModelError("PersonId", Phrases.ValidationPersonHasRelationToBook);
             if (!ModelState.IsValid)
             {
                 ViewBag.People = PeopleList(vm.PersonId);

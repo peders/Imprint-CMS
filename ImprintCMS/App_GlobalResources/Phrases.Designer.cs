@@ -1429,6 +1429,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This person is already a rights holder to this book.
+        /// </summary>
+        public static string ValidationPersonHasRelationToBook {
+            get {
+                return ResourceManager.GetString("ValidationPersonHasRelationToBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to *.
         /// </summary>
         public static string ValidationRequiredDefault {

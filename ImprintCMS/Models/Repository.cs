@@ -243,6 +243,13 @@ namespace ImprintCMS.Models
             _db.Editions.DeleteOnSubmit(edition);
         }
 
+        public IEnumerable<Relation> Relations
+        {
+            get
+            {
+                return _db.Relations;
+            }
+        }
         public Relation GetRelation(int id)
         {
             return _db.Relations.SingleOrDefault(r => r.Id == id);

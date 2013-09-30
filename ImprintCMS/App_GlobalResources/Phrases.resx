@@ -580,4 +580,7 @@
   <data name="LabelRoleBookListHeading" xml:space="preserve">
     <value>Heading for book listing on person page</value>
   </data>
+  <data name="ValidationPersonHasRelationToBook" xml:space="preserve">
+    <value>This person is already a rights holder to this book</value>
+  </data>
 </root>
