@@ -289,7 +289,7 @@ namespace ImprintCMS.Controllers
 
         public ActionResult Roles()
         {
-            var vm = Repository.Roles.OrderBy(r => r.Name);
+            var vm = Repository.Roles.OrderBy(r => r.SequenceIdentifier);
             return View(vm);
         }
 
