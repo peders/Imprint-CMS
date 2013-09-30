@@ -22,7 +22,7 @@ namespace ImprintCMS.Controllers
             var vm = new PersonPage
             {
                 Person = person,
-                Books = person.Relations.Where(r => r.Book.IsVisible).Select(r => r.Book).OrderBy(b => b.CachedReleaseYear)
+                Books = person.Relations.Where(r => r.Book.IsVisible).Select(r => r.Book)
             };
             ViewBag.OpenGraph = person.OpenGraph(Config.Name, Request.RequestContext);
             return View(vm);

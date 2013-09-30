@@ -18,7 +18,7 @@ namespace ImprintCMS.Controllers
 
         public ActionResult Uploads()
         {
-            var vm = Enum.GetNames(typeof (FileCategories)).Select(c => new UploadCategory
+            var vm = Enum.GetNames(typeof(FileCategories)).Select(c => new UploadCategory
                 {
                     Name = c,
                     FileCount = Repository.ListFiles.Count(u => u.Category == c)
@@ -71,7 +71,7 @@ namespace ImprintCMS.Controllers
                 };
             Repository.Add(upload);
             Repository.Save();
-            return RedirectToAction("uploadcategory", new {id = vm.FileCategory});
+            return RedirectToAction("uploadcategory", new { id = vm.FileCategory });
         }
 
         public ActionResult ReplaceUpload(int id)
@@ -109,7 +109,7 @@ namespace ImprintCMS.Controllers
             upload.ContentLength = file.ContentLength;
             upload.Data = fileData;
             Repository.Save();
-            return RedirectToAction("uploadcategory", new {id = vm.FileCategory});
+            return RedirectToAction("uploadcategory", new { id = vm.FileCategory });
         }
 
         public ActionResult DeleteUpload(int id)
@@ -125,7 +125,7 @@ namespace ImprintCMS.Controllers
             var upload = Repository.GetUploadedFile(vm.Id);
             Repository.Delete(upload);
             Repository.Save();
-            return RedirectToAction("uploadcategory", new {id = upload.Category});
+            return RedirectToAction("uploadcategory", new { id = upload.Category });
         }
 
         public ActionResult Bindings()
@@ -295,7 +295,10 @@ namespace ImprintCMS.Controllers
 
         public ActionResult CreateRole()
         {
-            var vm = new Role();
+            var vm = new Role
+            {
+                SequenceIdentifier = int.MaxValue
+            };
             return View(vm);
         }
 
@@ -437,7 +440,7 @@ namespace ImprintCMS.Controllers
             vm.CachedReleaseYear = vm.GenerateReleaseYear();
             Repository.Add(vm);
             Repository.Save();
-            return RedirectToAction("createrelation", new {id = vm.Id});
+            return RedirectToAction("createrelation", new { id = vm.Id });
         }
 
         public ActionResult EditBook(int id)
@@ -725,7 +728,7 @@ namespace ImprintCMS.Controllers
             }
             Repository.Add(vm);
             Repository.Save();
-            return RedirectToAction("editbooklist", new {id = vm.BookListId});
+            return RedirectToAction("editbooklist", new { id = vm.BookListId });
         }
 
         public ActionResult RemoveBookListMembership(int id)
@@ -741,7 +744,7 @@ namespace ImprintCMS.Controllers
             var membership = Repository.GetBookListMembership(vm.Id);
             Repository.Delete(membership);
             Repository.Save();
-            return RedirectToAction("editbooklist", new {id = membership.BookListId});
+            return RedirectToAction("editbooklist", new { id = membership.BookListId });
         }
 
         public ActionResult Articles()
@@ -770,7 +773,7 @@ namespace ImprintCMS.Controllers
             }
             Repository.Add(vm);
             Repository.Save();
-            return RedirectToAction("editarticle", new {id = vm.Id});
+            return RedirectToAction("editarticle", new { id = vm.Id });
         }
 
         public ActionResult EditArticle(int id)
@@ -974,6 +977,22 @@ namespace ImprintCMS.Controllers
         }
 
         [HttpPost]
+        public ActionResult StoreRoleOrder()
+        {
+            var data = Request.Form["sortitem[]"] as string;
+            var ids = data.Split(',').Select(int.Parse);
+            var sequenceIdentifier = 0;
+            foreach (var id in ids)
+            {
+                var role = Repository.GetRole(id);
+                role.SequenceIdentifier = sequenceIdentifier;
+                sequenceIdentifier++;
+            }
+            Repository.Save();
+            return new HttpStatusCodeResult(200);
+        }
+
+        [HttpPost]
         public ActionResult StoreExternalStoreOrder()
         {
             var data = Request.Form["sortitem[]"] as string;
@@ -1014,7 +1033,7 @@ namespace ImprintCMS.Controllers
             }
             Repository.Add(vm);
             Repository.Save();
-            return RedirectToAction("editarticle", new {id = vm.ArticleId});
+            return RedirectToAction("editarticle", new { id = vm.ArticleId });
         }
 
         public ActionResult RemovePersonToArticle(int id)
@@ -1030,7 +1049,7 @@ namespace ImprintCMS.Controllers
             var link = Repository.GetPersonToArticle(vm.Id);
             Repository.Delete(link);
             Repository.Save();
-            return RedirectToAction("editarticle", new {id = link.ArticleId});
+            return RedirectToAction("editarticle", new { id = link.ArticleId });
         }
 
         [HttpPost]
@@ -1074,7 +1093,7 @@ namespace ImprintCMS.Controllers
             }
             Repository.Add(vm);
             Repository.Save();
-            return RedirectToAction("editarticle", new {id = vm.ArticleId});
+            return RedirectToAction("editarticle", new { id = vm.ArticleId });
         }
 
         public ActionResult RemoveBookToArticle(int id)
@@ -1090,7 +1109,7 @@ namespace ImprintCMS.Controllers
             var link = Repository.GetBookToArticle(vm.Id);
             Repository.Delete(link);
             Repository.Save();
-            return RedirectToAction("editarticle", new {id = link.ArticleId});
+            return RedirectToAction("editarticle", new { id = link.ArticleId });
         }
 
         [HttpPost]
@@ -1121,45 +1140,45 @@ namespace ImprintCMS.Controllers
         }
 
         private void ValidateExternalPublisher(Book vm)
-		{
-			if (!String.IsNullOrWhiteSpace(vm.ExternalPublisher) && vm.ExternalReleaseYear == null)
-			{
-				ModelState.AddModelError("ExternalReleaseYear", Phrases.ValidationExternalReleaseYear);
-			}
-		}
+        {
+            if (!String.IsNullOrWhiteSpace(vm.ExternalPublisher) && vm.ExternalReleaseYear == null)
+            {
+                ModelState.AddModelError("ExternalReleaseYear", Phrases.ValidationExternalReleaseYear);
+            }
+        }
 
-		private SelectList FileList(FileCategories category, int? selectedId)
-		{
-			return new SelectList(Repository.ListFiles.Where(f => f.Category == category.ToString()).OrderBy(f => f.FileName), "Id", "FileName", selectedId ?? default(int));
-		}
-		private SelectList GenreList(int? selectedId)
-		{
-			return new SelectList(Repository.Genres.OrderBy(g => g.Name), "Id", "Name", selectedId ?? default(int));
-		}
-		private SelectList BindingList(int? selectedId)
-		{
-			return new SelectList(Repository.Bindings.OrderBy(b => b.Name), "Id", "Name", selectedId ?? default(int));
-		}
-		private SelectList LinkableEditionsList(int? selectedId)
-		{
-			return new SelectList(Repository.Editions.Where(e => !e.Book.HasExternalPublisher).OrderBy(e => e.Name), "Id", "Name", selectedId ?? default(int));
-		}
-		private SelectList RoleList(int? selectedId)
-		{
-			return new SelectList(Repository.Roles.OrderBy(r => r.Name), "Id", "Name", selectedId ?? default(int));
-		}
-		private SelectList PeopleList(int? selectedId)
-		{
-			return new SelectList(Repository.People.OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
-		}
-		private SelectList LinkablePeopleList(int? selectedId)
-		{
-			return new SelectList(Repository.People.Where(p => p.IsVisible && p.HasPage).OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
-		}
-		private SelectList LinkableBooksList(int? selectedId)
-		{
-			return new SelectList(Repository.Books.Where(b => b.IsVisible).OrderBy(b => b.FullTitle), "Id", "FullTitle", selectedId ?? default(int));
-		}
+        private SelectList FileList(FileCategories category, int? selectedId)
+        {
+            return new SelectList(Repository.ListFiles.Where(f => f.Category == category.ToString()).OrderBy(f => f.FileName), "Id", "FileName", selectedId ?? default(int));
+        }
+        private SelectList GenreList(int? selectedId)
+        {
+            return new SelectList(Repository.Genres.OrderBy(g => g.Name), "Id", "Name", selectedId ?? default(int));
+        }
+        private SelectList BindingList(int? selectedId)
+        {
+            return new SelectList(Repository.Bindings.OrderBy(b => b.Name), "Id", "Name", selectedId ?? default(int));
+        }
+        private SelectList LinkableEditionsList(int? selectedId)
+        {
+            return new SelectList(Repository.Editions.Where(e => !e.Book.HasExternalPublisher).OrderBy(e => e.Name), "Id", "Name", selectedId ?? default(int));
+        }
+        private SelectList RoleList(int? selectedId)
+        {
+            return new SelectList(Repository.Roles.OrderBy(r => r.Name), "Id", "Name", selectedId ?? default(int));
+        }
+        private SelectList PeopleList(int? selectedId)
+        {
+            return new SelectList(Repository.People.OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
+        }
+        private SelectList LinkablePeopleList(int? selectedId)
+        {
+            return new SelectList(Repository.People.Where(p => p.IsVisible && p.HasPage).OrderBy(p => p.LastName).ThenBy(p => p.FirstName), "Id", "ReverseName", selectedId ?? default(int));
+        }
+        private SelectList LinkableBooksList(int? selectedId)
+        {
+            return new SelectList(Repository.Books.Where(b => b.IsVisible).OrderBy(b => b.FullTitle), "Id", "FullTitle", selectedId ?? default(int));
+        }
 
-	}
+    }
 }

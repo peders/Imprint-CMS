@@ -22,11 +22,11 @@
     {
         @Model.Person.Description.ToRichText()
     }
-    @if (Model.Books.Any())
-    {
-        <h2>@SitePhrases.HeadingAuthorBooks</h2>
+    @foreach (var bookRelation in Model.Books.GroupBy(b => b.Relations.Single(r => r.PersonId == Model.Person.Id).Role).OrderBy(r => r.Key.SequenceIdentifier))
+    { 
+        <h2>@(!String.IsNullOrWhiteSpace(bookRelation.Key.BookListHeading) ? bookRelation.Key.BookListHeading : bookRelation.Key.Name)</h2>
         <ul>
-            @foreach (var book in Model.Books)
+            @foreach (var book in bookRelation.OrderBy(b => b.CachedReleaseYear))
             {
                 <li>@Html.BookPersonPageEntry(book)</li>
             }

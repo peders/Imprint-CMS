@@ -13,6 +13,14 @@
 			@Html.TextBoxFor(model => model.ShortName)
 			@Html.ValidationMessageFor(model => model.ShortName)
 		</p>
+		<p>
+			@Html.LabelFor(model => model.BookListHeading, Phrases.LabelRoleBookListHeading)<br />
+			@Html.TextBoxFor(model => model.BookListHeading)
+			@Html.ValidationMessageFor(model => model.BookListHeading)
+		</p>
+	</fieldset>
+	<fieldset class="hidden">
+		@Html.HiddenFor(model => model.SequenceIdentifier)
 	</fieldset>
 	<fieldset class="submit">
 		<p>

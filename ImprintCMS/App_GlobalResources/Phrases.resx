@@ -577,4 +577,7 @@
   <data name="ValidationRequiredDefault" xml:space="preserve">
     <value>*</value>
   </data>
+  <data name="LabelRoleBookListHeading" xml:space="preserve">
+    <value>Heading for book listing on person page</value>
+  </data>
 </root>
