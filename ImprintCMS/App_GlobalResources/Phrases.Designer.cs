@@ -745,6 +745,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show book listing on person page.
+        /// </summary>
+        public static string LabelRoleShowBookList {
+            get {
+                return ResourceManager.GetString("LabelRoleShowBookList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string LabelSave {

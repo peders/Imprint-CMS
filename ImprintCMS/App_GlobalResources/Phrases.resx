@@ -583,4 +583,7 @@
   <data name="ValidationPersonHasRelationToBook" xml:space="preserve">
     <value>This person is already a rights holder to this book</value>
   </data>
+  <data name="LabelRoleShowBookList" xml:space="preserve">
+    <value>Show book listing on person page</value>
+  </data>
 </root>

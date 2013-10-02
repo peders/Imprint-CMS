@@ -194,6 +194,7 @@
       <Column Name="ShortName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BookListHeading" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ShowBookList" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Role_Relation" Member="Relations" ThisKey="Id" OtherKey="RoleId" Type="Relation" />
     </Type>
   </Table>

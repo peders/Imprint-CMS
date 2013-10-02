@@ -4259,6 +4259,8 @@ namespace ImprintCMS.Models
 		
 		private int _SequenceIdentifier;
 		
+		private bool _ShowBookList;
+		
 		private EntitySet<Relation> _Relations;
 		
     #region Extensibility Method Definitions
@@ -4275,6 +4277,8 @@ namespace ImprintCMS.Models
     partial void OnBookListHeadingChanged();
     partial void OnSequenceIdentifierChanging(int value);
     partial void OnSequenceIdentifierChanged();
+    partial void OnShowBookListChanging(bool value);
+    partial void OnShowBookListChanged();
     #endregion
 		
 		public Role()
@@ -4379,6 +4383,26 @@ namespace ImprintCMS.Models
 					this._SequenceIdentifier = value;
 					this.SendPropertyChanged("SequenceIdentifier");
 					this.OnSequenceIdentifierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShowBookList", DbType="Bit NOT NULL")]
+		public bool ShowBookList
+		{
+			get
+			{
+				return this._ShowBookList;
+			}
+			set
+			{
+				if ((this._ShowBookList != value))
+				{
+					this.OnShowBookListChanging(value);
+					this.SendPropertyChanging();
+					this._ShowBookList = value;
+					this.SendPropertyChanged("ShowBookList");
+					this.OnShowBookListChanged();
 				}
 			}
 		}

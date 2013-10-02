@@ -22,7 +22,7 @@
     {
         @Model.Person.Description.ToRichText()
     }
-    @foreach (var booksByRole in Model.Books.GroupBy(b => b.Relations.Single(r => r.PersonId == Model.Person.Id).Role).OrderBy(r => r.Key.SequenceIdentifier))
+    @foreach (var booksByRole in Model.Books.GroupBy(b => b.Relations.Single(r => r.PersonId == Model.Person.Id).Role).Where(r=> r.Key.ShowBookList).OrderBy(r => r.Key.SequenceIdentifier))
     { 
         <h2>@(!String.IsNullOrWhiteSpace(booksByRole.Key.BookListHeading) ? booksByRole.Key.BookListHeading : booksByRole.Key.Name)</h2>
         <ul>

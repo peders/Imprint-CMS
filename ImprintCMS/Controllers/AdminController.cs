@@ -297,7 +297,8 @@ namespace ImprintCMS.Controllers
         {
             var vm = new Role
             {
-                SequenceIdentifier = int.MaxValue
+                SequenceIdentifier = int.MaxValue,
+                ShowBookList = true
             };
             return View(vm);
         }

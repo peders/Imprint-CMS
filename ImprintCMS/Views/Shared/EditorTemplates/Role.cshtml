@@ -19,6 +19,12 @@
 			@Html.ValidationMessageFor(model => model.BookListHeading)
 		</p>
 	</fieldset>
+	<fieldset class="options">
+		<p>
+			@Html.CheckBoxFor(model => model.ShowBookList)
+			@Html.LabelFor(model => model.ShowBookList, Phrases.LabelRoleShowBookList)
+		</p>
+	</fieldset>
 	<fieldset class="hidden">
 		@Html.HiddenFor(model => model.SequenceIdentifier)
 	</fieldset>
