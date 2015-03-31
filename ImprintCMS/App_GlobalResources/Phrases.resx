@@ -175,7 +175,8 @@
     <value>Last name</value>
   </data>
   <data name="LabelLogOut" xml:space="preserve">
-    <value>Log out</value>
+    <value>Log out {0}</value>
+    <comment>Insert user name</comment>
   </data>
   <data name="LabelMainContent" xml:space="preserve">
     <value>Main content</value>

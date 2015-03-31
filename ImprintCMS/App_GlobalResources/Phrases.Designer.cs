@@ -502,7 +502,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log out.
+        ///   Looks up a localized string similar to Log out {0}.
         /// </summary>
         public static string LabelLogOut {
             get {

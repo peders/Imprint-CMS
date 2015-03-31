@@ -25,23 +25,20 @@
 	</script>
 </head>
 <body>
-	@if (User.Identity.IsAuthenticated)
- {
-		<div id="account">
-		@User.Identity.Name
-		[@Html.ActionLink(Phrases.LabelLogOut, "logout", "account", new { ReturnUrl = Request.Url.AbsolutePath }, null)]</div>
- }
-    <div id="header">@Html.ActionLink(Phrases.SystemName, "index", "admin")</div>
-    <div id="sitelink">@Html.ActionLink(Phrases.SystemViewSite, "index", "home")</div>
-	<div id="breadcrumbs">
-		<ul>
-			<li>@Html.ActionLink(Phrases.SystemName, "index", "admin")</li>
-			@foreach (HtmlString crumb in ViewBag.Breadcrumbs)
-   {
-				<li>@crumb</li>
-   }
-		</ul>
-	</div>
+    <header>
+        <h1>@Html.ActionLink(Phrases.SystemName, "index", "admin")</h1>
+        <ul id="breadcrumbs">
+            @foreach (HtmlString crumb in ViewBag.Breadcrumbs)
+            {
+                <li>@crumb</li>
+            }
+        </ul>
+        <div id="sitelink">@Html.ActionLink(Phrases.SystemViewSite, "index", "home")</div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div id="account">@Html.ActionLink(String.Format(Phrases.LabelLogOut, User.Identity.Name), "logout", "account", new { ReturnUrl = Request.Url.AbsolutePath }, null)</div>
+        }
+    </header>
 	<div id="content">
 		@RenderBody()
 	</div>
