@@ -587,4 +587,7 @@
   <data name="LabelRoleShowBookList" xml:space="preserve">
     <value>Show book listing on person page</value>
   </data>
+  <data name="LabelLogOutSimple" xml:space="preserve">
+    <value>Log out</value>
+  </data>
 </root>

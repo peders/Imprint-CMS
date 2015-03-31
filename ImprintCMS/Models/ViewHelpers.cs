@@ -155,7 +155,7 @@ namespace ImprintCMS.Models
     <a href=""{0}"">{1}</a>
     |
     <a href=""{2}"">{3}</a>
-</div>", actionUrl, actionLabel, urlHelper.Action("logout", "account", new { ReturnUrl = helper.ViewContext.HttpContext.Request.Url.AbsolutePath }, null), Phrases.LabelLogOut));
+</div>", actionUrl, actionLabel, urlHelper.Action("logout", "account", new { ReturnUrl = helper.ViewContext.HttpContext.Request.Url.AbsolutePath }, null), Phrases.LabelLogOutSimple));
         }
 
         public static HtmlString RelationLinkOrName(this HtmlHelper helper, Relation relation)

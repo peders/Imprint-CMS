@@ -511,6 +511,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log out.
+        /// </summary>
+        public static string LabelLogOutSimple {
+            get {
+                return ResourceManager.GetString("LabelLogOutSimple", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Main content.
         /// </summary>
         public static string LabelMainContent {
