@@ -68,6 +68,10 @@ namespace ImprintCMS.Models
             return new HtmlString("<img src=\"" + source + "\" class=\"cover\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
         }
 
+        public static string RelationNames(this Book book) {
+            return String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName));
+        }
+
         public static HtmlString ImageDownload(this HtmlHelper helper, string url, string label, string notice)
         {
             if (String.IsNullOrWhiteSpace(url)) return null;

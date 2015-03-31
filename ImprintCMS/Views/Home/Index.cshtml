@@ -15,17 +15,22 @@
                         {
                             <a href="@Url.Action("details", "books", new { id = edition.BookId })" class="book">@Html.CoverImage(edition)</a>
                         }
-                        @String.Join(" / ", edition.Book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName))<br />
-                        @Html.ActionLink(edition.Book.Title, "details", "books", new { id = edition.BookId }, null)
-                        @if (edition.Book.IsDebut)
-                        { <span class="isdebut"> (@SitePhrases.LabelIsDebut.ToLowerInvariant())</span>
+                        <p class="people">@edition.Book.RelationNames()</p>
+                        <p class="title">
+                            @Html.ActionLink(edition.Book.Title, "details", "books", new { id = edition.BookId }, null)
+                            @if (edition.Book.IsDebut)
+                            {
+                                <span class="isdebut"> (@SitePhrases.LabelIsDebut.ToLowerInvariant())</span>
+                            }
+                        </p>
+                        @if (!String.IsNullOrWhiteSpace(edition.Book.Subtitle))
+                        {
+                            <p class="subtitle">@edition.Book.Subtitle</p>
                         }
-                        @(!String.IsNullOrWhiteSpace(edition.Book.Subtitle) ? new HtmlString("<br/>" + edition.Book.Subtitle) : null)<br />
-                        <br />
-                        <span class="@String.Format("date{0}", edition.ReleaseDate > DateTime.Today ? " tobereleased" : string.Empty)">@edition.ReleaseDate.ToBookListDate()</span>
+                        <p class="@String.Format("date{0}", edition.ReleaseDate > DateTime.Today ? " tobereleased" : string.Empty)">@edition.ReleaseDate.ToBookListDate()</p>
                         @if (!String.IsNullOrWhiteSpace(edition.Blurb))
                         {
-                            @edition.Blurb.ToRichText()
+                            <p class="blurb">@edition.Blurb.ToRichText()</p>
                         }
                     </li>
                 }
@@ -41,15 +46,15 @@
             {
                 <div class="image">
                     <a href="@Url.Action("details", "authors", new { id = article.ImagePerson.Id })">@Html.PersonImage(article.ImagePerson)</a>
-                </div> 
+                </div>
             }
             else
             {
                 if (article.ImageEdition != null)
                 {
-                <div class="image">
-                    <a href="@Url.Action("details", "books", new { id = article.ImageEdition.BookId })">@Html.CoverImage(article.ImageEdition)</a>
-                </div> 
+                    <div class="image">
+                        <a href="@Url.Action("details", "books", new { id = article.ImageEdition.BookId })">@Html.CoverImage(article.ImageEdition)</a>
+                    </div>
                 }
             }
             <h1>@article.Title</h1>
