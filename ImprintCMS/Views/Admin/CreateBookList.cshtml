@@ -1,9 +1,0 @@
-﻿@model BookList
-@{
-	ViewBag.Title = Phrases.PagenameCreateBookList;
-	ViewBag.Breadcrumbs = new[] {
-		Html.ActionLink(Phrases.PagenameBookLists, "booklists"),
-		Phrases.PagenameCreateBookList.ToHtmlString()
-	};
-}
-@Html.EditorForModel()

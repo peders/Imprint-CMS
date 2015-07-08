@@ -1,12 +1,12 @@
 Imprint CMS
 ===========
 
-Imprint CMS is a domain specific CMS for publishers, based on ASP.net MVC 3 and LinqToSQL. It does very little, but tries to do it well.
+Imprint CMS is a domain specific CMS for publishers, based on ASP.net MVC 5 and LinqToSQL. It does very little, but tries to do it well.
 
 Tools
 -----
 
-Imprint was developed using the free Express tools from Microsoft (Visual Web Developer 2010 Express and SQL Server 2008 R2 Express).
+Imprint was developed using the free Express tools from Microsoft (Visual Studio Community 2013 and SQL Server 2012 Express).
 
 Get running
 -----------

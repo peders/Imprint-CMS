@@ -1,9 +1,0 @@
-﻿@model Role
-@{
-	ViewBag.Title = Phrases.PagenameEditRole;
-	ViewBag.Breadcrumbs = new[] {
-		Html.ActionLink(Phrases.PagenameRoles, "roles"),
-		Phrases.PagenameEditRole.ToHtmlString()
-	};
-}
-@Html.EditorForModel()
