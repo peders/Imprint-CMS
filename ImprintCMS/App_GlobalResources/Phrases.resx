@@ -590,4 +590,16 @@
   <data name="LabelLogOutSimple" xml:space="preserve">
     <value>Log out</value>
   </data>
+  <data name="LabelDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="UnitNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="UnitYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="LabelCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 </root>

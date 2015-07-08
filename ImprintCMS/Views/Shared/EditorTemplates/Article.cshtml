@@ -14,7 +14,7 @@
 			@Html.ValidationMessageFor(model => model.Description)
 		</p>
 		<p>
-			@Html.LabelFor(model => model.Date, Phrases.LabelReleaseDate)<br />
+			@Html.LabelFor(model => model.Date, Phrases.LabelDate)<br />
 			@Html.TextBox("Date", String.Format("{0:d}", Model.Date), new { @class = "datepicker" })
 			@Html.ValidationMessageFor(model => model.Date)
 		</p>

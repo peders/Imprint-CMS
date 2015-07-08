@@ -1,7 +1,7 @@
 ﻿@model Article
 @{
-	ViewBag.Title = Phrases.PagenameDelete;
-	ViewBag.Breadcrumbs = new[] {
+    ViewBag.Title = Phrases.PagenameDelete;
+    ViewBag.Breadcrumbs = new[] {
 		Html.ActionLink(Phrases.PagenameArticles, "articles"),
 		Html.ActionLink(Model.Title, "editarticle", new { id = Model.Id }),
 		Phrases.LabelDelete.ToHtmlString()
@@ -10,8 +10,8 @@
 <p>@Html.DeleteConfirmation(Model.Title)</p>
 @using (Html.BeginForm())
 {
-	<p>
-		<input type="submit" value="@Phrases.LabelDelete" />
-		@Html.ActionLink(String.Format(Phrases.LabelBackTo, Phrases.PagenameArticles), "articles")
-	</p>
+    <p>
+        <input type="submit" value="@Phrases.LabelDelete" />
+        @Html.ActionLink(Phrases.LabelCancel, "editarticle", new { id = Model.Id })
+    </p>
 }

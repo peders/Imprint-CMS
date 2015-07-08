@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var breadcrumbs = ViewBag.Breadcrumbs as IEnumerable<HtmlString>;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -28,9 +31,13 @@
     <header>
         <h1>@Html.ActionLink(Phrases.SystemName, "index", "admin")</h1>
         <ul id="breadcrumbs">
-            @foreach (HtmlString crumb in ViewBag.Breadcrumbs)
+            <li>@Html.ActionLink(Phrases.SystemName, "index", "admin")</li>
+            @if (breadcrumbs != null)
             {
-                <li>@crumb</li>
+                foreach (HtmlString crumb in breadcrumbs)
+                {
+                    <li>@crumb</li>
+                }
             }
         </ul>
         <div id="sitelink">@Html.ActionLink(Phrases.SystemViewSite, "index", "home")</div>

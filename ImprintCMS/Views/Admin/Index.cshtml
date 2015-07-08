@@ -1,26 +1,23 @@
 ﻿@{
     ViewBag.Title = Phrases.PagenameAdmin;
-    ViewBag.Breadcrumbs = new[] {
-		Phrases.PagenameAdmin.ToHtmlString()
-	};
 }
 <h2>@Phrases.LabelMainContent</h2>
-<ul class="adminactions">
-    <li>@Html.ActionLink(Phrases.PagenameBooks, "books")</li>
-    <li>@Html.ActionLink(Phrases.PagenameBookLists, "booklists")</li>
-    <li>@Html.ActionLink(Phrases.PagenamePersons, "people")</li>
-    <li>@Html.ActionLink(Phrases.PagenameUploads, "uploads")</li>
-    <li>@Html.ActionLink(Phrases.PagenameArticles, "articles")</li>
-</ul>
+<div class="adminactions">
+    @Html.ActionLink(Phrases.PagenameBooks, "books")
+    @Html.ActionLink(Phrases.PagenameBookLists, "booklists")
+    @Html.ActionLink(Phrases.PagenamePersons, "people")
+    @Html.ActionLink(Phrases.PagenameUploads, "uploads")
+    @Html.ActionLink(Phrases.PagenameArticles, "articles")
+</div>
 <h2>@Phrases.LabelSupportingContent</h2>
-<ul class="adminactions">
-    <li>@Html.ActionLink(Phrases.PagenameBindings, "bindings")</li>
-    <li>@Html.ActionLink(Phrases.PagenameGenres, "genres")</li>
-    <li>@Html.ActionLink(Phrases.PagenameRoles, "roles")</li>
-    <li>@Html.ActionLink(Phrases.PagenameExternalStores, "externalstores")</li>
-    <li>@Html.ActionLink(Phrases.PagenameContactArticles, "contactarticles")</li>
-</ul>
+<div class="adminactions">
+    @Html.ActionLink(Phrases.PagenameBindings, "bindings")
+    @Html.ActionLink(Phrases.PagenameGenres, "genres")
+    @Html.ActionLink(Phrases.PagenameRoles, "roles")
+    @Html.ActionLink(Phrases.PagenameExternalStores, "externalstores")
+    @Html.ActionLink(Phrases.PagenameContactArticles, "contactarticles")
+</div>
 <h2>@Phrases.LabelOrderContent</h2>
-<ul class="adminactions">
-    <li>@Html.ActionLink(Phrases.PagenameOrders, "orders")</li>
-</ul>
+<div class="adminactions">
+    @Html.ActionLink(Phrases.PagenameOrders, "orders")
+</div>

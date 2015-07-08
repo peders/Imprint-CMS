@@ -205,6 +205,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string LabelCancel {
+            get {
+                return ResourceManager.GetString("LabelCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Closed orders.
         /// </summary>
         public static string LabelClosedOrders {
@@ -219,6 +228,15 @@ namespace ImprintCMS.Models {
         public static string LabelCreate {
             get {
                 return ResourceManager.GetString("LabelCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string LabelDate {
+            get {
+                return ResourceManager.GetString("LabelDate", resourceCulture);
             }
         }
         
@@ -1362,6 +1380,24 @@ namespace ImprintCMS.Models {
         public static string UnitMegaBytesShort {
             get {
                 return ResourceManager.GetString("UnitMegaBytesShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string UnitNo {
+            get {
+                return ResourceManager.GetString("UnitNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string UnitYes {
+            get {
+                return ResourceManager.GetString("UnitYes", resourceCulture);
             }
         }
         

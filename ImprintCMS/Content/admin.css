@@ -1,33 +1,36 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic);
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700);
 
-body { font-family: Roboto, Sans-Serif; color: #000000; background-color: #ffffff; font-size: 14px; padding: 60px 0 30px 0; margin: 0; }
+body { font-family: Roboto, Sans-Serif; color: #000000; background-color: #ffffff; font-size: 100%; padding: 0; margin: 0; }
 
 a { color: #4880e3; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a:hover { text-decoration: underline; transition: all ease 0.2s; }
 
 ul { list-style-type: none; margin: 0; padding: 0; }
-h2 { font-family: 'Roboto Slab'; font-weight: 500; clear: both; margin: 1em 0 0.2em 0; }
+h2 { font-size: 1.2em; font-weight: 500; margin: 1em 0 0.2em 0; }
 .inactive { color: #dddddd; font-style: italic; }
 .notice { color: #dddddd; }
 .warning { color: #ffa500; font-style: italic; }
 
-header { position: fixed; top: 0; left: 0; width: 100%; height: 40px; background: #808080; z-index: 5; }
-    header a { display: block; line-height: 40px; color: #ffffff; padding: 0 10px; margin: 0; }
-        header a:hover { background-color: #dddddd; color: #333333; transition: all ease 0.2s; text-decoration: none; }
-    header h1 { font-family: 'Roboto Slab'; font-weight: 300; position: absolute; top: 0; left: 0; padding: 0; margin: 0; }
+header { position: fixed; top: 0; left: 0; width: 100%; height: 2em; background: #666666; z-index: 5; }
+    header a { display: block; line-height: 2em; color: #ffffff; padding: 0 0.5em; margin: 0; }
+        header a:hover { background-color: #dddddd; color: #333333; text-decoration: none; }
+    header h1 { display: none; }
+    header #breadcrumbs { position: absolute; left: 1.5em; top: 0; margin: 0; padding: 0; list-style-type: none; }
+        header #breadcrumbs li { display: inline-block; margin: 0; padding: 0; line-height: 2em; color: #ffffff; border-right: 0.1em solid #dddddd; }
+            header #breadcrumbs li:last-child { border: none; }
     header #account { position: absolute; right: 0; top: 0; z-index: 10; }
-    header #sitelink { position: absolute; right: 200px; top: 0; z-index: 10; }
-    header #breadcrumbs { position: absolute; left: 200px; top: 0; margin: 0; padding: 0; list-style-type: none; }
-        header #breadcrumbs li { display: inline-block; margin: 0; padding: 0; line-height: 40px; color: #ffffff; }
-            header #breadcrumbs li:last-child { padding: 0 10px; background-color: #dddddd; color: #333333; }
+    header #sitelink { position: absolute; right: 10em; top: 0; z-index: 10; }
 
-#content { padding: 0 30px; }
+#content { padding: 4em 2em 2em 2em; }
 
-ul.adminactions { float: left; clear: both; margin: 0 0 1em 0; }
-    ul.adminactions li { margin-right: 1em; float: left; }
-    ul.adminactions a { display: block; float: left; background: #f8f8f8; border: 1px dotted #dddddd; border-radius: 4px; color: #000000; padding: 2px 5px; font-size: 1.2em; text-transform: uppercase; }
-        ul.adminactions a:hover { background: #dddddd; text-decoration: none; }
+.adminactions a { display: inline-block; line-height: 2em; padding: 0 1em; border-radius: 1em; background: #cccccc; color: #ffffff; margin: 0 0.5em 1em 0; }
+    .adminactions a:hover { text-decoration: none; background-color: #4880e3; }
+
+table { border-collapse: collapse; }
+th, td { text-align: left; vertical-align: top; padding: 0.1em 0.5em; border-bottom: 0.1em solid #eeeeee; }
+    th:first-child, td:first-child { padding-left: 0; }
+    th:last-child, td:last-child { padding-right: 0; }
+th { border-color: #333333; font-weight: 500; }
 
 ul.listing { clear: both; margin: 1em 0; }
     ul.listing li { clear: both; padding: 2px 0; border-bottom: 1px dotted #dddddd; }
@@ -44,17 +47,17 @@ ul.listing { clear: both; margin: 1em 0; }
 
 input, select, textarea { font-family: Calibri, Sans-Serif; font-size: 1em; }
 fieldset { border: none; margin: 0; padding: 0; }
-    fieldset.login label { font-weight: bold; }
-    fieldset.fields label { font-weight: bold; }
-    fieldset.fields input { width: 600px; }
-    fieldset.fields select { width: 600px; }
-    fieldset.fields textarea { width: 600px; height: 100px; }
-        fieldset.fields textarea.rich { height: 200px; }
+    fieldset.login label { font-weight: 500; }
+    fieldset.fields label { font-weight: 500; }
+    fieldset.fields input { width: 30em; }
+    fieldset.fields select { width: 30em; }
+    fieldset.fields textarea { width: 30em; height: 5em; }
+        fieldset.fields textarea.rich { height: 10em; }
     fieldset.submit { margin-top: 2em; }
-textarea { min-height: 100px; }
+textarea { min-height: 5em; }
 
 .field-validation-error { color: #ff0000; }
 .field-validation-valid { display: none; }
 .input-validation-error { border: 1px solid #ff0000; background-color: #ffeeee; }
-.validation-summary-errors { font-weight: bold; color: #ff0000; }
+.validation-summary-errors { font-weight: 500; color: #ff0000; }
 .validation-summary-valid { display: none; }

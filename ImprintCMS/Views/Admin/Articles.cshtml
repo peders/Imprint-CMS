@@ -5,16 +5,27 @@
 		Phrases.PagenameArticles.ToHtmlString()
 	};
 }
-<ul class="adminactions">
-    <li>@Html.ActionLink(Phrases.PagenameCreateArticle, "createarticle")</li>
-</ul>
-<ul class="listing">
-    @foreach (var article in Model)
-    {
-        <li><span class="name">@Html.ActionLink(article.Title, "editarticle", new { id = article.Id })</span>
-            <span class="data">@String.Format("{0:D}", article.Date)</span>
-            <span class="@String.Format("data{0}", !article.IsVisible ? " inactive" : string.Empty)">@(article.IsVisible ? Phrases.LabelIsVisible : Phrases.LabelIsNotVisible)</span>
-            <span class="@String.Format("data{0}", !article.IsOnFrontPage ? " inactive" : string.Empty)">@(article.IsOnFrontPage ? Phrases.LabelShowOnFrontPage : Phrases.LabelDontShowOnFrontPage)</span>
-            @Html.ActionLink(Phrases.LabelDelete, "deletearticle", new { id = article.Id })</li>
-    }
-</ul>
+<div class="adminactions">
+    @Html.ActionLink(Phrases.PagenameCreateArticle, "createarticle")
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>@Phrases.LabelTitle</th>
+            <th>@Phrases.LabelDate</th>
+            <th>@Phrases.LabelIsVisible</th>
+            <th>@Phrases.LabelShowOnFrontPage</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var article in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(article.Title, "editarticle", new { id = article.Id })</td>
+                <td>@String.Format("{0:D}", article.Date)</td>
+                <td class="@(!article.IsVisible ? "inactive" : string.Empty)">@article.IsVisible.ToWord()</td>
+                <td class="@(!article.IsOnFrontPage ? "inactive" : string.Empty)">@article.IsOnFrontPage.ToWord()</td>
+            </tr>
+        }
+    </tbody>
+</table>
