@@ -1,0 +1,34 @@
+﻿@model Book
+@{
+	ViewBag.Title = Phrases.PagenameEditBook;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameBooks, "books"),
+		Phrases.PagenameEditBook.ToHtmlString()
+	};
+}
+@Html.EditorForModel()
+<h2>@Phrases.LabelRelations</h2>
+<ul class="listing sortable" data-persisturl="@Url.Action("storerelationorder")" data-handlelabel="@Phrases.LabelDragAndDropToSort" data-errorlabel="@Phrases.ValidationAjaxError">
+	@foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
+ {
+		<li id="@String.Format("sortitem_{0}", relation.Id)"><span class="name">@Html.ActionLink(relation.ReversePersonName, "editrelation", new { id = relation.Id })</span>
+			@Html.ActionLink(Phrases.LabelRemove, "removerelation", new { id = relation.Id })</li>
+ }
+</ul>
+<p>@Html.ActionLink(Phrases.PagenameCreateRelation, "createrelation", new { id = Model.Id })</p>
+<h2>@Phrases.LabelEditions</h2>
+@if (!Model.HasExternalPublisher)
+{
+	<ul class="listing">
+		@foreach (var edition in Model.Editions.OrderBy(e => e.Number))
+  {
+			<li><span class="name">@Html.ActionLink(String.Format("{0} - {1}", edition.Number, edition.Binding.Name), "editedition", new { id = edition.Id })</span>
+				@Html.ActionLink(Phrases.LabelDelete, "deleteedition", new { id = edition.Id })</li>
+  }
+	</ul>
+	<p>@Html.ActionLink(Phrases.PagenameCreateEdition, "createedition", new { id = Model.Id })</p>
+}
+else
+{
+	<p class="inactive">@Phrases.ValidationNoEditionsForExternalPublisher</p>
+}

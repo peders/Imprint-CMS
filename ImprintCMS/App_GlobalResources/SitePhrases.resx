@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuAuthors" xml:space="preserve">
+    <value>Forfattere</value>
+  </data>
+  <data name="MenuBooks" xml:space="preserve">
+    <value>Bøker</value>
+  </data>
+  <data name="MenuHome" xml:space="preserve">
+    <value>Forside</value>
+  </data>
+  <data name="LabelEdition" xml:space="preserve">
+    <value>{0}. utgave</value>
+    <comment>Insert edition number</comment>
+  </data>
+  <data name="UnitPagesPlural" xml:space="preserve">
+    <value>sider</value>
+  </data>
+  <data name="UnitPagesSingular" xml:space="preserve">
+    <value>side</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>{0:F2} kr</value>
+    <comment>Insert price</comment>
+  </data>
+  <data name="LabelIsbn" xml:space="preserve">
+    <value>ISBN {0}</value>
+    <comment>Insert ISBN</comment>
+  </data>
+  <data name="LabelShareOnTwitter" xml:space="preserve">
+    <value>Del på Twitter</value>
+  </data>
+  <data name="LabelCoverImage" xml:space="preserve">
+    <value>Omslaget til {0}</value>
+    <comment>Insert book title</comment>
+  </data>
+  <data name="LabelPhotoCredit" xml:space="preserve">
+    <value>Foto: {0}</value>
+    <comment>Insert name of photographer</comment>
+  </data>
+  <data name="HeadingAuthorAwards" xml:space="preserve">
+    <value>Priser</value>
+  </data>
+  <data name="HeadingAuthorBooks" xml:space="preserve">
+    <value>Bøker</value>
+  </data>
+  <data name="HeadingAuthorTranslations" xml:space="preserve">
+    <value>Oversettelser</value>
+  </data>
+  <data name="MenuContact" xml:space="preserve">
+    <value>Kontakt oss</value>
+  </data>
+  <data name="HeadingSearchBooks" xml:space="preserve">
+    <value>Bøker</value>
+  </data>
+  <data name="HeadingSearchPeople" xml:space="preserve">
+    <value>Forfattere</value>
+  </data>
+  <data name="LabelSearchResultEmpty" xml:space="preserve">
+    <value>Ingen treff</value>
+  </data>
+  <data name="LabelSearch" xml:space="preserve">
+    <value>Søk</value>
+  </data>
+  <data name="LabelSearchPlaceholder" xml:space="preserve">
+    <value>Søk etter bok eller forfatter</value>
+  </data>
+  <data name="LabelIsReleased" xml:space="preserve">
+    <value>Utkommet</value>
+  </data>
+  <data name="UnitMonthMedio" xml:space="preserve">
+    <value>medio</value>
+  </data>
+  <data name="UnitMonthPrimo" xml:space="preserve">
+    <value>primo</value>
+  </data>
+  <data name="UnitMonthUltimo" xml:space="preserve">
+    <value>ultimo</value>
+  </data>
+  <data name="LabelToBeReleased" xml:space="preserve">
+    <value>Kommer</value>
+  </data>
+  <data name="LabelExcerpt" xml:space="preserve">
+    <value>Utdrag fra {0} (pdf)</value>
+    <comment>Insert book title</comment>
+  </data>
+  <data name="HeadingAuthorAnthologies" xml:space="preserve">
+    <value>Antologibidrag</value>
+  </data>
+  <data name="HeadingBookQuotes" xml:space="preserve">
+    <value>Om {0}</value>
+    <comment>Insert book title</comment>
+  </data>
+  <data name="LabelAuthorImage" xml:space="preserve">
+    <value>Bilde av {0}</value>
+    <comment>Insert name</comment>
+  </data>
+  <data name="LabelShopEmpty" xml:space="preserve">
+    <value>Du har ingen bøker i handlekurven</value>
+  </data>
+  <data name="MenuShop" xml:space="preserve">
+    <value>Kjøp</value>
+  </data>
+  <data name="LabelAddToShop" xml:space="preserve">
+    <value>Kjøp</value>
+  </data>
+  <data name="LabelNotForSale" xml:space="preserve">
+    <value>Ikke i salg</value>
+  </data>
+  <data name="LabelShopRemoveAll" xml:space="preserve">
+    <value>Tøm handlekurv</value>
+  </data>
+  <data name="LabelShopRemoveOne" xml:space="preserve">
+    <value>Fjern</value>
+  </data>
+  <data name="LabelShopDistributionCostLegend" xml:space="preserve">
+    <value>Gratis frakt på alle ordre over {0:F2} kr.</value>
+    <comment>Insert limit</comment>
+  </data>
+  <data name="LabelCancel" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="LabelLargeCover" xml:space="preserve">
+    <value>Stort omslag</value>
+  </data>
+  <data name="LabelLargePortrait" xml:space="preserve">
+    <value>Stort portrett</value>
+  </data>
+  <data name="LabelProceedToDownload" xml:space="preserve">
+    <value>Last ned</value>
+  </data>
+  <data name="LabelLegendPlaceholder" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="LabelNext" xml:space="preserve">
+    <value>Neste</value>
+  </data>
+  <data name="LabelShopDistributionCost" xml:space="preserve">
+    <value>Frakt</value>
+  </data>
+  <data name="LabelShopSubtotal" xml:space="preserve">
+    <value>Subtotal</value>
+  </data>
+  <data name="LabelShopTotal" xml:space="preserve">
+    <value>Å betale</value>
+  </data>
+  <data name="HeadingShopBasket" xml:space="preserve">
+    <value>Handlekurv</value>
+  </data>
+  <data name="LabelPrevious" xml:space="preserve">
+    <value>Tilbake</value>
+  </data>
+  <data name="LabelShopSendOrder" xml:space="preserve">
+    <value>Send bestilling</value>
+  </data>
+  <data name="ValidationInvalidEmailFormat" xml:space="preserve">
+    <value>Dette er ikke en gyldig e-postadresse</value>
+  </data>
+  <data name="ValidationRequired" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="HeadingShopConfirm" xml:space="preserve">
+    <value>Bekreft og send</value>
+  </data>
+  <data name="HeadingShopDetails" xml:space="preserve">
+    <value>Navn og adresse</value>
+  </data>
+  <data name="LabelAddress" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="LabelCity" xml:space="preserve">
+    <value>Poststed</value>
+  </data>
+  <data name="LabelEmail" xml:space="preserve">
+    <value>E-post</value>
+  </data>
+  <data name="LabelName" xml:space="preserve">
+    <value>Navn</value>
+  </data>
+  <data name="LabelPhone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="LabelPostcode" xml:space="preserve">
+    <value>Postnummer</value>
+  </data>
+  <data name="LabelShopConfirm" xml:space="preserve">
+    <value>Send bestilling</value>
+  </data>
+  <data name="HeadingShopReceipt" xml:space="preserve">
+    <value>Bestillingen er sendt</value>
+  </data>
+  <data name="LabelShopReceipt" xml:space="preserve">
+    <value>Ved henvendelser om bestillingen, vennligst oppgi ordrenummer {0}.</value>
+    <comment>Insert order id</comment>
+  </data>
+  <data name="LabelShopOrderEmailSubject" xml:space="preserve">
+    <value>Ny ordre på {0}</value>
+    <comment>Insert site name</comment>
+  </data>
+  <data name="LabelShopOrderEmailBody" xml:space="preserve">
+    <value>&lt;p style="font-family: sans-serif;"&gt;{0}&lt;/p&gt;</value>
+    <comment>Insert text as HTML</comment>
+  </data>
+  <data name="MenuSearch" xml:space="preserve">
+    <value>Søk</value>
+  </data>
+  <data name="LabelIsDebut" xml:space="preserve">
+    <value>Debut</value>
+  </data>
+  <data name="LabelAllBooks" xml:space="preserve">
+    <value>Alle bøker</value>
+  </data>
+  <data name="HeadingArticlesAbout" xml:space="preserve">
+    <value>Nyheter om {0}</value>
+    <comment>Insert name</comment>
+  </data>
+  <data name="LabelBuyThroughExternalStores" xml:space="preserve">
+    <value>Kjøp hos …</value>
+  </data>
+</root>

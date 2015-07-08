@@ -1,0 +1,19 @@
+﻿@model FileUpload
+<form action="" method="post" enctype="multipart/form-data">
+@Html.ValidationSummary(true)
+<fieldset class="fields">
+	<p>
+		<label for="file">@Phrases.LabelSelectFile</label><br />
+		<input type="file" name="file" id="file" />
+	</p>
+</fieldset>
+<fieldset class="hidden">
+	@Html.HiddenFor(model => model.FileCategory)
+	@Html.HiddenFor(model => model.ReplaceId)
+</fieldset>
+<fieldset class="submit">
+	<p>
+		<input type="submit" value="@Phrases.LabelSubmit" />
+	</p>
+</fieldset>
+</form>

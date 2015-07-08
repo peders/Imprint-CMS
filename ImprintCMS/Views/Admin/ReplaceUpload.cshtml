@@ -1,0 +1,10 @@
+﻿@model FileUpload
+@{
+	ViewBag.Title = String.Format("{0} {1}", Phrases.LabelReplace, Model.FileCategory);
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameUploads, "uploads"),
+		Html.ActionLink(Model.FileCategory, "uploadcategory", new { id = Model.FileCategory }),
+		Phrases.LabelReplace.ToHtmlString()
+	};
+}
+@Html.EditorForModel()

@@ -1,0 +1,67 @@
+﻿@model Person
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+	<fieldset class="fields">
+		<p>
+			@Html.LabelFor(model => model.FirstName, Phrases.LabelFirstName)<br />
+			@Html.TextBoxFor(model => model.FirstName)
+			@Html.ValidationMessageFor(model => model.FirstName)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.LastName, Phrases.LabelLastName)<br />
+			@Html.TextBoxFor(model => model.LastName)
+			@Html.ValidationMessageFor(model => model.LastName)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Description, Phrases.LabelDescription)<br />
+			@Html.TextAreaFor(model => model.Description, new { @class = "rich" })
+			@Html.ValidationMessageFor(model => model.Description)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Awards, Phrases.LabelAwards)<br />
+			@Html.TextAreaFor(model => model.Awards, new { @class = "rich" })
+			@Html.ValidationMessageFor(model => model.Awards)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Translations, Phrases.LabelTranslations)<br />
+			@Html.TextAreaFor(model => model.Translations, new { @class = "rich" })
+			@Html.ValidationMessageFor(model => model.Translations)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Anthologies, Phrases.LabelAnthologies)<br />
+			@Html.TextAreaFor(model => model.Anthologies, new { @class = "rich" })
+			@Html.ValidationMessageFor(model => model.Anthologies)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.SmallImageId, Phrases.LabelSmallImage)<br />
+			@Html.DropDownListFor(model => model.SmallImageId, (SelectList)ViewBag.SmallPortraits, "–")
+			@Html.ValidationMessageFor(model => model.SmallImageId)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.LargeImageId, Phrases.LabelLargeImage)<br />
+			@Html.DropDownListFor(model => model.LargeImageId, (SelectList)ViewBag.LargePortraits, "–")
+			@Html.ValidationMessageFor(model => model.LargeImageId)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.PhotographerCredit, Phrases.LabelPhotographerCredit)<br />
+			@Html.TextBoxFor(model => model.PhotographerCredit)
+			@Html.ValidationMessageFor(model => model.PhotographerCredit)
+		</p>
+	</fieldset>
+	<fieldset class="options">
+		<p>
+			@Html.CheckBoxFor(model => model.IsVisible)
+			@Html.LabelFor(model => model.IsVisible, Phrases.LabelIsVisible)
+		</p>
+		<p>
+			@Html.CheckBoxFor(model => model.HasPage)
+			@Html.LabelFor(model => model.HasPage, Phrases.LabelHasPage)
+		</p>
+	</fieldset>
+	<fieldset class="submit">
+		<p>
+			<input type="submit" value="@Phrases.LabelSave" />
+		</p>
+	</fieldset>
+}

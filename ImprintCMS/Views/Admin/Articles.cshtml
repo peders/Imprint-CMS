@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Article>
+@{
+    ViewBag.Title = Phrases.PagenameArticles;
+    ViewBag.Breadcrumbs = new[] {
+		Phrases.PagenameArticles.ToHtmlString()
+	};
+}
+<ul class="adminactions">
+    <li>@Html.ActionLink(Phrases.PagenameCreateArticle, "createarticle")</li>
+</ul>
+<ul class="listing">
+    @foreach (var article in Model)
+    {
+        <li><span class="name">@Html.ActionLink(article.Title, "editarticle", new { id = article.Id })</span>
+            <span class="data">@String.Format("{0:D}", article.Date)</span>
+            <span class="@String.Format("data{0}", !article.IsVisible ? " inactive" : string.Empty)">@(article.IsVisible ? Phrases.LabelIsVisible : Phrases.LabelIsNotVisible)</span>
+            <span class="@String.Format("data{0}", !article.IsOnFrontPage ? " inactive" : string.Empty)">@(article.IsOnFrontPage ? Phrases.LabelShowOnFrontPage : Phrases.LabelDontShowOnFrontPage)</span>
+            @Html.ActionLink(Phrases.LabelDelete, "deletearticle", new { id = article.Id })</li>
+    }
+</ul>

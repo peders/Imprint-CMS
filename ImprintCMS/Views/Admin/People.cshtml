@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Person>
+@{
+	ViewBag.Title = Phrases.PagenamePersons;
+	ViewBag.Breadcrumbs = new[] {
+		Phrases.PagenamePersons.ToHtmlString()
+	};
+}
+<ul class="adminactions">
+	<li>@Html.ActionLink(Phrases.PagenameCreatePerson, "createperson")</li>
+</ul>
+<ul class="listing">
+	@foreach (var person in Model)
+ {
+		<li><span class="name">@Html.ActionLink(person.ReverseName, "editperson", new { id = person.Id })</span>
+			@Html.ActionLink(Phrases.LabelDelete, "deleteperson", new { id = person.Id })</li>
+ }
+</ul>

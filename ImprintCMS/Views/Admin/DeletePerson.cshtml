@@ -1,0 +1,31 @@
+﻿@model Person
+@{
+	ViewBag.Title = Phrases.PagenameDelete;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenamePersons, "people"),
+		Html.ActionLink(Model.FullName, "editperson", new { id = Model.Id }),
+		Phrases.LabelDelete.ToHtmlString()
+	};
+}
+@if (Model.Relations.Any())
+{
+	<p>@Html.DeleteDependencies(Model.FullName)</p>
+	<h2>@Phrases.LabelBooks</h2>
+	<ul>
+		@foreach (var book in Model.Relations.Select(r => r.Book).OrderBy(b => b.Title))
+  {
+			<li>@Html.ActionLink(book.FullTitle, "editbook", new { id = book.Id })</li>
+  }
+	</ul>
+}
+else
+{
+	<p>@Html.DeleteConfirmation(Model.FullName)</p>
+	using (Html.BeginForm())
+	{
+	<p>
+		<input type="submit" value="@Phrases.LabelDelete" />
+		@Html.ActionLink(String.Format(Phrases.LabelBackTo, Phrases.PagenamePersons), "people")
+	</p>
+	}
+}

@@ -1,0 +1,77 @@
+﻿@model Edition
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+	<fieldset class="fields">
+		<p>
+			<label>@Phrases.LabelBook</label><br />
+			@Model.Book.FullTitle
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Number, Phrases.LabelNumber)<br />
+			@Html.TextBoxFor(model => model.Number)
+			@Html.ValidationMessageFor(model => model.Number)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.BindingId, Phrases.LabelBinding)<br />
+			@Html.DropDownListFor(model => model.BindingId, (SelectList)ViewBag.Bindings, "–")
+			@Html.ValidationMessageFor(model => model.BindingId)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Isbn, Phrases.LabelIsbn)<br />
+			@Html.TextBoxFor(model => model.Isbn)
+			@Html.ValidationMessageFor(model => model.Isbn)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.Price, Phrases.LabelPrice)<br />
+			@Html.TextBoxFor(model => model.Price)
+			@Html.ValidationMessageFor(model => model.Price)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.PageCount, Phrases.LabelPageCount)<br />
+			@Html.TextBoxFor(model => model.PageCount)
+			@Html.ValidationMessageFor(model => model.PageCount)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.ReleaseDate, Phrases.LabelReleaseDate)<br />
+			@Html.TextBox("ReleaseDate", String.Format("{0:d}", Model.ReleaseDate), new { @class = "datepicker" })
+			@Html.ValidationMessageFor(model => model.ReleaseDate)
+		</p>
+		<p>
+		    @Html.LabelFor(model => model.Blurb, Phrases.LabelEditionBlurb)<br />
+			@Html.TextAreaFor(model => model.Blurb, new { @class = "rich" })
+			@Html.ValidationMessageFor(model => model.Blurb)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.SmallCoverId, Phrases.LabelSmallImage)<br />
+			@Html.DropDownListFor(model => model.SmallCoverId, (SelectList)ViewBag.SmallCovers, "–")
+			@Html.ValidationMessageFor(model => model.SmallCoverId)
+		</p>
+		<p>
+			@Html.LabelFor(model => model.LargeCoverId, Phrases.LabelLargeImage)<br />
+			@Html.DropDownListFor(model => model.LargeCoverId, (SelectList)ViewBag.LargeCovers, "–")
+			@Html.ValidationMessageFor(model => model.LargeCoverId)
+		</p>
+	</fieldset>
+	<fieldset class="options">
+		<p>
+			@Html.CheckBoxFor(model => model.IsForSale)
+			@Html.LabelFor(model => model.IsForSale, Phrases.LabelIsForSale)
+		</p>
+	</fieldset>
+	<fieldset class="fields">
+		<p>
+			@Html.LabelFor(model => model.AlternativeNotForSaleMessage, "Alternative message to be shown if not for sale")<br />
+			@Html.TextBoxFor(model => model.AlternativeNotForSaleMessage)
+			@Html.ValidationMessageFor(model => model.AlternativeNotForSaleMessage)
+		</p>
+	</fieldset>
+	<fieldset class="hidden">
+			@Html.HiddenFor(model => model.BookId)
+	</fieldset>
+	<fieldset class="submit">
+		<p>
+			<input type="submit" value="@Phrases.LabelSave" />
+		</p>
+	</fieldset>
+}

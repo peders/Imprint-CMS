@@ -1,0 +1,22 @@
+﻿@model Order
+@{
+    ViewBag.Title = SitePhrases.MenuShop;
+}
+<h1>@SitePhrases.HeadingShopBasket</h1>
+@if (Model == null || !Model.OrderLines.Any())
+{
+    <p class="empty">@SitePhrases.LabelShopEmpty</p>
+}
+else
+{
+    @Html.Partial("Basket", Model)
+    <p>@Html.ActionLink(SitePhrases.LabelShopRemoveAll, "empty")</p>
+    using (Html.BeginForm("details", "shop", FormMethod.Get))
+    {
+    <fieldset class="shop">
+        <p>
+            <input type="submit" value="@SitePhrases.LabelNext" class="button" />
+        </p>
+    </fieldset>
+    }
+}

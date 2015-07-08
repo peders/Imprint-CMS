@@ -1,0 +1,11 @@
+﻿@{
+	var adminControllers = new[] { "admin", "account" };
+	if (adminControllers.Contains((string)ViewContext.ControllerName().ToLower()))
+	{
+		Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	}
+	else
+	{
+		Layout = "~/Views/Shared/_SiteLayout.cshtml";
+	}
+}

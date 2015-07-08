@@ -1,0 +1,10 @@
+﻿@model Edition
+@{
+	ViewBag.Title = Phrases.PagenameCreateEdition;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameBooks, "books"),
+		Html.ActionLink(Model.Book.FullTitle, "editbook", new { id = Model.BookId }),
+		Phrases.PagenameCreateEdition.ToHtmlString()
+	};
+}
+@Html.EditorForModel()

@@ -1,0 +1,78 @@
+﻿@model SiteFrontPage
+@{
+    ViewBag.Title = ((SiteConfig)ViewBag.Config).Name;
+}
+<div id="booklists">
+    @foreach (var list in Model.BookLists)
+    {
+        <div class="booklist">
+            <h1>@list.Title</h1>
+            <ul>
+                @foreach (var edition in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Edition))
+                {
+                    <li>
+                        @if (edition.SmallCoverId != null)
+                        {
+                            <a href="@Url.Action("details", "books", new { id = edition.BookId })" class="book">@Html.CoverImage(edition)</a>
+                        }
+                        <p class="people">@edition.Book.RelationNames()</p>
+                        <p class="title">
+                            @Html.ActionLink(edition.Book.Title, "details", "books", new { id = edition.BookId }, null)
+                            @if (edition.Book.IsDebut)
+                            {
+                                <span class="isdebut"> (@SitePhrases.LabelIsDebut.ToLowerInvariant())</span>
+                            }
+                        </p>
+                        @if (!String.IsNullOrWhiteSpace(edition.Book.Subtitle))
+                        {
+                            <p class="subtitle">@edition.Book.Subtitle</p>
+                        }
+                        <p class="@String.Format("date{0}", edition.ReleaseDate > DateTime.Today ? " tobereleased" : string.Empty)">@edition.ReleaseDate.ToBookListDate()</p>
+                        @if (!String.IsNullOrWhiteSpace(edition.Blurb))
+                        {
+                            <p class="blurb">@edition.Blurb.ToRichText()</p>
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>
+<div id="articles">
+    @foreach (var article in Model.Articles)
+    {
+        <div class="article">
+            @if (article.ImagePerson != null)
+            {
+                <div class="image">
+                    <a href="@Url.Action("details", "authors", new { id = article.ImagePerson.Id })">@Html.PersonImage(article.ImagePerson)</a>
+                </div>
+            }
+            else
+            {
+                if (article.ImageEdition != null)
+                {
+                    <div class="image">
+                        <a href="@Url.Action("details", "books", new { id = article.ImageEdition.BookId })">@Html.CoverImage(article.ImageEdition)</a>
+                    </div>
+                }
+            }
+            <h1>@article.Title</h1>
+            @article.Description.ToRichText()
+            @if (article.PersonToArticles.Any(p => p.Person.IsVisible && p.Person.HasPage) || article.BookToArticles.Any(b => b.Book.IsVisible))
+            {
+                <ul class="links">
+                    @foreach (var person in article.PersonToArticles.OrderBy(p => p.SequenceIdentifier).Select(p => p.Person))
+                    {
+                        <li>@Html.ActionLink(person.FullName, "details", "authors", new { id = person.Id }, null)</li>
+                    }
+                    @foreach (var book in article.BookToArticles.OrderBy(b => b.SequenceIdentifier).Select(b => b.Book))
+                    {
+                        <li>@Html.ActionLink(book.Title, "details", "books", new { id = book.Id }, null)</li>
+                    }
+                </ul>
+            }
+            <p class="date">@String.Format("{0:D}", article.Date)</p>
+        </div>
+    }
+</div>

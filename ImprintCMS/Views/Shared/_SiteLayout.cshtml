@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>
+        @ViewBag.Title
+    @if (ViewBag.Title != ((SiteConfig)ViewBag.Config).Name)
+    {
+        @String.Format(" | {0}", ((SiteConfig)ViewBag.Config).Name)}
+</title>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js" type="text/javascript"></script>
+@foreach (var url in ViewBag.ScriptUrls)
+{
+    <script src="@url" type="text/javascript"></script>
+}
+<link href="@Url.Content("~/content/sitebase.css")" rel="stylesheet" type="text/css" />
+@foreach (var url in ViewBag.StylesheetUrls)
+{
+    <link href="@url" rel="stylesheet" type="text/css" />
+}
+<!--[if lte IE 8]>
+    @foreach (var url in ViewBag.LegacyStylesheetUrls)
+    {
+        <link href="@url" rel="stylesheet" type="text/css" />
+    }
+<![endif]-->
+@{ var openGraph = ViewBag.OpenGraph as OpenGraph;}
+@if (openGraph != null)
+{
+    <meta property="og:title" content="@openGraph.Title" />
+    <meta property="og:site_name" content="@openGraph.SiteName" />
+    <meta property="og:image" content="@openGraph.ImageUrl" />
+    <meta property="og:type" content="@openGraph.Type" />
+    <meta property="og:url" content="@openGraph.Url" />
+}
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+</head>
+<body>
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.EditShortcut()
+    }
+    <div id="header">
+        <h1>@Html.ActionLink((string)ViewBag.Title, "index", "home")</h1>
+        @if (!ViewContext.IsForController("home") || !ViewContext.IsForAction("search"))
+        {
+            @Html.SearchForm(Url.Action("search", "home"), string.Empty)
+        }
+    </div>
+    <ul id="sitemenu">
+        <li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() != "contact" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuHome, "index", "home")</li>
+        <li class="@(ViewContext.ControllerName().ToLower() == "books" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuBooks, "index", "books", new { id = UrlParameter.Optional }, null)</li>
+        <li class="@(ViewContext.ControllerName().ToLower() == "authors" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuAuthors, "index", "authors")</li>
+        <li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() == "contact" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuContact, "contact", "home", new { id = UrlParameter.Optional }, null)</li>
+        <li class="@(ViewContext.ControllerName().ToLower() == "shop" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuShop, "index", "shop", null, new { id = "shopcounter", data_shop_count_url = Url.Action("count", "shop") })</li>
+    </ul>
+    <div id="content" class="@String.Format("{0} {1}", ViewContext.ControllerName().ToLower(), ViewContext.ActionName().ToLower())">
+        @RenderBody()
+        <div id="floatbreaker">
+        </div>
+    </div>
+    <div id="footer">
+        @(((SiteConfig)ViewBag.Config).Footer)
+</div>
+@Html.GoogleAnalytics(((SiteConfig)ViewBag.Config).GoogleAnalyticsTrackingCode)
+</body>
+</html>

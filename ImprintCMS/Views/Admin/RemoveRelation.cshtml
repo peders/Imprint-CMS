@@ -1,0 +1,17 @@
+﻿@model Relation
+@{
+	ViewBag.Title = Phrases.PagenameRemove;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameBooks, "books"),
+		Html.ActionLink(Model.Book.Title, "editbook", new { id = Model.BookId }),
+		Phrases.LabelRemove.ToHtmlString()
+	};
+}
+<p>@Html.RemoveConfirmation(Model.PersonName, Model.Book.Title)</p>
+@using (Html.BeginForm())
+{
+	<p>
+		<input type="submit" value="@Phrases.LabelRemove" />
+		@Html.ActionLink(String.Format(Phrases.LabelBackTo, Model.Book.Title), "editbook", new { id = Model.BookId })
+	</p>
+}

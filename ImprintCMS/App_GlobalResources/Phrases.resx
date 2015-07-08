@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FileTypeImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="FileTypePDF" xml:space="preserve">
+    <value>PDF</value>
+  </data>
+  <data name="LabelAnthologies" xml:space="preserve">
+    <value>Anthology contributions</value>
+  </data>
+  <data name="LabelAwards" xml:space="preserve">
+    <value>Awards</value>
+  </data>
+  <data name="LabelBinding" xml:space="preserve">
+    <value>Binding</value>
+  </data>
+  <data name="LabelBook" xml:space="preserve">
+    <value>Book</value>
+  </data>
+  <data name="LabelDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="LabelDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="LabelExcerpt" xml:space="preserve">
+    <value>Excerpt</value>
+  </data>
+  <data name="LabelFileCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="LabelFirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="LabelGenre" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="LabelHasPage" xml:space="preserve">
+    <value>Show with own page on site</value>
+  </data>
+  <data name="LabelIsbn" xml:space="preserve">
+    <value>ISBN</value>
+  </data>
+  <data name="LabelIsDebut" xml:space="preserve">
+    <value>Debut</value>
+  </data>
+  <data name="LabelIsForSale" xml:space="preserve">
+    <value>For sale</value>
+  </data>
+  <data name="LabelIsVisible" xml:space="preserve">
+    <value>Show on site</value>
+  </data>
+  <data name="LabelLargeImage" xml:space="preserve">
+    <value>Large image</value>
+  </data>
+  <data name="LabelLastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="LabelLogOut" xml:space="preserve">
+    <value>Log out {0}</value>
+    <comment>Insert user name</comment>
+  </data>
+  <data name="LabelMainContent" xml:space="preserve">
+    <value>Main content</value>
+  </data>
+  <data name="LabelName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="LabelNumber" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="LabelPageCount" xml:space="preserve">
+    <value>Number of pages</value>
+  </data>
+  <data name="LabelPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LabelPhotographerCredit" xml:space="preserve">
+    <value>Photographer</value>
+  </data>
+  <data name="LabelPrice" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="LabelQuotes" xml:space="preserve">
+    <value>Review quotes</value>
+  </data>
+  <data name="LabelReleaseDate" xml:space="preserve">
+    <value>Release date</value>
+  </data>
+  <data name="LabelSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="LabelSelectFile" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="LabelShortName" xml:space="preserve">
+    <value>Short version</value>
+  </data>
+  <data name="LabelSmallImage" xml:space="preserve">
+    <value>Small image</value>
+  </data>
+  <data name="LabelSubmit" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="LabelSubmitLogin" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="LabelSubtitle" xml:space="preserve">
+    <value>Subtitle</value>
+  </data>
+  <data name="LabelSupportingContent" xml:space="preserve">
+    <value>Supporting content</value>
+  </data>
+  <data name="LabelTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="LabelTranslations" xml:space="preserve">
+    <value>Translated works</value>
+  </data>
+  <data name="LabelUsername" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="MessageUnhandledException" xml:space="preserve">
+    <value>Sorry, this page can not be displayed</value>
+  </data>
+  <data name="PagenameAdmin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="PagenameBindings" xml:space="preserve">
+    <value>Bindings</value>
+  </data>
+  <data name="PagenameBooks" xml:space="preserve">
+    <value>Books</value>
+  </data>
+  <data name="PagenameCreateBinding" xml:space="preserve">
+    <value>New binding</value>
+  </data>
+  <data name="PagenameCreateBook" xml:space="preserve">
+    <value>New book</value>
+  </data>
+  <data name="PagenameCreateEdition" xml:space="preserve">
+    <value>New book edition</value>
+  </data>
+  <data name="PagenameCreateGenre" xml:space="preserve">
+    <value>New genre</value>
+  </data>
+  <data name="PagenameCreatePerson" xml:space="preserve">
+    <value>New person</value>
+  </data>
+  <data name="PagenameCreateRole" xml:space="preserve">
+    <value>New role</value>
+  </data>
+  <data name="PagenameCreateUpload" xml:space="preserve">
+    <value>New file</value>
+  </data>
+  <data name="PagenameEditBinding" xml:space="preserve">
+    <value>Edit binding</value>
+  </data>
+  <data name="PagenameEditBook" xml:space="preserve">
+    <value>Edit book</value>
+  </data>
+  <data name="PagenameEditEdition" xml:space="preserve">
+    <value>Edit book edition</value>
+  </data>
+  <data name="PagenameEditGenre" xml:space="preserve">
+    <value>Edit genre</value>
+  </data>
+  <data name="PagenameEditPerson" xml:space="preserve">
+    <value>Edit person</value>
+  </data>
+  <data name="PagenameEditRole" xml:space="preserve">
+    <value>Edit role</value>
+  </data>
+  <data name="PagenameError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="PagenameGenres" xml:space="preserve">
+    <value>Genres</value>
+  </data>
+  <data name="PagenameLogIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="PagenamePersons" xml:space="preserve">
+    <value>People</value>
+  </data>
+  <data name="PagenameRoles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="PagenameUploads" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="SystemName" xml:space="preserve">
+    <value>Imprint CMS</value>
+  </data>
+  <data name="UnitBytesPlural" xml:space="preserve">
+    <value>bytes</value>
+  </data>
+  <data name="UnitBytesSingular" xml:space="preserve">
+    <value>byte</value>
+  </data>
+  <data name="UnitKiloBytesShort" xml:space="preserve">
+    <value>kB</value>
+  </data>
+  <data name="UnitMegaBytesShort" xml:space="preserve">
+    <value>MB</value>
+  </data>
+  <data name="LabelDeleteDependenciesPrefix" xml:space="preserve">
+    <value>Please remove any dependencies before attempting to delete</value>
+  </data>
+  <data name="ValidationEmptyOrNoFile" xml:space="preserve">
+    <value>No file or file is empty</value>
+  </data>
+  <data name="ValidationFileExists" xml:space="preserve">
+    <value>A file with this name already exists in this category. Delete old file first if you want to replace it, or use the Replace link.</value>
+  </data>
+  <data name="ValidationFileTooLarge" xml:space="preserve">
+    <value>File is too large (max 10 MB)</value>
+  </data>
+  <data name="ValidationInvalidLogin" xml:space="preserve">
+    <value>Invalid username/password</value>
+  </data>
+  <data name="LabelPerson" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="LabelRelations" xml:space="preserve">
+    <value>Rights holders</value>
+  </data>
+  <data name="PagenameCreateRelation" xml:space="preserve">
+    <value>New rights holder</value>
+  </data>
+  <data name="LabelRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="PagenameEditRelation" xml:space="preserve">
+    <value>Edit rights holder</value>
+  </data>
+  <data name="LabelDragAndDropToSort" xml:space="preserve">
+    <value>Drag and drop to sort</value>
+  </data>
+  <data name="ValidationAjaxError" xml:space="preserve">
+    <value>An error occured during an AJAX operation. Please reload the page to see its current state.</value>
+  </data>
+  <data name="LabelBackTo" xml:space="preserve">
+    <value>Back to {0}</value>
+    <comment>Insert target page name</comment>
+  </data>
+  <data name="LabelEditions" xml:space="preserve">
+    <value>Book editions</value>
+  </data>
+  <data name="LabelExternalPublisher" xml:space="preserve">
+    <value>Other publisher</value>
+  </data>
+  <data name="LabelExternalReleaseYear" xml:space="preserve">
+    <value>Release year (if released by other publisher)</value>
+  </data>
+  <data name="ValidationExternalReleaseYear" xml:space="preserve">
+    <value>Release year must be specified for other publishers</value>
+  </data>
+  <data name="LabelHasExternalPublisher" xml:space="preserve">
+    <value>Other publisher</value>
+  </data>
+  <data name="FileTypeWordDocument" xml:space="preserve">
+    <value>Word document</value>
+  </data>
+  <data name="ValidationNoEditions" xml:space="preserve">
+    <value>No editions</value>
+  </data>
+  <data name="ValidationNoRightsHolders" xml:space="preserve">
+    <value>No rights holders</value>
+  </data>
+  <data name="PagenameBookLists" xml:space="preserve">
+    <value>Book lists</value>
+  </data>
+  <data name="PagenameCreateBookList" xml:space="preserve">
+    <value>New book list</value>
+  </data>
+  <data name="PagenameEditBookList" xml:space="preserve">
+    <value>Edit book list</value>
+  </data>
+  <data name="LabelBooks" xml:space="preserve">
+    <value>Books</value>
+  </data>
+  <data name="LabelBookList" xml:space="preserve">
+    <value>Book list</value>
+  </data>
+  <data name="PagenameCreateBookListMembership" xml:space="preserve">
+    <value>New book list member</value>
+  </data>
+  <data name="PagenameCreateArticle" xml:space="preserve">
+    <value>New article</value>
+  </data>
+  <data name="PagenameEditArticle" xml:space="preserve">
+    <value>Edit article</value>
+  </data>
+  <data name="ValidationStringLength50" xml:space="preserve">
+    <value>Max 50 characters</value>
+  </data>
+  <data name="LabelBodyText" xml:space="preserve">
+    <value>Body text</value>
+  </data>
+  <data name="LabelImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="LabelLinkToBook" xml:space="preserve">
+    <value>Link to book</value>
+  </data>
+  <data name="LabelLinkToPerson" xml:space="preserve">
+    <value>Link to person</value>
+  </data>
+  <data name="PagenameContactArticles" xml:space="preserve">
+    <value>Contact articles</value>
+  </data>
+  <data name="PagenameCreateContactArticle" xml:space="preserve">
+    <value>New contact article</value>
+  </data>
+  <data name="PagenameArticles" xml:space="preserve">
+    <value>Articles</value>
+  </data>
+  <data name="ValidationNoEditionsForExternalPublisher" xml:space="preserve">
+    <value>Books from other publishers do not have editions</value>
+  </data>
+  <data name="LabelCreate" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="UnitFilesPlural" xml:space="preserve">
+    <value>files</value>
+  </data>
+  <data name="UnitFilesSingular" xml:space="preserve">
+    <value>file</value>
+  </data>
+  <data name="PagenameEditContactArticle" xml:space="preserve">
+    <value>Edit contact article</value>
+  </data>
+  <data name="LabelIsNotVisible" xml:space="preserve">
+    <value>Don't show on site</value>
+  </data>
+  <data name="LabelDeleteConfirmationPrefix" xml:space="preserve">
+    <value>Are you sure you want to delete</value>
+  </data>
+  <data name="PagenameDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="LabelDeleteConfirmationSuffix" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="LabelDeleteDependenciesSuffix" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="LabelDeleteDependenciesGeneral" xml:space="preserve">
+    <value>Please remove any dependencies before attempting to delete this element.</value>
+  </data>
+  <data name="LabelRemove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="LabelRemoveConfirmationPrefix" xml:space="preserve">
+    <value>Are you sure you want to remove</value>
+  </data>
+  <data name="LabelRemoveConfirmationMiddlePart" xml:space="preserve">
+    <value>from</value>
+  </data>
+  <data name="LabelRemoveConfirmationSuffix" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="PagenameRemove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="LabelClosedOrders" xml:space="preserve">
+    <value>Closed orders</value>
+  </data>
+  <data name="LabelArticles" xml:space="preserve">
+    <value>Articles</value>
+  </data>
+  <data name="LabelPeople" xml:space="preserve">
+    <value>People</value>
+  </data>
+  <data name="FileTypeCss" xml:space="preserve">
+    <value>Stylesheet</value>
+  </data>
+  <data name="FileTypeJavascript" xml:space="preserve">
+    <value>Javascript</value>
+  </data>
+  <data name="LabelOrderContent" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="LabelOrderDetails" xml:space="preserve">
+    <value>Name and address</value>
+  </data>
+  <data name="LabelOrderDistributionCost" xml:space="preserve">
+    <value>Distribution cost</value>
+  </data>
+  <data name="LabelOrderId" xml:space="preserve">
+    <value>Order ID</value>
+  </data>
+  <data name="LabelOrderLines" xml:space="preserve">
+    <value>Books</value>
+  </data>
+  <data name="LabelOrderSubtotal" xml:space="preserve">
+    <value>Subtotal</value>
+  </data>
+  <data name="LabelOrderTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="PagenameOrderDetails" xml:space="preserve">
+    <value>Order details</value>
+  </data>
+  <data name="PagenameOrders" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="LabelReplace" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="PagenameCreateBookLink" xml:space="preserve">
+    <value>New link to book</value>
+  </data>
+  <data name="PagenameCreatePersonLink" xml:space="preserve">
+    <value>New link to person</value>
+  </data>
+  <data name="LabelArticle" xml:space="preserve">
+    <value>Article</value>
+  </data>
+  <data name="SystemViewSite" xml:space="preserve">
+    <value>View site</value>
+  </data>
+  <data name="LabelEditionBlurb" xml:space="preserve">
+    <value>Marketing blurb (shown in front page book lists)</value>
+  </data>
+  <data name="LabelDontShowOnFrontPage" xml:space="preserve">
+    <value>Hide from front page</value>
+  </data>
+  <data name="LabelShowOnFrontPage" xml:space="preserve">
+    <value>Show on front page</value>
+  </data>
+  <data name="FileTypeLegacyCss" xml:space="preserve">
+    <value>Legacy stylesheet</value>
+  </data>
+  <data name="LabelLegacyStylesheetLegend" xml:space="preserve">
+    <value>Legacy stylesheet (a CSS file starting with 'legacy_') will only be served for Internet Explorer versions 8 and older.</value>
+  </data>
+  <data name="LabelUrlPostfix" xml:space="preserve">
+    <value>Part of URL after ISBN</value>
+  </data>
+  <data name="LabelUrlPrefix" xml:space="preserve">
+    <value>Part of URL before ISBN</value>
+  </data>
+  <data name="LabelUsesExternalStores" xml:space="preserve">
+    <value>Sell through external stores</value>
+  </data>
+  <data name="PagenameCreateExternalStore" xml:space="preserve">
+    <value>New external store</value>
+  </data>
+  <data name="PagenameEditExternalStore" xml:space="preserve">
+    <value>Edit external store</value>
+  </data>
+  <data name="PagenameExternalStores" xml:space="preserve">
+    <value>External stores</value>
+  </data>
+  <data name="LabelHideEditionNumber" xml:space="preserve">
+    <value>Hide edition number on site</value>
+  </data>
+  <data name="ValidationRequiredDefault" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LabelRoleBookListHeading" xml:space="preserve">
+    <value>Heading for book listing on person page</value>
+  </data>
+  <data name="ValidationPersonHasRelationToBook" xml:space="preserve">
+    <value>This person is already a rights holder to this book</value>
+  </data>
+  <data name="LabelRoleShowBookList" xml:space="preserve">
+    <value>Show book listing on person page</value>
+  </data>
+  <data name="LabelLogOutSimple" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+</root>

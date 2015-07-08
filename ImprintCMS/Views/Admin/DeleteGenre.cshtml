@@ -1,0 +1,31 @@
+﻿@model ImprintCMS.Models.Genre
+@{
+    ViewBag.Title = Phrases.PagenameDelete;
+    ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameGenres, "genres"),
+		Html.ActionLink(Model.Name, "editgenre", new { id = Model.Id }),
+		Phrases.LabelDelete.ToHtmlString()
+	};
+}
+@if (Model.Books.Any())
+{
+    <p>@Html.DeleteDependencies(Model.Name)</p>
+    <h2>@Phrases.LabelBooks</h2>
+    <ul>
+        @foreach (var book in Model.Books.OrderBy(b => b.Title))
+        {
+            <li>@Html.ActionLink(book.FullTitle, "editbook", new { id = book.Id })</li>
+        }
+    </ul>
+}
+else
+{
+    <p>@Html.DeleteConfirmation(Model.Name)</p>
+    using (Html.BeginForm())
+    {
+    <p>
+        <input type="submit" value="@Phrases.LabelDelete" />
+        @Html.ActionLink(String.Format(Phrases.LabelBackTo, Phrases.PagenameGenres), "genres")
+    </p>
+    }
+}

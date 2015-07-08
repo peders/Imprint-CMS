@@ -1,0 +1,14 @@
+﻿@model IEnumerable<UploadCategory>
+@{
+	ViewBag.Title = Phrases.PagenameUploads;
+	ViewBag.Breadcrumbs = new[] {
+		Phrases.PagenameUploads.ToHtmlString()
+	};
+}
+<ul class="listing">
+	@foreach (var category in Model)
+ {
+		<li><span class="name">@Html.ActionLink(category.Name, "uploadcategory", new { id = category.Name })</span>
+			@String.Format("{0} {1}", category.FileCount, category.FileCount == 1 ? Phrases.UnitFilesSingular : Phrases.UnitFilesPlural)</li>
+ }
+</ul>

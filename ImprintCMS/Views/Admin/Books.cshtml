@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Book>
+@{
+	ViewBag.Title = Phrases.PagenameBooks;
+	ViewBag.Breadcrumbs = new[] {
+		Phrases.PagenameBooks.ToHtmlString()
+	};
+}
+<ul class="adminactions">
+	<li>@Html.ActionLink(Phrases.PagenameCreateBook, "createbook")</li>
+</ul>
+<ul class="listing">
+	@foreach (var book in Model)
+ {
+		<li><span class="name">@Html.ActionLink(book.FullTitle, "editbook", new { id = book.Id })</span>
+			<span class="data">@(new HtmlString(book.Relations.Any() ? String.Format("{0}: {1}", Phrases.LabelRelations, book.Relations.Count()) : "<span class=\"warning\">" + Phrases.ValidationNoRightsHolders + "</span>"))</span>
+			<span class="data">@(new HtmlString(book.HasExternalPublisher ? "<span class=\"inactive\">" + Phrases.LabelHasExternalPublisher + "</span>" : book.Editions.Any() ? String.Format("{0}: {1}", Phrases.LabelEditions, book.Editions.Count()) : "<span class=\"warning\">" + Phrases.ValidationNoEditions + "</span>"))</span>
+			@Html.ActionLink(Phrases.LabelDelete, "deletebook", new { id = book.Id })</li>
+ }
+</ul>

@@ -1,0 +1,17 @@
+﻿@model PersonToArticle
+@{
+	ViewBag.Title = Phrases.PagenameRemove;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameArticles, "articles"),
+		Html.ActionLink(Model.Article.Title, "editarticle", new { id = Model.ArticleId }),
+		Phrases.LabelRemove.ToHtmlString()
+	};
+}
+<p>@Html.RemoveConfirmation(Model.Person.FullName, Model.Article.Title)</p>
+@using (Html.BeginForm())
+{
+	<p>
+		<input type="submit" value="@Phrases.LabelRemove" />
+		@Html.ActionLink(String.Format(Phrases.LabelBackTo, Model.Article.Title), "editarticle", new { id = Model.ArticleId })
+	</p>
+}

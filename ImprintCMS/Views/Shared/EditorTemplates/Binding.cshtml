@@ -1,0 +1,27 @@
+﻿@model Binding
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+	<fieldset class="fields">
+		<p>
+			@Html.LabelFor(model => model.Name, Phrases.LabelName)<br />
+			@Html.TextBoxFor(model => model.Name)
+			@Html.ValidationMessageFor(model => model.Name)
+		</p>
+	</fieldset>
+	<fieldset class="options">
+        <p>
+            @Html.CheckBoxFor(model => model.UsesExternalStores)
+            @Html.LabelFor(model => model.UsesExternalStores, Phrases.LabelUsesExternalStores)
+        </p>
+        <p>
+            @Html.CheckBoxFor(model => model.HideEditionNumber)
+            @Html.LabelFor(model => model.HideEditionNumber, Phrases.LabelHideEditionNumber)
+        </p>
+	</fieldset>
+	<fieldset class="submit">
+		<p>
+			<input type="submit" value="@Phrases.LabelSave" />
+		</p>
+	</fieldset>
+}

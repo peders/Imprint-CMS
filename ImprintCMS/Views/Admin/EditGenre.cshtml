@@ -1,0 +1,9 @@
+﻿@model Genre
+@{
+	ViewBag.Title = Phrases.PagenameEditGenre;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameGenres, "genres"),
+		Phrases.PagenameEditGenre.ToHtmlString()
+	};
+}
+@Html.EditorForModel()
