@@ -53,8 +53,7 @@
         <ul>
             @foreach (var article in Model.Person.PersonToArticles.Where(a => a.Article.IsVisible).Select(a => a.Article).OrderByDescending(a => a.Date))
             {
-                <li>@Html.ActionLink(article.Title, "article", "home", new { id = article.Id }, null)
-                    @String.Format("{0:D}", article.Date)</li>
+                <li>@Html.ActionLink(article.Title, "article", "home", new { id = article.Id }, null)</li>
             }
         </ul>
     }
