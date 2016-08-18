@@ -462,10 +462,9 @@ namespace ImprintCMS.Controllers
                 ViewBag.Genres = GenreList(vm.GenreId);
                 return View(vm);
             }
-            vm.CachedReleaseYear = vm.GenerateReleaseYear();
             UpdateModel(Repository.GetBook(vm.Id));
             Repository.Save();
-            return RedirectToAction("books");
+            return RedirectToAction("updatecachedbookfields", new { id = vm.Id });
         }
 
         public ActionResult DeleteBook(int id)
@@ -650,6 +649,16 @@ namespace ImprintCMS.Controllers
             vm.CachedReleaseYear = vm.GenerateReleaseYear();
             Repository.Save();
             return RedirectToAction("editbook", new { id = vm.Id });
+        }
+
+        public ActionResult UpdateCachedBookFields(int id)
+        {
+            var vm = Repository.GetBook(id);
+            if (vm == null) return HttpNotFound();
+            vm.CachedReleaseYear = vm.GenerateReleaseYear();
+            vm.CachedRightsHoldersText = vm.GenerateRightsHoldersText();
+            Repository.Save();
+            return RedirectToAction("books");
         }
 
         public ActionResult BookLists()
