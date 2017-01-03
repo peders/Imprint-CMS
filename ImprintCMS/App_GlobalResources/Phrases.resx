@@ -602,4 +602,12 @@
   <data name="LabelCancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="LabelShopOrderEmailSubject" xml:space="preserve">
+    <value>[#{0}] New {1} shop order</value>
+    <comment>Insert order ID and site name</comment>
+  </data>
+  <data name="EmailBodyWrapper" xml:space="preserve">
+    <value>&lt;p style="font-family: sans-serif;"&gt;{0}&lt;/p&gt;</value>
+    <comment>Insert text as HTML</comment>
+  </data>
 </root>
