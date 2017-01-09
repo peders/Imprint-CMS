@@ -78,9 +78,20 @@ namespace ImprintCMS.Controllers
 
         public ActionResult Receipt(Guid id)
         {
-            var vm = Repository.GetOrder(id);
-            if (vm == null)
+            var order = Repository.GetOrder(id);
+            if (order == null)
                 return HttpNotFound();
+            var vm = new OrderReceipt
+            {
+                Order = order
+            };
+            try {
+                SendReceiptToCustomer(vm.Order);
+                vm.ReceiptSentSuccessfully = true;
+            }
+            catch {
+                vm.ReceiptSentSuccessfully = false;
+            }
             return View(vm);
         }
 
@@ -150,6 +161,15 @@ namespace ImprintCMS.Controllers
                 Config.ShopEmailRecipient,
                 string.Format(Phrases.LabelShopOrderEmailSubject, order.Id, Config.Name),
                 order.HandlerNotificationBody()
+            );
+        }
+
+        private void SendReceiptToCustomer(Order order)
+        {
+            SendEmail(
+                order.Email,
+                string.Format(SitePhrases.LabelShopReceiptSubject, Config.Name),
+                order.CustomerReceiptBody()
             );
         }
 

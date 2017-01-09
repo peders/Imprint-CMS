@@ -304,7 +304,7 @@
     <value>Send bestilling</value>
   </data>
   <data name="HeadingShopReceipt" xml:space="preserve">
-    <value>Bestillingen er sendt</value>
+    <value>Bestillingen er mottatt</value>
   </data>
   <data name="LabelShopReceipt" xml:space="preserve">
     <value>Ved henvendelser om bestillingen, vennligst oppgi ordrenummer {0}.</value>
@@ -325,5 +325,25 @@
   </data>
   <data name="LabelBuyThroughExternalStores" xml:space="preserve">
     <value>Kjøp hos …</value>
+  </data>
+  <data name="LabelShopCustomerReceiptBody" xml:space="preserve">
+    <value>Din bestilling har ordrenummer {0}.&lt;br/&gt;&lt;br/&gt;{1}&lt;br/&gt;{2}&lt;br/&gt;{3} {4}&lt;br/&gt;Telefon: {5}&lt;br/&gt;E-post: {6}&lt;br/&gt;{7}&lt;br/&gt;&lt;br/&gt;Subtotal: {8:f2}&lt;br/&gt;Frakt: {9:f2}&lt;br/&gt;Total: {10:f2}</value>
+    <comment>Insert order id, name, address, postcode, city, phone, email, order lines, subtotal, distribution cost, total</comment>
+  </data>
+  <data name="LabelShopCustomerReceiptBodyOrderLine" xml:space="preserve">
+    <value>ISBN {0} : {1} : {2:f2}</value>
+    <comment>Insert isbn, title, price</comment>
+  </data>
+  <data name="LabelShopOrderReceiptEmailFailure" xml:space="preserve">
+    <value>En bekreftelse er forsøkt sendt til {0}, men e-posten kunne ikke sendes. Bestillingen er likevel registrert i vårt system.</value>
+    <comment>Insert email</comment>
+  </data>
+  <data name="LabelShopOrderReceiptEmailSuccess" xml:space="preserve">
+    <value>En bekreftelse er også sendt til {0}.</value>
+    <comment>Insert email</comment>
+  </data>
+  <data name="LabelShopReceiptSubject" xml:space="preserve">
+    <value>Din bestilling på {0}</value>
+    <comment>Insert site name</comment>
   </data>
 </root>

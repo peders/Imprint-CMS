@@ -160,7 +160,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bestillingen er sendt.
+        ///   Looks up a localized string similar to Bestillingen er mottatt.
         /// </summary>
         public static string HeadingShopReceipt {
             get {
@@ -439,6 +439,24 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Din bestilling har ordrenummer {0}.&lt;br/&gt;&lt;br/&gt;{1}&lt;br/&gt;{2}&lt;br/&gt;{3} {4}&lt;br/&gt;Telefon: {5}&lt;br/&gt;E-post: {6}&lt;br/&gt;{7}&lt;br/&gt;&lt;br/&gt;Subtotal: {8:f2}&lt;br/&gt;Frakt: {9:f2}&lt;br/&gt;Total: {10:f2}.
+        /// </summary>
+        public static string LabelShopCustomerReceiptBody {
+            get {
+                return ResourceManager.GetString("LabelShopCustomerReceiptBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ISBN {0} : {1} : {2:f2}.
+        /// </summary>
+        public static string LabelShopCustomerReceiptBodyOrderLine {
+            get {
+                return ResourceManager.GetString("LabelShopCustomerReceiptBodyOrderLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Frakt.
         /// </summary>
         public static string LabelShopDistributionCost {
@@ -466,11 +484,38 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to En bekreftelse er forsøkt sendt til {0}, men e-posten kunne ikke sendes. Bestillingen er likevel registrert i vårt system..
+        /// </summary>
+        public static string LabelShopOrderReceiptEmailFailure {
+            get {
+                return ResourceManager.GetString("LabelShopOrderReceiptEmailFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to En bekreftelse er også sendt til {0}..
+        /// </summary>
+        public static string LabelShopOrderReceiptEmailSuccess {
+            get {
+                return ResourceManager.GetString("LabelShopOrderReceiptEmailSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ved henvendelser om bestillingen, vennligst oppgi ordrenummer {0}..
         /// </summary>
         public static string LabelShopReceipt {
             get {
                 return ResourceManager.GetString("LabelShopReceipt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Din bestilling på {0}.
+        /// </summary>
+        public static string LabelShopReceiptSubject {
+            get {
+                return ResourceManager.GetString("LabelShopReceiptSubject", resourceCulture);
             }
         }
         

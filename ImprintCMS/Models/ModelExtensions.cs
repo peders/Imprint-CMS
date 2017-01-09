@@ -34,5 +34,29 @@ namespace ImprintCMS.Models
             );
         }
 
+        public static string CustomerReceiptBody(this Order order)
+        {
+            return String.Format(Phrases.EmailBodyWrapper, String.Format(
+                SitePhrases.LabelShopCustomerReceiptBody,
+                order.Id,
+                order.Name,
+                order.Address,
+                order.Postcode,
+                order.City,
+                order.Phone,
+                order.Email,
+                String.Join("<br/>", order.OrderLines.Select(l => String.Format(
+                    SitePhrases.LabelShopCustomerReceiptBodyOrderLine,
+                    l.Edition.Isbn.AsIsbn(),
+                    l.Edition.Book.Title,
+                    l.Edition.Price
+                    )).ToArray()),
+                order.Subtotal,
+                order.DistributionCost,
+                order.Subtotal + order.DistributionCost
+                )
+            );
+        }
+
     }
 }
