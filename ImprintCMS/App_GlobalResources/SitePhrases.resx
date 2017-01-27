@@ -331,7 +331,7 @@
     <comment>Insert order id, name, address, postcode, city, phone, email, order lines, subtotal, distribution cost, total</comment>
   </data>
   <data name="LabelShopCustomerReceiptBodyOrderLine" xml:space="preserve">
-    <value>ISBN {0} : {1} : {2:f2}</value>
+    <value>&lt;br/&gt;ISBN {0} : {1} : {2:f2}</value>
     <comment>Insert isbn, title, price</comment>
   </data>
   <data name="LabelShopOrderReceiptEmailFailure" xml:space="preserve">

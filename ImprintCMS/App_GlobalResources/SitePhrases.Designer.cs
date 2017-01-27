@@ -448,7 +448,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ISBN {0} : {1} : {2:f2}.
+        ///   Looks up a localized string similar to &lt;br/&gt;ISBN {0} : {1} : {2:f2}.
         /// </summary>
         public static string LabelShopCustomerReceiptBodyOrderLine {
             get {
