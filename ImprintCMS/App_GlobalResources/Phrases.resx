@@ -610,4 +610,16 @@
     <value>&lt;p style="font-family: sans-serif;"&gt;{0}&lt;/p&gt;</value>
     <comment>Insert text as HTML</comment>
   </data>
+  <data name="LabelImages" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="PagenameCreateImage" xml:space="preserve">
+    <value>New image</value>
+  </data>
+  <data name="PagenameDeleteImage" xml:space="preserve">
+    <value>Delete image</value>
+  </data>
+  <data name="PagenameEditImage" xml:space="preserve">
+    <value>Edit image</value>
+  </data>
 </root>

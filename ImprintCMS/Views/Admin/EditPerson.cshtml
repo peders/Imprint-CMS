@@ -1,9 +1,20 @@
 ﻿@model Person
 @{
-	ViewBag.Title = Phrases.PagenameEditPerson;
-	ViewBag.Breadcrumbs = new[] {
-		Html.ActionLink(Phrases.PagenamePersons, "people"),
-		Phrases.PagenameEditPerson.ToHtmlString()
-	};
+    ViewBag.Title = Phrases.PagenameEditPerson;
+    ViewBag.Breadcrumbs = new[] {
+Html.ActionLink(Phrases.PagenamePersons, "people"),
+Phrases.PagenameEditPerson.ToHtmlString()
+};
 }
 @Html.EditorForModel()
+<h2>@Phrases.LabelImages</h2>
+<ul class="listing sortable" data-persisturl="@Url.Action("storepersonimageorder")" data-handlelabel="@Phrases.LabelDragAndDropToSort" data-errorlabel="@Phrases.ValidationAjaxError">
+    @foreach (var image in Model.PersonImages.OrderBy(r => r.SequenceIdentifier))
+    {
+        <li id="@String.Format("sortitem_{0}", image.Id)">
+            <span class="name">@Html.ActionLink(image.UploadedFile.FileName, "editpersonimage", new { id = image.Id })</span>
+            @Html.ActionLink(Phrases.LabelRemove, "removepersonimage", new { id = image.Id })
+        </li>
+    }
+</ul>
+<p>@Html.ActionLink(Phrases.PagenameCreateImage, "createpersonimage", new { id = Model.Id })</p>

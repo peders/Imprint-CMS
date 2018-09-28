@@ -19,7 +19,7 @@ namespace ImprintCMS.Models {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Phrases {
@@ -435,6 +435,15 @@ namespace ImprintCMS.Models {
         public static string LabelImage {
             get {
                 return ResourceManager.GetString("LabelImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Images.
+        /// </summary>
+        public static string LabelImages {
+            get {
+                return ResourceManager.GetString("LabelImages", resourceCulture);
             }
         }
         
@@ -1087,6 +1096,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New image.
+        /// </summary>
+        public static string PagenameCreateImage {
+            get {
+                return ResourceManager.GetString("PagenameCreateImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New person.
         /// </summary>
         public static string PagenameCreatePerson {
@@ -1137,6 +1155,15 @@ namespace ImprintCMS.Models {
         public static string PagenameDelete {
             get {
                 return ResourceManager.GetString("PagenameDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete image.
+        /// </summary>
+        public static string PagenameDeleteImage {
+            get {
+                return ResourceManager.GetString("PagenameDeleteImage", resourceCulture);
             }
         }
         
@@ -1209,6 +1236,15 @@ namespace ImprintCMS.Models {
         public static string PagenameEditGenre {
             get {
                 return ResourceManager.GetString("PagenameEditGenre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit image.
+        /// </summary>
+        public static string PagenameEditImage {
+            get {
+                return ResourceManager.GetString("PagenameEditImage", resourceCulture);
             }
         }
         

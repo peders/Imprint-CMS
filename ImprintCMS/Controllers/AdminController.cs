@@ -909,6 +909,22 @@ namespace ImprintCMS.Controllers
         }
 
         [HttpPost]
+        public ActionResult StorePersonImageOrder()
+        {
+            var data = Request.Form["sortitem[]"] as string;
+            var ids = data.Split(',').Select(int.Parse);
+            var sequenceIdentifier = 0;
+            foreach (var id in ids)
+            {
+                var image = Repository.GetPersonImage(id);
+                image.SequenceIdentifier = sequenceIdentifier;
+                sequenceIdentifier++;
+            }
+            Repository.Save();
+            return new HttpStatusCodeResult(200);
+        }
+
+        [HttpPost]
         public ActionResult StoreContactArticleOrder()
         {
             var data = Request.Form["sortitem[]"] as string;

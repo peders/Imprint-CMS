@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ImprintCMS" Class="ImprintCMSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=ImprintCMS;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ImprintCMSConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=ImprintCMS;Integrated Security=True" SettingsObjectName="ImprintCMS.Properties.Settings" SettingsPropertyName="ImprintCMSConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Article" Member="Articles">
     <Type Name="Article">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -25,6 +25,8 @@
       <Association Name="UploadedFile_Edition1" Member="Editions1" ThisKey="Id" OtherKey="LargeCoverId" Type="Edition" />
       <Association Name="UploadedFile_Person" Member="Persons" ThisKey="Id" OtherKey="SmallImageId" Type="Person" />
       <Association Name="UploadedFile_Person1" Member="Persons1" ThisKey="Id" OtherKey="LargeImageId" Type="Person" />
+      <Association Name="UploadedFile_PersonImage" Member="PersonImages" ThisKey="Id" OtherKey="SmallImageId" Type="PersonImage" />
+      <Association Name="UploadedFile_PersonImage1" Member="PersonImages1" ThisKey="Id" OtherKey="LargeImageId" Type="PersonImage" />
     </Type>
   </Table>
   <Table Name="dbo.Binding" Member="Bindings">
@@ -174,10 +176,24 @@
       <Column Name="PhotographerCredit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="HasPage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Person_PersonImage" Member="PersonImages" ThisKey="Id" OtherKey="PersonId" Type="PersonImage" />
       <Association Name="Person_PersonToArticle" Member="PersonToArticles" ThisKey="Id" OtherKey="PersonId" Type="PersonToArticle" />
       <Association Name="Person_Relation" Member="Relations" ThisKey="Id" OtherKey="PersonId" Type="Relation" />
       <Association Name="UploadedFile_Person" Member="UploadedFile" ThisKey="SmallImageId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
       <Association Name="UploadedFile_Person1" Member="UploadedFile1" ThisKey="LargeImageId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PersonImage" Member="PersonImages">
+    <Type Name="PersonImage">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SmallImageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LargeImageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Photographer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PersonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Person_PersonImage" Member="Person" ThisKey="PersonId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+      <Association Name="UploadedFile_PersonImage" Member="UploadedFile" ThisKey="SmallImageId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
+      <Association Name="UploadedFile_PersonImage1" Member="UploadedFile1" ThisKey="LargeImageId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PersonToArticle" Member="PersonToArticles">

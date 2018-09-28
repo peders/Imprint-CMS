@@ -132,7 +132,12 @@ namespace ImprintCMS.Models
         public void Delete(Person person)
         {
             _db.PersonToArticles.DeleteAllOnSubmit(person.PersonToArticles);
+            _db.PersonImages.DeleteAllOnSubmit(person.PersonImages);
             _db.Persons.DeleteOnSubmit(person);
+        }
+        public PersonImage GetPersonImage(int id)
+        {
+            return _db.PersonImages.SingleOrDefault(i => i.Id == id);
         }
 
         public IEnumerable<Book> Books
