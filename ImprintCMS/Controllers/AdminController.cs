@@ -466,6 +466,14 @@ namespace ImprintCMS.Controllers
             return RedirectToAction("editperson", new { id = vm.PersonId });
         }
 
+        public ActionResult RemovePersonImage(int id)
+        {
+            var image = Repository.GetPersonImage(id);
+            Repository.Delete(image);
+            Repository.Save();
+            return RedirectToAction("editperson", new { id = image.PersonId });
+        }
+
         public ActionResult Books()
         {
             var vm = Repository.Books.OrderBy(b => b.Title);
