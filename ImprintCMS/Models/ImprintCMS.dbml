@@ -187,8 +187,8 @@
     <Type Name="PersonImage">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SmallImageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LargeImageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SmallImageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LargeImageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Photographer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="PersonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Person_PersonImage" Member="Person" ThisKey="PersonId" OtherKey="Id" Type="Person" IsForeignKey="true" />

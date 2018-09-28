@@ -19,29 +19,29 @@ namespace ImprintCMS.Controllers
         public ActionResult Uploads()
         {
             var vm = Enum.GetNames(typeof(FileCategories)).Select(c => new UploadCategory
-                {
-                    Name = c,
-                    FileCount = Repository.ListFiles.Count(u => u.Category == c)
-                });
+            {
+                Name = c,
+                FileCount = Repository.ListFiles.Count(u => u.Category == c)
+            });
             return View(vm);
         }
 
         public ActionResult UploadCategory(string id)
         {
             var vm = new UploadCategoryFiles
-                {
-                    Name = id,
-                    Files = Repository.ListFiles.Where(u => u.Category == id)
-                };
+            {
+                Name = id,
+                Files = Repository.ListFiles.Where(u => u.Category == id)
+            };
             return View(vm);
         }
 
         public ActionResult CreateUpload(string id)
         {
             var vm = new FileUpload
-                {
-                    FileCategory = id ?? string.Empty
-                };
+            {
+                FileCategory = id ?? string.Empty
+            };
             return View(vm);
         }
 
@@ -62,13 +62,13 @@ namespace ImprintCMS.Controllers
             var fileData = new byte[file.ContentLength];
             file.InputStream.Read(fileData, 0, fileData.Length);
             var upload = new UploadedFile
-                {
-                    FileName = file.FileName.Sanitise(),
-                    ContentType = file.ContentType,
-                    ContentLength = file.ContentLength,
-                    Category = vm.FileCategory,
-                    Data = fileData
-                };
+            {
+                FileName = file.FileName.Sanitise(),
+                ContentType = file.ContentType,
+                ContentLength = file.ContentLength,
+                Category = vm.FileCategory,
+                Data = fileData
+            };
             Repository.Add(upload);
             Repository.Save();
             return RedirectToAction("uploadcategory", new { id = vm.FileCategory });
@@ -80,10 +80,10 @@ namespace ImprintCMS.Controllers
             if (upload == null)
                 return HttpNotFound();
             var vm = new FileUpload
-                {
-                    FileCategory = upload.Category,
-                    ReplaceId = id
-                };
+            {
+                FileCategory = upload.Category,
+                ReplaceId = id
+            };
             return View(vm);
         }
 
@@ -351,10 +351,10 @@ namespace ImprintCMS.Controllers
         public ActionResult CreatePerson()
         {
             var vm = new Person
-                {
-                    IsVisible = true,
-                    HasPage = true
-                };
+            {
+                IsVisible = true,
+                HasPage = true
+            };
             ViewBag.SmallPortraits = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
             ViewBag.LargePortraits = FileList(FileCategories.LargePortrait, vm.LargeImageId);
             return View(vm);
@@ -411,6 +411,61 @@ namespace ImprintCMS.Controllers
             return RedirectToAction("people");
         }
 
+        public ActionResult CreatePersonImage(int id)
+        {
+            var person = Repository.GetPerson(id);
+            if (person == null) return HttpNotFound();
+            var vm = new PersonImage
+            {
+                PersonId = id,
+                Person = person,
+                SequenceIdentifier = int.MaxValue
+            };
+            ViewBag.SmallImages = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
+            ViewBag.LargeImages = FileList(FileCategories.LargePortrait, vm.LargeImageId);
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult CreatePersonImage(PersonImage vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.SmallImages = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
+                ViewBag.LargeImages = FileList(FileCategories.LargePortrait, vm.LargeImageId);
+                vm.Person = Repository.GetPerson(vm.PersonId);
+                return View(vm);
+            }
+            Repository.Add(vm);
+            Repository.Save();
+            return RedirectToAction("editperson", new { id = vm.PersonId });
+        }
+
+        public ActionResult EditPersonImage(int id)
+        {
+            var vm = Repository.GetPersonImage(id);
+            if (vm == null) return HttpNotFound();
+            ViewBag.SmallImages = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
+            ViewBag.LargeImages = FileList(FileCategories.LargePortrait, vm.LargeImageId);
+            vm.Person = Repository.GetPerson(vm.PersonId);
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult EditPersonImage(PersonImage vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.SmallImages = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
+                ViewBag.LargeImages = FileList(FileCategories.LargePortrait, vm.LargeImageId);
+                vm.Person = Repository.GetPerson(vm.PersonId);
+                return View(vm);
+            }
+            UpdateModel(Repository.GetPersonImage(vm.Id));
+            Repository.Save();
+            return RedirectToAction("editperson", new { id = vm.PersonId });
+        }
+
         public ActionResult Books()
         {
             var vm = Repository.Books.OrderBy(b => b.Title);
@@ -420,9 +475,9 @@ namespace ImprintCMS.Controllers
         public ActionResult CreateBook()
         {
             var vm = new Book
-                {
-                    IsVisible = true
-                };
+            {
+                IsVisible = true
+            };
             ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
             ViewBag.Genres = GenreList(vm.GenreId);
             return View(vm);
@@ -487,13 +542,13 @@ namespace ImprintCMS.Controllers
             var book = Repository.GetBook(id);
             if (book == null) return HttpNotFound();
             var vm = new Edition
-                {
-                    Number = !book.Editions.Any() ? 1 : book.Editions.OrderBy(e => e.Number).Last().Number + 1,
-                    ReleaseDate = DateTime.Today,
-                    IsForSale = true,
-                    BookId = id,
-                    Book = book
-                };
+            {
+                Number = !book.Editions.Any() ? 1 : book.Editions.OrderBy(e => e.Number).Last().Number + 1,
+                ReleaseDate = DateTime.Today,
+                IsForSale = true,
+                BookId = id,
+                Book = book
+            };
             ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
             ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
             ViewBag.Bindings = BindingList(vm.BindingId);
@@ -565,11 +620,11 @@ namespace ImprintCMS.Controllers
             var book = Repository.GetBook(id);
             if (book == null) return HttpNotFound();
             var vm = new Relation
-                {
-                    BookId = id,
-                    Book = book,
-                    SequenceIdentifier = int.MaxValue
-                };
+            {
+                BookId = id,
+                Book = book,
+                SequenceIdentifier = int.MaxValue
+            };
             ViewBag.People = PeopleList(vm.PersonId);
             ViewBag.Roles = RoleList(vm.RoleId);
             return View(vm);
@@ -670,9 +725,9 @@ namespace ImprintCMS.Controllers
         public ActionResult CreateBookList()
         {
             var vm = new BookList
-                {
-                    SequenceIdentifier = int.MaxValue
-                };
+            {
+                SequenceIdentifier = int.MaxValue
+            };
             return View(vm);
         }
 
@@ -720,11 +775,11 @@ namespace ImprintCMS.Controllers
             var list = Repository.GetBookList(id);
             if (list == null) return HttpNotFound();
             var vm = new BookListMembership
-                {
-                    BookListId = id,
-                    BookList = list,
-                    SequenceIdentifier = int.MaxValue
-                };
+            {
+                BookListId = id,
+                BookList = list,
+                SequenceIdentifier = int.MaxValue
+            };
             ViewBag.Editions = LinkableEditionsList(vm.EditionId);
             return View(vm);
         }
@@ -768,11 +823,11 @@ namespace ImprintCMS.Controllers
         public ActionResult CreateArticle()
         {
             var vm = new Article
-                {
-                    Date = DateTime.Today,
-                    IsVisible = true,
-                    IsOnFrontPage = true
-                };
+            {
+                Date = DateTime.Today,
+                IsVisible = true,
+                IsOnFrontPage = true
+            };
             return View(vm);
         }
 
@@ -831,9 +886,9 @@ namespace ImprintCMS.Controllers
         public ActionResult CreateContactArticle()
         {
             var vm = new ContactArticle
-                {
-                    SequenceIdentifier = int.MaxValue
-                };
+            {
+                SequenceIdentifier = int.MaxValue
+            };
             return View(vm);
         }
 
@@ -1041,11 +1096,11 @@ namespace ImprintCMS.Controllers
             var article = Repository.GetArticle(id);
             if (article == null) return HttpNotFound();
             var vm = new PersonToArticle
-                {
-                    ArticleId = id,
-                    Article = article,
-                    SequenceIdentifier = int.MaxValue
-                };
+            {
+                ArticleId = id,
+                Article = article,
+                SequenceIdentifier = int.MaxValue
+            };
             ViewBag.People = LinkablePeopleList(vm.PersonId);
             return View(vm);
         }
@@ -1101,11 +1156,11 @@ namespace ImprintCMS.Controllers
             var article = Repository.GetArticle(id);
             if (article == null) return HttpNotFound();
             var vm = new BookToArticle
-                {
-                    ArticleId = id,
-                    Article = article,
-                    SequenceIdentifier = int.MaxValue
-                };
+            {
+                ArticleId = id,
+                Article = article,
+                SequenceIdentifier = int.MaxValue
+            };
             ViewBag.Books = LinkableBooksList(vm.BookId);
             return View(vm);
         }

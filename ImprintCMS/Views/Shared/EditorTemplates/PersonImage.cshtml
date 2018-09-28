@@ -1,0 +1,35 @@
+﻿@model PersonImage
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="fields">
+        <p>
+            <label>@Phrases.LabelPerson</label><br />
+            @Model.Person.FullName
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Photographer, Phrases.LabelPhotographerCredit)<br />
+            @Html.TextBoxFor(model => model.Photographer)
+            @Html.ValidationMessageFor(model => model.Photographer)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.SmallImageId, Phrases.LabelSmallImage)<br />
+            @Html.DropDownListFor(model => model.SmallImageId, (SelectList)ViewBag.SmallImages, "–")
+            @Html.ValidationMessageFor(model => model.SmallImageId)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.LargeImageId, Phrases.LabelLargeImage)<br />
+            @Html.DropDownListFor(model => model.LargeImageId, (SelectList)ViewBag.LargeImages, "–")
+            @Html.ValidationMessageFor(model => model.LargeImageId)
+        </p>
+    </fieldset>
+    <fieldset class="hidden">
+        @Html.HiddenFor(model => model.PersonId)
+        @Html.HiddenFor(model => model.SequenceIdentifier)
+    </fieldset>
+    <fieldset class="submit">
+        <p>
+            <input type="submit" value="@Phrases.LabelSave" />
+        </p>
+    </fieldset>
+}

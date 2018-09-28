@@ -1,0 +1,10 @@
+﻿@model PersonImage
+@{
+    ViewBag.Title = Phrases.PagenameEditImage;
+    ViewBag.Breadcrumbs = new[] {
+Html.ActionLink(Phrases.PagenamePersons, "people"),
+Html.ActionLink(Model.Person.FullName, "editperson", new { id = Model.PersonId }),
+Phrases.PagenameEditImage.ToHtmlString()
+};
+}
+@Html.EditorForModel()

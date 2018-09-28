@@ -139,6 +139,14 @@ namespace ImprintCMS.Models
         {
             return _db.PersonImages.SingleOrDefault(i => i.Id == id);
         }
+        public void Add(PersonImage image)
+        {
+            _db.PersonImages.InsertOnSubmit(image);
+        }
+        public void Delete(PersonImage image)
+        {
+            _db.PersonImages.DeleteOnSubmit(image);
+        }
 
         public IEnumerable<Book> Books
         {

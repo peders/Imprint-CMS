@@ -4173,9 +4173,9 @@ namespace ImprintCMS.Models
 		
 		private int _SequenceIdentifier;
 		
-		private System.Nullable<int> _SmallImageId;
+		private int _SmallImageId;
 		
-		private int _LargeImageId;
+		private System.Nullable<int> _LargeImageId;
 		
 		private string _Photographer;
 		
@@ -4195,9 +4195,9 @@ namespace ImprintCMS.Models
     partial void OnIdChanged();
     partial void OnSequenceIdentifierChanging(int value);
     partial void OnSequenceIdentifierChanged();
-    partial void OnSmallImageIdChanging(System.Nullable<int> value);
+    partial void OnSmallImageIdChanging(int value);
     partial void OnSmallImageIdChanged();
-    partial void OnLargeImageIdChanging(int value);
+    partial void OnLargeImageIdChanging(System.Nullable<int> value);
     partial void OnLargeImageIdChanged();
     partial void OnPhotographerChanging(string value);
     partial void OnPhotographerChanged();
@@ -4253,8 +4253,8 @@ namespace ImprintCMS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SmallImageId", DbType="Int")]
-		public System.Nullable<int> SmallImageId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SmallImageId", DbType="Int NOT NULL")]
+		public int SmallImageId
 		{
 			get
 			{
@@ -4277,8 +4277,8 @@ namespace ImprintCMS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LargeImageId", DbType="Int NOT NULL")]
-		public int LargeImageId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LargeImageId", DbType="Int")]
+		public System.Nullable<int> LargeImageId
 		{
 			get
 			{
@@ -4406,7 +4406,7 @@ namespace ImprintCMS.Models
 					}
 					else
 					{
-						this._SmallImageId = default(Nullable<int>);
+						this._SmallImageId = default(int);
 					}
 					this.SendPropertyChanged("UploadedFile");
 				}
@@ -4440,7 +4440,7 @@ namespace ImprintCMS.Models
 					}
 					else
 					{
-						this._LargeImageId = default(int);
+						this._LargeImageId = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("UploadedFile1");
 				}

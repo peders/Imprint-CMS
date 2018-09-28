@@ -532,6 +532,9 @@
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shop\Receipt.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\PersonImage.cshtml" />
+    <Content Include="Views\Admin\CreatePersonImage.cshtml" />
+    <Content Include="Views\Admin\EditPersonImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
