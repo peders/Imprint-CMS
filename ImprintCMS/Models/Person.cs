@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace ImprintCMS.Models
@@ -21,6 +22,15 @@ namespace ImprintCMS.Models
 				return !string.IsNullOrWhiteSpace(FirstName) ? FirstName + " " + LastName : LastName;
 			}
 		}
+
+        public PersonImage MainImage
+        {
+            get
+            {
+                if (!PersonImages.Any()) return null;
+                return PersonImages.OrderBy(_ => _.SequenceIdentifier).First();
+            }
+        }
 	}
 
 	public class PersonMetadata

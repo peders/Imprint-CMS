@@ -3,16 +3,16 @@
     ViewBag.Title = Model.Person.FullName;
 }
 <div id="image">
-    @if (Model.Person.SmallImageId != null)
+    @if (Model.Person.MainImage != null)
     {
         @Html.PersonImage(Model.Person)
-        if (!String.IsNullOrWhiteSpace(Model.Person.PhotographerCredit))
+        if (!String.IsNullOrWhiteSpace(Model.Person.MainImage.Photographer))
         {
-        <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.Person.PhotographerCredit)</p>
+            <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.Person.MainImage.Photographer)</p>
         }
-        if (Model.Person.LargeImageId != null)
+        if (Model.Person.MainImage.LargeImageId != null)
         {
-        <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = Model.Person.UploadedFile1.Category, fileName = Model.Person.UploadedFile1.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
+            <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = Model.Person.MainImage.UploadedFile1.Category, fileName = Model.Person.MainImage.UploadedFile1.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
         }
     }
 </div>
@@ -22,8 +22,8 @@
     {
         @Model.Person.Description.ToRichText()
     }
-    @foreach (var booksByRole in Model.Books.GroupBy(b => b.Relations.Single(r => r.PersonId == Model.Person.Id).Role).Where(r=> r.Key.ShowBookList).OrderBy(r => r.Key.SequenceIdentifier))
-    { 
+    @foreach (var booksByRole in Model.Books.GroupBy(b => b.Relations.Single(r => r.PersonId == Model.Person.Id).Role).Where(r => r.Key.ShowBookList).OrderBy(r => r.Key.SequenceIdentifier))
+    {
         <h2>@(!String.IsNullOrWhiteSpace(booksByRole.Key.BookListHeading) ? booksByRole.Key.BookListHeading : booksByRole.Key.Name)</h2>
         <ul>
             @foreach (var book in booksByRole.OrderBy(b => b.CachedReleaseYear))
@@ -54,6 +54,27 @@
             @foreach (var article in Model.Person.PersonToArticles.Where(a => a.Article.IsVisible).Select(a => a.Article).OrderByDescending(a => a.Date))
             {
                 <li>@Html.ActionLink(article.Title, "article", "home", new { id = article.Id }, null)</li>
+            }
+        </ul>
+    }
+    @if (Model.Person.PersonImages.Count() > 1)
+    {
+        <h2>@SitePhrases.HeadingMoreImages</h2>
+        <ul id="gallery">
+            @foreach (var image in Model.Person.PersonImages.OrderBy(_ => _.SequenceIdentifier).Skip(1))
+            {
+                <li>
+                    <img src="@Url.Action("display", "upload", new { category = image.UploadedFile.Category, fileName = image.UploadedFile.FileName })" alt="@string.Format(SitePhrases.LabelAuthorImage, Model.Person.FullName)" />
+                    @if (!string.IsNullOrWhiteSpace(image.Photographer))
+                    {
+                        <p class="photographer">@string.Format(SitePhrases.LabelPhotoCredit, image.Photographer)</p>
+                    }
+                    @if (image.LargeImageId != null)
+                    {
+                        <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = image.UploadedFile1.Category, fileName = image.UploadedFile1.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
+                    }
+
+                </li>
             }
         </ul>
     }

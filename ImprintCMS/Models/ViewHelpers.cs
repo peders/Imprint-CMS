@@ -14,14 +14,14 @@ namespace ImprintCMS.Models
         public static string ControllerName(this ViewContext source)
         {
             var name = source.RouteData.Values["controller"] as string;
-            if (String.IsNullOrWhiteSpace(name)) return null;
+            if (string.IsNullOrWhiteSpace(name)) return null;
             return name;
         }
 
         public static string ActionName(this ViewContext source)
         {
             var name = source.RouteData.Values["action"] as string;
-            if (String.IsNullOrWhiteSpace(name)) return null;
+            if (string.IsNullOrWhiteSpace(name)) return null;
             return name;
         }
 
@@ -45,24 +45,24 @@ namespace ImprintCMS.Models
         {
             if (source <= DateTime.Today) return SitePhrases.LabelIsReleased;
             var formatString = SitePhrases.LabelToBeReleased + " {0} " + source.ToString("MMMM");
-            if (source.Day < 11) return String.Format(formatString, SitePhrases.UnitMonthPrimo);
-            if (source.Day < 21) return String.Format(formatString, SitePhrases.UnitMonthMedio);
-            return String.Format(formatString, SitePhrases.UnitMonthUltimo);
+            if (source.Day < 11) return string.Format(formatString, SitePhrases.UnitMonthPrimo);
+            if (source.Day < 21) return string.Format(formatString, SitePhrases.UnitMonthMedio);
+            return string.Format(formatString, SitePhrases.UnitMonthUltimo);
         }
 
         public static HtmlString PersonImage(this HtmlHelper helper, Person person)
         {
-            if (person.SmallImageId == null) return null;
-            var legend = helper.Encode(String.Format(SitePhrases.LabelAuthorImage, person.FullName));
+            if (person.MainImage == null) return null;
+            var legend = helper.Encode(string.Format(SitePhrases.LabelAuthorImage, person.FullName));
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
-            var source = urlHelper.Action("display", "upload", new { category = person.UploadedFile.Category, fileName = person.UploadedFile.FileName });
+            var source = urlHelper.Action("display", "upload", new { category = person.MainImage.UploadedFile.Category, fileName = person.MainImage.UploadedFile.FileName });
             return new HtmlString("<img src=\"" + source + "\" class=\"person\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
         }
 
         public static HtmlString CoverImage(this HtmlHelper helper, Edition edition)
         {
             if (edition.SmallCoverId == null) return null;
-            var legend = helper.Encode(String.Format(SitePhrases.LabelCoverImage, edition.Book.Title));
+            var legend = helper.Encode(string.Format(SitePhrases.LabelCoverImage, edition.Book.Title));
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
             var source = urlHelper.Action("display", "upload", new { category = edition.UploadedFile.Category, fileName = edition.UploadedFile.FileName });
             return new HtmlString("<img src=\"" + source + "\" class=\"cover\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
@@ -70,13 +70,13 @@ namespace ImprintCMS.Models
 
         public static string RelationNames(this Book book)
         {
-            return String.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName));
+            return string.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName));
         }
 
         public static HtmlString ImageDownload(this HtmlHelper helper, string url, string label, string notice)
         {
-            if (String.IsNullOrWhiteSpace(url)) return null;
-            if (String.IsNullOrWhiteSpace(notice)) return new HtmlString("<a href=\"" + url + "\" class=\"imagedownload\">" + helper.Encode(label) + "</a>");
+            if (string.IsNullOrWhiteSpace(url)) return null;
+            if (string.IsNullOrWhiteSpace(notice)) return new HtmlString("<a href=\"" + url + "\" class=\"imagedownload\">" + helper.Encode(label) + "</a>");
             return new HtmlString("<a href=\"" + url + "\" class=\"imagedownload withnotice\" data-notice=\"" + notice + "\" data-acceptlabel=\"" + SitePhrases.LabelProceedToDownload + "\" data-cancellabel=\"" + SitePhrases.LabelCancel + "\">" + helper.Encode(label) + "</a>");
         }
 
@@ -108,13 +108,13 @@ namespace ImprintCMS.Models
 
         public static HtmlString GoogleAnalytics(this HtmlHelper helper, string trackingCode)
         {
-            if (String.IsNullOrWhiteSpace(trackingCode)) return null;
+            if (string.IsNullOrWhiteSpace(trackingCode)) return null;
             return new HtmlString("\n<script type=\"text/javascript\">\n\tvar gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n\tdocument.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n</script>\n<script type=\"text/javascript\">\n\ttry {\n\t\tvar pageTracker = _gat._getTracker(\"" + trackingCode + "\");\n\t\tpageTracker._trackPageview();\n\t} catch(err) {}\n</script>");
         }
 
         public static HtmlString SearchForm(this HtmlHelper helper, string action, string query)
         {
-            return new HtmlString(String.Format(
+            return new HtmlString(string.Format(
                 @"<form method=""get"" action=""{0}"" id=""searchform"">
 <fieldset>
 	<p>

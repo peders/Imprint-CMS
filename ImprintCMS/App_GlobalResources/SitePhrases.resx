@@ -346,4 +346,7 @@
     <value>Din bestilling på {0}</value>
     <comment>Insert site name</comment>
   </data>
+  <data name="HeadingMoreImages" xml:space="preserve">
+    <value>Flere bilder</value>
+  </data>
 </root>

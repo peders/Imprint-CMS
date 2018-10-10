@@ -474,6 +474,27 @@ namespace ImprintCMS.Controllers
             return RedirectToAction("editperson", new { id = image.PersonId });
         }
 
+        public ActionResult MigrateImages()
+        {
+            var people = Repository.People;
+            foreach (var person in people.Where(_ => _.SmallImageId != null))
+            {
+                var image = new PersonImage {
+                    SmallImageId = person.SmallImageId ?? 0,
+                    UploadedFile = person.UploadedFile,
+                    LargeImageId = person.LargeImageId,
+                    UploadedFile1 = person.UploadedFile1,
+                    Photographer = person.PhotographerCredit,
+                    PersonId = person.Id,
+                    Person = person,
+                    SequenceIdentifier = int.MaxValue              
+                };
+                Repository.Add(image);
+            }
+            Repository.Save();
+            return RedirectToAction("index");
+        }
+
         public ActionResult Books()
         {
             var vm = Repository.Books.OrderBy(b => b.Title);
