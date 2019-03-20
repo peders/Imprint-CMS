@@ -23,3 +23,6 @@ ImprintCMS/ImprintCMS.Publish.xml
 
 packages
 *.config
+*.ide
+*.ide-shm
+*.ide-wal
