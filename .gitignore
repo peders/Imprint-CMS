@@ -26,3 +26,5 @@ packages
 *.ide
 *.ide-shm
 *.ide-wal
+.vs/ImprintCMS/v15/Server/sqlite3/storage.ide-shm
+.vs/ImprintCMS/v15/Server/sqlite3/storage.ide-wal
