@@ -16,6 +16,72 @@ namespace ImprintCMS.Controllers
             return View();
         }
 
+        public ActionResult Configurations()
+        {
+            var vm = Repository.Configurations.OrderBy(_ => _.Name);
+            return View(vm);
+        }
+
+        public ActionResult CreateConfiguration()
+        {
+            var vm = new Configuration();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult CreateConfiguration(Configuration vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+            Repository.Add(vm);
+            if (vm.IsActive)
+            {
+                foreach (var configuration in Repository.Configurations.Where(_ => _.IsActive))
+                {
+                    configuration.IsActive = false;
+                }
+            }
+            Repository.Save();
+            return RedirectToAction("configurations");
+        }
+
+        public ActionResult EditConfiguration(int id)
+        {
+            var vm = Repository.GetConfiguration(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult EditConfiguration(Configuration vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+            UpdateModel(Repository.GetConfiguration(vm.Id));
+            if (vm.IsActive)
+            {
+                foreach (var configuration in Repository.Configurations.Where(_ => _.IsActive && _.Id != vm.Id))
+                {
+                    configuration.IsActive = false;
+                }
+            }
+            Repository.Save();
+            return RedirectToAction("configurations");
+        }
+
+        public ActionResult DeleteConfiguration(int id)
+        {
+            var vm = Repository.GetConfiguration(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteConfiguration(Configuration vm)
+        {
+            Repository.Delete(Repository.GetConfiguration(vm.Id));
+            Repository.Save();
+            return RedirectToAction("configurations");
+        }
+
         public ActionResult Uploads()
         {
             var vm = Enum.GetNames(typeof(FileCategories)).Select(c => new UploadCategory
@@ -479,7 +545,8 @@ namespace ImprintCMS.Controllers
             var people = Repository.People;
             foreach (var person in people.Where(_ => _.SmallImageId != null))
             {
-                var image = new PersonImage {
+                var image = new PersonImage
+                {
                     SmallImageId = person.SmallImageId ?? 0,
                     UploadedFile = person.UploadedFile,
                     LargeImageId = person.LargeImageId,
@@ -487,7 +554,7 @@ namespace ImprintCMS.Controllers
                     Photographer = person.PhotographerCredit,
                     PersonId = person.Id,
                     Person = person,
-                    SequenceIdentifier = int.MaxValue              
+                    SequenceIdentifier = int.MaxValue
                 };
                 Repository.Add(image);
             }

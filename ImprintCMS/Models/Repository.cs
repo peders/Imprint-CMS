@@ -1,8 +1,7 @@
-﻿using System;
+﻿using ImprintCMS.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Models
 {
@@ -371,6 +370,26 @@ namespace ImprintCMS.Models
         public void Delete(OrderLine line)
         {
             _db.OrderLines.DeleteOnSubmit(line);
+        }
+
+        public IEnumerable<Configuration> Configurations
+        {
+            get
+            {
+                return _db.Configurations;
+            }
+        }
+        public Configuration GetConfiguration(int id)
+        {
+            return _db.Configurations.SingleOrDefault(_ => _.Id == id);
+        }
+        public void Add(Configuration configuration)
+        {
+            _db.Configurations.InsertOnSubmit(configuration);
+        }
+        public void Delete(Configuration configuration)
+        {
+            _db.Configurations.DeleteOnSubmit(configuration);
         }
 
         public IEnumerable<UploadedFile> Stylesheets

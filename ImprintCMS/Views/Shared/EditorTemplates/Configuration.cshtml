@@ -1,0 +1,89 @@
+﻿@model Configuration
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset class="fields">
+        <p>
+            @Html.LabelFor(model => model.Name, Phrases.LabelName)<br />
+            @Html.TextBoxFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.SiteName, Phrases.LabelName)<br />
+            @Html.TextBoxFor(model => model.SiteName)
+            @Html.ValidationMessageFor(model => model.SiteName)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.SiteFooter, Phrases.LabelSiteFooter)<br />
+            @Html.TextAreaFor(model => model.SiteFooter, new { @class = "rich" })
+            @Html.ValidationMessageFor(model => model.SiteFooter)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.GoogleAnalyticsTrackingCode, Phrases.LabelGoogleAnalyticsTrackingCode)<br />
+            @Html.TextBoxFor(model => model.GoogleAnalyticsTrackingCode)
+            @Html.ValidationMessageFor(model => model.GoogleAnalyticsTrackingCode)
+        </p>
+    </fieldset>
+    <fieldset class="options">
+        <p>
+            @Html.CheckBoxFor(model => model.IsActive)
+            @Html.LabelFor(model => model.IsActive, Phrases.LabelIsActive)
+        </p>
+    </fieldset>
+    <fieldset class="fields">
+        <p>
+            @Html.LabelFor(model => model.CoverImageDownloadNotice, Phrases.LabelCoverImageDownloadNotice)<br />
+            @Html.TextBoxFor(model => model.CoverImageDownloadNotice)
+            @Html.ValidationMessageFor(model => model.CoverImageDownloadNotice)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.PersonImageDownloadNotice, Phrases.LabelPersonImageDownloadNotice)<br />
+            @Html.TextBoxFor(model => model.PersonImageDownloadNotice)
+            @Html.ValidationMessageFor(model => model.PersonImageDownloadNotice)
+        </p>
+    </fieldset>
+    <fieldset class="fields">
+        <p>
+            @Html.LabelFor(model => model.ShopEmailRecipient, Phrases.LabelShopEmailRecipient)<br />
+            @Html.TextBoxFor(model => model.ShopEmailRecipient)
+            @Html.ValidationMessageFor(model => model.ShopEmailRecipient)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.EmailSenderName, Phrases.LabelEmailSenderName)<br />
+            @Html.TextBoxFor(model => model.EmailSenderName)
+            @Html.ValidationMessageFor(model => model.EmailSenderName)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.EmailSenderAddress, Phrases.LabelEmailSenderAddress)<br />
+            @Html.TextBoxFor(model => model.EmailSenderAddress)
+            @Html.ValidationMessageFor(model => model.EmailSenderAddress)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.ShopDisclaimer, Phrases.LabelShopDisclaimer)<br />
+            @Html.TextAreaFor(model => model.ShopDisclaimer, new { @class = "rich" })
+            @Html.ValidationMessageFor(model => model.ShopDisclaimer)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.DistributionCostAmount, Phrases.LabelDistributionCostAmount)<br />
+            @Html.TextBoxFor(model => model.DistributionCostAmount)
+            @Html.ValidationMessageFor(model => model.DistributionCostAmount)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.DistributionCostLimit, Phrases.LabelDistributionCostLimit)<br />
+            @Html.TextBoxFor(model => model.DistributionCostLimit)
+            @Html.ValidationMessageFor(model => model.DistributionCostLimit)
+        </p>
+    </fieldset>
+    <fieldset class="options">
+        <p>
+            @Html.CheckBoxFor(model => model.ShopIsVisible)
+            @Html.LabelFor(model => model.ShopIsVisible, Phrases.LabelShopIsVisible)
+        </p>
+    </fieldset>
+    <fieldset class="buttons">
+        <p>
+            <input type="submit" value="@Phrases.LabelSave" />
+            @Html.ActionLink(string.Format(Phrases.LabelBackTo, Phrases.PagenameConfigurations), "configurations", "admin")
+        </p>
+    </fieldset>
+}

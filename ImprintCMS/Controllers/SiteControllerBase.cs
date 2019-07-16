@@ -10,7 +10,7 @@ namespace ImprintCMS.Controllers
 
         public SiteControllerBase()
         {
-            Config = new SiteConfig();
+            Config = new SiteConfig(Repository);
             ViewBag.Config = Config;
             ViewBag.ShowShop = Config.ShopIsVisible;
             ViewBag.StylesheetUrls = Repository.Stylesheets.Select(u => Url.Action("display", "upload", new { category = u.Category, fileName = u.FileName }));

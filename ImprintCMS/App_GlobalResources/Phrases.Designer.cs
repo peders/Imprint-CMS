@@ -232,6 +232,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cover image download notice.
+        /// </summary>
+        public static string LabelCoverImageDownloadNotice {
+            get {
+                return ResourceManager.GetString("LabelCoverImageDownloadNotice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New.
         /// </summary>
         public static string LabelCreate {
@@ -313,6 +322,24 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Distribution cost (if above limit).
+        /// </summary>
+        public static string LabelDistributionCostAmount {
+            get {
+                return ResourceManager.GetString("LabelDistributionCostAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Distribution cost limit (free below limit).
+        /// </summary>
+        public static string LabelDistributionCostLimit {
+            get {
+                return ResourceManager.GetString("LabelDistributionCostLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide from front page.
         /// </summary>
         public static string LabelDontShowOnFrontPage {
@@ -345,6 +372,24 @@ namespace ImprintCMS.Models {
         public static string LabelEditions {
             get {
                 return ResourceManager.GetString("LabelEditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail sender address.
+        /// </summary>
+        public static string LabelEmailSenderAddress {
+            get {
+                return ResourceManager.GetString("LabelEmailSenderAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail sender name.
+        /// </summary>
+        public static string LabelEmailSenderName {
+            get {
+                return ResourceManager.GetString("LabelEmailSenderName", resourceCulture);
             }
         }
         
@@ -403,6 +448,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Google Analytics tracking code.
+        /// </summary>
+        public static string LabelGoogleAnalyticsTrackingCode {
+            get {
+                return ResourceManager.GetString("LabelGoogleAnalyticsTrackingCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Other publisher.
         /// </summary>
         public static string LabelHasExternalPublisher {
@@ -444,6 +498,15 @@ namespace ImprintCMS.Models {
         public static string LabelImages {
             get {
                 return ResourceManager.GetString("LabelImages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string LabelIsActive {
+            get {
+                return ResourceManager.GetString("LabelIsActive", resourceCulture);
             }
         }
         
@@ -682,6 +745,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Person image download notice.
+        /// </summary>
+        public static string LabelPersonImageDownloadNotice {
+            get {
+                return ResourceManager.GetString("LabelPersonImageDownloadNotice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Photographer.
         /// </summary>
         public static string LabelPhotographerCredit {
@@ -817,6 +889,33 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shop disclaimer.
+        /// </summary>
+        public static string LabelShopDisclaimer {
+            get {
+                return ResourceManager.GetString("LabelShopDisclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shop e-mail recipient.
+        /// </summary>
+        public static string LabelShopEmailRecipient {
+            get {
+                return ResourceManager.GetString("LabelShopEmailRecipient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show shop on site.
+        /// </summary>
+        public static string LabelShopIsVisible {
+            get {
+                return ResourceManager.GetString("LabelShopIsVisible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [#{0}] New {1} shop order.
         /// </summary>
         public static string LabelShopOrderEmailSubject {
@@ -840,6 +939,33 @@ namespace ImprintCMS.Models {
         public static string LabelShowOnFrontPage {
             get {
                 return ResourceManager.GetString("LabelShowOnFrontPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string LabelSiteConfigurations {
+            get {
+                return ResourceManager.GetString("LabelSiteConfigurations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Footer.
+        /// </summary>
+        public static string LabelSiteFooter {
+            get {
+                return ResourceManager.GetString("LabelSiteFooter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name of web site.
+        /// </summary>
+        public static string LabelSiteName {
+            get {
+                return ResourceManager.GetString("LabelSiteName", resourceCulture);
             }
         }
         
@@ -997,6 +1123,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configurations.
+        /// </summary>
+        public static string PagenameConfigurations {
+            get {
+                return ResourceManager.GetString("PagenameConfigurations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact articles.
         /// </summary>
         public static string PagenameContactArticles {
@@ -1056,6 +1191,15 @@ namespace ImprintCMS.Models {
         public static string PagenameCreateBookListMembership {
             get {
                 return ResourceManager.GetString("PagenameCreateBookListMembership", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New configuration.
+        /// </summary>
+        public static string PagenameCreateConfiguration {
+            get {
+                return ResourceManager.GetString("PagenameCreateConfiguration", resourceCulture);
             }
         }
         
@@ -1200,6 +1344,15 @@ namespace ImprintCMS.Models {
         public static string PagenameEditBookList {
             get {
                 return ResourceManager.GetString("PagenameEditBookList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit configuration.
+        /// </summary>
+        public static string PagenameEditConfiguration {
+            get {
+                return ResourceManager.GetString("PagenameEditConfiguration", resourceCulture);
             }
         }
         

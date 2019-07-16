@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Configuration;
+using System.Linq;
 
 namespace ImprintCMS.Models
 {
@@ -18,26 +19,42 @@ namespace ImprintCMS.Models
         public string ShopEmailRecipient { get; set; }
         public HtmlString ShopDisclaimer { get; set; }
 
-        public SiteConfig()
+        public SiteConfig(Repository repository)
         {
-            Name = GetConfigValue<string>("ImprintCMSSiteName");
-            Footer = new HtmlString(GetConfigValue<string>("ImprintCMSSiteFooter"));
-            DistributionCostAmount = GetConfigValue<decimal>("ImprintCMSDistributionCostAmount");
-            DistributionCostLimit = GetConfigValue<decimal>("ImprintCMSDistributionCostLimit");
-            EmailSenderAddress = GetConfigValue<string>("ImprintCMSEmailSenderAddress");
-            EmailSenderName = GetConfigValue<string>("ImprintCMSEmailSenderName");
-            GoogleAnalyticsTrackingCode = GetConfigValue<string>("ImprintCMSGoogleAnalyticsTrackingCode");
-            PersonImageDownloadNotice = GetConfigValue<string>("ImprintCMSPersonImageDownloadNotice");
-            CoverImageDownloadNotice = GetConfigValue<string>("ImprintCMSCoverImageDownloadNotice");
-            ShopIsVisible = GetConfigValue<bool>("ImprintCMSShopIsVisible");
-            ShopEmailRecipient = GetConfigValue<string>("ImprintCMSShopEmailRecipient");
-            ShopDisclaimer = new HtmlString(GetConfigValue<string>("ImprintCMSShopDisclaimer"));
+            var config = repository.Configurations.SingleOrDefault(_ => _.IsActive);
+            if (config != null)
+            {
+                Name = config.SiteName;
+                Footer = new HtmlString(config.SiteFooter);
+                DistributionCostAmount = config.DistributionCostAmount;
+                DistributionCostLimit = config.DistributionCostLimit;
+                EmailSenderAddress = config.EmailSenderAddress;
+                EmailSenderName = config.EmailSenderName;
+                GoogleAnalyticsTrackingCode = config.GoogleAnalyticsTrackingCode;
+                PersonImageDownloadNotice = config.PersonImageDownloadNotice;
+                CoverImageDownloadNotice = config.CoverImageDownloadNotice;
+                ShopIsVisible = config.ShopIsVisible;
+                ShopEmailRecipient = config.ShopEmailRecipient;
+                ShopDisclaimer = new HtmlString(config.ShopDisclaimer);
+            }
+            else
+            {
+                Name = "Imprint CMS";
+                Footer = new HtmlString("<p>Powered by <em>Imprint CMS</em></p>");
+                DistributionCostAmount = 50;
+                DistributionCostLimit = 500;
+                EmailSenderAddress = "address@server.com";
+                EmailSenderName = "Imprint CMS";
+                GoogleAnalyticsTrackingCode = string.Empty;
+                PersonImageDownloadNotice = string.Empty;
+                CoverImageDownloadNotice = string.Empty;
+                ShopIsVisible = true;
+                ShopEmailRecipient = "address@server.com";
+                ShopDisclaimer = new HtmlString(string.Empty);
+
+            }
         }
 
-        private static T GetConfigValue<T>(string name)
-        {
-            var reader = new AppSettingsReader();
-            return (T)reader.GetValue(name, typeof(T));
-        }
     }
+
 }

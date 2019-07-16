@@ -1,0 +1,17 @@
+﻿@model Configuration
+@{
+	ViewBag.Title = Phrases.PagenameDelete;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameConfigurations, "configurations"),
+		Html.ActionLink(Model.Name, "editconfiguration", new { id = Model.Id }),
+		Phrases.LabelDelete.ToHtmlString()
+	};
+}
+<p>@Html.DeleteConfirmation(Model.Name)</p>
+@using (Html.BeginForm())
+{
+	<p>
+		<input type="submit" value="@Phrases.LabelDelete" />
+		@Html.ActionLink(String.Format(Phrases.LabelBackTo, Phrases.PagenameConfigurations), "configurations")
+	</p>
+}

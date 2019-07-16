@@ -622,4 +622,55 @@
   <data name="PagenameEditImage" xml:space="preserve">
     <value>Edit image</value>
   </data>
+  <data name="PagenameConfigurations" xml:space="preserve">
+    <value>Configurations</value>
+  </data>
+  <data name="PagenameCreateConfiguration" xml:space="preserve">
+    <value>New configuration</value>
+  </data>
+  <data name="PagenameEditConfiguration" xml:space="preserve">
+    <value>Edit configuration</value>
+  </data>
+  <data name="LabelCoverImageDownloadNotice" xml:space="preserve">
+    <value>Cover image download notice</value>
+  </data>
+  <data name="LabelDistributionCostAmount" xml:space="preserve">
+    <value>Distribution cost (if above limit)</value>
+  </data>
+  <data name="LabelDistributionCostLimit" xml:space="preserve">
+    <value>Distribution cost limit (free below limit)</value>
+  </data>
+  <data name="LabelEmailSenderAddress" xml:space="preserve">
+    <value>E-mail sender address</value>
+  </data>
+  <data name="LabelEmailSenderName" xml:space="preserve">
+    <value>E-mail sender name</value>
+  </data>
+  <data name="LabelGoogleAnalyticsTrackingCode" xml:space="preserve">
+    <value>Google Analytics tracking code</value>
+  </data>
+  <data name="LabelIsActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="LabelPersonImageDownloadNotice" xml:space="preserve">
+    <value>Person image download notice</value>
+  </data>
+  <data name="LabelShopDisclaimer" xml:space="preserve">
+    <value>Shop disclaimer</value>
+  </data>
+  <data name="LabelShopEmailRecipient" xml:space="preserve">
+    <value>Shop e-mail recipient</value>
+  </data>
+  <data name="LabelShopIsVisible" xml:space="preserve">
+    <value>Show shop on site</value>
+  </data>
+  <data name="LabelSiteFooter" xml:space="preserve">
+    <value>Footer</value>
+  </data>
+  <data name="LabelSiteName" xml:space="preserve">
+    <value>Name of web site</value>
+  </data>
+  <data name="LabelSiteConfigurations" xml:space="preserve">
+    <value>Settings</value>
+  </data>
 </root>

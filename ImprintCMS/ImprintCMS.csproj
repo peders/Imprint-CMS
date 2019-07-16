@@ -119,6 +119,7 @@
     <Compile Include="Models\BookList.cs" />
     <Compile Include="Models\BookListMembership.cs" />
     <Compile Include="Models\BookToArticle.cs" />
+    <Compile Include="Models\Configuration.cs" />
     <Compile Include="Models\ContactArticle.cs" />
     <Compile Include="Models\Edition.cs" />
     <Compile Include="Models\ExtensionMethods.cs" />
@@ -535,6 +536,11 @@
     <Content Include="Views\Shared\EditorTemplates\PersonImage.cshtml" />
     <Content Include="Views\Admin\CreatePersonImage.cshtml" />
     <Content Include="Views\Admin\EditPersonImage.cshtml" />
+    <Content Include="Views\Admin\Configurations.cshtml" />
+    <Content Include="Views\Admin\CreateConfiguration.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Configuration.cshtml" />
+    <Content Include="Views\Admin\EditConfiguration.cshtml" />
+    <Content Include="Views\Admin\DeleteConfiguration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Configuration>
+@{
+    ViewBag.Title = Phrases.PagenameConfigurations;
+    ViewBag.Breadcrumbs = new[] {
+		Phrases.PagenameConfigurations.ToHtmlString()
+	};
+}
+<div class="adminactions">
+    @Html.ActionLink(Phrases.PagenameCreateConfiguration, "createconfiguration")
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>@Phrases.LabelName</th>
+            <th>@Phrases.LabelIsActive</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var configuration in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(configuration.Name, "editconfiguration", new { id = configuration.Id })</td>
+                <td class="@(!configuration.IsActive? "inactive" : string.Empty)">@configuration.IsActive.ToWord()</td>
+            </tr>
+        }
+    </tbody>
+</table>

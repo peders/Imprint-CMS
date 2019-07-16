@@ -1,0 +1,10 @@
+﻿@model Configuration
+@{
+    ViewBag.Title = Phrases.PagenameEditConfiguration;
+    ViewBag.Breadcrumbs = new[] {
+Html.ActionLink(Phrases.PagenameConfigurations, "configurations"),
+Phrases.PagenameEditConfiguration.ToHtmlString()
+};
+}
+@Html.EditorForModel()
+<p>@Html.ActionLink(Phrases.LabelDelete, "deleteconfiguration", new { id = Model.Id })</p>
