@@ -1,19 +1,32 @@
 ﻿@model IEnumerable<Book>
 @{
-	ViewBag.Title = Phrases.PagenameBooks;
-	ViewBag.Breadcrumbs = new[] {
-		Phrases.PagenameBooks.ToHtmlString()
-	};
+    ViewBag.Title = Phrases.PagenameBooks;
+    ViewBag.Breadcrumbs = new[] {
+Phrases.PagenameBooks.ToHtmlString()
+};
 }
 <ul class="adminactions">
-	<li>@Html.ActionLink(Phrases.PagenameCreateBook, "createbook")</li>
+    <li>@Html.ActionLink(Phrases.PagenameCreateBook, "createbook")</li>
 </ul>
-<ul class="listing">
-	@foreach (var book in Model)
- {
-		<li><span class="name">@Html.ActionLink(book.FullTitle, "editbook", new { id = book.Id })</span>
-			<span class="data">@(new HtmlString(book.Relations.Any() ? String.Format("{0}: {1}", Phrases.LabelRelations, book.Relations.Count()) : "<span class=\"warning\">" + Phrases.ValidationNoRightsHolders + "</span>"))</span>
-			<span class="data">@(new HtmlString(book.HasExternalPublisher ? "<span class=\"inactive\">" + Phrases.LabelHasExternalPublisher + "</span>" : book.Editions.Any() ? String.Format("{0}: {1}", Phrases.LabelEditions, book.Editions.Count()) : "<span class=\"warning\">" + Phrases.ValidationNoEditions + "</span>"))</span>
-			@Html.ActionLink(Phrases.LabelDelete, "deletebook", new { id = book.Id })</li>
- }
-</ul>
+<div class="filteredlist">
+    <p><input type="text" class="filterinput" placeholder="@Phrases.LabelSearch" /></p>
+    <table>
+        <thead>
+            <tr>
+                <th>@string.Format("{0} : {1}", Phrases.LabelTitle, Phrases.LabelSubtitle)</th>
+                <th>@Phrases.LabelRelations</th>
+                <th>@Phrases.LabelEditions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr class="filteredlistitem">
+                    <td>@Html.ActionLink(book.FullTitle, "editbook", new { id = book.Id }, new { @class = "filterlabel" })</td>
+                    <td class="@(!book.Relations.Any() ? "warning" : string.Empty)">@(!book.Relations.Any() ? Phrases.ValidationNoRightsHolders : book.Relations.Count().ToString(""))</td>
+                    <td class="@(!book.HasExternalPublisher && !book.Editions.Any() ? "warning" : book.HasExternalPublisher ? "inactive" : string.Empty)">@(book.HasExternalPublisher ? Phrases.LabelHasExternalPublisher : !book.Editions.Any() ? Phrases.ValidationNoEditions : book.Editions.Count().ToString(""))</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

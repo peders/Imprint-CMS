@@ -170,6 +170,7 @@
     <Content Include="Content\tiny_mce.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\admin.js" />
+    <Content Include="Scripts\jquery.tablesorter.min.js" />
     <Content Include="Scripts\tiny_mce\jquery.tinymce.js" />
     <Content Include="Scripts\tiny_mce\langs\en.js" />
     <Content Include="Scripts\tiny_mce\license.txt" />

@@ -1,17 +1,28 @@
 ﻿@model IEnumerable<Person>
 @{
-	ViewBag.Title = Phrases.PagenamePersons;
-	ViewBag.Breadcrumbs = new[] {
-		Phrases.PagenamePersons.ToHtmlString()
-	};
+    ViewBag.Title = Phrases.PagenamePersons;
+    ViewBag.Breadcrumbs = new[] {
+Phrases.PagenamePersons.ToHtmlString()
+};
 }
 <ul class="adminactions">
-	<li>@Html.ActionLink(Phrases.PagenameCreatePerson, "createperson")</li>
+    <li>@Html.ActionLink(Phrases.PagenameCreatePerson, "createperson")</li>
 </ul>
-<ul class="listing">
-	@foreach (var person in Model)
- {
-		<li><span class="name">@Html.ActionLink(person.ReverseName, "editperson", new { id = person.Id })</span>
-			@Html.ActionLink(Phrases.LabelDelete, "deleteperson", new { id = person.Id })</li>
- }
-</ul>
+<div class="filteredlist">
+    <p><input type="text" class="filterinput" placeholder="@Phrases.LabelSearch" /></p>
+    <table>
+        <thead>
+            <tr>
+                <th>@Phrases.LabelName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model)
+            {
+                <tr class="filteredlistitem">
+                    <td>@Html.ActionLink(person.ReverseName, "editperson", new { id = person.Id }, new { @class = "filterlabel" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -60,8 +60,9 @@
 		</p>
 	</fieldset>
 	<fieldset class="submit">
-		<p>
-			<input type="submit" value="@Phrases.LabelSave" />
-		</p>
+        <p>
+            <input type="submit" value="@Phrases.LabelSave" />
+            @Html.ActionLink(string.Format(Phrases.LabelBackTo, Phrases.PagenamePersons), "people", "admin")
+        </p>
 	</fieldset>
 }

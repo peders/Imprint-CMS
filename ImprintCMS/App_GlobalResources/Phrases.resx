@@ -673,4 +673,7 @@
   <data name="LabelSiteConfigurations" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="LabelSearch" xml:space="preserve">
+    <value>Søk</value>
+  </data>
 </root>

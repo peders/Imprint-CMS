@@ -2,30 +2,33 @@
 @{
     ViewBag.Title = Phrases.PagenameArticles;
     ViewBag.Breadcrumbs = new[] {
-		Phrases.PagenameArticles.ToHtmlString()
-	};
+Phrases.PagenameArticles.ToHtmlString()
+};
 }
 <div class="adminactions">
     @Html.ActionLink(Phrases.PagenameCreateArticle, "createarticle")
 </div>
-<table>
-    <thead>
-        <tr>
-            <th>@Phrases.LabelTitle</th>
-            <th>@Phrases.LabelDate</th>
-            <th>@Phrases.LabelIsVisible</th>
-            <th>@Phrases.LabelShowOnFrontPage</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var article in Model)
-        {
+<div class="filteredlist">
+    <p><input type="text" class="filterinput" placeholder="@Phrases.LabelSearch" /></p>
+    <table>
+        <thead>
             <tr>
-                <td>@Html.ActionLink(article.Title, "editarticle", new { id = article.Id })</td>
-                <td>@String.Format("{0:D}", article.Date)</td>
-                <td class="@(!article.IsVisible ? "inactive" : string.Empty)">@article.IsVisible.ToWord()</td>
-                <td class="@(!article.IsOnFrontPage ? "inactive" : string.Empty)">@article.IsOnFrontPage.ToWord()</td>
+                <th>@Phrases.LabelTitle</th>
+                <th>@Phrases.LabelDate</th>
+                <th>@Phrases.LabelIsVisible</th>
+                <th>@Phrases.LabelShowOnFrontPage</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var article in Model)
+            {
+                <tr class="filteredlistitem">
+                    <td>@Html.ActionLink(article.Title, "editarticle", new { id = article.Id }, new { @class = "filterlabel" })</td>
+                    <td>@String.Format("{0:D}", article.Date)</td>
+                    <td class="@(!article.IsVisible ? "inactive" : string.Empty)">@article.IsVisible.ToWord()</td>
+                    <td class="@(!article.IsOnFrontPage ? "inactive" : string.Empty)">@article.IsOnFrontPage.ToWord()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

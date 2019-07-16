@@ -28,4 +28,13 @@
 		}
 	});
 
+    $('.filteredlist .filterinput').keyup(function () {
+        var valThis = $(this).val().toLowerCase();
+        $(this).closest('.filteredlist').find('.filterlabel').each(function () {
+            var text = $(this).text().toLowerCase();
+            var item = $(this).closest('.filteredlistitem');
+            (text.indexOf(valThis) < 0) ? item.hide() : item.show();
+        });
+    });
+
 });

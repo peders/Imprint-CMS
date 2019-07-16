@@ -7,6 +7,7 @@ Phrases.PagenameEditPerson.ToHtmlString()
 };
 }
 @Html.EditorForModel()
+<p>@Html.ActionLink(Phrases.LabelDelete, "deleteperson", new { id = Model.Id })</p>
 <h2>@Phrases.LabelImages</h2>
 <ul class="listing sortable" data-persisturl="@Url.Action("storepersonimageorder")" data-handlelabel="@Phrases.LabelDragAndDropToSort" data-errorlabel="@Phrases.ValidationAjaxError">
     @foreach (var image in Model.PersonImages.OrderBy(r => r.SequenceIdentifier))
