@@ -21,6 +21,7 @@ namespace ImprintCMS.Controllers
             return new FileContentResult(vm.Data.ToArray(), vm.ContentType);
         }
 
+        [OutputCache(Duration = int.MaxValue, Location = OutputCacheLocation.Any, SqlDependency = "ImprintCMS:UploadedFile")]
         public ActionResult Thumbnail(string fileName, int side)
         {
             var vm = Repository.GetUploadedFile("SmallPortrait", fileName);
