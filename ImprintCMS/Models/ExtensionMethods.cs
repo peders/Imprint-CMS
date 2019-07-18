@@ -5,6 +5,7 @@ using System;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ImprintCMS.Models.ViewModels;
+using System.Drawing;
 
 namespace ImprintCMS.Models
 {
@@ -44,6 +45,16 @@ namespace ImprintCMS.Models
             if (file.ContentType == "text/css" && file.FileName.StartsWith("legacy_")) return Phrases.FileTypeLegacyCss;
             if (file.ContentType == "text/css") return Phrases.FileTypeCss;
             return file.ContentType;
+        }
+
+        public static int SmallestDimension(this Image image)
+        {
+            return image.Width > image.Height ? image.Height : image.Width;
+        }
+
+        public static Rectangle CenterCropSquare(this Image image)
+        {
+            return new Rectangle((image.Width - image.SmallestDimension()) / 2, (image.Height - image.SmallestDimension()) / 2, image.SmallestDimension(), image.SmallestDimension());
         }
 
         public static string AsIsbn(this string source)

@@ -90,9 +90,9 @@ namespace ImprintCMS.Models
     #endregion
 		
 		public ImprintCMSDataContext() :
-            base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ImprintCMSConnectionString"].ConnectionString, mappingSource)
+                base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ImprintCMSConnectionString"].ConnectionString, mappingSource)
         {
-            OnCreated();
+			OnCreated();
 		}
 		
 		public ImprintCMSDataContext(string connection) : 

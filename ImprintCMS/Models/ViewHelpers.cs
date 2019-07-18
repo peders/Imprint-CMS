@@ -50,6 +50,15 @@ namespace ImprintCMS.Models
             return string.Format(formatString, SitePhrases.UnitMonthUltimo);
         }
 
+        public static HtmlString PersonThumbnail(this HtmlHelper helper, Person person, int side)
+        {
+            if (person.MainImage == null) return null;
+            var legend = helper.Encode(string.Format(SitePhrases.LabelAuthorImage, person.FullName));
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var source = urlHelper.Action("thumbnail", "upload", new { fileName = person.MainImage.UploadedFile.FileName, side });
+            return new HtmlString("<img src=\"" + source + "\" class=\"person\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
+        }
+
         public static HtmlString PersonImage(this HtmlHelper helper, Person person)
         {
             if (person.MainImage == null) return null;

@@ -10,9 +10,16 @@ namespace ImprintCMS
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "DisplayFil",
+                name: "DisplayFile",
                 url: "uploads/{category}/{fileName}",
                 defaults: new { controller = "Upload", action = "Display", category = UrlParameter.Optional, fileName = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "DisplayPersonThumbnail",
+                url: "thumbnails/{side}/{fileName}",
+                defaults: new { controller = "Upload", action = "Thumbnail" },
+                constraints: new { side = @"\d+" }
             );
 
             routes.MapRoute(
