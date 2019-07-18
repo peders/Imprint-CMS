@@ -112,7 +112,7 @@ namespace ImprintCMS.Models
         public static HtmlString Facebook(this HtmlHelper helper)
         {
             var url = helper.ViewContext.RequestContext.HttpContext.Request.Url;
-            return new HtmlString("<iframe src=\"http://www.facebook.com/plugins/like.php?href=" + url + "&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:21px;\" allowTransparency=\"true\"></iframe>");
+            return new HtmlString("<iframe src=\"https://www.facebook.com/plugins/like.php?href=" + url + "&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:21px;\" allowTransparency=\"true\"></iframe>");
         }
 
         public static HtmlString GoogleAnalytics(this HtmlHelper helper, string trackingCode)
