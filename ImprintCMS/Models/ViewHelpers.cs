@@ -127,7 +127,7 @@ namespace ImprintCMS.Models
                 @"<form method=""get"" action=""{0}"" id=""searchform"">
 <fieldset>
 	<p>
-		<input type=""text"" name=""q"" id=""query"" value=""{1}"" placeholder=""{2}"" />
+		<input type=""search"" name=""q"" id=""query"" value=""{1}"" placeholder=""{2}"" />
 		<input type=""submit"" id=""button"" value=""{3}"" /></p>
 </fieldset>
 </form>", action, query, SitePhrases.LabelSearchPlaceholder, SitePhrases.LabelSearch));
