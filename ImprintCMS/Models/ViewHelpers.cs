@@ -41,12 +41,12 @@ namespace ImprintCMS.Models
             return new HtmlString(source);
         }
 
-        public static string ToBookListDate(this DateTime source)
+        public static string ToBookListDate(this DateTime date)
         {
-            if (source <= DateTime.Today) return SitePhrases.LabelIsReleased;
-            var formatString = SitePhrases.LabelToBeReleased + " {0} " + source.ToString("MMMM");
-            if (source.Day < 11) return string.Format(formatString, SitePhrases.UnitMonthPrimo);
-            if (source.Day < 21) return string.Format(formatString, SitePhrases.UnitMonthMedio);
+            if (date <= DateTime.Today) return SitePhrases.LabelIsReleased;
+            var formatString = SitePhrases.LabelToBeReleased + " {0} " + date.ToString("MMMM").ToLowerInvariant();
+            if (date.Day < 11) return string.Format(formatString, SitePhrases.UnitMonthPrimo);
+            if (date.Day < 21) return string.Format(formatString, SitePhrases.UnitMonthMedio);
             return string.Format(formatString, SitePhrases.UnitMonthUltimo);
         }
 
