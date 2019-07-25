@@ -16,3 +16,5 @@ delete from Person
 delete from Genre
 delete from UploadedFile
 delete from ExternalStore
+delete from Configuration
+delete from PersonImage
