@@ -45,7 +45,7 @@
             @if (article.ImagePerson != null)
             {
                 <div class="image">
-                    <a href="@Url.Action("details", "authors", new { id = article.ImagePerson.Id })">@Html.PersonThumbnail(article.ImagePerson, 100)</a>
+                    <a href="@Url.Action("details", "authors", new { id = article.ImagePerson.Id })">@Html.PersonThumbnail(article.ImagePerson, 150)</a>
                 </div>
             }
             else
