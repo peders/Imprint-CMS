@@ -8,7 +8,7 @@
 	<ul>
 		@foreach (var person in group)
   {
-			<li><a href="@Url.Action("details", new { id = person.Id })">@Html.PersonThumbnail(person, 100)<span
+			<li><a href="@Url.Action("details", new { id = person.Id })">@Html.PersonThumbnail(person, 150)<span
 				class="label">@person.FullName</span></a></li>
   }
 	</ul>
