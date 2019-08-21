@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
+using System.Globalization;
+using System.Threading;
 using System.Web.Caching;
-using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -20,5 +21,13 @@ namespace ImprintCMS
             SqlCacheDependencyAdmin.EnableTableForNotifications(ConfigurationManager.ConnectionStrings["ImprintCMSConnectionString"].ConnectionString, "UploadedFile");
 
         }
+
+        protected void Application_BeginRequest()
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("nb-NO");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("nb-NO");
+
+        }
+
     }
 }
