@@ -93,6 +93,26 @@ namespace ImprintCMS.Models
             _db.Genres.DeleteOnSubmit(genre);
         }
 
+        public IEnumerable<MenuShortcut> MenuShortcuts
+        {
+            get
+            {
+                return _db.MenuShortcuts;
+            }
+        }
+        public MenuShortcut GetMenuShortcut(int id)
+        {
+            return _db.MenuShortcuts.SingleOrDefault(_ => _.Id == id);
+        }
+        public void Add(MenuShortcut shortcut)
+        {
+            _db.MenuShortcuts.InsertOnSubmit(shortcut);
+        }
+        public void Delete(MenuShortcut shortcut)
+        {
+            _db.MenuShortcuts.DeleteOnSubmit(shortcut);
+        }
+
         public IEnumerable<Role> Roles
         {
             get

@@ -1,0 +1,25 @@
+﻿@model MenuShortcut
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+<fieldset class="fields">
+    <p>
+        @Html.LabelFor(model => model.Name, Phrases.LabelName)<br />
+        @Html.TextBoxFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </p>
+    <p>
+        @Html.LabelFor(model => model.Href, Phrases.LabelHref)<br />
+        @Html.TextBoxFor(model => model.Href)
+        @Html.ValidationMessageFor(model => model.Href)
+    </p>
+</fieldset>
+	<fieldset class="hidden">
+		@Html.HiddenFor(model => model.SequenceIdentifier)
+	</fieldset>
+	<fieldset class="submit">
+		<p>
+			<input type="submit" value="@Phrases.LabelSave" />
+		</p>
+	</fieldset>
+}

@@ -299,6 +299,61 @@ namespace ImprintCMS.Controllers
             return RedirectToAction("genres");
         }
 
+        public ActionResult Shortcuts()
+        {
+            var vm = Repository.MenuShortcuts.OrderBy(_ => _.SequenceIdentifier);
+            return View(vm);
+        }
+
+        public ActionResult CreateShortcut()
+        {
+            var vm = new MenuShortcut
+            {
+                SequenceIdentifier = int.MaxValue
+            };
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult CreateShortcut(MenuShortcut vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+            Repository.Add(vm);
+            Repository.Save();
+            return RedirectToAction("shortcuts");
+        }
+
+        public ActionResult EditShortcut(int id)
+        {
+            var vm = Repository.GetMenuShortcut(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult EditShortcut(MenuShortcut vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+            UpdateModel(Repository.GetMenuShortcut(vm.Id));
+            Repository.Save();
+            return RedirectToAction("shortcuts");
+        }
+
+        public ActionResult DeleteShortcut(int id)
+        {
+            var vm = Repository.GetMenuShortcut(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteShortcut(MenuShortcut vm)
+        {
+            Repository.Delete(Repository.GetMenuShortcut(vm.Id));
+            Repository.Save();
+            return RedirectToAction("shortcuts");
+        }
+
         public ActionResult ExternalStores()
         {
             var vm = Repository.ExternalStores.OrderBy(s => s.SequenceIdentifier);
@@ -1149,6 +1204,22 @@ namespace ImprintCMS.Controllers
             {
                 var genre = Repository.GetGenre(id);
                 genre.SequenceIdentifier = sequenceIdentifier;
+                sequenceIdentifier++;
+            }
+            Repository.Save();
+            return new HttpStatusCodeResult(200);
+        }
+
+        [HttpPost]
+        public ActionResult StoreShortcutOrder()
+        {
+            var data = Request.Form["sortitem[]"] as string;
+            var ids = data.Split(',').Select(int.Parse);
+            var sequenceIdentifier = 0;
+            foreach (var id in ids)
+            {
+                var shortcut = Repository.GetMenuShortcut(id);
+                shortcut.SequenceIdentifier = sequenceIdentifier;
                 sequenceIdentifier++;
             }
             Repository.Save();

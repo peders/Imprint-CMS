@@ -1,0 +1,9 @@
+﻿@model MenuShortcut
+@{
+	ViewBag.Title = Phrases.PagenameCreateMenuShortcut;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameMenuShortcuts, "shortcuts"),
+		Phrases.PagenameCreateMenuShortcut.ToHtmlString()
+	};
+}
+@Html.EditorForModel()

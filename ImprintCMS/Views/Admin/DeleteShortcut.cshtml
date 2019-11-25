@@ -1,0 +1,17 @@
+﻿@model MenuShortcut
+@{
+    ViewBag.Title = Phrases.PagenameDelete;
+    ViewBag.Breadcrumbs = new[] {
+Html.ActionLink(Phrases.PagenameMenuShortcuts, "shortcuts"),
+Html.ActionLink(Model.Name, "editshortcut", new { id = Model.Id }),
+Phrases.PagenameDelete.ToHtmlString()
+};
+}
+<p>@Html.DeleteConfirmation(Model.Name)</p>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="@Phrases.LabelDelete" />
+        @Html.ActionLink(String.Format(Phrases.LabelBackTo, Phrases.PagenameMenuShortcuts), "shortcuts")
+    </p>
+}

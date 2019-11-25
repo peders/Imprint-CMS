@@ -89,6 +89,25 @@
       <Association Name="Book_BookToArticle" Member="Book" ThisKey="BookId" OtherKey="Id" Type="Book" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Configuration" Member="Configurations">
+    <Type Name="Configuration">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SiteName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SiteFooter" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DistributionCostAmount" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DistributionCostLimit" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailSenderAddress" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailSenderName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GoogleAnalyticsTrackingCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PersonImageDownloadNotice" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CoverImageDownloadNotice" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShopIsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ShopEmailRecipient" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ShopDisclaimer" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.ContactArticle" Member="ContactArticles">
     <Type Name="ContactArticle">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -135,6 +154,14 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Genre_Book" Member="Books" ThisKey="Id" OtherKey="GenreId" Type="Book" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MenuShortcut" Member="MenuShortcuts">
+    <Type Name="MenuShortcut">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Href" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.[Order]" Member="Orders">
@@ -227,25 +254,6 @@
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ShowBookList" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Role_Relation" Member="Relations" ThisKey="Id" OtherKey="RoleId" Type="Relation" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Configuration" Member="Configurations">
-    <Type Name="Configuration">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SiteName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SiteFooter" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="DistributionCostAmount" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
-      <Column Name="DistributionCostLimit" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
-      <Column Name="EmailSenderAddress" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="EmailSenderName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="GoogleAnalyticsTrackingCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PersonImageDownloadNotice" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CoverImageDownloadNotice" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ShopIsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="ShopEmailRecipient" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ShopDisclaimer" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

@@ -9,7 +9,7 @@ namespace ImprintCMS.Models
 
 	public class GenreMetadata
 	{
-		[Required(ErrorMessage = "*")]
-		public string Name { get; set; }
+        [Required(ErrorMessageResourceType = typeof(Phrases), ErrorMessageResourceName = "ValidationRequiredDefault")]
+        public string Name { get; set; }
 	}
 }

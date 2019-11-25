@@ -136,6 +136,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ImprintCMS.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\MenuShortcut.cs" />
     <Compile Include="Models\ModelExtensions.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Person.cs" />
@@ -547,6 +548,11 @@
     <Content Include="Views\Shared\EditorTemplates\Configuration.cshtml" />
     <Content Include="Views\Admin\EditConfiguration.cshtml" />
     <Content Include="Views\Admin\DeleteConfiguration.cshtml" />
+    <Content Include="Views\Admin\Shortcuts.cshtml" />
+    <Content Include="Views\Admin\CreateShortcut.cshtml" />
+    <Content Include="Views\Admin\DeleteShortcut.cshtml" />
+    <Content Include="Views\Admin\EditShortcut.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MenuShortcut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

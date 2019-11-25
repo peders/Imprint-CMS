@@ -484,6 +484,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to URL.
+        /// </summary>
+        public static string LabelHref {
+            get {
+                return ResourceManager.GetString("LabelHref", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image.
         /// </summary>
         public static string LabelImage {
@@ -1258,6 +1267,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New shortcut.
+        /// </summary>
+        public static string PagenameCreateMenuShortcut {
+            get {
+                return ResourceManager.GetString("PagenameCreateMenuShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New person.
         /// </summary>
         public static string PagenameCreatePerson {
@@ -1411,6 +1429,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit menu shortcut.
+        /// </summary>
+        public static string PagenameEditMenuShortcut {
+            get {
+                return ResourceManager.GetString("PagenameEditMenuShortcut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit person.
         /// </summary>
         public static string PagenameEditPerson {
@@ -1470,6 +1497,15 @@ namespace ImprintCMS.Models {
         public static string PagenameLogIn {
             get {
                 return ResourceManager.GetString("PagenameLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Menu shortcuts.
+        /// </summary>
+        public static string PagenameMenuShortcuts {
+            get {
+                return ResourceManager.GetString("PagenameMenuShortcuts", resourceCulture);
             }
         }
         

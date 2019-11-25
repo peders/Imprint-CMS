@@ -51,6 +51,9 @@ namespace ImprintCMS.Models
     partial void InsertBookToArticle(BookToArticle instance);
     partial void UpdateBookToArticle(BookToArticle instance);
     partial void DeleteBookToArticle(BookToArticle instance);
+    partial void InsertConfiguration(Configuration instance);
+    partial void UpdateConfiguration(Configuration instance);
+    partial void DeleteConfiguration(Configuration instance);
     partial void InsertContactArticle(ContactArticle instance);
     partial void UpdateContactArticle(ContactArticle instance);
     partial void DeleteContactArticle(ContactArticle instance);
@@ -63,6 +66,9 @@ namespace ImprintCMS.Models
     partial void InsertGenre(Genre instance);
     partial void UpdateGenre(Genre instance);
     partial void DeleteGenre(Genre instance);
+    partial void InsertMenuShortcut(MenuShortcut instance);
+    partial void UpdateMenuShortcut(MenuShortcut instance);
+    partial void DeleteMenuShortcut(MenuShortcut instance);
     partial void InsertOrder(Order instance);
     partial void UpdateOrder(Order instance);
     partial void DeleteOrder(Order instance);
@@ -84,15 +90,12 @@ namespace ImprintCMS.Models
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
-    partial void InsertConfiguration(Configuration instance);
-    partial void UpdateConfiguration(Configuration instance);
-    partial void DeleteConfiguration(Configuration instance);
     #endregion
 		
 		public ImprintCMSDataContext() :
                 base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ImprintCMSConnectionString"].ConnectionString, mappingSource)
         {
-			OnCreated();
+            OnCreated();
 		}
 		
 		public ImprintCMSDataContext(string connection) : 
@@ -175,6 +178,14 @@ namespace ImprintCMS.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<Configuration> Configurations
+		{
+			get
+			{
+				return this.GetTable<Configuration>();
+			}
+		}
+		
 		public System.Data.Linq.Table<ContactArticle> ContactArticles
 		{
 			get
@@ -204,6 +215,14 @@ namespace ImprintCMS.Models
 			get
 			{
 				return this.GetTable<Genre>();
+			}
+		}
+		
+		public System.Data.Linq.Table<MenuShortcut> MenuShortcuts
+		{
+			get
+			{
+				return this.GetTable<MenuShortcut>();
 			}
 		}
 		
@@ -260,14 +279,6 @@ namespace ImprintCMS.Models
 			get
 			{
 				return this.GetTable<Role>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Configuration> Configurations
-		{
-			get
-			{
-				return this.GetTable<Configuration>();
 			}
 		}
 	}
@@ -2160,6 +2171,404 @@ namespace ImprintCMS.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Configuration")]
+	public partial class Configuration : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _SiteName;
+		
+		private string _SiteFooter;
+		
+		private decimal _DistributionCostAmount;
+		
+		private decimal _DistributionCostLimit;
+		
+		private string _EmailSenderAddress;
+		
+		private string _EmailSenderName;
+		
+		private string _GoogleAnalyticsTrackingCode;
+		
+		private string _PersonImageDownloadNotice;
+		
+		private string _CoverImageDownloadNotice;
+		
+		private bool _ShopIsVisible;
+		
+		private string _ShopEmailRecipient;
+		
+		private string _ShopDisclaimer;
+		
+		private bool _IsActive;
+		
+		private string _Name;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnSiteNameChanging(string value);
+    partial void OnSiteNameChanged();
+    partial void OnSiteFooterChanging(string value);
+    partial void OnSiteFooterChanged();
+    partial void OnDistributionCostAmountChanging(decimal value);
+    partial void OnDistributionCostAmountChanged();
+    partial void OnDistributionCostLimitChanging(decimal value);
+    partial void OnDistributionCostLimitChanged();
+    partial void OnEmailSenderAddressChanging(string value);
+    partial void OnEmailSenderAddressChanged();
+    partial void OnEmailSenderNameChanging(string value);
+    partial void OnEmailSenderNameChanged();
+    partial void OnGoogleAnalyticsTrackingCodeChanging(string value);
+    partial void OnGoogleAnalyticsTrackingCodeChanged();
+    partial void OnPersonImageDownloadNoticeChanging(string value);
+    partial void OnPersonImageDownloadNoticeChanged();
+    partial void OnCoverImageDownloadNoticeChanging(string value);
+    partial void OnCoverImageDownloadNoticeChanged();
+    partial void OnShopIsVisibleChanging(bool value);
+    partial void OnShopIsVisibleChanged();
+    partial void OnShopEmailRecipientChanging(string value);
+    partial void OnShopEmailRecipientChanged();
+    partial void OnShopDisclaimerChanging(string value);
+    partial void OnShopDisclaimerChanged();
+    partial void OnIsActiveChanging(bool value);
+    partial void OnIsActiveChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public Configuration()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SiteName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string SiteName
+		{
+			get
+			{
+				return this._SiteName;
+			}
+			set
+			{
+				if ((this._SiteName != value))
+				{
+					this.OnSiteNameChanging(value);
+					this.SendPropertyChanging();
+					this._SiteName = value;
+					this.SendPropertyChanged("SiteName");
+					this.OnSiteNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SiteFooter", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string SiteFooter
+		{
+			get
+			{
+				return this._SiteFooter;
+			}
+			set
+			{
+				if ((this._SiteFooter != value))
+				{
+					this.OnSiteFooterChanging(value);
+					this.SendPropertyChanging();
+					this._SiteFooter = value;
+					this.SendPropertyChanged("SiteFooter");
+					this.OnSiteFooterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DistributionCostAmount", DbType="Decimal(9,2) NOT NULL")]
+		public decimal DistributionCostAmount
+		{
+			get
+			{
+				return this._DistributionCostAmount;
+			}
+			set
+			{
+				if ((this._DistributionCostAmount != value))
+				{
+					this.OnDistributionCostAmountChanging(value);
+					this.SendPropertyChanging();
+					this._DistributionCostAmount = value;
+					this.SendPropertyChanged("DistributionCostAmount");
+					this.OnDistributionCostAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DistributionCostLimit", DbType="Decimal(9,2) NOT NULL")]
+		public decimal DistributionCostLimit
+		{
+			get
+			{
+				return this._DistributionCostLimit;
+			}
+			set
+			{
+				if ((this._DistributionCostLimit != value))
+				{
+					this.OnDistributionCostLimitChanging(value);
+					this.SendPropertyChanging();
+					this._DistributionCostLimit = value;
+					this.SendPropertyChanged("DistributionCostLimit");
+					this.OnDistributionCostLimitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailSenderAddress", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmailSenderAddress
+		{
+			get
+			{
+				return this._EmailSenderAddress;
+			}
+			set
+			{
+				if ((this._EmailSenderAddress != value))
+				{
+					this.OnEmailSenderAddressChanging(value);
+					this.SendPropertyChanging();
+					this._EmailSenderAddress = value;
+					this.SendPropertyChanged("EmailSenderAddress");
+					this.OnEmailSenderAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailSenderName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmailSenderName
+		{
+			get
+			{
+				return this._EmailSenderName;
+			}
+			set
+			{
+				if ((this._EmailSenderName != value))
+				{
+					this.OnEmailSenderNameChanging(value);
+					this.SendPropertyChanging();
+					this._EmailSenderName = value;
+					this.SendPropertyChanged("EmailSenderName");
+					this.OnEmailSenderNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GoogleAnalyticsTrackingCode", DbType="NVarChar(50)")]
+		public string GoogleAnalyticsTrackingCode
+		{
+			get
+			{
+				return this._GoogleAnalyticsTrackingCode;
+			}
+			set
+			{
+				if ((this._GoogleAnalyticsTrackingCode != value))
+				{
+					this.OnGoogleAnalyticsTrackingCodeChanging(value);
+					this.SendPropertyChanging();
+					this._GoogleAnalyticsTrackingCode = value;
+					this.SendPropertyChanged("GoogleAnalyticsTrackingCode");
+					this.OnGoogleAnalyticsTrackingCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonImageDownloadNotice", DbType="NVarChar(MAX)")]
+		public string PersonImageDownloadNotice
+		{
+			get
+			{
+				return this._PersonImageDownloadNotice;
+			}
+			set
+			{
+				if ((this._PersonImageDownloadNotice != value))
+				{
+					this.OnPersonImageDownloadNoticeChanging(value);
+					this.SendPropertyChanging();
+					this._PersonImageDownloadNotice = value;
+					this.SendPropertyChanged("PersonImageDownloadNotice");
+					this.OnPersonImageDownloadNoticeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CoverImageDownloadNotice", DbType="NVarChar(MAX)")]
+		public string CoverImageDownloadNotice
+		{
+			get
+			{
+				return this._CoverImageDownloadNotice;
+			}
+			set
+			{
+				if ((this._CoverImageDownloadNotice != value))
+				{
+					this.OnCoverImageDownloadNoticeChanging(value);
+					this.SendPropertyChanging();
+					this._CoverImageDownloadNotice = value;
+					this.SendPropertyChanged("CoverImageDownloadNotice");
+					this.OnCoverImageDownloadNoticeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShopIsVisible", DbType="Bit NOT NULL")]
+		public bool ShopIsVisible
+		{
+			get
+			{
+				return this._ShopIsVisible;
+			}
+			set
+			{
+				if ((this._ShopIsVisible != value))
+				{
+					this.OnShopIsVisibleChanging(value);
+					this.SendPropertyChanging();
+					this._ShopIsVisible = value;
+					this.SendPropertyChanged("ShopIsVisible");
+					this.OnShopIsVisibleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShopEmailRecipient", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ShopEmailRecipient
+		{
+			get
+			{
+				return this._ShopEmailRecipient;
+			}
+			set
+			{
+				if ((this._ShopEmailRecipient != value))
+				{
+					this.OnShopEmailRecipientChanging(value);
+					this.SendPropertyChanging();
+					this._ShopEmailRecipient = value;
+					this.SendPropertyChanged("ShopEmailRecipient");
+					this.OnShopEmailRecipientChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShopDisclaimer", DbType="NVarChar(MAX)")]
+		public string ShopDisclaimer
+		{
+			get
+			{
+				return this._ShopDisclaimer;
+			}
+			set
+			{
+				if ((this._ShopDisclaimer != value))
+				{
+					this.OnShopDisclaimerChanging(value);
+					this.SendPropertyChanging();
+					this._ShopDisclaimer = value;
+					this.SendPropertyChanged("ShopDisclaimer");
+					this.OnShopDisclaimerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit NOT NULL")]
+		public bool IsActive
+		{
+			get
+			{
+				return this._IsActive;
+			}
+			set
+			{
+				if ((this._IsActive != value))
+				{
+					this.OnIsActiveChanging(value);
+					this.SendPropertyChanging();
+					this._IsActive = value;
+					this.SendPropertyChanged("IsActive");
+					this.OnIsActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ContactArticle")]
 	public partial class ContactArticle : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3157,6 +3566,140 @@ namespace ImprintCMS.Models
 		{
 			this.SendPropertyChanging();
 			entity.Genre = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MenuShortcut")]
+	public partial class MenuShortcut : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private int _SequenceIdentifier;
+		
+		private string _Href;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnSequenceIdentifierChanging(int value);
+    partial void OnSequenceIdentifierChanged();
+    partial void OnHrefChanging(string value);
+    partial void OnHrefChanged();
+    #endregion
+		
+		public MenuShortcut()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SequenceIdentifier", DbType="Int NOT NULL")]
+		public int SequenceIdentifier
+		{
+			get
+			{
+				return this._SequenceIdentifier;
+			}
+			set
+			{
+				if ((this._SequenceIdentifier != value))
+				{
+					this.OnSequenceIdentifierChanging(value);
+					this.SendPropertyChanging();
+					this._SequenceIdentifier = value;
+					this.SendPropertyChanged("SequenceIdentifier");
+					this.OnSequenceIdentifierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Href", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Href
+		{
+			get
+			{
+				return this._Href;
+			}
+			set
+			{
+				if ((this._Href != value))
+				{
+					this.OnHrefChanging(value);
+					this.SendPropertyChanging();
+					this._Href = value;
+					this.SendPropertyChanged("Href");
+					this.OnHrefChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -5183,404 +5726,6 @@ namespace ImprintCMS.Models
 		{
 			this.SendPropertyChanging();
 			entity.Role = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Configuration")]
-	public partial class Configuration : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _SiteName;
-		
-		private string _SiteFooter;
-		
-		private decimal _DistributionCostAmount;
-		
-		private decimal _DistributionCostLimit;
-		
-		private string _EmailSenderAddress;
-		
-		private string _EmailSenderName;
-		
-		private string _GoogleAnalyticsTrackingCode;
-		
-		private string _PersonImageDownloadNotice;
-		
-		private string _CoverImageDownloadNotice;
-		
-		private bool _ShopIsVisible;
-		
-		private string _ShopEmailRecipient;
-		
-		private string _ShopDisclaimer;
-		
-		private bool _IsActive;
-		
-		private string _Name;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnSiteNameChanging(string value);
-    partial void OnSiteNameChanged();
-    partial void OnSiteFooterChanging(string value);
-    partial void OnSiteFooterChanged();
-    partial void OnDistributionCostAmountChanging(decimal value);
-    partial void OnDistributionCostAmountChanged();
-    partial void OnDistributionCostLimitChanging(decimal value);
-    partial void OnDistributionCostLimitChanged();
-    partial void OnEmailSenderAddressChanging(string value);
-    partial void OnEmailSenderAddressChanged();
-    partial void OnEmailSenderNameChanging(string value);
-    partial void OnEmailSenderNameChanged();
-    partial void OnGoogleAnalyticsTrackingCodeChanging(string value);
-    partial void OnGoogleAnalyticsTrackingCodeChanged();
-    partial void OnPersonImageDownloadNoticeChanging(string value);
-    partial void OnPersonImageDownloadNoticeChanged();
-    partial void OnCoverImageDownloadNoticeChanging(string value);
-    partial void OnCoverImageDownloadNoticeChanged();
-    partial void OnShopIsVisibleChanging(bool value);
-    partial void OnShopIsVisibleChanged();
-    partial void OnShopEmailRecipientChanging(string value);
-    partial void OnShopEmailRecipientChanged();
-    partial void OnShopDisclaimerChanging(string value);
-    partial void OnShopDisclaimerChanged();
-    partial void OnIsActiveChanging(bool value);
-    partial void OnIsActiveChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    #endregion
-		
-		public Configuration()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SiteName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string SiteName
-		{
-			get
-			{
-				return this._SiteName;
-			}
-			set
-			{
-				if ((this._SiteName != value))
-				{
-					this.OnSiteNameChanging(value);
-					this.SendPropertyChanging();
-					this._SiteName = value;
-					this.SendPropertyChanged("SiteName");
-					this.OnSiteNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SiteFooter", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string SiteFooter
-		{
-			get
-			{
-				return this._SiteFooter;
-			}
-			set
-			{
-				if ((this._SiteFooter != value))
-				{
-					this.OnSiteFooterChanging(value);
-					this.SendPropertyChanging();
-					this._SiteFooter = value;
-					this.SendPropertyChanged("SiteFooter");
-					this.OnSiteFooterChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DistributionCostAmount", DbType="Decimal(9,2) NOT NULL")]
-		public decimal DistributionCostAmount
-		{
-			get
-			{
-				return this._DistributionCostAmount;
-			}
-			set
-			{
-				if ((this._DistributionCostAmount != value))
-				{
-					this.OnDistributionCostAmountChanging(value);
-					this.SendPropertyChanging();
-					this._DistributionCostAmount = value;
-					this.SendPropertyChanged("DistributionCostAmount");
-					this.OnDistributionCostAmountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DistributionCostLimit", DbType="Decimal(9,2) NOT NULL")]
-		public decimal DistributionCostLimit
-		{
-			get
-			{
-				return this._DistributionCostLimit;
-			}
-			set
-			{
-				if ((this._DistributionCostLimit != value))
-				{
-					this.OnDistributionCostLimitChanging(value);
-					this.SendPropertyChanging();
-					this._DistributionCostLimit = value;
-					this.SendPropertyChanged("DistributionCostLimit");
-					this.OnDistributionCostLimitChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailSenderAddress", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string EmailSenderAddress
-		{
-			get
-			{
-				return this._EmailSenderAddress;
-			}
-			set
-			{
-				if ((this._EmailSenderAddress != value))
-				{
-					this.OnEmailSenderAddressChanging(value);
-					this.SendPropertyChanging();
-					this._EmailSenderAddress = value;
-					this.SendPropertyChanged("EmailSenderAddress");
-					this.OnEmailSenderAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailSenderName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string EmailSenderName
-		{
-			get
-			{
-				return this._EmailSenderName;
-			}
-			set
-			{
-				if ((this._EmailSenderName != value))
-				{
-					this.OnEmailSenderNameChanging(value);
-					this.SendPropertyChanging();
-					this._EmailSenderName = value;
-					this.SendPropertyChanged("EmailSenderName");
-					this.OnEmailSenderNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GoogleAnalyticsTrackingCode", DbType="NVarChar(50)")]
-		public string GoogleAnalyticsTrackingCode
-		{
-			get
-			{
-				return this._GoogleAnalyticsTrackingCode;
-			}
-			set
-			{
-				if ((this._GoogleAnalyticsTrackingCode != value))
-				{
-					this.OnGoogleAnalyticsTrackingCodeChanging(value);
-					this.SendPropertyChanging();
-					this._GoogleAnalyticsTrackingCode = value;
-					this.SendPropertyChanged("GoogleAnalyticsTrackingCode");
-					this.OnGoogleAnalyticsTrackingCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonImageDownloadNotice", DbType="NVarChar(MAX)")]
-		public string PersonImageDownloadNotice
-		{
-			get
-			{
-				return this._PersonImageDownloadNotice;
-			}
-			set
-			{
-				if ((this._PersonImageDownloadNotice != value))
-				{
-					this.OnPersonImageDownloadNoticeChanging(value);
-					this.SendPropertyChanging();
-					this._PersonImageDownloadNotice = value;
-					this.SendPropertyChanged("PersonImageDownloadNotice");
-					this.OnPersonImageDownloadNoticeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CoverImageDownloadNotice", DbType="NVarChar(MAX)")]
-		public string CoverImageDownloadNotice
-		{
-			get
-			{
-				return this._CoverImageDownloadNotice;
-			}
-			set
-			{
-				if ((this._CoverImageDownloadNotice != value))
-				{
-					this.OnCoverImageDownloadNoticeChanging(value);
-					this.SendPropertyChanging();
-					this._CoverImageDownloadNotice = value;
-					this.SendPropertyChanged("CoverImageDownloadNotice");
-					this.OnCoverImageDownloadNoticeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShopIsVisible", DbType="Bit NOT NULL")]
-		public bool ShopIsVisible
-		{
-			get
-			{
-				return this._ShopIsVisible;
-			}
-			set
-			{
-				if ((this._ShopIsVisible != value))
-				{
-					this.OnShopIsVisibleChanging(value);
-					this.SendPropertyChanging();
-					this._ShopIsVisible = value;
-					this.SendPropertyChanged("ShopIsVisible");
-					this.OnShopIsVisibleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShopEmailRecipient", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ShopEmailRecipient
-		{
-			get
-			{
-				return this._ShopEmailRecipient;
-			}
-			set
-			{
-				if ((this._ShopEmailRecipient != value))
-				{
-					this.OnShopEmailRecipientChanging(value);
-					this.SendPropertyChanging();
-					this._ShopEmailRecipient = value;
-					this.SendPropertyChanged("ShopEmailRecipient");
-					this.OnShopEmailRecipientChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShopDisclaimer", DbType="NVarChar(MAX)")]
-		public string ShopDisclaimer
-		{
-			get
-			{
-				return this._ShopDisclaimer;
-			}
-			set
-			{
-				if ((this._ShopDisclaimer != value))
-				{
-					this.OnShopDisclaimerChanging(value);
-					this.SendPropertyChanging();
-					this._ShopDisclaimer = value;
-					this.SendPropertyChanged("ShopDisclaimer");
-					this.OnShopDisclaimerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit NOT NULL")]
-		public bool IsActive
-		{
-			get
-			{
-				return this._IsActive;
-			}
-			set
-			{
-				if ((this._IsActive != value))
-				{
-					this.OnIsActiveChanging(value);
-					this.SendPropertyChanging();
-					this._IsActive = value;
-					this.SendPropertyChanged("IsActive");
-					this.OnIsActiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }

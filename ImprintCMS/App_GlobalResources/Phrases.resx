@@ -676,4 +676,16 @@
   <data name="LabelSearch" xml:space="preserve">
     <value>Søk</value>
   </data>
+  <data name="PagenameCreateMenuShortcut" xml:space="preserve">
+    <value>New shortcut</value>
+  </data>
+  <data name="PagenameMenuShortcuts" xml:space="preserve">
+    <value>Menu shortcuts</value>
+  </data>
+  <data name="LabelHref" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="PagenameEditMenuShortcut" xml:space="preserve">
+    <value>Edit menu shortcut</value>
+  </data>
 </root>
