@@ -25,7 +25,7 @@ namespace ImprintCMS.Controllers
 			var vm = new ContactPage
 			{
 				Articles = articles,
-				CurrentArticle = id == null ? articles.First() : Repository.GetContactArticle((int)id)
+				CurrentArticle = id == null ? articles.FirstOrDefault() : Repository.GetContactArticle((int)id)
 			};
 			return View(vm);
 		}
