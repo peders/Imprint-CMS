@@ -6,9 +6,9 @@
     @if (Model.ImagePerson != null)
     {
         <a href="@Url.Action("details", "authors", new { id = Model.ImagePerson.Id })">@Html.PersonThumbnail(Model.ImagePerson, 160)</a>
-        if (!String.IsNullOrWhiteSpace(Model.ImagePerson.PhotographerCredit))
+        if (!String.IsNullOrWhiteSpace(Model.ImagePerson.MainImage.Photographer))
         {
-        <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.ImagePerson.PhotographerCredit)</p>
+        <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.ImagePerson.MainImage.Photographer)</p>
         }
     }
     else

@@ -30,3 +30,4 @@ packages
 .vs/ImprintCMS/v15/Server/sqlite3/storage.ide-wal
 /ImprintCMS/Properties/PublishProfiles/kolonwebdev - Web Deploy.pubxml
 ImprintCMS/Web.Release.config
+*.pubxml

@@ -33,21 +33,6 @@
 			@Html.TextAreaFor(model => model.Anthologies, new { @class = "rich" })
 			@Html.ValidationMessageFor(model => model.Anthologies)
 		</p>
-		<p>
-			@Html.LabelFor(model => model.SmallImageId, Phrases.LabelSmallImage)<br />
-			@Html.DropDownListFor(model => model.SmallImageId, (SelectList)ViewBag.SmallPortraits, "–")
-			@Html.ValidationMessageFor(model => model.SmallImageId)
-		</p>
-		<p>
-			@Html.LabelFor(model => model.LargeImageId, Phrases.LabelLargeImage)<br />
-			@Html.DropDownListFor(model => model.LargeImageId, (SelectList)ViewBag.LargePortraits, "–")
-			@Html.ValidationMessageFor(model => model.LargeImageId)
-		</p>
-		<p>
-			@Html.LabelFor(model => model.PhotographerCredit, Phrases.LabelPhotographerCredit)<br />
-			@Html.TextBoxFor(model => model.PhotographerCredit)
-			@Html.ValidationMessageFor(model => model.PhotographerCredit)
-		</p>
 	</fieldset>
 	<fieldset class="options">
 		<p>

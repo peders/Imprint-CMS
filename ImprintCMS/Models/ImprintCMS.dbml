@@ -23,8 +23,6 @@
       <Association Name="UploadedFile_Book" Member="Books" ThisKey="Id" OtherKey="ExcerptId" Type="Book" />
       <Association Name="UploadedFile_Edition" Member="Editions" ThisKey="Id" OtherKey="SmallCoverId" Type="Edition" />
       <Association Name="UploadedFile_Edition1" Member="Editions1" ThisKey="Id" OtherKey="LargeCoverId" Type="Edition" />
-      <Association Name="UploadedFile_Person" Member="Persons" ThisKey="Id" OtherKey="SmallImageId" Type="Person" />
-      <Association Name="UploadedFile_Person1" Member="Persons1" ThisKey="Id" OtherKey="LargeImageId" Type="Person" />
       <Association Name="UploadedFile_PersonImage" Member="PersonImages" ThisKey="Id" OtherKey="SmallImageId" Type="PersonImage" />
       <Association Name="UploadedFile_PersonImage1" Member="PersonImages1" ThisKey="Id" OtherKey="LargeImageId" Type="PersonImage" />
     </Type>
@@ -198,16 +196,11 @@
       <Column Name="Awards" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Translations" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Anthologies" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="SmallImageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LargeImageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PhotographerCredit" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="HasPage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Person_PersonImage" Member="PersonImages" ThisKey="Id" OtherKey="PersonId" Type="PersonImage" />
       <Association Name="Person_PersonToArticle" Member="PersonToArticles" ThisKey="Id" OtherKey="PersonId" Type="PersonToArticle" />
       <Association Name="Person_Relation" Member="Relations" ThisKey="Id" OtherKey="PersonId" Type="Relation" />
-      <Association Name="UploadedFile_Person" Member="UploadedFile" ThisKey="SmallImageId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
-      <Association Name="UploadedFile_Person1" Member="UploadedFile1" ThisKey="LargeImageId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PersonImage" Member="PersonImages">

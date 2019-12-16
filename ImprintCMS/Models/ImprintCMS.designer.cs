@@ -545,10 +545,6 @@ namespace ImprintCMS.Models
 		
 		private EntitySet<Edition> _Editions1;
 		
-		private EntitySet<Person> _Persons;
-		
-		private EntitySet<Person> _Persons1;
-		
 		private EntitySet<PersonImage> _PersonImages;
 		
 		private EntitySet<PersonImage> _PersonImages1;
@@ -576,8 +572,6 @@ namespace ImprintCMS.Models
 			this._Books = new EntitySet<Book>(new Action<Book>(this.attach_Books), new Action<Book>(this.detach_Books));
 			this._Editions = new EntitySet<Edition>(new Action<Edition>(this.attach_Editions), new Action<Edition>(this.detach_Editions));
 			this._Editions1 = new EntitySet<Edition>(new Action<Edition>(this.attach_Editions1), new Action<Edition>(this.detach_Editions1));
-			this._Persons = new EntitySet<Person>(new Action<Person>(this.attach_Persons), new Action<Person>(this.detach_Persons));
-			this._Persons1 = new EntitySet<Person>(new Action<Person>(this.attach_Persons1), new Action<Person>(this.detach_Persons1));
 			this._PersonImages = new EntitySet<PersonImage>(new Action<PersonImage>(this.attach_PersonImages), new Action<PersonImage>(this.detach_PersonImages));
 			this._PersonImages1 = new EntitySet<PersonImage>(new Action<PersonImage>(this.attach_PersonImages1), new Action<PersonImage>(this.detach_PersonImages1));
 			OnCreated();
@@ -742,32 +736,6 @@ namespace ImprintCMS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Person", Storage="_Persons", ThisKey="Id", OtherKey="SmallImageId")]
-		public EntitySet<Person> Persons
-		{
-			get
-			{
-				return this._Persons;
-			}
-			set
-			{
-				this._Persons.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Person1", Storage="_Persons1", ThisKey="Id", OtherKey="LargeImageId")]
-		public EntitySet<Person> Persons1
-		{
-			get
-			{
-				return this._Persons1;
-			}
-			set
-			{
-				this._Persons1.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_PersonImage", Storage="_PersonImages", ThisKey="Id", OtherKey="SmallImageId")]
 		public EntitySet<PersonImage> PersonImages
 		{
@@ -845,30 +813,6 @@ namespace ImprintCMS.Models
 		}
 		
 		private void detach_Editions1(Edition entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile1 = null;
-		}
-		
-		private void attach_Persons(Person entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile = this;
-		}
-		
-		private void detach_Persons(Person entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile = null;
-		}
-		
-		private void attach_Persons1(Person entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile1 = this;
-		}
-		
-		private void detach_Persons1(Person entity)
 		{
 			this.SendPropertyChanging();
 			entity.UploadedFile1 = null;
@@ -4245,12 +4189,6 @@ namespace ImprintCMS.Models
 		
 		private string _Anthologies;
 		
-		private System.Nullable<int> _SmallImageId;
-		
-		private System.Nullable<int> _LargeImageId;
-		
-		private string _PhotographerCredit;
-		
 		private bool _IsVisible;
 		
 		private bool _HasPage;
@@ -4260,10 +4198,6 @@ namespace ImprintCMS.Models
 		private EntitySet<PersonToArticle> _PersonToArticles;
 		
 		private EntitySet<Relation> _Relations;
-		
-		private EntityRef<UploadedFile> _UploadedFile;
-		
-		private EntityRef<UploadedFile> _UploadedFile1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4283,12 +4217,6 @@ namespace ImprintCMS.Models
     partial void OnTranslationsChanged();
     partial void OnAnthologiesChanging(string value);
     partial void OnAnthologiesChanged();
-    partial void OnSmallImageIdChanging(System.Nullable<int> value);
-    partial void OnSmallImageIdChanged();
-    partial void OnLargeImageIdChanging(System.Nullable<int> value);
-    partial void OnLargeImageIdChanged();
-    partial void OnPhotographerCreditChanging(string value);
-    partial void OnPhotographerCreditChanged();
     partial void OnIsVisibleChanging(bool value);
     partial void OnIsVisibleChanged();
     partial void OnHasPageChanging(bool value);
@@ -4300,8 +4228,6 @@ namespace ImprintCMS.Models
 			this._PersonImages = new EntitySet<PersonImage>(new Action<PersonImage>(this.attach_PersonImages), new Action<PersonImage>(this.detach_PersonImages));
 			this._PersonToArticles = new EntitySet<PersonToArticle>(new Action<PersonToArticle>(this.attach_PersonToArticles), new Action<PersonToArticle>(this.detach_PersonToArticles));
 			this._Relations = new EntitySet<Relation>(new Action<Relation>(this.attach_Relations), new Action<Relation>(this.detach_Relations));
-			this._UploadedFile = default(EntityRef<UploadedFile>);
-			this._UploadedFile1 = default(EntityRef<UploadedFile>);
 			OnCreated();
 		}
 		
@@ -4445,74 +4371,6 @@ namespace ImprintCMS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SmallImageId", DbType="Int")]
-		public System.Nullable<int> SmallImageId
-		{
-			get
-			{
-				return this._SmallImageId;
-			}
-			set
-			{
-				if ((this._SmallImageId != value))
-				{
-					if (this._UploadedFile.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSmallImageIdChanging(value);
-					this.SendPropertyChanging();
-					this._SmallImageId = value;
-					this.SendPropertyChanged("SmallImageId");
-					this.OnSmallImageIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LargeImageId", DbType="Int")]
-		public System.Nullable<int> LargeImageId
-		{
-			get
-			{
-				return this._LargeImageId;
-			}
-			set
-			{
-				if ((this._LargeImageId != value))
-				{
-					if (this._UploadedFile1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLargeImageIdChanging(value);
-					this.SendPropertyChanging();
-					this._LargeImageId = value;
-					this.SendPropertyChanged("LargeImageId");
-					this.OnLargeImageIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhotographerCredit", DbType="NVarChar(50)")]
-		public string PhotographerCredit
-		{
-			get
-			{
-				return this._PhotographerCredit;
-			}
-			set
-			{
-				if ((this._PhotographerCredit != value))
-				{
-					this.OnPhotographerCreditChanging(value);
-					this.SendPropertyChanging();
-					this._PhotographerCredit = value;
-					this.SendPropertyChanged("PhotographerCredit");
-					this.OnPhotographerCreditChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsVisible", DbType="Bit NOT NULL")]
 		public bool IsVisible
 		{
@@ -4589,74 +4447,6 @@ namespace ImprintCMS.Models
 			set
 			{
 				this._Relations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Person", Storage="_UploadedFile", ThisKey="SmallImageId", OtherKey="Id", IsForeignKey=true)]
-		public UploadedFile UploadedFile
-		{
-			get
-			{
-				return this._UploadedFile.Entity;
-			}
-			set
-			{
-				UploadedFile previousValue = this._UploadedFile.Entity;
-				if (((previousValue != value) 
-							|| (this._UploadedFile.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UploadedFile.Entity = null;
-						previousValue.Persons.Remove(this);
-					}
-					this._UploadedFile.Entity = value;
-					if ((value != null))
-					{
-						value.Persons.Add(this);
-						this._SmallImageId = value.Id;
-					}
-					else
-					{
-						this._SmallImageId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("UploadedFile");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Person1", Storage="_UploadedFile1", ThisKey="LargeImageId", OtherKey="Id", IsForeignKey=true)]
-		public UploadedFile UploadedFile1
-		{
-			get
-			{
-				return this._UploadedFile1.Entity;
-			}
-			set
-			{
-				UploadedFile previousValue = this._UploadedFile1.Entity;
-				if (((previousValue != value) 
-							|| (this._UploadedFile1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UploadedFile1.Entity = null;
-						previousValue.Persons1.Remove(this);
-					}
-					this._UploadedFile1.Entity = value;
-					if ((value != null))
-					{
-						value.Persons1.Add(this);
-						this._LargeImageId = value.Id;
-					}
-					else
-					{
-						this._LargeImageId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("UploadedFile1");
-				}
 			}
 		}
 		

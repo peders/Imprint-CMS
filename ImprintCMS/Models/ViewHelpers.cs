@@ -55,7 +55,7 @@ namespace ImprintCMS.Models
             if (person.MainImage == null) return null;
             var legend = helper.Encode(string.Format(SitePhrases.LabelAuthorImage, person.FullName));
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
-            var source = urlHelper.Action("thumbnail", "upload", new { fileName = person.MainImage.UploadedFile.FileName, side });
+            var source = urlHelper.Action("thumbnail", "upload", new { id = person.MainImage.SmallImageId, side });
             return new HtmlString("<img src=\"" + source + "\" class=\"person\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
         }
 
@@ -73,7 +73,7 @@ namespace ImprintCMS.Models
             if (edition.SmallCoverId == null) return null;
             var legend = helper.Encode(string.Format(SitePhrases.LabelCoverImage, edition.Book.Title));
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
-            var source = urlHelper.Action("display", "upload", new { category = edition.UploadedFile.Category, fileName = edition.UploadedFile.FileName });
+            var source = urlHelper.Action("serve", "upload", new { id = edition.SmallCoverId });
             return new HtmlString("<img src=\"" + source + "\" class=\"cover\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
         }
 

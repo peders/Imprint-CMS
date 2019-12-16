@@ -435,6 +435,8 @@
     <Content Include="Scripts\tiny_mce\utils\mctabs.js" />
     <Content Include="Scripts\tiny_mce\utils\validate.js" />
     <None Include="Properties\PublishProfiles\kolonwebdev - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\kolonwebprod - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\kolonwebproduction - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

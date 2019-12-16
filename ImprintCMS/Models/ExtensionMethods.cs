@@ -76,9 +76,9 @@ namespace ImprintCMS.Models
 
         public static OpenGraph OpenGraph(this Person person, string siteName, RequestContext context)
         {
-            if (person.UploadedFile == null) return null;
+            if (person.MainImage == null) return null;
             var urlHelper = new UrlHelper(context);
-            var imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("display", "upload", new { category = person.UploadedFile.Category, fileName = person.UploadedFile.FileName });
+            var imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("display", "upload", new { category = person.MainImage.UploadedFile.Category, fileName = person.MainImage.UploadedFile.FileName });
             var pageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("details", "authors", new { id = person.Id });
             return new OpenGraph
             {
@@ -117,7 +117,7 @@ namespace ImprintCMS.Models
             var imageUrl = string.Empty;
             if (article.ImagePerson != null)
             {
-                imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("display", "upload", new { category = article.ImagePerson.UploadedFile.Category, fileName = article.ImagePerson.UploadedFile.FileName });
+                imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("display", "upload", new { category = article.ImagePerson.MainImage.UploadedFile.Category, fileName = article.ImagePerson.MainImage.UploadedFile.FileName });
             }
             else
             {

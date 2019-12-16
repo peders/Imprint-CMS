@@ -1,5 +1,4 @@
 ﻿using ImageProcessor;
-using ImageProcessor.Imaging;
 using ImprintCMS.Models;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -22,9 +21,17 @@ namespace ImprintCMS.Controllers
         }
 
         [OutputCache(Duration = int.MaxValue, Location = OutputCacheLocation.Any, SqlDependency = "ImprintCMS:UploadedFile")]
-        public ActionResult Thumbnail(string fileName, int side)
+        public ActionResult Serve(int id)
         {
-            var vm = Repository.GetUploadedFile("SmallPortrait", fileName);
+            var vm = Repository.GetUploadedFile(id);
+            if (vm == null) return HttpNotFound();
+            return new FileContentResult(vm.Data.ToArray(), vm.ContentType);
+        }
+
+        [OutputCache(Duration = int.MaxValue, Location = OutputCacheLocation.Any, SqlDependency = "ImprintCMS:UploadedFile")]
+        public ActionResult Thumbnail(int id, int side)
+        {
+            var vm = Repository.GetUploadedFile(id);
             if (vm == null) return HttpNotFound();
             if (vm.ContentType != "image/jpeg") return HttpNotFound();
             byte[] outputBytes;
