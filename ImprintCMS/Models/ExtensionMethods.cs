@@ -70,7 +70,7 @@ namespace ImprintCMS.Models
             var url = "http";
             if (request.IsSecureConnection) url += "s";
             url += "://" + request.ServerVariables["SERVER_NAME"];
-            if (request.ServerVariables["SERVER_PORT"] != "80") url += ":" + request.ServerVariables["SERVER_PORT"];
+            if (request.ServerVariables["SERVER_PORT"] != "80" && request.ServerVariables["SERVER_PORT"] != "443") url += ":" + request.ServerVariables["SERVER_PORT"];
             return url;
         }
 
