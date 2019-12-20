@@ -36,6 +36,9 @@ namespace ImprintCMS.Models
     partial void InsertUploadedFile(UploadedFile instance);
     partial void UpdateUploadedFile(UploadedFile instance);
     partial void DeleteUploadedFile(UploadedFile instance);
+    partial void InsertArticleGroup(ArticleGroup instance);
+    partial void UpdateArticleGroup(ArticleGroup instance);
+    partial void DeleteArticleGroup(ArticleGroup instance);
     partial void InsertBinding(Binding instance);
     partial void UpdateBinding(Binding instance);
     partial void DeleteBinding(Binding instance);
@@ -95,7 +98,7 @@ namespace ImprintCMS.Models
 		public ImprintCMSDataContext() :
                 base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ImprintCMSConnectionString"].ConnectionString, mappingSource)
         {
-            OnCreated();
+			OnCreated();
 		}
 		
 		public ImprintCMSDataContext(string connection) : 
@@ -135,6 +138,14 @@ namespace ImprintCMS.Models
 			get
 			{
 				return this.GetTable<UploadedFile>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ArticleGroup> ArticleGroups
+		{
+			get
+			{
+				return this.GetTable<ArticleGroup>();
 			}
 		}
 		
@@ -840,6 +851,144 @@ namespace ImprintCMS.Models
 		{
 			this.SendPropertyChanging();
 			entity.UploadedFile1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ArticleGroup")]
+	public partial class ArticleGroup : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Title;
+		
+		private int _SequenceIdentifier;
+		
+		private EntitySet<ContactArticle> _ContactArticles;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnSequenceIdentifierChanging(int value);
+    partial void OnSequenceIdentifierChanged();
+    #endregion
+		
+		public ArticleGroup()
+		{
+			this._ContactArticles = new EntitySet<ContactArticle>(new Action<ContactArticle>(this.attach_ContactArticles), new Action<ContactArticle>(this.detach_ContactArticles));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SequenceIdentifier", DbType="Int NOT NULL")]
+		public int SequenceIdentifier
+		{
+			get
+			{
+				return this._SequenceIdentifier;
+			}
+			set
+			{
+				if ((this._SequenceIdentifier != value))
+				{
+					this.OnSequenceIdentifierChanging(value);
+					this.SendPropertyChanging();
+					this._SequenceIdentifier = value;
+					this.SendPropertyChanged("SequenceIdentifier");
+					this.OnSequenceIdentifierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ArticleGroup_ContactArticle", Storage="_ContactArticles", ThisKey="Id", OtherKey="GroupId")]
+		public EntitySet<ContactArticle> ContactArticles
+		{
+			get
+			{
+				return this._ContactArticles;
+			}
+			set
+			{
+				this._ContactArticles.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ContactArticles(ContactArticle entity)
+		{
+			this.SendPropertyChanging();
+			entity.ArticleGroup = this;
+		}
+		
+		private void detach_ContactArticles(ContactArticle entity)
+		{
+			this.SendPropertyChanging();
+			entity.ArticleGroup = null;
 		}
 	}
 	
@@ -2527,6 +2676,10 @@ namespace ImprintCMS.Models
 		
 		private int _SequenceIdentifier;
 		
+		private int _GroupId;
+		
+		private EntityRef<ArticleGroup> _ArticleGroup;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2539,10 +2692,13 @@ namespace ImprintCMS.Models
     partial void OnBodyTextChanged();
     partial void OnSequenceIdentifierChanging(int value);
     partial void OnSequenceIdentifierChanged();
+    partial void OnGroupIdChanging(int value);
+    partial void OnGroupIdChanged();
     #endregion
 		
 		public ContactArticle()
 		{
+			this._ArticleGroup = default(EntityRef<ArticleGroup>);
 			OnCreated();
 		}
 		
@@ -2622,6 +2778,64 @@ namespace ImprintCMS.Models
 					this._SequenceIdentifier = value;
 					this.SendPropertyChanged("SequenceIdentifier");
 					this.OnSequenceIdentifierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroupId", DbType="Int NOT NULL")]
+		public int GroupId
+		{
+			get
+			{
+				return this._GroupId;
+			}
+			set
+			{
+				if ((this._GroupId != value))
+				{
+					if (this._ArticleGroup.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGroupIdChanging(value);
+					this.SendPropertyChanging();
+					this._GroupId = value;
+					this.SendPropertyChanged("GroupId");
+					this.OnGroupIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ArticleGroup_ContactArticle", Storage="_ArticleGroup", ThisKey="GroupId", OtherKey="Id", IsForeignKey=true)]
+		public ArticleGroup ArticleGroup
+		{
+			get
+			{
+				return this._ArticleGroup.Entity;
+			}
+			set
+			{
+				ArticleGroup previousValue = this._ArticleGroup.Entity;
+				if (((previousValue != value) 
+							|| (this._ArticleGroup.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ArticleGroup.Entity = null;
+						previousValue.ContactArticles.Remove(this);
+					}
+					this._ArticleGroup.Entity = value;
+					if ((value != null))
+					{
+						value.ContactArticles.Add(this);
+						this._GroupId = value.Id;
+					}
+					else
+					{
+						this._GroupId = default(int);
+					}
+					this.SendPropertyChanged("ArticleGroup");
 				}
 			}
 		}

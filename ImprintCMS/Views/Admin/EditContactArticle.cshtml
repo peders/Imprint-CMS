@@ -1,9 +1,13 @@
 ﻿@model ContactArticle
 @{
-	ViewBag.Title = Phrases.PagenameEditContactArticle;
-	ViewBag.Breadcrumbs = new[] {
-		Html.ActionLink(Phrases.PagenameContactArticles, "contactarticles"),
-		Phrases.PagenameEditContactArticle.ToHtmlString()
-	};
+    ViewBag.Title = Phrases.PagenameEditContactArticle;
+    ViewBag.Breadcrumbs = new[] {
+Html.ActionLink(Phrases.PagenameArticleGroups, "articlegroups"),
+Html.ActionLink(Model.ArticleGroup.Title, "editarticlegroup", new { id = Model.GroupId }),
+Phrases.PagenameEditContactArticle.ToHtmlString()
+};
 }
 @Html.EditorForModel()
+<ul class="adminactions">
+    <li>@Html.ActionLink(Phrases.LabelDelete, "deletecontactarticle", new { id = Model.Id })</li>
+</ul>

@@ -142,6 +142,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tab.
+        /// </summary>
+        public static string LabelArticleGroup {
+            get {
+                return ResourceManager.GetString("LabelArticleGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Articles.
         /// </summary>
         public static string LabelArticles {
@@ -228,6 +237,15 @@ namespace ImprintCMS.Models {
         public static string LabelClosedOrders {
             get {
                 return ResourceManager.GetString("LabelClosedOrders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Articles.
+        /// </summary>
+        public static string LabelContactArticles {
+            get {
+                return ResourceManager.GetString("LabelContactArticles", resourceCulture);
             }
         }
         
@@ -1105,6 +1123,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Menu tabs.
+        /// </summary>
+        public static string PagenameArticleGroups {
+            get {
+                return ResourceManager.GetString("PagenameArticleGroups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Articles.
         /// </summary>
         public static string PagenameArticles {
@@ -1150,20 +1177,20 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact articles.
-        /// </summary>
-        public static string PagenameContactArticles {
-            get {
-                return ResourceManager.GetString("PagenameContactArticles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to New article.
         /// </summary>
         public static string PagenameCreateArticle {
             get {
                 return ResourceManager.GetString("PagenameCreateArticle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New tab.
+        /// </summary>
+        public static string PagenameCreateArticleGroup {
+            get {
+                return ResourceManager.GetString("PagenameCreateArticleGroup", resourceCulture);
             }
         }
         
@@ -1222,7 +1249,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New contact article.
+        ///   Looks up a localized string similar to New article.
         /// </summary>
         public static string PagenameCreateContactArticle {
             get {
@@ -1348,6 +1375,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit tab.
+        /// </summary>
+        public static string PagenameEditArticleGroup {
+            get {
+                return ResourceManager.GetString("PagenameEditArticleGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit binding.
         /// </summary>
         public static string PagenameEditBinding {
@@ -1384,7 +1420,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit contact article.
+        ///   Looks up a localized string similar to Edit article.
         /// </summary>
         public static string PagenameEditContactArticle {
             get {

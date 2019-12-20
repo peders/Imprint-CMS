@@ -1,0 +1,22 @@
+﻿@model ArticleGroup
+@{
+    ViewBag.Title = Phrases.PagenameEditArticleGroup;
+    ViewBag.Breadcrumbs = new[] {
+Html.ActionLink(Phrases.PagenameArticleGroups, "articlegroups"),
+Phrases.PagenameEditContactArticle.ToHtmlString()
+};
+}
+@Html.EditorForModel()
+<ul class="adminactions">
+    <li>@Html.ActionLink(Phrases.LabelDelete, "deletearticlegroup", new { id = Model.Id })</li>
+</ul>
+<h2>@Phrases.LabelContactArticles</h2>
+<ul class="adminactions">
+    <li>@Html.ActionLink(Phrases.PagenameCreateContactArticle, "createcontactarticle", new { id = Model.Id })</li>
+</ul>
+<ul class="listing sortable" data-persisturl="@Url.Action("storecontactarticleorder")" data-handlelabel="@Phrases.LabelDragAndDropToSort" data-errorlabel="@Phrases.ValidationAjaxError">
+    @foreach (var article in Model.ContactArticles.OrderBy(_ => _.SequenceIdentifier))
+    {
+        <li id="@String.Format("sortitem_{0}", article.Id)">@Html.ActionLink(article.Title, "editcontactarticle", new { id = article.Id })</li>
+    }
+</ul>

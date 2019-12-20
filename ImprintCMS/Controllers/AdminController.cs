@@ -998,15 +998,15 @@ namespace ImprintCMS.Controllers
             return RedirectToAction("articles");
         }
 
-        public ActionResult ContactArticles()
+        public ActionResult ArticleGroups()
         {
-            var vm = Repository.ContactArticles.OrderBy(a => a.SequenceIdentifier);
+            var vm = Repository.ArticleGroups.OrderBy(a => a.SequenceIdentifier);
             return View(vm);
         }
 
-        public ActionResult CreateContactArticle()
+        public ActionResult CreateArticleGroup()
         {
-            var vm = new ContactArticle
+            var vm = new ArticleGroup
             {
                 SequenceIdentifier = int.MaxValue
             };
@@ -1014,28 +1014,93 @@ namespace ImprintCMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateContactArticle(ContactArticle vm)
+        public ActionResult CreateArticleGroup(ArticleGroup vm)
         {
             if (!ModelState.IsValid) return View(vm);
             Repository.Add(vm);
             Repository.Save();
-            return RedirectToAction("contactarticles");
+            return RedirectToAction("articlegroups");
+        }
+
+        public ActionResult EditArticleGroup(int id)
+        {
+            var vm = Repository.GetArticleGroup(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult EditArticleGroup(ArticleGroup vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+            UpdateModel(Repository.GetArticleGroup(vm.Id));
+            Repository.Save();
+            return RedirectToAction("articlegroups");
+        }
+
+        public ActionResult DeleteArticleGroup(int id)
+        {
+            var vm = Repository.GetArticleGroup(id);
+            if (vm == null) return HttpNotFound();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteArticleGroup(ArticleGroup vm)
+        {
+            Repository.Delete(Repository.GetArticleGroup(vm.Id));
+            Repository.Save();
+            return RedirectToAction("articlegroups");
+        }
+
+        public ActionResult CreateContactArticle(int id)
+        {
+            var group = Repository.GetArticleGroup(id);
+            if (group == null) return HttpNotFound();
+            var vm = new ContactArticle
+            {
+                GroupId = id,
+                ArticleGroup = group,
+                SequenceIdentifier = int.MaxValue
+            };
+            ViewBag.Groups = ArticleGroupList(vm.GroupId);
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult CreateContactArticle(ContactArticle vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Groups = ArticleGroupList(vm.GroupId);
+                vm.ArticleGroup = Repository.GetArticleGroup(vm.GroupId);
+                return View(vm);
+            }
+            Repository.Add(vm);
+            Repository.Save();
+            return RedirectToAction("editarticlegroup", new { id = vm.GroupId });
         }
 
         public ActionResult EditContactArticle(int id)
         {
             var vm = Repository.GetContactArticle(id);
             if (vm == null) return HttpNotFound();
+            ViewBag.Groups = ArticleGroupList(vm.GroupId);
             return View(vm);
         }
 
         [HttpPost]
         public ActionResult EditContactArticle(ContactArticle vm)
         {
-            if (!ModelState.IsValid) return View(vm);
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Groups = ArticleGroupList(vm.GroupId);
+                vm.ArticleGroup = Repository.GetArticleGroup(vm.GroupId);
+                return View(vm);
+            }
             UpdateModel(Repository.GetContactArticle(vm.Id));
             Repository.Save();
-            return RedirectToAction("contactarticles");
+            return RedirectToAction("editarticlegroup", new { id = vm.GroupId });
         }
 
         public ActionResult DeleteContactArticle(int id)
@@ -1048,9 +1113,10 @@ namespace ImprintCMS.Controllers
         [HttpPost]
         public ActionResult DeleteContactArticle(ContactArticle vm)
         {
-            Repository.Delete(Repository.GetContactArticle(vm.Id));
+            var article = Repository.GetContactArticle(vm.Id);
+            Repository.Delete(article);
             Repository.Save();
-            return RedirectToAction("contactarticles");
+            return RedirectToAction("editarticlegroup", new { id = article.GroupId });
         }
 
         public ActionResult Orders()
@@ -1101,6 +1167,22 @@ namespace ImprintCMS.Controllers
         }
 
         [HttpPost]
+        public ActionResult StoreArticleGroupOrder()
+        {
+            var data = Request.Form["sortitem[]"] as string;
+            var ids = data.Split(',').Select(int.Parse);
+            var sequenceIdentifier = 0;
+            foreach (var id in ids)
+            {
+                var group = Repository.GetArticleGroup(id);
+                group.SequenceIdentifier = sequenceIdentifier;
+                sequenceIdentifier++;
+            }
+            Repository.Save();
+            return new HttpStatusCodeResult(200);
+        }
+
+        [HttpPost]
         public ActionResult StoreContactArticleOrder()
         {
             var data = Request.Form["sortitem[]"] as string;
@@ -1108,8 +1190,8 @@ namespace ImprintCMS.Controllers
             var sequenceIdentifier = 0;
             foreach (var id in ids)
             {
-                var list = Repository.GetContactArticle(id);
-                list.SequenceIdentifier = sequenceIdentifier;
+                var article = Repository.GetContactArticle(id);
+                article.SequenceIdentifier = sequenceIdentifier;
                 sequenceIdentifier++;
             }
             Repository.Save();
@@ -1386,6 +1468,10 @@ namespace ImprintCMS.Controllers
         private SelectList RoleList(int? selectedId)
         {
             return new SelectList(Repository.Roles.OrderBy(r => r.Name), "Id", "Name", selectedId ?? default(int));
+        }
+        private SelectList ArticleGroupList(int? selectedId)
+        {
+            return new SelectList(Repository.ArticleGroups.OrderBy(_ => _.Title), "Id", "Title", selectedId ?? default(int));
         }
         private SelectList PeopleList(int? selectedId)
         {

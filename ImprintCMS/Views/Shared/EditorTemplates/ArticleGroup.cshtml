@@ -1,0 +1,20 @@
+﻿@model ArticleGroup
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+	<fieldset class="fields">
+		<p>
+			@Html.LabelFor(model => model.Title, Phrases.LabelTitle)<br />
+			@Html.TextBoxFor(model => model.Title)
+			@Html.ValidationMessageFor(model => model.Title)
+		</p>
+	</fieldset>
+	<fieldset class="hidden">
+		@Html.HiddenFor(model => model.SequenceIdentifier)
+	</fieldset>
+	<fieldset class="buttons">
+		<p>
+			<input type="submit" value="@Phrases.LabelSave" />
+		</p>
+	</fieldset>
+}

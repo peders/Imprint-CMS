@@ -8,6 +8,7 @@ delete from OrderLine
 delete from [dbo].[Order]
 delete from BookList
 delete from ContactArticle
+delete from ArticleGroup
 delete from Edition
 delete from [dbo].[Binding]
 delete from [dbo].[Role]

@@ -1,0 +1,17 @@
+﻿@model ArticleGroup
+@{
+	ViewBag.Title = Phrases.PagenameDelete;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameArticleGroups, "articlegroups"),
+		Html.ActionLink(Model.Title, "editarticlegroup", new { id = Model.Id }),
+		Phrases.LabelDelete.ToHtmlString()
+	};
+}
+<p>@Html.DeleteConfirmation(Model.Title)</p>
+@using (Html.BeginForm())
+{
+	<p>
+		<input type="submit" value="@Phrases.LabelDelete" />
+		@Html.ActionLink(String.Format(Phrases.LabelBackTo, Phrases.PagenameArticleGroups), "articlegroups")
+	</p>
+}

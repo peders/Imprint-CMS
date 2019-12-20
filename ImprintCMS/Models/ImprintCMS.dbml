@@ -27,6 +27,14 @@
       <Association Name="UploadedFile_PersonImage1" Member="PersonImages1" ThisKey="Id" OtherKey="LargeImageId" Type="PersonImage" />
     </Type>
   </Table>
+  <Table Name="dbo.ArticleGroup" Member="ArticleGroups">
+    <Type Name="ArticleGroup">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ArticleGroup_ContactArticle" Member="ContactArticles" ThisKey="Id" OtherKey="GroupId" Type="ContactArticle" />
+    </Type>
+  </Table>
   <Table Name="dbo.Binding" Member="Bindings">
     <Type Name="Binding">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -112,6 +120,8 @@
       <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="BodyText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ArticleGroup_ContactArticle" Member="ArticleGroup" ThisKey="GroupId" OtherKey="Id" Type="ArticleGroup" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Edition" Member="Editions">

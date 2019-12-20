@@ -13,7 +13,9 @@ namespace ImprintCMS.Models
 	{
 		[Required(ErrorMessage = "*")]
 		public string Title { get; set; }
-		[AllowHtml]
+        [Required(ErrorMessage = "*")]
+        public int GroupId { get; set; }
+        [AllowHtml]
 		public string BodyText { get; set; }
 	}
 }

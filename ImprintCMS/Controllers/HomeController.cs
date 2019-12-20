@@ -19,16 +19,18 @@ namespace ImprintCMS.Controllers
 			return View(vm);
 		}
 
-		public ActionResult Contact(int? id)
-		{
-			var articles = Repository.ContactArticles.OrderBy(a => a.SequenceIdentifier);
-			var vm = new ContactPage
-			{
-				Articles = articles,
-				CurrentArticle = id == null ? articles.FirstOrDefault() : Repository.GetContactArticle((int)id)
-			};
-			return View(vm);
-		}
+        public ActionResult Contact(int id)
+        {
+            var article = Repository.GetContactArticle(id);
+            if (article == null) return HttpNotFound();
+            var vm = new ContactPage
+            {
+                Articles = article.ArticleGroup.ContactArticles.OrderBy(_ => _.SequenceIdentifier),
+                CurrentArticle = article
+            };
+            ViewBag.CurrentTabId = article.GroupId;
+            return View(vm);
+        }
 
         public ActionResult Article(int id) {
             var vm = Repository.GetArticle(id);

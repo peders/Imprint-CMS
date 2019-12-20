@@ -1,0 +1,9 @@
+﻿@model ArticleGroup
+@{
+	ViewBag.Title = Phrases.PagenameCreateArticleGroup;
+	ViewBag.Breadcrumbs = new[] {
+		Html.ActionLink(Phrases.PagenameArticleGroups, "articlegroups"),
+		Phrases.PagenameCreateArticleGroup.ToHtmlString()
+	};
+}
+@Html.EditorForModel()

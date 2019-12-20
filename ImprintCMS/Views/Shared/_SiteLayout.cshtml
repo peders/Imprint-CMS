@@ -1,6 +1,9 @@
 ﻿@{
     var siteConfig = (SiteConfig)ViewBag.Config;
     var menuShortcuts = (List<MenuShortcut>)ViewBag.MenuShortcuts;
+    var menuTabs = (List<ArticleGroup>)ViewBag.ArticleGroups;
+
+    var currentTabId = ((int?)ViewBag.CurrentTabId).GetValueOrDefault();
 
 }<!DOCTYPE html>
 <html>
@@ -21,6 +24,7 @@
     @foreach (var url in ViewBag.StylesheetUrls)
     {
         <link href="@url" rel="stylesheet" type="text/css" />
+
     }
     <!--[if lte IE 8]>
         @foreach (var url in ViewBag.LegacyStylesheetUrls)
@@ -52,10 +56,15 @@
         }
     </div>
     <ul id="sitemenu">
-        <li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() != "contact" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuHome, "index", "home")</li>
-        <li class="@(ViewContext.ControllerName().ToLower() == "books" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuBooks, "index", "books", new { id = UrlParameter.Optional }, null)</li>
-        <li class="@(ViewContext.ControllerName().ToLower() == "authors" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuAuthors, "index", "authors")</li>
-        <li class="@(ViewContext.ControllerName().ToLower() == "home" && ViewContext.ActionName().ToLower() == "contact" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuContact, "contact", "home", new { id = UrlParameter.Optional }, null)</li>
+        <li class="@(ViewContext.IsForController("home") && !ViewContext.IsForAction("contact") ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuHome, "index", "home")</li>
+        <li class="@(ViewContext.IsForController("books") ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuBooks, "index", "books", new { id = UrlParameter.Optional }, null)</li>
+        <li class="@(ViewContext.IsForController("authors") ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuAuthors, "index", "authors")</li>
+        @foreach (var tab in menuTabs)
+        {
+            var articleId = tab.ContactArticles.OrderBy(_ => _.SequenceIdentifier).First().Id;
+            var isSelected = ViewContext.IsForController("home") && ViewContext.IsForAction("contact") && currentTabId == tab.Id;
+            <li class="@(isSelected ? "selected" : string.Empty)">@Html.ActionLink(tab.Title, "contact", "home", new { id = articleId }, null)</li>
+        }
         @foreach (var shortcut in menuShortcuts)
         {
             <li><a href="@shortcut.Href">@shortcut.Name</a></li>

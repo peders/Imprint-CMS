@@ -125,6 +125,7 @@
     <Compile Include="Models\BookListMembership.cs" />
     <Compile Include="Models\BookToArticle.cs" />
     <Compile Include="Models\Configuration.cs" />
+    <Compile Include="Models\ArticleGroup.cs" />
     <Compile Include="Models\ContactArticle.cs" />
     <Compile Include="Models\Edition.cs" />
     <Compile Include="Models\ExtensionMethods.cs" />
@@ -458,7 +459,6 @@
     <Content Include="Views\Admin\Bindings.cshtml" />
     <Content Include="Views\Admin\BookLists.cshtml" />
     <Content Include="Views\Admin\Books.cshtml" />
-    <Content Include="Views\Admin\ContactArticles.cshtml" />
     <Content Include="Views\Admin\CreateArticle.cshtml" />
     <Content Include="Views\Admin\CreateBinding.cshtml" />
     <Content Include="Views\Admin\CreateBook.cshtml" />
@@ -555,6 +555,11 @@
     <Content Include="Views\Admin\DeleteShortcut.cshtml" />
     <Content Include="Views\Admin\EditShortcut.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\MenuShortcut.cshtml" />
+    <Content Include="Views\Admin\ArticleGroups.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ArticleGroup.cshtml" />
+    <Content Include="Views\Admin\CreateArticleGroup.cshtml" />
+    <Content Include="Views\Admin\EditArticleGroup.cshtml" />
+    <Content Include="Views\Admin\DeleteArticleGroup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

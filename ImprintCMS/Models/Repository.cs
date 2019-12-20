@@ -233,6 +233,27 @@ namespace ImprintCMS.Models
             _db.Articles.DeleteOnSubmit(article);
         }
 
+        public IEnumerable<ArticleGroup> ArticleGroups
+        {
+            get
+            {
+                return _db.ArticleGroups;
+            }
+        }
+        public ArticleGroup GetArticleGroup(int id)
+        {
+            return _db.ArticleGroups.SingleOrDefault(a => a.Id == id);
+        }
+        public void Add(ArticleGroup group)
+        {
+            _db.ArticleGroups.InsertOnSubmit(group);
+        }
+        public void Delete(ArticleGroup group)
+        {
+            _db.ContactArticles.DeleteAllOnSubmit(group.ContactArticles);
+            _db.ArticleGroups.DeleteOnSubmit(group);
+        }
+
         public IEnumerable<ContactArticle> ContactArticles
         {
             get

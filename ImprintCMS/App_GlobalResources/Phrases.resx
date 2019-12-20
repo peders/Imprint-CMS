@@ -425,11 +425,8 @@
   <data name="LabelLinkToPerson" xml:space="preserve">
     <value>Link to person</value>
   </data>
-  <data name="PagenameContactArticles" xml:space="preserve">
-    <value>Contact articles</value>
-  </data>
   <data name="PagenameCreateContactArticle" xml:space="preserve">
-    <value>New contact article</value>
+    <value>New article</value>
   </data>
   <data name="PagenameArticles" xml:space="preserve">
     <value>Articles</value>
@@ -447,7 +444,7 @@
     <value>file</value>
   </data>
   <data name="PagenameEditContactArticle" xml:space="preserve">
-    <value>Edit contact article</value>
+    <value>Edit article</value>
   </data>
   <data name="LabelIsNotVisible" xml:space="preserve">
     <value>Don't show on site</value>
@@ -687,5 +684,20 @@
   </data>
   <data name="PagenameEditMenuShortcut" xml:space="preserve">
     <value>Edit menu shortcut</value>
+  </data>
+  <data name="LabelArticleGroup" xml:space="preserve">
+    <value>Tab</value>
+  </data>
+  <data name="LabelContactArticles" xml:space="preserve">
+    <value>Articles</value>
+  </data>
+  <data name="PagenameArticleGroups" xml:space="preserve">
+    <value>Menu tabs</value>
+  </data>
+  <data name="PagenameCreateArticleGroup" xml:space="preserve">
+    <value>New tab</value>
+  </data>
+  <data name="PagenameEditArticleGroup" xml:space="preserve">
+    <value>Edit tab</value>
   </data>
 </root>
