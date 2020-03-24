@@ -59,10 +59,7 @@ namespace ImprintCMS.Models
 
         public static string AsIsbn(this string source)
         {
-            var clean = source.Replace("-", string.Empty).Trim();
-            if (clean.Length == 13) return String.Format("{0}-{1}-{2}-{3}-{4}", clean.Substring(0, 3), clean.Substring(3, 2), clean.Substring(5, 2), clean.Substring(7, 5), clean.Substring(12, 1));
-            if (clean.Length == 10) return String.Format("{0}-{1}-{2}-{3}", clean.Substring(0, 2), clean.Substring(2, 2), clean.Substring(4, 5), clean.Substring(9, 1));
-            return clean;
+            return source.Replace("-", string.Empty).Trim();
         }
 
         public static string UrlBase(this HttpRequestBase request)
