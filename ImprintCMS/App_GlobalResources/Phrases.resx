@@ -700,4 +700,7 @@
   <data name="PagenameEditArticleGroup" xml:space="preserve">
     <value>Edit tab</value>
   </data>
+  <data name="LabelPersonMiscInfo" xml:space="preserve">
+    <value>Other information (no default heading on site)</value>
+  </data>
 </root>

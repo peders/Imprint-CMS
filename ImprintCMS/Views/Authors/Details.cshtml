@@ -47,6 +47,10 @@
         <h2>@SitePhrases.HeadingAuthorAnthologies</h2>
         @Model.Person.Anthologies.ToRichText()
     }
+    @if (!String.IsNullOrWhiteSpace(Model.Person.MiscInfo))
+    {
+        @Model.Person.MiscInfo.ToRichText()
+    }
     @if (Model.Person.PersonToArticles.Any(a => a.Article.IsVisible))
     {
         <h2>@String.Format(SitePhrases.HeadingArticlesAbout, Model.Person.FullName)</h2>

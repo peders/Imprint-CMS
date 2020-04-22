@@ -781,6 +781,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Other information (no default heading on site).
+        /// </summary>
+        public static string LabelPersonMiscInfo {
+            get {
+                return ResourceManager.GetString("LabelPersonMiscInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Photographer.
         /// </summary>
         public static string LabelPhotographerCredit {
