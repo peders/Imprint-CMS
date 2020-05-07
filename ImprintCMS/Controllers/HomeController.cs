@@ -60,7 +60,7 @@ namespace ImprintCMS.Controllers
 						b.IsVisible
 						&& !b.HasExternalPublisher)
 					.Where(b =>
-						b.Title.ToLower().Contains(cleanQuery)
+						b.Title.ToLower().Replace(" ", string.Empty).Contains(cleanQuery)
 						|| b.Relations.Select(r => r.Person).Any(p =>
 							p.IsVisible
 							&& p.HasPage
