@@ -41,6 +41,16 @@
             @Html.TextBoxFor(model => model.PersonImageDownloadNotice)
             @Html.ValidationMessageFor(model => model.PersonImageDownloadNotice)
         </p>
+        <p>
+            @Html.LabelFor(model => model.CachedCoverWidth, Phrases.LabelCachedCoverWidth)<br />
+            @Html.TextBoxFor(model => model.CachedCoverWidth)
+            @Html.ValidationMessageFor(model => model.CachedCoverWidth)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.CachedPortraitWidth, Phrases.LabelCachedPortraitWidth)<br />
+            @Html.TextBoxFor(model => model.CachedPortraitWidth)
+            @Html.ValidationMessageFor(model => model.CachedPortraitWidth)
+        </p>
     </fieldset>
     <fieldset class="fields">
         <p>

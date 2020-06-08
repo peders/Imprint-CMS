@@ -6,5 +6,6 @@ namespace ImprintCMS.Models.ViewModels
 	{
 		public string Name { get; set; }
 		public IEnumerable<ListFile> Files { get; set; }
-	}
+        public bool IsForCache { get; set; }
+    }
 }

@@ -703,4 +703,22 @@
   <data name="LabelPersonMiscInfo" xml:space="preserve">
     <value>Other information (no default heading on site)</value>
   </data>
+  <data name="LabelCachedCoverWidth" xml:space="preserve">
+    <value>Width of cached cover images (in pixels)</value>
+  </data>
+  <data name="LabelCachedPortraitWidth" xml:space="preserve">
+    <value>Width of cached portrait images (in pixels)</value>
+  </data>
+  <data name="LabelFileActions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="LabelFileName" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="LabelFileSize" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="LabelFileType" xml:space="preserve">
+    <value>Type</value>
+  </data>
 </root>

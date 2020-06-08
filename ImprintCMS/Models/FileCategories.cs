@@ -9,7 +9,9 @@
 		Excerpt,
 		Attachment,
 		Layout,
-		Script
+		Script,
+        CachedCover,
+        CachedPortrait
 	}
 
 }

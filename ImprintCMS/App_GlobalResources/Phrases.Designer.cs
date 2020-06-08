@@ -223,6 +223,24 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Width of cached cover images (in pixels).
+        /// </summary>
+        public static string LabelCachedCoverWidth {
+            get {
+                return ResourceManager.GetString("LabelCachedCoverWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Width of cached portrait images (in pixels).
+        /// </summary>
+        public static string LabelCachedPortraitWidth {
+            get {
+                return ResourceManager.GetString("LabelCachedPortraitWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string LabelCancel {
@@ -439,11 +457,47 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        public static string LabelFileActions {
+            get {
+                return ResourceManager.GetString("LabelFileActions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string LabelFileCategory {
             get {
                 return ResourceManager.GetString("LabelFileCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File name.
+        /// </summary>
+        public static string LabelFileName {
+            get {
+                return ResourceManager.GetString("LabelFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size.
+        /// </summary>
+        public static string LabelFileSize {
+            get {
+                return ResourceManager.GetString("LabelFileSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string LabelFileType {
+            get {
+                return ResourceManager.GetString("LabelFileType", resourceCulture);
             }
         }
         

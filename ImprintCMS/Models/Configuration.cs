@@ -46,6 +46,10 @@ namespace ImprintCMS.Models
         [Required(ErrorMessage = "*")]
         public decimal DistributionCostLimit { get; set; }
         public bool ShopIsVisible { get; set; }
+        [Required(ErrorMessage = "*")]
+        public int CachedCoverWidth { get; set; }
+        [Required(ErrorMessage = "*")]
+        public int CachedPortraitWidth { get; set; }
 
 
     }

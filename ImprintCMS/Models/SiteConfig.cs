@@ -15,6 +15,8 @@ namespace ImprintCMS.Models
         public string GoogleAnalyticsTrackingCode { get; set; }
         public string PersonImageDownloadNotice { get; set; }
         public string CoverImageDownloadNotice { get; set; }
+        public int CachedCoverWidth { get; set; }
+        public int CachedPortraitWidth { get; set; }
         public bool ShopIsVisible { get; set; }
         public string ShopEmailRecipient { get; set; }
         public HtmlString ShopDisclaimer { get; set; }
@@ -33,6 +35,8 @@ namespace ImprintCMS.Models
                 GoogleAnalyticsTrackingCode = config.GoogleAnalyticsTrackingCode;
                 PersonImageDownloadNotice = config.PersonImageDownloadNotice;
                 CoverImageDownloadNotice = config.CoverImageDownloadNotice;
+                CachedCoverWidth = config.CachedCoverWidth;
+                CachedPortraitWidth = config.CachedPortraitWidth;
                 ShopIsVisible = config.ShopIsVisible;
                 ShopEmailRecipient = config.ShopEmailRecipient;
                 ShopDisclaimer = new HtmlString(config.ShopDisclaimer);
@@ -48,6 +52,8 @@ namespace ImprintCMS.Models
                 GoogleAnalyticsTrackingCode = string.Empty;
                 PersonImageDownloadNotice = string.Empty;
                 CoverImageDownloadNotice = string.Empty;
+                CachedCoverWidth = 250;
+                CachedPortraitWidth = 250;
                 ShopIsVisible = true;
                 ShopEmailRecipient = "address@server.com";
                 ShopDisclaimer = new HtmlString(string.Empty);
