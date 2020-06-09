@@ -178,6 +178,12 @@ namespace ImprintCMS.Controllers
             upload.ContentType = file.ContentType;
             upload.ContentLength = file.ContentLength;
             upload.Data = fileData;
+            var siteConfig = new SiteConfig(Repository);
+            if (upload.Category.Equals(FileCategories.LargeCover.ToString(), StringComparison.InvariantCultureIgnoreCase))
+            {
+                var cachedCover = Repository.GetUploadedFile(FileCategories.CachedCover.ToString(), string.Format("cache{0}_{1}", siteConfig.CachedCoverWidth, upload.FileName));
+                if (cachedCover != null) Repository.Delete(cachedCover);
+            }
             Repository.Save();
             return RedirectToAction("uploadcategory", new { id = vm.FileCategory });
         }
@@ -194,6 +200,12 @@ namespace ImprintCMS.Controllers
         {
             var upload = Repository.GetUploadedFile(vm.Id);
             Repository.Delete(upload);
+            var siteConfig = new SiteConfig(Repository);
+            if (upload.Category.Equals(FileCategories.LargeCover.ToString(), StringComparison.InvariantCultureIgnoreCase))
+            {
+                var cachedCover = Repository.GetUploadedFile(FileCategories.CachedCover.ToString(), string.Format("cache{0}_{1}", siteConfig.CachedCoverWidth, upload.FileName));
+                if (cachedCover != null) Repository.Delete(cachedCover);
+            }
             Repository.Save();
             return RedirectToAction("uploadcategory", new { id = upload.Category });
         }
