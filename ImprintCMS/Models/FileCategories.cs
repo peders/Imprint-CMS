@@ -11,7 +11,8 @@
 		Layout,
 		Script,
         CachedCover,
-        CachedPortrait
+        CachedPortrait,
+        CachedThumbnail
 	}
 
 }

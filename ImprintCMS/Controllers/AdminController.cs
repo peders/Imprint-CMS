@@ -101,7 +101,7 @@ namespace ImprintCMS.Controllers
             {
                 Name = id,
                 Files = Repository.ListFiles.Where(u => u.Category == id),
-                IsForCache = id.Equals("cachedcover", StringComparison.InvariantCultureIgnoreCase) || id.Equals("cachedportrait", StringComparison.InvariantCultureIgnoreCase)
+                IsForCache = id.Equals(FileCategories.CachedCover.ToString(), StringComparison.InvariantCultureIgnoreCase) || id.Equals(FileCategories.CachedPortrait.ToString(), StringComparison.InvariantCultureIgnoreCase) || id.Equals(FileCategories.CachedThumbnail.ToString(), StringComparison.InvariantCultureIgnoreCase)
             };
             return View(vm);
         }
@@ -184,6 +184,13 @@ namespace ImprintCMS.Controllers
                 var cachedCover = Repository.GetUploadedFile(FileCategories.CachedCover.ToString(), string.Format("cache{0}_{1}", siteConfig.CachedCoverWidth, upload.FileName));
                 if (cachedCover != null) Repository.Delete(cachedCover);
             }
+            if (upload.Category.Equals(FileCategories.LargePortrait.ToString(), StringComparison.InvariantCultureIgnoreCase))
+            {
+                var cachedPortrait = Repository.GetUploadedFile(FileCategories.CachedPortrait.ToString(), string.Format("cache{0}_{1}", siteConfig.CachedPortraitWidth, upload.FileName));
+                if (cachedPortrait != null) Repository.Delete(cachedPortrait);
+                var cachedThumbnail = Repository.GetUploadedFile(FileCategories.CachedThumbnail.ToString(), string.Format("cache{0}_{1}", siteConfig.CachedPortraitWidth, upload.FileName));
+                if (cachedThumbnail != null) Repository.Delete(cachedThumbnail);
+            }
             Repository.Save();
             return RedirectToAction("uploadcategory", new { id = vm.FileCategory });
         }
@@ -206,6 +213,13 @@ namespace ImprintCMS.Controllers
                 var cachedCover = Repository.GetUploadedFile(FileCategories.CachedCover.ToString(), string.Format("cache{0}_{1}", siteConfig.CachedCoverWidth, upload.FileName));
                 if (cachedCover != null) Repository.Delete(cachedCover);
             }
+            if (upload.Category.Equals(FileCategories.LargePortrait.ToString(), StringComparison.InvariantCultureIgnoreCase))
+            {
+                var cachedPortrait = Repository.GetUploadedFile(FileCategories.CachedPortrait.ToString(), string.Format("cache{0}_{1}", siteConfig.CachedPortraitWidth, upload.FileName));
+                if (cachedPortrait != null) Repository.Delete(cachedPortrait);
+                var cachedThumbnail = Repository.GetUploadedFile(FileCategories.CachedThumbnail.ToString(), string.Format("cache{0}_{1}", siteConfig.CachedPortraitWidth, upload.FileName));
+                if (cachedThumbnail != null) Repository.Delete(cachedThumbnail);
+            }
             Repository.Save();
             return RedirectToAction("uploadcategory", new { id = upload.Category });
         }
@@ -216,7 +230,7 @@ namespace ImprintCMS.Controllers
             {
                 Name = id,
                 Files = Repository.ListFiles.Where(u => u.Category == id),
-                IsForCache = id.Equals("cachedcover", StringComparison.InvariantCultureIgnoreCase) || id.Equals("cachedportrait", StringComparison.InvariantCultureIgnoreCase)
+                IsForCache = id.Equals(FileCategories.CachedCover.ToString(), StringComparison.InvariantCultureIgnoreCase) || id.Equals(FileCategories.CachedPortrait.ToString(), StringComparison.InvariantCultureIgnoreCase) || id.Equals(FileCategories.CachedThumbnail.ToString(), StringComparison.InvariantCultureIgnoreCase)
             };
             if (!vm.IsForCache) return HttpNotFound();
             return View(vm);
