@@ -4,13 +4,10 @@
     var stores = ViewBag.Stores as IEnumerable<ExternalStore>;
 }
 <div id="image">
-    @if (Model.Editions.Any(e => e.SmallCoverId != null))
-    {
-        @Html.CoverImage(Model.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last())
-    }
     @if (Model.Editions.Any(e => e.LargeCoverId != null))
     {
         var edition = Model.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last();
+        @Html.CoverImage(edition)
         var url = Url.Action("display", "upload", new { category = edition.UploadedFile1.Category, fileName = edition.UploadedFile1.FileName });
         <p class="download">@Html.ImageDownload(url, SitePhrases.LabelLargeCover, ((SiteConfig)ViewBag.Config).CoverImageDownloadNotice)</p>
     }

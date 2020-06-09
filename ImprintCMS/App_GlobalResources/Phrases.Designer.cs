@@ -304,6 +304,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete all.
+        /// </summary>
+        public static string LabelDeleteAll {
+            get {
+                return ResourceManager.GetString("LabelDeleteAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete.
         /// </summary>
         public static string LabelDeleteConfirmationPrefix {
@@ -1128,6 +1137,15 @@ namespace ImprintCMS.Models {
         public static string LabelTranslations {
             get {
                 return ResourceManager.GetString("LabelTranslations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All {0} files in {1}.
+        /// </summary>
+        public static string LabelUploadCategoryFileCount {
+            get {
+                return ResourceManager.GetString("LabelUploadCategoryFileCount", resourceCulture);
             }
         }
         

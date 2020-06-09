@@ -1,0 +1,18 @@
+﻿@model UploadCategoryFiles
+@{
+    ViewBag.Title = Phrases.PagenameDelete;
+    ViewBag.Breadcrumbs = new[] {
+Html.ActionLink(Phrases.PagenameUploads, "uploads"),
+Html.ActionLink(Model.Name, "uploadscategory", new {id = Model.Name}) ,
+Phrases.LabelDeleteAll.ToHtmlString()
+};
+}
+<p>@Html.DeleteConfirmation(string.Format(Phrases.LabelUploadCategoryFileCount, Model.Files.Count(), Model.Name))</p>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="@Phrases.LabelDelete" />
+        @Html.ActionLink(String.Format(Phrases.LabelBackTo, Model.Name), "uploadcategory", new { id = Model.Name })
+    </p>
+}
+

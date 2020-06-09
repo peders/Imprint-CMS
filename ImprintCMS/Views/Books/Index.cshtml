@@ -32,9 +32,9 @@
                 @foreach (var book in group)
                 {
                     <li>
-                        @if (book.Editions.Any(e => e.SmallCoverId != null))
+                        @if (book.Editions.Any(e => e.LargeCoverId != null))
                         {
-                            <a href="@Url.Action("details", new { id = book.Id })" class="coverimage">@Html.CoverImage(book.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last())</a>
+                            <a href="@Url.Action("details", new { id = book.Id })" class="coverimage">@Html.CoverImage(book.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last())</a>
                         }
 
                         @Html.ActionLink(book.Title, "details", new { id = book.Id }, new { @class = "title" })

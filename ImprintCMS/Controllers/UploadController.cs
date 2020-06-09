@@ -54,6 +54,52 @@ namespace ImprintCMS.Controllers
             return new FileContentResult(outputBytes, vm.ContentType);
         }
 
+        [OutputCache(Duration = int.MaxValue, Location = OutputCacheLocation.Any, SqlDependency = "ImprintCMS:UploadedFile")]
+        public ActionResult CachedCover(int id)
+        {
+            var fileNameBase = Repository.GetUploadFileName(id);
+            if (string.IsNullOrWhiteSpace(fileNameBase)) return HttpNotFound();
+            var siteConfig = new SiteConfig(Repository);
+            var cover = Repository.GetUploadedFile(FileCategories.CachedCover.ToString(), string.Format("cache{0}_{1}", siteConfig.CachedCoverWidth, fileNameBase));
+            if (cover != null) return new FileContentResult(cover.Data.ToArray(), cover.ContentType);
+            var largeCover = Repository.GetUploadedFile(id);
+            if (largeCover == null) return HttpNotFound();
+            if (largeCover.Category != FileCategories.LargeCover.ToString()) return HttpNotFound();
+            var resizedData = ResizeToWidth(largeCover.Data.ToArray(), siteConfig.CachedCoverWidth);
+            var resizedCover = new UploadedFile
+            {
+                FileName = string.Format("cache{0}_{1}", siteConfig.CachedCoverWidth, largeCover.FileName),
+                ContentType = "image/jpeg",
+                ContentLength = resizedData.Length,
+                Category = FileCategories.CachedCover.ToString(),
+                Data = resizedData
+            };
+            Repository.Add(resizedCover);
+            Repository.Save();
+            return new FileContentResult(resizedData, resizedCover.ContentType);
+        }
+
+        private byte[] ResizeToWidth(byte[] original, int width)
+        {
+            byte[] outputBytes;
+            using (var inStream = new MemoryStream(original))
+            {
+                using (var outStream = new MemoryStream())
+                {
+                    using (var imageFactory = new ImageFactory(preserveExifData: true))
+                    {
+                        imageFactory.Load(inStream)
+                            .Resize(new Size { Width = width, Height = 0 })
+                            .Format(ImageFormat.Jpeg)
+                            .Quality(100)
+                            .Save(outStream);
+                    }
+                    outputBytes = outStream.ToArray();
+                }
+            }
+            return outputBytes;
+        }
+
     }
 
 }

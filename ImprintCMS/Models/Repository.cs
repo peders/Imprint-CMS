@@ -29,6 +29,17 @@ namespace ImprintCMS.Models
         {
             return _db.UploadedFiles.SingleOrDefault(f => f.Id == id);
         }
+        public string GetUploadFileName(int id)
+        {
+            try
+            {
+                return _db.UploadedFiles.Where(_ => _.Id == id).Select(_ => _.FileName).First();
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
         public void Add(UploadedFile file)
         {
             _db.UploadedFiles.InsertOnSubmit(file);
@@ -36,6 +47,10 @@ namespace ImprintCMS.Models
         public void Delete(UploadedFile file)
         {
             _db.UploadedFiles.DeleteOnSubmit(file);
+        }
+        public void PurgeUploadCategory(string category)
+        {
+            _db.UploadedFiles.DeleteAllOnSubmit(_db.UploadedFiles.Where(_ => _.Category == category));
         }
 
         public IEnumerable<ListFile> ListFiles

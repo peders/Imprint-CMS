@@ -144,41 +144,6 @@ namespace ImprintCMS.Controllers
             return RedirectToAction("uploadcategory", new { id = vm.FileCategory });
         }
 
-        public ActionResult GenerateCachedCoverImage(int id)
-        {
-            var original = Repository.GetUploadedFile(id);
-            if (original == null) return HttpNotFound();
-            if (original.Category != FileCategories.LargeCover.ToString()) return HttpNotFound();
-            var siteConfig = new SiteConfig(Repository);
-            byte[] outputBytes;
-            using (var inStream = new MemoryStream(original.Data.ToArray()))
-            {
-                using (var outStream = new MemoryStream())
-                {
-                    using (var imageFactory = new ImageFactory(preserveExifData: true))
-                    {
-                        imageFactory.Load(inStream)
-                            .Resize(new System.Drawing.Size { Width = siteConfig.CachedCoverWidth, Height = 0 })
-                            .Format(ImageFormat.Jpeg)
-                            .Quality(100)
-                            .Save(outStream);
-                    }
-                    outputBytes = outStream.ToArray();
-                }
-            }
-            var vm = new UploadedFile
-            {
-                FileName = string.Format("cache{0}_{1}", siteConfig.CachedCoverWidth, original.FileName),
-                ContentType = "image/jpeg",
-                ContentLength = outputBytes.Length,
-                Category = FileCategories.CachedCover.ToString(),
-                Data = outputBytes
-            };
-            Repository.Add(vm);
-            Repository.Save();
-            return RedirectToAction("uploads");
-        }
-
         public ActionResult ReplaceUpload(int id)
         {
             var upload = Repository.GetUploadedFile(id);
@@ -231,6 +196,27 @@ namespace ImprintCMS.Controllers
             Repository.Delete(upload);
             Repository.Save();
             return RedirectToAction("uploadcategory", new { id = upload.Category });
+        }
+
+        public ActionResult DeleteCachedUploads(string id)
+        {
+            var vm = new UploadCategoryFiles
+            {
+                Name = id,
+                Files = Repository.ListFiles.Where(u => u.Category == id),
+                IsForCache = id.Equals("cachedcover", StringComparison.InvariantCultureIgnoreCase) || id.Equals("cachedportrait", StringComparison.InvariantCultureIgnoreCase)
+            };
+            if (!vm.IsForCache) return HttpNotFound();
+            return View(vm);
+
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCachedUploads(string id, object seed)
+        {
+            Repository.PurgeUploadCategory(id);
+            Repository.Save();
+            return RedirectToAction("uploadcategory", new { id });
         }
 
         public ActionResult Bindings()

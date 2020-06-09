@@ -9,36 +9,45 @@ Model.Name.ToHtmlString()
 @if (!Model.IsForCache)
 {
     <ul class="adminactions">
-        <li>@Html.ActionLink(String.Format("{0} {1}", Phrases.LabelCreate, Model.Name), "createupload", new { id = Model.Name })</li>
+        <li>@Html.ActionLink(string.Format("{0} {1}", Phrases.LabelCreate, Model.Name), "createupload", new { id = Model.Name })</li>
     </ul>
 }
-<table>
-    <thead>
-        <tr>
-            <th>@Phrases.LabelFileName</th>
-            <th>@Phrases.LabelFileType</th>
-            <th>@Phrases.LabelFileSize</th>
-            <th>@Phrases.LabelFileActions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var file in Model.Files.OrderBy(f => f.FileName))
-        {
+else
+{
+    <ul class="adminactions">
+        <li>@Html.ActionLink(Phrases.LabelDeleteAll, "deletecacheduploads", new { id = Model.Name })</li>
+    </ul>
+}
+<div class="filteredlist">
+    <p><input type="text" class="filterinput" placeholder="@Phrases.LabelSearch" /></p>
+    <table>
+        <thead>
             <tr>
-                <td>@Html.ActionLink(file.FileName, "display", "upload", new { category = file.Category, fileName = file.FileName }, null)</td>
-                <td>@file.FileSizeDisplayName()</td>
-                <td>@file.FileTypeDisplayName()</td>
-                <td>
-                    @if (!Model.IsForCache)
-                    {
-                        @Html.ActionLink(Phrases.LabelReplace, "replaceupload", new { id = file.Id }, null)
-                    }
-                    @Html.ActionLink(Phrases.LabelDelete, "deleteupload", new { id = file.Id }, null)
-                </td>
+                <th>@Phrases.LabelFileName</th>
+                <th>@Phrases.LabelFileType</th>
+                <th>@Phrases.LabelFileSize</th>
+                <th>@Phrases.LabelFileActions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var file in Model.Files.OrderBy(f => f.FileName))
+            {
+                <tr class="filteredlistitem">
+                    <td>@Html.ActionLink(file.FileName, "display", "upload", new { category = file.Category, fileName = file.FileName }, new { @class = "filterlabel" })</td>
+                    <td>@file.FileSizeDisplayName()</td>
+                    <td>@file.FileTypeDisplayName()</td>
+                    <td>
+                        @if (!Model.IsForCache)
+                        {
+                            @Html.ActionLink(Phrases.LabelReplace, "replaceupload", new { id = file.Id }, null)
+                        }
+                        @Html.ActionLink(Phrases.LabelDelete, "deleteupload", new { id = file.Id }, null)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 @if (Model.Name.Equals("layout", StringComparison.InvariantCultureIgnoreCase))
 {
     <p class="notice">@Phrases.LabelLegacyStylesheetLegend</p>

@@ -721,4 +721,11 @@
   <data name="LabelFileType" xml:space="preserve">
     <value>Type</value>
   </data>
+  <data name="LabelDeleteAll" xml:space="preserve">
+    <value>Delete all</value>
+  </data>
+  <data name="LabelUploadCategoryFileCount" xml:space="preserve">
+    <value>All {0} files in {1}</value>
+    <comment>Insert file count and category name</comment>
+  </data>
 </root>
