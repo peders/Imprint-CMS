@@ -2,23 +2,28 @@
 @using (Html.BeginForm())
 {
 	@Html.ValidationSummary(true)
-	<fieldset class="fields">
-		<p>
-			@Html.LabelFor(model => model.Title, Phrases.LabelTitle)<br />
-			@Html.TextBoxFor(model => model.Title)
-			@Html.ValidationMessageFor(model => model.Title)
-		</p>
-		<p>
-			@Html.LabelFor(model => model.Description, Phrases.LabelBodyText)<br />
-			@Html.TextAreaFor(model => model.Description, new { @class = "rich" })
-			@Html.ValidationMessageFor(model => model.Description)
-		</p>
-		<p>
-			@Html.LabelFor(model => model.Date, Phrases.LabelDate)<br />
-			@Html.TextBox("Date", String.Format("{0:d}", Model.Date), new { @class = "datepicker" })
-			@Html.ValidationMessageFor(model => model.Date)
-		</p>
-	</fieldset>
+<fieldset class="fields">
+    <p>
+        @Html.LabelFor(model => model.Title, Phrases.LabelTitle)<br />
+        @Html.TextBoxFor(model => model.Title)
+        @Html.ValidationMessageFor(model => model.Title)
+    </p>
+    <p>
+        @Html.LabelFor(model => model.Description, Phrases.LabelBodyText)<br />
+        @Html.TextAreaFor(model => model.Description, new { @class = "rich" })
+        @Html.ValidationMessageFor(model => model.Description)
+    </p>
+    <p>
+        @Html.LabelFor(model => model.Date, Phrases.LabelDate)<br />
+        @Html.TextBox("Date", String.Format("{0:d}", Model.Date), new { @class = "datepicker" })
+        @Html.ValidationMessageFor(model => model.Date)
+    </p>
+    <p>
+        @Html.LabelFor(model => model.ImageId, Phrases.LabelLargeImage)<br />
+        @Html.DropDownListFor(model => model.ImageId, (SelectList)ViewBag.Images, "–")
+        @Html.ValidationMessageFor(model => model.ImageId)
+    </p>
+</fieldset>
 	<fieldset class="options">
 		<p>
 			@Html.CheckBoxFor(model => model.IsVisible)

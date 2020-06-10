@@ -75,6 +75,15 @@ namespace ImprintCMS.Models
             return new HtmlString("<img src=\"" + source + "\" class=\"cover\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
         }
 
+        public static HtmlString ArticleImage(this HtmlHelper helper, Article article)
+        {
+            if (article.ImageId == null) return null;
+            var legend = helper.Encode(string.Format(SitePhrases.LabelArticleImage, article.Title));
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var source = urlHelper.Action("cachedarticleimage", "upload", new { id = article.ImageId });
+            return new HtmlString("<img src=\"" + source + "\" class=\"article\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
+        }
+
         public static string RelationNames(this Book book)
         {
             return string.Join(" / ", book.Relations.OrderBy(r => r.SequenceIdentifier).Select(r => r.PersonName));

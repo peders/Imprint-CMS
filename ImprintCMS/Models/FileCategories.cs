@@ -4,13 +4,15 @@
 	{
 		LargeCover,
 		LargePortrait,
+        ArticleImage,
 		Excerpt,
 		Attachment,
 		Layout,
 		Script,
         CachedCover,
         CachedPortrait,
-        CachedThumbnail
+        CachedThumbnail,
+        CachedArticleImage
 	}
 
 }

@@ -205,6 +205,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bilde til artikkelen {0}.
+        /// </summary>
+        public static string LabelArticleImage {
+            get {
+                return ResourceManager.GetString("LabelArticleImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bilde av {0}.
         /// </summary>
         public static string LabelAuthorImage {

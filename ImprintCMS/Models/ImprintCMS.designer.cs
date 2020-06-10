@@ -312,6 +312,8 @@ namespace ImprintCMS.Models
 		
 		private bool _IsOnFrontPage;
 		
+		private System.Nullable<int> _ImageId;
+		
 		private EntitySet<BookToArticle> _BookToArticles;
 		
 		private EntitySet<PersonToArticle> _PersonToArticles;
@@ -332,6 +334,8 @@ namespace ImprintCMS.Models
     partial void OnIsVisibleChanged();
     partial void OnIsOnFrontPageChanging(bool value);
     partial void OnIsOnFrontPageChanged();
+    partial void OnImageIdChanging(System.Nullable<int> value);
+    partial void OnImageIdChanged();
     #endregion
 		
 		public Article()
@@ -457,6 +461,26 @@ namespace ImprintCMS.Models
 					this._IsOnFrontPage = value;
 					this.SendPropertyChanged("IsOnFrontPage");
 					this.OnIsOnFrontPageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageId", DbType="Int")]
+		public System.Nullable<int> ImageId
+		{
+			get
+			{
+				return this._ImageId;
+			}
+			set
+			{
+				if ((this._ImageId != value))
+				{
+					this.OnImageIdChanging(value);
+					this.SendPropertyChanging();
+					this._ImageId = value;
+					this.SendPropertyChanged("ImageId");
+					this.OnImageIdChanged();
 				}
 			}
 		}

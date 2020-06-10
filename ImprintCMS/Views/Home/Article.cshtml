@@ -3,19 +3,26 @@
     ViewBag.Title = Model.Title;
 }
 <div id="image">
-    @if (Model.ImagePerson != null)
+    @if (Model.ImageId != null)
     {
-        <a href="@Url.Action("details", "authors", new { id = Model.ImagePerson.Id })">@Html.PersonThumbnail(Model.ImagePerson)</a>
-        if (!String.IsNullOrWhiteSpace(Model.ImagePerson.MainImage.Photographer))
-        {
-        <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.ImagePerson.MainImage.Photographer)</p>
-        }
+        @Html.ArticleImage(Model)
     }
     else
     {
-        if (Model.ImageEdition != null)
+        if (Model.ImagePerson != null)
         {
-        <a href="@Url.Action("details", "books", new { id = Model.ImageEdition.BookId })">@Html.CoverImage(Model.ImageEdition)</a>
+            <a href="@Url.Action("details", "authors", new { id = Model.ImagePerson.Id })">@Html.PersonThumbnail(Model.ImagePerson)</a>
+            if (!String.IsNullOrWhiteSpace(Model.ImagePerson.MainImage.Photographer))
+            {
+                <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.ImagePerson.MainImage.Photographer)</p>
+            }
+        }
+        else
+        {
+            if (Model.ImageEdition != null)
+            {
+                <a href="@Url.Action("details", "books", new { id = Model.ImageEdition.BookId })">@Html.CoverImage(Model.ImageEdition)</a>
+            }
         }
     }
 </div>

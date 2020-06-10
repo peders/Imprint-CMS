@@ -29,6 +29,31 @@ namespace ImprintCMS.Controllers
         }
 
         [OutputCache(Duration = int.MaxValue, Location = OutputCacheLocation.Any, SqlDependency = "ImprintCMS:UploadedFile")]
+        public ActionResult CachedArticleImage(int id)
+        {
+            var fileNameBase = Repository.GetUploadFileName(id);
+            if (string.IsNullOrWhiteSpace(fileNameBase)) return HttpNotFound();
+            var siteConfig = new SiteConfig(Repository);
+            var image = Repository.GetUploadedFile(FileCategories.CachedArticleImage.ToString(), string.Format("cache{0}_{1}", siteConfig.CachedPortraitWidth, fileNameBase));
+            if (image != null) return new FileContentResult(image.Data.ToArray(), image.ContentType);
+            var largeImage = Repository.GetUploadedFile(id);
+            if (largeImage == null) return HttpNotFound();
+            if (largeImage.Category != FileCategories.ArticleImage.ToString()) return HttpNotFound();
+            var resizedData = ResizeToWidth(largeImage.Data.ToArray(), siteConfig.CachedPortraitWidth);
+            var resizedImage = new UploadedFile
+            {
+                FileName = string.Format("cache{0}_{1}", siteConfig.CachedPortraitWidth, largeImage.FileName),
+                ContentType = "image/jpeg",
+                ContentLength = resizedData.Length,
+                Category = FileCategories.CachedArticleImage.ToString(),
+                Data = resizedData
+            };
+            Repository.Add(resizedImage);
+            Repository.Save();
+            return new FileContentResult(resizedData, resizedImage.ContentType);
+        }
+
+        [OutputCache(Duration = int.MaxValue, Location = OutputCacheLocation.Any, SqlDependency = "ImprintCMS:UploadedFile")]
         public ActionResult CachedCover(int id)
         {
             var fileNameBase = Repository.GetUploadFileName(id);

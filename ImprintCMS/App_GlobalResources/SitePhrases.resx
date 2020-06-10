@@ -349,4 +349,8 @@
   <data name="HeadingMoreImages" xml:space="preserve">
     <value>Flere bilder</value>
   </data>
+  <data name="LabelArticleImage" xml:space="preserve">
+    <value>Bilde til artikkelen {0}</value>
+    <comment>Insert article title</comment>
+  </data>
 </root>

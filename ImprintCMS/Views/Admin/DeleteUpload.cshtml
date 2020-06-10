@@ -8,18 +8,14 @@ Html.ActionLink(Model.FileName, "display", "upload", new { category = Model.Cate
 Phrases.LabelDelete.ToHtmlString()
 };
 }
-@if (Model.Editions.Any() || Model.Editions1.Any() || Model.PersonImages.Any() || Model.PersonImages1.Any() || Model.Books.Any())
+@if (Model.Editions.Any() || Model.PersonImages.Any() || Model.Books.Any())
 {
     <p>@Html.DeleteDependencies(Model.FileName)</p>
-    if (Model.Editions.Any() || Model.Editions1.Any() || Model.Books.Any())
+    if (Model.Editions.Any() || Model.Books.Any())
     {
         <h2>@Phrases.LabelBooks</h2>
         <ul>
             @foreach (var edition in Model.Editions.OrderBy(e => e.Book.Title))
-            {
-                <li>@Html.ActionLink(String.Format("{0} – {1}", edition.Name, Model.Category), "editedition", new { id = edition.Id })</li>
-            }
-            @foreach (var edition in Model.Editions1.OrderBy(e => e.Book.Title))
             {
                 <li>@Html.ActionLink(String.Format("{0} – {1}", edition.Name, Model.Category), "editedition", new { id = edition.Id })</li>
             }
@@ -29,17 +25,11 @@ Phrases.LabelDelete.ToHtmlString()
             }
         </ul>
     }
-    if (Model.PersonImages.Any() || Model.PersonImages1.Any())
+    if (Model.PersonImages.Any())
     {
         <h2>@Phrases.LabelPeople</h2>
         <ul>
             @foreach (var person in Model.PersonImages.OrderBy(p => p.Person.ReverseName))
-            {
-                <li> @Html.ActionLink(string.Format("{0} – {1}", person.Person.ReverseName, Model.Category), "editperson", new { id = person.Person.Id }) </li>
-            }
-        </ul>
-        <ul>
-            @foreach (var person in Model.PersonImages1.OrderBy(p => p.Person.ReverseName))
             {
                 <li> @Html.ActionLink(string.Format("{0} – {1}", person.Person.ReverseName, Model.Category), "editperson", new { id = person.Person.Id }) </li>
             }
