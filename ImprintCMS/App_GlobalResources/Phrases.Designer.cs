@@ -646,7 +646,7 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Large image.
+        ///   Looks up a localized string similar to Image.
         /// </summary>
         public static string LabelLargeImage {
             get {
@@ -1074,15 +1074,6 @@ namespace ImprintCMS.Models {
         public static string LabelSiteName {
             get {
                 return ResourceManager.GetString("LabelSiteName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Small image.
-        /// </summary>
-        public static string LabelSmallImage {
-            get {
-                return ResourceManager.GetString("LabelSmallImage", resourceCulture);
             }
         }
         

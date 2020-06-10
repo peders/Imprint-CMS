@@ -8,7 +8,7 @@
     {
         var edition = Model.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last();
         @Html.CoverImage(edition)
-        var url = Url.Action("display", "upload", new { category = edition.UploadedFile1.Category, fileName = edition.UploadedFile1.FileName });
+        var url = Url.Action("display", "upload", new { category = edition.UploadedFile.Category, fileName = edition.UploadedFile.FileName });
         <p class="download">@Html.ImageDownload(url, SitePhrases.LabelLargeCover, ((SiteConfig)ViewBag.Config).CoverImageDownloadNotice)</p>
     }
     @if (Model.Editions.Any())

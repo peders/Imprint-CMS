@@ -11,7 +11,7 @@ namespace ImprintCMS.Models
     public class PersonImageMetadata
     {
         [Required(ErrorMessage = "*")]
-        public int SmallImageId { get; set; }
+        public int LargeImageId { get; set; }
     }
 
 }

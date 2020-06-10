@@ -21,8 +21,8 @@ namespace ImprintCMS.Models
 		{
 			get
 			{
-				var bookToArticle = BookToArticles.Where(b => b.Book.IsVisible && b.Book.Editions.Any(e => e.SmallCoverId != null)).OrderBy(b => b.SequenceIdentifier).FirstOrDefault();
-				return bookToArticle == null ? null : bookToArticle.Book.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last();
+				var bookToArticle = BookToArticles.Where(b => b.Book.IsVisible && b.Book.Editions.Any(e => e.LargeCoverId != null)).OrderBy(b => b.SequenceIdentifier).FirstOrDefault();
+				return bookToArticle == null ? null : bookToArticle.Book.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last();
 			}
 		}
 

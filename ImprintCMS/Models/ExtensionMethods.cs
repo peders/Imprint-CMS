@@ -91,10 +91,10 @@ namespace ImprintCMS.Models
         {
             if (book.HasExternalPublisher) return null;
             if (!book.Editions.Any()) return null;
-            if (book.Editions.All(e => e.SmallCoverId == null)) return null;
-            var coverEdition = book.Editions.Where(e => e.SmallCoverId != null).OrderBy(e => e.Number).Last();
+            if (book.Editions.All(e => e.LargeCoverId == null)) return null;
+            var coverEdition = book.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last();
             var urlHelper = new UrlHelper(context);
-            var imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("display", "upload", new { category = coverEdition.UploadedFile.Category, fileName = coverEdition.UploadedFile.FileName });
+            var imageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("cachedcover", "upload", new { coverEdition.LargeCoverId });
             var pageUrl = context.HttpContext.Request.UrlBase() + urlHelper.Action("details", "books", new { id = book.Id });
             return new OpenGraph
             {

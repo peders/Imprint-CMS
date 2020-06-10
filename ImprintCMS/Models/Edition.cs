@@ -20,16 +20,22 @@ namespace ImprintCMS.Models
     {
         [Required(ErrorMessageResourceType = typeof(Phrases), ErrorMessageResourceName = "ValidationRequiredDefault")]
         public int BookId { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(Phrases), ErrorMessageResourceName = "ValidationRequiredDefault")]
         public int BindingId { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(Phrases), ErrorMessageResourceName = "ValidationRequiredDefault")]
         public DateTime ReleaseDate { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(Phrases), ErrorMessageResourceName = "ValidationRequiredDefault")]
         public int Number { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(Phrases), ErrorMessageResourceName = "ValidationRequiredDefault")]
         public string Isbn { get; set; }
+
         [AllowHtml]
         public string Blurb { get; set; }
+
         [StringLength(50, ErrorMessageResourceType = typeof(Phrases), ErrorMessageResourceName = "ValidationStringLength50")]
         public string AlternativeNotForSaleMessage { get; set; }
     }

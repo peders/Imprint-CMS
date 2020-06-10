@@ -11,7 +11,7 @@
                 @foreach (var edition in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Edition))
                 {
                     <li>
-                        @if (edition.SmallCoverId != null)
+                        @if (edition.LargeCoverId != null)
                         {
                             <a href="@Url.Action("details", "books", new { id = edition.BookId })" class="book">@Html.CoverImage(edition)</a>
                         }

@@ -12,21 +12,6 @@
       <Association Name="Article_PersonToArticle" Member="PersonToArticles" ThisKey="Id" OtherKey="ArticleId" Type="PersonToArticle" />
     </Type>
   </Table>
-  <Table Name="dbo.UploadedFile" Member="UploadedFiles">
-    <Type Name="UploadedFile">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FileName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="ContentType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="Category" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ContentLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="UploadedFile_Book" Member="Books" ThisKey="Id" OtherKey="ExcerptId" Type="Book" />
-      <Association Name="UploadedFile_Edition" Member="Editions" ThisKey="Id" OtherKey="SmallCoverId" Type="Edition" />
-      <Association Name="UploadedFile_Edition1" Member="Editions1" ThisKey="Id" OtherKey="LargeCoverId" Type="Edition" />
-      <Association Name="UploadedFile_PersonImage" Member="PersonImages" ThisKey="Id" OtherKey="SmallImageId" Type="PersonImage" />
-      <Association Name="UploadedFile_PersonImage1" Member="PersonImages1" ThisKey="Id" OtherKey="LargeImageId" Type="PersonImage" />
-    </Type>
-  </Table>
   <Table Name="dbo.ArticleGroup" Member="ArticleGroups">
     <Type Name="ArticleGroup">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -62,8 +47,8 @@
       <Association Name="Book_BookToArticle" Member="BookToArticles" ThisKey="Id" OtherKey="BookId" Type="BookToArticle" />
       <Association Name="Book_Edition" Member="Editions" ThisKey="Id" OtherKey="BookId" Type="Edition" />
       <Association Name="Book_Relation" Member="Relations" ThisKey="Id" OtherKey="BookId" Type="Relation" />
-      <Association Name="UploadedFile_Book" Member="UploadedFile" ThisKey="ExcerptId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
       <Association Name="Genre_Book" Member="Genre" ThisKey="GenreId" OtherKey="Id" Type="Genre" IsForeignKey="true" />
+      <Association Name="UploadedFile_Book" Member="UploadedFile" ThisKey="ExcerptId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.BookList" Member="BookLists">
@@ -135,7 +120,6 @@
       <Column Name="IsForSale" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="ReleaseDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="BindingId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SmallCoverId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="LargeCoverId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
@@ -145,8 +129,7 @@
       <Association Name="Edition_OrderLine" Member="OrderLines" ThisKey="Id" OtherKey="EditionId" Type="OrderLine" />
       <Association Name="Binding_Edition" Member="Binding" ThisKey="BindingId" OtherKey="Id" Type="Binding" IsForeignKey="true" />
       <Association Name="Book_Edition" Member="Book" ThisKey="BookId" OtherKey="Id" Type="Book" IsForeignKey="true" />
-      <Association Name="UploadedFile_Edition" Member="UploadedFile" ThisKey="SmallCoverId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
-      <Association Name="UploadedFile_Edition1" Member="UploadedFile1" ThisKey="LargeCoverId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
+      <Association Name="UploadedFile_Edition" Member="UploadedFile" ThisKey="LargeCoverId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ExternalStore" Member="ExternalStores">
@@ -220,13 +203,11 @@
     <Type Name="PersonImage">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SmallImageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LargeImageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LargeImageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Photographer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="PersonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Person_PersonImage" Member="Person" ThisKey="PersonId" OtherKey="Id" Type="Person" IsForeignKey="true" />
-      <Association Name="UploadedFile_PersonImage" Member="UploadedFile" ThisKey="SmallImageId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
-      <Association Name="UploadedFile_PersonImage1" Member="UploadedFile1" ThisKey="LargeImageId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
+      <Association Name="UploadedFile_PersonImage" Member="UploadedFile" ThisKey="LargeImageId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PersonToArticle" Member="PersonToArticles">
@@ -260,6 +241,19 @@
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ShowBookList" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Role_Relation" Member="Relations" ThisKey="Id" OtherKey="RoleId" Type="Relation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UploadedFile" Member="UploadedFiles">
+    <Type Name="UploadedFile">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ContentType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ContentLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="UploadedFile_Book" Member="Books" ThisKey="Id" OtherKey="ExcerptId" Type="Book" />
+      <Association Name="UploadedFile_Edition" Member="Editions" ThisKey="Id" OtherKey="LargeCoverId" Type="Edition" />
+      <Association Name="UploadedFile_PersonImage" Member="PersonImages" ThisKey="Id" OtherKey="LargeImageId" Type="PersonImage" />
     </Type>
   </Table>
 </Database>

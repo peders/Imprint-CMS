@@ -13,11 +13,6 @@
             @Html.ValidationMessageFor(model => model.Photographer)
         </p>
         <p>
-            @Html.LabelFor(model => model.SmallImageId, Phrases.LabelSmallImage)<br />
-            @Html.DropDownListFor(model => model.SmallImageId, (SelectList)ViewBag.SmallImages, "–")
-            @Html.ValidationMessageFor(model => model.SmallImageId)
-        </p>
-        <p>
             @Html.LabelFor(model => model.LargeImageId, Phrases.LabelLargeImage)<br />
             @Html.DropDownListFor(model => model.LargeImageId, (SelectList)ViewBag.LargeImages, "–")
             @Html.ValidationMessageFor(model => model.LargeImageId)

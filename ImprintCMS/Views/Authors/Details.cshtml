@@ -10,10 +10,7 @@
         {
             <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.Person.MainImage.Photographer)</p>
         }
-        if (Model.Person.MainImage.LargeImageId != null)
-        {
-            <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = Model.Person.MainImage.UploadedFile1.Category, fileName = Model.Person.MainImage.UploadedFile1.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
-        }
+        <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = Model.Person.MainImage.UploadedFile.Category, fileName = Model.Person.MainImage.UploadedFile.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
     }
 </div>
 <div id="main">
@@ -73,10 +70,7 @@
                     {
                         <p class="photographer">@string.Format(SitePhrases.LabelPhotoCredit, image.Photographer)</p>
                     }
-                    @if (image.LargeImageId != null)
-                    {
-                        <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = image.UploadedFile1.Category, fileName = image.UploadedFile1.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
-                    }
+                    <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = image.UploadedFile.Category, fileName = image.UploadedFile.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
 
                 </li>
             }

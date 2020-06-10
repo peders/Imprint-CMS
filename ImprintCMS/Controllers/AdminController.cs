@@ -1,11 +1,8 @@
-﻿using System;
-using System.Drawing.Imaging;
-using System.IO;
+﻿using ImprintCMS.Models;
+using ImprintCMS.Models.ViewModels;
+using System;
 using System.Linq;
 using System.Web.Mvc;
-using ImageProcessor;
-using ImprintCMS.Models;
-using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Controllers
 {
@@ -585,7 +582,6 @@ namespace ImprintCMS.Controllers
                 Person = person,
                 SequenceIdentifier = int.MaxValue
             };
-            ViewBag.SmallImages = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
             ViewBag.LargeImages = FileList(FileCategories.LargePortrait, vm.LargeImageId);
             return View(vm);
         }
@@ -595,7 +591,6 @@ namespace ImprintCMS.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.SmallImages = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
                 ViewBag.LargeImages = FileList(FileCategories.LargePortrait, vm.LargeImageId);
                 vm.Person = Repository.GetPerson(vm.PersonId);
                 return View(vm);
@@ -609,7 +604,6 @@ namespace ImprintCMS.Controllers
         {
             var vm = Repository.GetPersonImage(id);
             if (vm == null) return HttpNotFound();
-            ViewBag.SmallImages = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
             ViewBag.LargeImages = FileList(FileCategories.LargePortrait, vm.LargeImageId);
             vm.Person = Repository.GetPerson(vm.PersonId);
             return View(vm);
@@ -620,7 +614,6 @@ namespace ImprintCMS.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.SmallImages = FileList(FileCategories.SmallPortrait, vm.SmallImageId);
                 ViewBag.LargeImages = FileList(FileCategories.LargePortrait, vm.LargeImageId);
                 vm.Person = Repository.GetPerson(vm.PersonId);
                 return View(vm);
@@ -721,7 +714,6 @@ namespace ImprintCMS.Controllers
                 BookId = id,
                 Book = book
             };
-            ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
             ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
             ViewBag.Bindings = BindingList(vm.BindingId);
             return View(vm);
@@ -732,7 +724,6 @@ namespace ImprintCMS.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
                 ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
                 ViewBag.Bindings = BindingList(vm.BindingId);
                 vm.Book = Repository.GetBook(vm.BookId);
@@ -747,7 +738,6 @@ namespace ImprintCMS.Controllers
         {
             var vm = Repository.GetEdition(id);
             if (vm == null) return HttpNotFound();
-            ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
             ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
             ViewBag.Bindings = BindingList(vm.BindingId);
             vm.Book = Repository.GetBook(vm.BookId);
@@ -759,7 +749,6 @@ namespace ImprintCMS.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.SmallCovers = FileList(FileCategories.SmallCover, vm.SmallCoverId);
                 ViewBag.LargeCovers = FileList(FileCategories.LargeCover, vm.LargeCoverId);
                 ViewBag.Bindings = BindingList(vm.BindingId);
                 vm.Book = Repository.GetBook(vm.BookId);

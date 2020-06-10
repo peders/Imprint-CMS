@@ -169,7 +169,7 @@
     <value>Show on site</value>
   </data>
   <data name="LabelLargeImage" xml:space="preserve">
-    <value>Large image</value>
+    <value>Image</value>
   </data>
   <data name="LabelLastName" xml:space="preserve">
     <value>Last name</value>
@@ -213,9 +213,6 @@
   </data>
   <data name="LabelShortName" xml:space="preserve">
     <value>Short version</value>
-  </data>
-  <data name="LabelSmallImage" xml:space="preserve">
-    <value>Small image</value>
   </data>
   <data name="LabelSubmit" xml:space="preserve">
     <value>OK</value>

@@ -3,9 +3,7 @@
 	public enum FileCategories
 	{
 		LargeCover,
-		SmallCover,
 		LargePortrait,
-		SmallPortrait,
 		Excerpt,
 		Attachment,
 		Layout,

@@ -43,11 +43,6 @@
 			@Html.ValidationMessageFor(model => model.Blurb)
 		</p>
 		<p>
-			@Html.LabelFor(model => model.SmallCoverId, Phrases.LabelSmallImage)<br />
-			@Html.DropDownListFor(model => model.SmallCoverId, (SelectList)ViewBag.SmallCovers, "–")
-			@Html.ValidationMessageFor(model => model.SmallCoverId)
-		</p>
-		<p>
 			@Html.LabelFor(model => model.LargeCoverId, Phrases.LabelLargeImage)<br />
 			@Html.DropDownListFor(model => model.LargeCoverId, (SelectList)ViewBag.LargeCovers, "–")
 			@Html.ValidationMessageFor(model => model.LargeCoverId)
