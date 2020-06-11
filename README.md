@@ -13,7 +13,8 @@ Get running
 
 There is an empty database backup in the repository. Restore to your server of choice. The code refers by default to the SQL Express instance on localhost using Windows authentication.
 Then fire up the project and run it.
-To install properly, use Web Deploy to transform the web.config, then replace the dummy values for connection string etc. to match your environment.
+To install properly, use Web Deploy to transform the web.config, then replace the connection string to match your environment.
+Other settings used to be in web.config, but are now stored as configuration profiles in the database.
 
 License
 -------
