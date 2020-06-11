@@ -8,7 +8,7 @@ Html.ActionLink(Model.FileName, "display", "upload", new { category = Model.Cate
 Phrases.LabelDelete.ToHtmlString()
 };
 }
-@if (Model.Editions.Any() || Model.PersonImages.Any() || Model.Books.Any())
+@if (Model.Editions.Any() || Model.PersonImages.Any() || Model.Books.Any() || Model.Articles.Any())
 {
     <p>@Html.DeleteDependencies(Model.FileName)</p>
     if (Model.Editions.Any() || Model.Books.Any())
@@ -27,11 +27,21 @@ Phrases.LabelDelete.ToHtmlString()
     }
     if (Model.PersonImages.Any())
     {
-        <h2>@Phrases.LabelPeople</h2>
+        < h2 > @Phrases.LabelPeople </ h2 >
+        < ul >
+        @foreach (var person in Model.PersonImages.OrderBy(p => p.Person.ReverseName))
+        {
+            < li > @Html.ActionLink(string.Format("{0} – {1}", person.Person.ReverseName, Model.Category), "editperson", new { id = person.Person.Id }) </ li >
+        }
+        </ ul >
+    }
+    if (Model.Articles.Any())
+    {
+        <h2>@Phrases.LabelArticles</h2>
         <ul>
-            @foreach (var person in Model.PersonImages.OrderBy(p => p.Person.ReverseName))
+            @foreach (var article in Model.Articles.OrderBy(_ => _.Title))
             {
-                <li> @Html.ActionLink(string.Format("{0} – {1}", person.Person.ReverseName, Model.Category), "editperson", new { id = person.Person.Id }) </li>
+                <li> @Html.ActionLink(string.Format("{0} – {1}", article.Title, Model.Category), "editarticle", new { id = article.Id }) </li>
             }
         </ul>
     }

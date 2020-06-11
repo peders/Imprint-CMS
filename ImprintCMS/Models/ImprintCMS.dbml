@@ -11,6 +11,7 @@
       <Column Name="ImageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Article_BookToArticle" Member="BookToArticles" ThisKey="Id" OtherKey="ArticleId" Type="BookToArticle" />
       <Association Name="Article_PersonToArticle" Member="PersonToArticles" ThisKey="Id" OtherKey="ArticleId" Type="PersonToArticle" />
+      <Association Name="UploadedFile_Article" Member="UploadedFile" ThisKey="ImageId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ArticleGroup" Member="ArticleGroups">
@@ -252,6 +253,7 @@
       <Column Name="Data" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="Category" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ContentLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="UploadedFile_Article" Member="Articles" ThisKey="Id" OtherKey="ImageId" Type="Article" />
       <Association Name="UploadedFile_Book" Member="Books" ThisKey="Id" OtherKey="ExcerptId" Type="Book" />
       <Association Name="UploadedFile_Edition" Member="Editions" ThisKey="Id" OtherKey="LargeCoverId" Type="Edition" />
       <Association Name="UploadedFile_PersonImage" Member="PersonImages" ThisKey="Id" OtherKey="LargeImageId" Type="PersonImage" />
