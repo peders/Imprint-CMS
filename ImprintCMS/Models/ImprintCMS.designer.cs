@@ -318,6 +318,8 @@ namespace ImprintCMS.Models
 		
 		private EntitySet<PersonToArticle> _PersonToArticles;
 		
+		private EntityRef<UploadedFile> _UploadedFile;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -342,6 +344,7 @@ namespace ImprintCMS.Models
 		{
 			this._BookToArticles = new EntitySet<BookToArticle>(new Action<BookToArticle>(this.attach_BookToArticles), new Action<BookToArticle>(this.detach_BookToArticles));
 			this._PersonToArticles = new EntitySet<PersonToArticle>(new Action<PersonToArticle>(this.attach_PersonToArticles), new Action<PersonToArticle>(this.detach_PersonToArticles));
+			this._UploadedFile = default(EntityRef<UploadedFile>);
 			OnCreated();
 		}
 		
@@ -476,6 +479,10 @@ namespace ImprintCMS.Models
 			{
 				if ((this._ImageId != value))
 				{
+					if (this._UploadedFile.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnImageIdChanging(value);
 					this.SendPropertyChanging();
 					this._ImageId = value;
@@ -508,6 +515,40 @@ namespace ImprintCMS.Models
 			set
 			{
 				this._PersonToArticles.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Article", Storage="_UploadedFile", ThisKey="ImageId", OtherKey="Id", IsForeignKey=true)]
+		public UploadedFile UploadedFile
+		{
+			get
+			{
+				return this._UploadedFile.Entity;
+			}
+			set
+			{
+				UploadedFile previousValue = this._UploadedFile.Entity;
+				if (((previousValue != value) 
+							|| (this._UploadedFile.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UploadedFile.Entity = null;
+						previousValue.Articles.Remove(this);
+					}
+					this._UploadedFile.Entity = value;
+					if ((value != null))
+					{
+						value.Articles.Add(this);
+						this._ImageId = value.Id;
+					}
+					else
+					{
+						this._ImageId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("UploadedFile");
+				}
 			}
 		}
 		
@@ -5395,6 +5436,8 @@ namespace ImprintCMS.Models
 		
 		private int _ContentLength;
 		
+		private EntitySet<Article> _Articles;
+		
 		private EntitySet<Book> _Books;
 		
 		private EntitySet<Edition> _Editions;
@@ -5421,6 +5464,7 @@ namespace ImprintCMS.Models
 		
 		public UploadedFile()
 		{
+			this._Articles = new EntitySet<Article>(new Action<Article>(this.attach_Articles), new Action<Article>(this.detach_Articles));
 			this._Books = new EntitySet<Book>(new Action<Book>(this.attach_Books), new Action<Book>(this.detach_Books));
 			this._Editions = new EntitySet<Edition>(new Action<Edition>(this.attach_Editions), new Action<Edition>(this.detach_Editions));
 			this._PersonImages = new EntitySet<PersonImage>(new Action<PersonImage>(this.attach_PersonImages), new Action<PersonImage>(this.detach_PersonImages));
@@ -5547,6 +5591,19 @@ namespace ImprintCMS.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Article", Storage="_Articles", ThisKey="Id", OtherKey="ImageId")]
+		public EntitySet<Article> Articles
+		{
+			get
+			{
+				return this._Articles;
+			}
+			set
+			{
+				this._Articles.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Book", Storage="_Books", ThisKey="Id", OtherKey="ExcerptId")]
 		public EntitySet<Book> Books
 		{
@@ -5604,6 +5661,18 @@ namespace ImprintCMS.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Articles(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile = this;
+		}
+		
+		private void detach_Articles(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile = null;
 		}
 		
 		private void attach_Books(Book entity)
