@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic);
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Roboto, Sans-Serif;
     color: #000000;
