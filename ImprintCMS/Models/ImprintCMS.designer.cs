@@ -2047,6 +2047,8 @@ namespace ImprintCMS.Models
 		
 		private int _CachedPortraitWidth;
 		
+		private string _HtmlEditorApiKey;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2085,6 +2087,8 @@ namespace ImprintCMS.Models
     partial void OnCachedCoverWidthChanged();
     partial void OnCachedPortraitWidthChanging(int value);
     partial void OnCachedPortraitWidthChanged();
+    partial void OnHtmlEditorApiKeyChanging(string value);
+    partial void OnHtmlEditorApiKeyChanged();
     #endregion
 		
 		public Configuration()
@@ -2428,6 +2432,26 @@ namespace ImprintCMS.Models
 					this._CachedPortraitWidth = value;
 					this.SendPropertyChanged("CachedPortraitWidth");
 					this.OnCachedPortraitWidthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HtmlEditorApiKey", DbType="NVarChar(MAX)")]
+		public string HtmlEditorApiKey
+		{
+			get
+			{
+				return this._HtmlEditorApiKey;
+			}
+			set
+			{
+				if ((this._HtmlEditorApiKey != value))
+				{
+					this.OnHtmlEditorApiKeyChanging(value);
+					this.SendPropertyChanging();
+					this._HtmlEditorApiKey = value;
+					this.SendPropertyChanged("HtmlEditorApiKey");
+					this.OnHtmlEditorApiKeyChanged();
 				}
 			}
 		}

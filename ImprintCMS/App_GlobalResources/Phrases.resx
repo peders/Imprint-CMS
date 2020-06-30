@@ -725,4 +725,7 @@
     <value>All {0} files in {1}</value>
     <comment>Insert file count and category name</comment>
   </data>
+  <data name="LabelHtmlEditorApiKey" xml:space="preserve">
+    <value>TinyMCE API key</value>
+  </data>
 </root>

@@ -6,13 +6,13 @@ namespace ImprintCMS.Controllers
 	public class ControllerBase : Controller
 	{
 
-		protected Repository Repository { get; private set; }
+        protected Repository Repository { get; private set; }
 
-		public ControllerBase()
+        public ControllerBase()
 		{
 			Repository = new Repository();
-		}
+        }
 
-	}
+    }
 
 }

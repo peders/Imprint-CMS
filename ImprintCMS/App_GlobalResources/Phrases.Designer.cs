@@ -574,6 +574,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TinyMCE API key.
+        /// </summary>
+        public static string LabelHtmlEditorApiKey {
+            get {
+                return ResourceManager.GetString("LabelHtmlEditorApiKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image.
         /// </summary>
         public static string LabelImage {

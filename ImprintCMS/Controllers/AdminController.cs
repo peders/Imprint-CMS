@@ -11,6 +11,14 @@ namespace ImprintCMS.Controllers
     public class AdminController : ControllerBase
     {
 
+        public AdminConfig AdminConfig { get; private set; }
+
+        public AdminController()
+        {
+            AdminConfig = new AdminConfig(Repository);
+            ViewBag.AdminConfig = AdminConfig;
+        }
+
         public ActionResult Index()
         {
             return View();

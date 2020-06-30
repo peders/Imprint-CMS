@@ -101,6 +101,7 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CachedCoverWidth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CachedPortraitWidth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HtmlEditorApiKey" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.ContactArticle" Member="ContactArticles">

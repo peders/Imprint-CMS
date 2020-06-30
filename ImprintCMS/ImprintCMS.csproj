@@ -146,6 +146,7 @@
     <Compile Include="Models\Relation.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\AdminConfig.cs" />
     <Compile Include="Models\SiteConfig.cs" />
     <Compile Include="Models\ViewHelpers.cs" />
     <Compile Include="Models\ViewModels\BookCatalog.cs" />

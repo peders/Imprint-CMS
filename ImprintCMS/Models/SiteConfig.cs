@@ -1,6 +1,5 @@
-﻿using System.Web;
-using System.Configuration;
-using System.Linq;
+﻿using System.Linq;
+using System.Web;
 
 namespace ImprintCMS.Models
 {
@@ -12,14 +11,14 @@ namespace ImprintCMS.Models
         public decimal DistributionCostLimit { get; private set; }
         public string EmailSenderAddress { get; private set; }
         public string EmailSenderName { get; private set; }
-        public string GoogleAnalyticsTrackingCode { get; set; }
-        public string PersonImageDownloadNotice { get; set; }
-        public string CoverImageDownloadNotice { get; set; }
-        public int CachedCoverWidth { get; set; }
-        public int CachedPortraitWidth { get; set; }
-        public bool ShopIsVisible { get; set; }
-        public string ShopEmailRecipient { get; set; }
-        public HtmlString ShopDisclaimer { get; set; }
+        public string GoogleAnalyticsTrackingCode { get; private set; }
+        public string PersonImageDownloadNotice { get; private set; }
+        public string CoverImageDownloadNotice { get; private set; }
+        public int CachedCoverWidth { get; private set; }
+        public int CachedPortraitWidth { get; private set; }
+        public bool ShopIsVisible { get; private set; }
+        public string ShopEmailRecipient { get; private set; }
+        public HtmlString ShopDisclaimer { get; private set; }
 
         public SiteConfig(Repository repository)
         {
@@ -57,7 +56,6 @@ namespace ImprintCMS.Models
                 ShopIsVisible = true;
                 ShopEmailRecipient = "address@server.com";
                 ShopDisclaimer = new HtmlString(string.Empty);
-
             }
         }
 

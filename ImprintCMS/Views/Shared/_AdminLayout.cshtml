@@ -1,5 +1,6 @@
 ﻿@{
     var breadcrumbs = ViewBag.Breadcrumbs as IEnumerable<HtmlString>;
+    var adminConfig = ViewBag.AdminConfig as AdminConfig;
 }
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,7 @@
     <script type="text/javascript" src="@Url.Content("~/scripts/tiny_mce/jquery.tinymce.js")"></script>
     <script src="@Url.Content("~/scripts/admin.js")" type="text/javascript"></script>
     <link href="@Url.Content("~/content/admin.css")" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tiny.cloud/1/n9l08ifr3p0gt1rkof0ncbefqjjldfmp7y9rfdjbnqzwqayr/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/@adminConfig.TinyEditorApiKey/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
             selector: 'textarea.rich',
@@ -21,7 +22,7 @@
             toolbar: 'undo redo | bold italic underline | numlist bullist | link unlink | charmap | removeformat code',
             menubar: false,
             width: '30em',
-            height: '20em'
+            height: '15em'
        });
     </script>
 </head>
