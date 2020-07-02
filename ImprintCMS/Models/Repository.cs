@@ -452,15 +452,7 @@ namespace ImprintCMS.Models
         {
             get
             {
-                return _db.UploadedFiles.Where(u => u.Category == FileCategories.Layout.ToString() && u.ContentType == "text/css" && !u.FileName.StartsWith("legacy_"));
-            }
-        }
-
-        public IEnumerable<UploadedFile> LegacyStylesheets
-        {
-            get
-            {
-                return _db.UploadedFiles.Where(u => u.Category == FileCategories.Layout.ToString() && u.ContentType == "text/css" && u.FileName.StartsWith("legacy_"));
+                return _db.UploadedFiles.Where(u => u.Category == FileCategories.Layout.ToString() && u.ContentType == "text/css");
             }
         }
 
@@ -469,6 +461,17 @@ namespace ImprintCMS.Models
             get
             {
                 return _db.UploadedFiles.Where(u => u.Category == FileCategories.Script.ToString());
+            }
+        }
+
+        public IEnumerable<FaviconDetail> FaviconDetails
+        {
+            get
+            {
+                return _db.UploadedFiles.Where(u => u.Category == FileCategories.Layout.ToString() && u.FileName.ToLower().StartsWith("favicon")).Select(u => new FaviconDetail {
+                    FileName = u.FileName,
+                    ContentType = u.ContentType
+                });
             }
         }
 

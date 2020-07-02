@@ -545,9 +545,6 @@
   <data name="FileTypeLegacyCss" xml:space="preserve">
     <value>Legacy stylesheet</value>
   </data>
-  <data name="LabelLegacyStylesheetLegend" xml:space="preserve">
-    <value>Legacy stylesheet (a CSS file starting with 'legacy_') will only be served for Internet Explorer versions 8 and older.</value>
-  </data>
   <data name="LabelUrlPostfix" xml:space="preserve">
     <value>Part of URL after ISBN</value>
   </data>
@@ -727,5 +724,8 @@
   </data>
   <data name="LabelHtmlEditorApiKey" xml:space="preserve">
     <value>TinyMCE API key</value>
+  </data>
+  <data name="LabelFaviconLegend" xml:space="preserve">
+    <value>Files with names starting with 'favicon' will be served as icons in site markup.</value>
   </data>
 </root>

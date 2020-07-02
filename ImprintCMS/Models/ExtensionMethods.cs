@@ -47,6 +47,13 @@ namespace ImprintCMS.Models
             return file.ContentType;
         }
 
+        public static string FaviconSize(this string fileName)
+        {
+            if (fileName.Contains("16x16")) return "16x16";
+            if (fileName.Contains("32x32")) return "32x32";
+            return string.Empty;
+        }
+
         public static int SmallestDimension(this Image image)
         {
             return image.Width > image.Height ? image.Height : image.Width;

@@ -2,6 +2,7 @@
     var siteConfig = (SiteConfig)ViewBag.Config;
     var menuShortcuts = (List<MenuShortcut>)ViewBag.MenuShortcuts;
     var menuTabs = (List<ArticleGroup>)ViewBag.ArticleGroups;
+    var favicons = (IEnumerable<FaviconDetail>)ViewBag.Favicons;
 
     var currentTabId = ((int?)ViewBag.CurrentTabId).GetValueOrDefault();
 
@@ -16,6 +17,18 @@
             @String.Format(" | {0}", siteConfig.Name)}
     </title>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js" type="text/javascript"></script>
+    @foreach (var icon in favicons)
+    {
+        if (icon.ContentType.Equals("image/x-icon", StringComparison.InvariantCultureIgnoreCase))
+        {
+            <link rel="shortcut icon" href="@Url.Action("display", "upload", new { category = "Layout", fileName = icon.FileName })" type="@icon.ContentType">
+        }
+        else
+        {
+            <link rel="icon" href="@Url.Action("display", "upload", new { category = "Layout", fileName = icon.FileName })" type="@icon.ContentType" sizes="@icon.FileName.FaviconSize()">
+        }
+
+    }
     @foreach (var url in ViewBag.ScriptUrls)
     {
         <script src="@url" type="text/javascript"></script>
@@ -26,12 +39,6 @@
         <link href="@url" rel="stylesheet" type="text/css" />
 
     }
-    <!--[if lte IE 8]>
-        @foreach (var url in ViewBag.LegacyStylesheetUrls)
-        {
-            <link href="@url" rel="stylesheet" type="text/css" />
-        }
-    <![endif]-->
     @{ var openGraph = ViewBag.OpenGraph as OpenGraph;}
     @if (openGraph != null)
     {

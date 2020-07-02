@@ -466,6 +466,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Files with names starting with &apos;favicon&apos; will be served as icons in site markup..
+        /// </summary>
+        public static string LabelFaviconLegend {
+            get {
+                return ResourceManager.GetString("LabelFaviconLegend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Actions.
         /// </summary>
         public static string LabelFileActions {
@@ -669,15 +678,6 @@ namespace ImprintCMS.Models {
         public static string LabelLastName {
             get {
                 return ResourceManager.GetString("LabelLastName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Legacy stylesheet (a CSS file starting with &apos;legacy_&apos;) will only be served for Internet Explorer versions 8 and older..
-        /// </summary>
-        public static string LabelLegacyStylesheetLegend {
-            get {
-                return ResourceManager.GetString("LabelLegacyStylesheetLegend", resourceCulture);
             }
         }
         

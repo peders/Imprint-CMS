@@ -151,6 +151,7 @@
     <Compile Include="Models\ViewHelpers.cs" />
     <Compile Include="Models\ViewModels\BookCatalog.cs" />
     <Compile Include="Models\ViewModels\ContactPage.cs" />
+    <Compile Include="Models\ViewModels\FaviconDetail.cs" />
     <Compile Include="Models\ViewModels\FileUpload.cs" />
     <Compile Include="Models\ViewModels\ListFile.cs" />
     <Compile Include="Models\ViewModels\Login.cs" />
