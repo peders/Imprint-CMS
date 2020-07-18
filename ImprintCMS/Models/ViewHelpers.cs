@@ -48,13 +48,18 @@ namespace ImprintCMS.Models
             return string.Format(formatString, SitePhrases.UnitMonthUltimo);
         }
 
+        public static HtmlString PersonThumbnail(this HtmlHelper helper, int ImageId, string name)
+        {
+            var legend = helper.Encode(string.Format(SitePhrases.LabelAuthorImage, name));
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var source = urlHelper.Action("cachedthumbnail", "upload", new { id = ImageId });
+            return new HtmlString("<img src=\"" + source + "\" class=\"person thumbnail\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
+        }
+
         public static HtmlString PersonThumbnail(this HtmlHelper helper, Person person)
         {
             if (person.MainImage == null) return null;
-            var legend = helper.Encode(string.Format(SitePhrases.LabelAuthorImage, person.FullName));
-            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
-            var source = urlHelper.Action("cachedthumbnail", "upload", new { id = person.MainImage.LargeImageId });
-            return new HtmlString("<img src=\"" + source + "\" class=\"person\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
+            return PersonThumbnail(helper, person.MainImage.LargeImageId, person.FullName);
         }
 
         public static HtmlString PersonImage(this HtmlHelper helper, Person person)

@@ -65,7 +65,7 @@
             @foreach (var image in Model.Person.PersonImages.OrderBy(_ => _.SequenceIdentifier).Skip(1))
             {
                 <li>
-                    <img src="@Url.Action("display", "upload", new { category = image.UploadedFile.Category, fileName = image.UploadedFile.FileName })" alt="@string.Format(SitePhrases.LabelAuthorImage, Model.Person.FullName)" />
+                    @Html.PersonThumbnail(image.LargeImageId, Model.Person.FullName)
                     @if (!string.IsNullOrWhiteSpace(image.Photographer))
                     {
                         <p class="photographer">@string.Format(SitePhrases.LabelPhotoCredit, image.Photographer)</p>
