@@ -2,11 +2,6 @@
 
 	$(':input:first').focus();
 
-	$('.datepicker').datepicker({
-		dateFormat: 'dd.mm.yy',
-		firstDay: 1
-	});
-
 	$('.listing.sortable li').each(function () {
 		$(this).append('<div class="handle">' + $(this).closest('.sortable').data('handlelabel') + '</div>');
 	});

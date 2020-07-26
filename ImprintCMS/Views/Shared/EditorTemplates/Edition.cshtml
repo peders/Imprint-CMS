@@ -34,7 +34,7 @@
 		</p>
 		<p>
 			@Html.LabelFor(model => model.ReleaseDate, Phrases.LabelReleaseDate)<br />
-			@Html.TextBox("ReleaseDate", String.Format("{0:d}", Model.ReleaseDate), new { @class = "datepicker" })
+			@Html.TextBox("ReleaseDate", Model.ReleaseDate.ToString("yyyy-MM-dd"), new { type = "date" })
 			@Html.ValidationMessageFor(model => model.ReleaseDate)
 		</p>
 		<p>

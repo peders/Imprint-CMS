@@ -8,30 +8,27 @@
         <div class="booklist">
             <h1>@list.Title</h1>
             <ul>
-                @foreach (var edition in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Select(m => m.Edition))
+                @foreach (var edition in list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Where(m => m.Edition.LargeCoverId != null).Select(m => m.Edition))
                 {
                     <li>
-                        @if (edition.LargeCoverId != null)
-                        {
-                            <a href="@Url.Action("details", "books", new { id = edition.BookId })" class="book">@Html.CoverImage(edition)</a>
-                        }
-                        <p class="people">@edition.Book.RelationNames()</p>
-                        <p class="title">
-                            @Html.ActionLink(edition.Book.Title, "details", "books", new { id = edition.BookId }, null)
+                        <a href="@Url.Action("details", "books", new { id = edition.BookId })" class="book">
+                            @Html.CoverImage(edition)
+                            <p class="people">@edition.Book.RelationNames()</p>
+                            <p class="title">@edition.Book.Title</p>
+                            @if (!String.IsNullOrWhiteSpace(edition.Book.Subtitle))
+                            {
+                                <p class="subtitle">@edition.Book.Subtitle</p>
+                            }
+                            <p class="@String.Format("date{0}", edition.ReleaseDate > DateTime.Today ? " tobereleased" : string.Empty)">@edition.ReleaseDate.ToBookListDate()</p>
                             @if (edition.Book.IsDebut)
                             {
-                                <span class="isdebut"> (@SitePhrases.LabelIsDebut.ToLowerInvariant())</span>
+                                <p class="isdebut">@SitePhrases.LabelIsDebut</p>
                             }
-                        </p>
-                        @if (!String.IsNullOrWhiteSpace(edition.Book.Subtitle))
-                        {
-                            <p class="subtitle">@edition.Book.Subtitle</p>
-                        }
-                        <p class="@String.Format("date{0}", edition.ReleaseDate > DateTime.Today ? " tobereleased" : string.Empty)">@edition.ReleaseDate.ToBookListDate()</p>
-                        @if (!String.IsNullOrWhiteSpace(edition.Blurb))
-                        {
-                            <p class="blurb">@edition.Blurb.ToRichText()</p>
-                        }
+                            @if (!String.IsNullOrWhiteSpace(edition.Blurb))
+                            {
+                                <p class="blurb">@edition.Blurb.ToRichText()</p>
+                            }
+                        </a>
                     </li>
                 }
             </ul>
