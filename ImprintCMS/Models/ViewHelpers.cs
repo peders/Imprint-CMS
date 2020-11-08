@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
@@ -46,6 +48,46 @@ namespace ImprintCMS.Models
             if (date.Day < 11) return string.Format(formatString, SitePhrases.UnitMonthPrimo);
             if (date.Day < 21) return string.Format(formatString, SitePhrases.UnitMonthMedio);
             return string.Format(formatString, SitePhrases.UnitMonthUltimo);
+        }
+
+        public static HtmlString EditionLinkCard(this HtmlHelper helper, Edition edition, bool showReleaseDate = false, bool showBlurb = false)
+        {
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var buffer = "<a href=\"" + urlHelper.Action("details", "books", new { id = edition.BookId }) + "\" class=\"linkcard book\">";
+            buffer += "\n\t" + CoverImage(helper, edition);
+            buffer += "\n\t<p class=\"people\">" + edition.Book.RelationNames() + "</p>";
+            buffer += "\n\t<p class=\"title\">" + edition.Book.Title + "</p>";
+            if (!string.IsNullOrWhiteSpace(edition.Book.Subtitle))
+            {
+                buffer += "\n\t<p class=\"subtitle\">" + edition.Book.Subtitle + "</p>";
+            }
+            if (showReleaseDate)
+            {
+                buffer += "\n\t<p class=\"" + string.Format("date{0}", edition.ReleaseDate > DateTime.Today ? " tobereleased" : string.Empty) + "\">" + edition.ReleaseDate.ToBookListDate() + "</p>";
+            }
+            if (!string.IsNullOrWhiteSpace(edition.Blurb) && showBlurb)
+            {
+                buffer += "\n\t<p class=\"blurb\">" + edition.Blurb.ToRichText() + "</p>";
+            }
+            if (edition.Book.IsDebut)
+            {
+                buffer += "\n\t<p class=\"isdebut\">" + SitePhrases.LabelIsDebut + "</p>";
+            }
+            buffer += "\n</a>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString EditionLinkCardList(this HtmlHelper helper, IEnumerable<Edition> editions, bool showReleaseDate = false, bool showBlurb = false)
+        {
+            var buffer = "<ul class=\"linkcardlist\">";
+            foreach (var edition in editions)
+            {
+                buffer += "\n<li>";
+                buffer += "\n" + EditionLinkCard(helper, edition, showReleaseDate, showBlurb);
+                buffer += "\n</li>";
+            }
+            buffer += "</ul>";
+            return new HtmlString(buffer);
         }
 
         public static HtmlString PersonThumbnail(this HtmlHelper helper, int ImageId, string name)

@@ -13,14 +13,14 @@
     --line-inverse: #ffffff;
     --link: #2f67b9;
     --link-active: #547db9;
-    --font: 'Roboto';
-    --font-variant: 'Playfair Display';
+    --font: Roboto, sans-serif;
+    --font-variant: 'Playfair Display', serif;
     --pagewidth: 110rem;
     box-sizing: border-box;
 }
 
 body {
-    font-family: var(--font), sans-serif;
+    font-family: var(--font);
     margin: 0;
     background: var(--bg-outside);
     color: var(--line);
@@ -95,7 +95,7 @@ ul {
 
     #sitemenu li {
         display: inline-block;
-        font-family: var(--font), sans-serif;
+        font-family: var(--font);
         font-size: 1.125em;
         font-weight: 400;
         text-transform: uppercase;
@@ -151,7 +151,7 @@ ul {
     .booklist h1 {
         margin: 0 0 2rem 0;
         font-size: 2em;
-        font-family: var(--font-variant), serif;
+        font-family: var(--font-variant);
         font-weight: 500;
     }
 
@@ -193,14 +193,14 @@ ul {
 
                     .booklist ul li a p.people {
                         color: var(--line);
-                        font-family: var(--font-variant), serif;
+                        font-family: var(--font-variant);
                         font-size: 1em;
                         margin-top: 0.5rem;
                     }
 
                     .booklist ul li a p.title {
                         color: var(--line);
-                        font-family: var(--font-variant), serif;
+                        font-family: var(--font-variant);
                         font-size: 1.25em;
                         font-weight: 500;
                         margin-bottom: 0.5rem;
@@ -237,7 +237,7 @@ ul {
             margin: 0 0 0.5rem 0;
             padding: 0;
             font-size: 1.125em;
-            font-family: var(--font-variant), serif;
+            font-family: var(--font-variant);
             font-weight: 500;
         }
 
