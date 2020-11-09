@@ -10,6 +10,7 @@
     --bg-outside: #808080;
     --line: #000000;
     --line-light: #666666;
+    --line-lighter: #999999;
     --line-inverse: #ffffff;
     --link: #2f67b9;
     --link-active: #547db9;
@@ -46,6 +47,171 @@ ul {
     margin: 0;
     padding: 0;
 }
+
+#content {
+    width: var(--pagewidth);
+    margin: 0 auto;
+    background: var(--bg-accent);
+}
+
+    #content.home.index {
+        display: grid;
+        grid-template-columns: 4fr 2fr;
+    }
+
+#submenu {
+    padding: 2rem;
+}
+
+    #submenu ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    #submenu li {
+        display: inline-block;
+        margin-right: 2rem;
+    }
+
+    #submenu li:last-child {
+        margin-right: 0;
+    }
+
+        #submenu li a {
+            color: var(--line-lighter);
+        }
+
+        #submenu li a:hover {
+            color: var(--line);
+        }
+
+#booklisting {
+    padding: 2rem;
+}
+
+.books.index .linkcardlist {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+
+.booklist {
+    margin: 0;
+    padding: 2rem;
+}
+
+    .booklist h1 {
+        margin: 0 0 2rem 0;
+        font-size: 2em;
+        font-family: var(--font-variant);
+        font-weight: 500;
+    }
+
+    .booklist .linkcardlist {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+#articles {
+    padding: 2rem 2rem 2rem 1rem;
+}
+
+    #articles article {
+        background: var(--bg-accent);
+        display: block;
+        padding: 1rem 0 1rem 1rem;
+        border-radius: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+        #articles article h1 {
+            margin: 0 0 0.5rem 0;
+            padding: 0;
+            font-size: 1.125em;
+            font-family: var(--font-variant);
+            font-weight: 500;
+        }
+
+        #articles article p {
+            margin: 0 0 0.5rem 0;
+        }
+
+        #articles article img {
+            width: 7.5rem;
+            margin: 0 0 1.25rem 1.25rem;
+            float: right;
+        }
+
+            #articles article img.person {
+                border-radius: 50%;
+            }
+
+/* COMPONENTS */
+
+.linkcardlist {
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+}
+
+    .linkcardlist li {
+        margin: 0;
+        padding: 0;
+    }
+
+        .linkcardlist li a {
+            background: var(--bg-accent);
+            display: block;
+            position: relative;
+            padding: 1rem;
+            border-radius: 1rem;
+            color: var(--line);
+            height: 100%;
+        }
+
+            .linkcardlist li a:hover {
+                box-shadow: 0 0 1rem -0.25rem black;
+                background: var(--bg-accent);
+            }
+
+            .linkcardlist li a img {
+                width: 100%;
+            }
+
+            .linkcardlist li a p {
+                margin: 0;
+                color: var(--line-light);
+            }
+
+    .linkcardlist.editions p.people {
+        color: var(--line);
+        font-family: var(--font-variant);
+        font-size: 1em;
+        margin-top: 0.5rem;
+    }
+
+    .linkcardlist.editions p.title {
+        color: var(--line);
+        font-family: var(--font-variant);
+        font-size: 1.25em;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    .linkcardlist.editions p.isdebut {
+        background: var(--line);
+        color: var(--line-inverse);
+        opacity: 0.85;
+        padding: 0;
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 4rem;
+        line-height: 4rem;
+        text-align: center;
+        border-radius: 50%;
+        transform: rotate(15deg);
+    }
+
+/* PAGE STRUCTURE */
 
 #header {
     width: var(--pagewidth);
@@ -135,125 +301,6 @@ ul {
             color: var(--link-active);
         }
 
-#content {
-    width: var(--pagewidth);
-    margin: 0 auto;
-    background: var(--bg-accent);
-    display: grid;
-    grid-template-columns: 4fr 2fr;
-}
-
-.booklist {
-    margin: 0;
-    padding: 2rem;
-}
-
-    .booklist h1 {
-        margin: 0 0 2rem 0;
-        font-size: 2em;
-        font-family: var(--font-variant);
-        font-weight: 500;
-    }
-
-    .booklist ul {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: 2rem;
-        grid-row-gap: 2rem;
-    }
-
-        .booklist ul li {
-            margin: 0;
-            padding: 0;
-        }
-
-            .booklist ul li a {
-                background: var(--bg-accent);
-                display: block;
-                position: relative;
-                padding: 1rem;
-                border-radius: 1rem;
-                color: var(--line);
-                height: 100%;
-            }
-
-                .booklist ul li a:hover {
-                    box-shadow: 0 0 1rem -0.25rem black;
-                    background: var(--bg-accent);
-                }
-
-                .booklist ul li a img {
-                    width: 100%;
-                }
-
-                .booklist ul li a p {
-                    margin: 0;
-                    color: var(--line-light);
-                }
-
-                    .booklist ul li a p.people {
-                        color: var(--line);
-                        font-family: var(--font-variant);
-                        font-size: 1em;
-                        margin-top: 0.5rem;
-                    }
-
-                    .booklist ul li a p.title {
-                        color: var(--line);
-                        font-family: var(--font-variant);
-                        font-size: 1.25em;
-                        font-weight: 500;
-                        margin-bottom: 0.5rem;
-                    }
-
-                    .booklist ul li a p.isdebut {
-                        background: var(--line);
-                        color: var(--line-inverse);
-                        opacity: 0.85;
-                        padding: 0;
-                        position: absolute;
-                        top: 0.75rem;
-                        right: 0.75rem;
-                        width: 4rem;
-                        line-height: 4rem;
-                        text-align: center;
-                        border-radius: 50%;
-                        transform: rotate(15deg);
-                    }
-
-#articles {
-    padding: 2rem 2rem 2rem 1rem;
-}
-
-    #articles .article {
-        background: var(--bg-accent);
-        display: block;
-        padding: 1rem 0 1rem 1rem;
-        border-radius: 0.5rem;
-        margin-bottom: 2rem;
-    }
-
-        #articles .article h1 {
-            margin: 0 0 0.5rem 0;
-            padding: 0;
-            font-size: 1.125em;
-            font-family: var(--font-variant);
-            font-weight: 500;
-        }
-
-        #articles .article p {
-            margin: 0 0 0.5rem 0;
-        }
-
-        #articles .article img {
-            width: 7.5rem;
-            margin: 0 0 1.25rem 1.25rem;
-            float: right;
-        }
-
-            #articles .article img.person {
-                border-radius: 50%;
-            }
 
 /*LEAVE FOR ADMIN*/
 

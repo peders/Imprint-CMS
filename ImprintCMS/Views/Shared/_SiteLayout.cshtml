@@ -4,7 +4,7 @@
     var menuTabs = (List<ArticleGroup>)ViewBag.ArticleGroups;
     var favicons = (IEnumerable<FaviconDetail>)ViewBag.Favicons;
 
-    var currentTabId = ((int?)ViewBag.CurrentTabId).GetValueOrDefault();
+    var currentMenuTabId = (int?)ViewBag.CurrentMenuTabId;
 
 }<!DOCTYPE html>
 <html>
@@ -68,9 +68,7 @@
         <li class="@(ViewContext.IsForController("authors") ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuAuthors, "index", "authors")</li>
         @foreach (var tab in menuTabs)
         {
-            var articleId = tab.ContactArticles.OrderBy(_ => _.SequenceIdentifier).First().Id;
-            var isSelected = ViewContext.IsForController("home") && ViewContext.IsForAction("contact") && currentTabId == tab.Id;
-            <li class="@(isSelected ? "selected" : string.Empty)">@Html.ActionLink(tab.Title, "contact", "home", new { id = articleId }, null)</li>
+            <li class="@(ViewContext.IsForController("home") && ViewContext.IsForAction("contact") && currentMenuTabId == tab.Id ? "selected" : string.Empty)">@Html.ActionLink(tab.Title, "contact", "home", new { id = tab.Id }, null)</li>
         }
         @foreach (var shortcut in menuShortcuts)
         {

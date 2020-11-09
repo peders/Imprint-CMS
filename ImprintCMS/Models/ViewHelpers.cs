@@ -79,7 +79,7 @@ namespace ImprintCMS.Models
 
         public static HtmlString EditionLinkCardList(this HtmlHelper helper, IEnumerable<Edition> editions, bool showReleaseDate = false, bool showBlurb = false)
         {
-            var buffer = "<ul class=\"linkcardlist\">";
+            var buffer = "<ul class=\"linkcardlist editions\">";
             foreach (var edition in editions)
             {
                 buffer += "\n<li>";

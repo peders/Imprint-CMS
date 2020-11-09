@@ -21,14 +21,9 @@ namespace ImprintCMS.Controllers
 
         public ActionResult Contact(int id)
         {
-            var article = Repository.GetContactArticle(id);
-            if (article == null) return HttpNotFound();
-            var vm = new ContactPage
-            {
-                Articles = article.ArticleGroup.ContactArticles.OrderBy(_ => _.SequenceIdentifier),
-                CurrentArticle = article
-            };
-            ViewBag.CurrentTabId = article.GroupId;
+            var vm = Repository.GetArticleGroup(id);
+            if (vm == null) return HttpNotFound();
+            ViewBag.CurrentMenuTabId = id;
             return View(vm);
         }
 

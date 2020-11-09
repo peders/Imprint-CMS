@@ -13,7 +13,7 @@ namespace ImprintCMS.Models
 			get
 			{
 				var personToArticle = PersonToArticles.Where(p => p.Person.IsVisible && p.Person.HasPage && p.Person.PersonImages.Any()).OrderBy(p => p.SequenceIdentifier).FirstOrDefault();
-				return personToArticle == null ? null : personToArticle.Person;
+				return personToArticle?.Person;
 			}
 		}
 
@@ -22,7 +22,7 @@ namespace ImprintCMS.Models
 			get
 			{
 				var bookToArticle = BookToArticles.Where(b => b.Book.IsVisible && b.Book.Editions.Any(e => e.LargeCoverId != null)).OrderBy(b => b.SequenceIdentifier).FirstOrDefault();
-				return bookToArticle == null ? null : bookToArticle.Book.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last();
+				return bookToArticle?.Book.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last();
 			}
 		}
 

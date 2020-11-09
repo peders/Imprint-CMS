@@ -32,11 +32,11 @@
     @if (Model.PersonToArticles.Any(p => p.Person.IsVisible && p.Person.HasPage) || Model.BookToArticles.Any(b => b.Book.IsVisible))
     {
         <ul class="links">
-            @foreach (var person in Model.PersonToArticles.OrderBy(p => p.SequenceIdentifier).Select(p => p.Person))
+            @foreach (var person in Model.PersonToArticles.Where(p => p.Person.IsVisible && p.Person.HasPage).OrderBy(p => p.SequenceIdentifier).Select(p => p.Person))
             {
                 <li>@Html.ActionLink(person.FullName, "details", "authors", new { id = person.Id }, null)</li>
             }
-            @foreach (var book in Model.BookToArticles.OrderBy(b => b.SequenceIdentifier).Select(b => b.Book))
+            @foreach (var book in Model.BookToArticles.Where(b => b.Book.IsVisible).OrderBy(b => b.SequenceIdentifier).Select(b => b.Book))
             {
                 <li>@Html.ActionLink(book.Title, "details", "books", new { id = book.Id }, null)</li>
             }
