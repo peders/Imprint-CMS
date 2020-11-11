@@ -7,7 +7,7 @@
     {
         <section class="booklist">
             <h1>@list.Title</h1>
-            @Html.EditionLinkCardList(list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Where(m => m.Edition.LargeCoverId != null).Select(m => m.Edition), showReleaseDate: true, showBlurb: true)
+            @Html.BookListAsCards(list)
         </section>
     }
 </div>
@@ -16,40 +16,11 @@
     {
         <article>
             <div class="image">
-                @if (article.ImageId != null)
-                {
-                    <a href="@Url.Action("article", "home", new { id = article.Id })">@Html.ArticleImage(article)</a>
-                }
-                else
-                {
-                    if (article.ImagePerson != null)
-                    {
-                        <a href="@Url.Action("details", "authors", new { id = article.ImagePerson.Id })">@Html.PersonThumbnail(article.ImagePerson)</a>
-                    }
-                    else
-                    {
-                        if (article.ImageEdition != null)
-                        {
-                            <a href="@Url.Action("details", "books", new { id = article.ImageEdition.BookId })">@Html.CoverImage(article.ImageEdition)</a>
-                        }
-                    }
-                }
+                @Html.ArticleChosenImageInLink(article)
             </div>
             <h1>@article.Title</h1>
             @article.Description.ToRichText()
-            @if (article.PersonToArticles.Any(p => p.Person.IsVisible && p.Person.HasPage) || article.BookToArticles.Any(b => b.Book.IsVisible))
-            {
-                <ul class="links">
-                    @foreach (var person in article.PersonToArticles.Where(p => p.Person.IsVisible && p.Person.HasPage).OrderBy(p => p.SequenceIdentifier).Select(p => p.Person))
-                    {
-                        <li>@Html.ActionLink(person.FullName, "details", "authors", new { id = person.Id }, null)</li>
-                    }
-                    @foreach (var book in article.BookToArticles.Where(b => b.Book.IsVisible).OrderBy(b => b.SequenceIdentifier).Select(b => b.Book))
-                    {
-                        <li>@Html.ActionLink(book.Title, "details", "books", new { id = book.Id }, null)</li>
-                    }
-                </ul>
-            }
+            @Html.ArticleLinks(article)
         </article>
     }
 </div>

@@ -79,6 +79,7 @@ namespace ImprintCMS.Models
 
         public static HtmlString EditionLinkCardList(this HtmlHelper helper, IEnumerable<Edition> editions, bool showReleaseDate = false, bool showBlurb = false)
         {
+            if (!editions.Any()) return null;
             var buffer = "<ul class=\"linkcardlist editions\">";
             foreach (var edition in editions)
             {
@@ -88,6 +89,11 @@ namespace ImprintCMS.Models
             }
             buffer += "</ul>";
             return new HtmlString(buffer);
+        }
+
+        public static HtmlString BookListAsCards(this HtmlHelper helper, BookList list)
+        {
+            return EditionLinkCardList(helper, list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Where(m => m.Edition.LargeCoverId != null).Select(m => m.Edition), showReleaseDate: true, showBlurb: true);
         }
 
         public static HtmlString PersonThumbnail(this HtmlHelper helper, int ImageId, string name)
@@ -129,6 +135,59 @@ namespace ImprintCMS.Models
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
             var source = urlHelper.Action("cachedarticleimage", "upload", new { id = article.ImageId });
             return new HtmlString("<img src=\"" + source + "\" class=\"article\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
+        }
+
+        public static HtmlString ArticleChosenImage(this HtmlHelper helper, Article article)
+        {
+            if (article.ImageId != null) return ArticleImage(helper, article);
+            if (article.ImagePerson != null) return PersonThumbnail(helper, article.ImagePerson);
+            if (article.ImageEdition != null) return CoverImage(helper, article.ImageEdition);
+            return null;
+        }
+
+        public static HtmlString ArticleChosenImageInLink(this HtmlHelper helper, Article article)
+        {
+            if (ArticleChosenImage(helper, article) != null)
+            {
+                var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+                return new HtmlString("<a href=\"" + urlHelper.Action("article", "home", new { id = article.Id }) + "\">" + ArticleChosenImage(helper, article) + "</a>");
+            }
+            return null;
+        }
+
+        public static HtmlString ArticleImageCredit(this HtmlHelper helper, Article article)
+        {
+            if (article.ImageId == null && article.ImagePerson != null)
+            {
+                if (!string.IsNullOrWhiteSpace(article.ImagePerson.MainImage.Photographer))
+                {
+                    return new HtmlString("<p class=\"photographer\">" + string.Format(SitePhrases.LabelPhotoCredit, article.ImagePerson.MainImage.Photographer) + "</p>");
+                }
+            }
+            return null;
+        }
+
+        public static HtmlString ArticleLinks(this HtmlHelper helper, Article article)
+        {
+            var people = article.PersonToArticles.Where(p => p.Person.IsVisible && p.Person.HasPage).OrderBy(p => p.SequenceIdentifier).Select(p => p.Person);
+            var books = article.BookToArticles.Where(b => b.Book.IsVisible).OrderBy(b => b.SequenceIdentifier).Select(b => b.Book);
+            if (!people.Any() && !books.Any()) return null;
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var buffer = "<ul class=\"links\">";
+            foreach (var person in people)
+            {
+                buffer += "\n<li>";
+                buffer += "\n\t<a href=\"" + urlHelper.Action("details", "authors", new { id = person.Id }) + "\">" + person.FullName + "</a>";
+                buffer += "\n</li>";
+            }
+            foreach (var book in books)
+            {
+                buffer += "\n<li>";
+                buffer += "\n\t<a href=\"" + urlHelper.Action("details", "books", new { id = book.Id }) + "\">" + book.Title + "</a>";
+                buffer += "\n</li>";
+            }
+            buffer += "</ul>";
+            return new HtmlString(buffer);
         }
 
         public static string RelationNames(this Book book)
