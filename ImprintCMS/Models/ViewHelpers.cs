@@ -50,6 +50,48 @@ namespace ImprintCMS.Models
             return string.Format(formatString, SitePhrases.UnitMonthUltimo);
         }
 
+        public static HtmlString PersonLinkCard(this HtmlHelper helper, Person person)
+        {
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var buffer = "<a href=\"" + urlHelper.Action("details", "authors", new { id = person.Id }) + "\" class=\"linkcard person\">";
+            buffer += "\n\t" + PersonThumbnail(helper, person);
+            buffer += "\n\t<p class=\"name\">" + person.FullName + "</p>";
+            buffer += "\n</a>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString PersonLinkCardList(this HtmlHelper helper, IEnumerable<Person> people)
+        {
+            if (!people.Any()) return null;
+            var buffer = "<ul class=\"linkcardlist people\">";
+            foreach (var person in people)
+            {
+                buffer += "\n<li>";
+                buffer += "\n" + PersonLinkCard(helper, person);
+                buffer += "\n</li>";
+            }
+            buffer += "</ul>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString PeopleAsGroupedCards(this HtmlHelper helper, IEnumerable<Person> people)
+        {
+            if (!people.Any()) return null;
+            var buffer = "<ul class=\"linkcardlist people\">";
+            foreach (var peopleUnderLetter in people.GroupBy(_ => _.LastName[0]))
+            {
+                buffer += "\n<li class=\"groupingkey\">" + peopleUnderLetter.Key + "</li>";
+                foreach (var person in peopleUnderLetter)
+                {
+                    buffer += "\n<li>";
+                    buffer += "\n" + PersonLinkCard(helper, person);
+                    buffer += "\n</li>";
+                }
+            }
+            buffer += "</ul>";
+            return new HtmlString(buffer);
+        }
+
         public static HtmlString EditionLinkCard(this HtmlHelper helper, Edition edition, bool showReleaseDate = false, bool showBlurb = false)
         {
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
@@ -94,6 +136,12 @@ namespace ImprintCMS.Models
         public static HtmlString BookListAsCards(this HtmlHelper helper, BookList list)
         {
             return EditionLinkCardList(helper, list.BookListMemberships.OrderBy(m => m.SequenceIdentifier).Where(m => m.Edition.LargeCoverId != null).Select(m => m.Edition), showReleaseDate: true, showBlurb: true);
+        }
+
+        public static HtmlString BooksAsCards(this HtmlHelper helper, IEnumerable<Book> books)
+        {
+            var editions = books.Where(_ => _.Editions.Any(e => e.LargeCoverId != null)).Select(_ => _.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last());
+            return EditionLinkCardList(helper, editions, showReleaseDate: false, showBlurb: false);
         }
 
         public static HtmlString PersonThumbnail(this HtmlHelper helper, int ImageId, string name)
@@ -176,17 +224,17 @@ namespace ImprintCMS.Models
             var buffer = "<ul class=\"links\">";
             foreach (var person in people)
             {
-                buffer += "\n<li>";
-                buffer += "\n\t<a href=\"" + urlHelper.Action("details", "authors", new { id = person.Id }) + "\">" + person.FullName + "</a>";
-                buffer += "\n</li>";
+                buffer += "\n\t<li>";
+                buffer += "\n\t\t<a href=\"" + urlHelper.Action("details", "authors", new { id = person.Id }) + "\">" + person.FullName + "</a>";
+                buffer += "\n\t</li>";
             }
             foreach (var book in books)
             {
-                buffer += "\n<li>";
-                buffer += "\n\t<a href=\"" + urlHelper.Action("details", "books", new { id = book.Id }) + "\">" + book.Title + "</a>";
-                buffer += "\n</li>";
+                buffer += "\n\t<li>";
+                buffer += "\n\t\t<a href=\"" + urlHelper.Action("details", "books", new { id = book.Id }) + "\">" + book.Title + "</a>";
+                buffer += "\n\t</li>";
             }
-            buffer += "</ul>";
+            buffer += "\n</ul>";
             return new HtmlString(buffer);
         }
 

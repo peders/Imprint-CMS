@@ -1,12 +1,11 @@
 ﻿@model ArticleGroup
 @{
-    ViewBag.Title = SitePhrases.MenuContact;
+    ViewBag.Title = Model.Title;
 }
 @foreach (var article in Model.ContactArticles.OrderBy(_ => _.SequenceIdentifier))
 {
     <article>
-        <h1>@article.Title</h1>
+        <h1 id="@string.Format("article{0}", article.Id)">@article.Title</h1>
         @article.BodyText.ToRichText()
-
     </article>
 }

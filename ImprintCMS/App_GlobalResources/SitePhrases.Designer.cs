@@ -610,15 +610,6 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kontakt oss.
-        /// </summary>
-        public static string MenuContact {
-            get {
-                return ResourceManager.GetString("MenuContact", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Forside.
         /// </summary>
         public static string MenuHome {

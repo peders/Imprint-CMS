@@ -32,6 +32,20 @@ body {
     transition: all linear 0.1s;
 }
 
+h1 {
+    font-family: var(--font-variant);
+    font-size: 1.5em;
+    font-weight: 500;
+    margin: 2rem 0 1rem 0;
+}
+
+h2 {
+    font-family: var(--font-variant);
+    font-size: 1.25em;
+    font-weight: 500;
+    margin: 1rem 0 0.5rem 0;
+}
+
 a {
     color: var(--link);
     text-decoration: none;
@@ -59,6 +73,14 @@ ul {
         grid-template-columns: 4fr 2fr;
     }
 
+    #content.home.contact {
+        padding: 2rem;
+    }
+
+    #content.home.contact article {
+        margin-bottom: 5rem;
+    }
+
 #submenu {
     padding: 2rem;
 }
@@ -73,23 +95,31 @@ ul {
         margin-right: 2rem;
     }
 
-    #submenu li:last-child {
-        margin-right: 0;
-    }
+        #submenu li:last-child {
+            margin-right: 0;
+        }
 
         #submenu li a {
             color: var(--line-lighter);
         }
 
-        #submenu li a:hover {
-            color: var(--line);
-        }
+            #submenu li a:hover {
+                color: var(--line);
+            }
 
-#booklisting {
+#booklisting, #peoplelisting {
     padding: 2rem;
 }
 
 .books.index .linkcardlist {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.authors.index .linkcardlist {
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.home.search .linkcardlist {
     grid-template-columns: repeat(6, 1fr);
 }
 
@@ -157,6 +187,15 @@ ul {
         padding: 0;
     }
 
+        .linkcardlist li.groupingkey {
+            background: var(--bg-accent-secondary);
+            color: var(--line-inverse);
+            padding: 2rem;
+            text-align: right;
+            font-family: var(--font-variant);
+            font-size: 4em;
+        }
+
         .linkcardlist li a {
             background: var(--bg-accent);
             display: block;
@@ -170,6 +209,10 @@ ul {
             .linkcardlist li a:hover {
                 box-shadow: 0 0 1rem -0.25rem black;
                 background: var(--bg-accent);
+            }
+
+            .linkcardlist li a.person img {
+                border-radius: 50%;
             }
 
             .linkcardlist li a img {
@@ -196,6 +239,15 @@ ul {
         margin-bottom: 0.5rem;
     }
 
+    .linkcardlist.people p.name {
+        color: var(--line);
+        font-family: var(--font-variant);
+        font-size: 1.25em;
+        font-weight: 500;
+        margin: 1rem 0.5rem 0.5rem 0.5rem;
+        text-align: center;
+    }
+
     .linkcardlist.editions p.isdebut {
         background: var(--line);
         color: var(--line-inverse);
@@ -218,6 +270,7 @@ ul {
     margin: 0 auto;
     padding: 4rem 2rem 2rem 2rem;
     background: var(--bg-accent-secondary);
+    position: relative;
 }
 
     #header h1 {
@@ -242,9 +295,29 @@ ul {
                 color: var(--line-light);
             }
 
-    #header #searchform {
-        display: none;
+#searchform {
+    margin: 0;
+    padding: 2rem;
+}
+
+    #searchform fieldset {
+        margin: 0;
+        padding: 0;
+        border: none;
     }
+
+    #searchform p {
+        margin: 0;
+        padding: 0;
+    }
+
+#header #searchform {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    padding: 0;
+    margin: 0;
+}
 
 #sitemenu {
     width: var(--pagewidth);

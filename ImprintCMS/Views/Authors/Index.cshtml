@@ -1,14 +1,7 @@
 ﻿@model IEnumerable<Person>
 @{
-	ViewBag.Title = SitePhrases.MenuAuthors;
+    ViewBag.Title = SitePhrases.MenuAuthors;
 }
-@foreach (var group in Model.GroupBy(p => p.LastName.Substring(0, 1)))
-{
-	<h2>@group.Key</h2>
-	<ul>
-		@foreach (var person in group)
-  {
-			<li><a href="@Url.Action("details", new { id = person.Id })">@Html.PersonThumbnail(person)<span  class="label">@person.FullName</span></a></li>
-  }
-	</ul>
-}
+<div id="peoplelisting">
+    @Html.PeopleAsGroupedCards(Model)
+</div>

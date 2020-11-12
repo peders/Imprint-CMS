@@ -12,45 +12,5 @@
     </ul>
 </nav>
 <div id="booklisting">
-    @Html.EditionLinkCardList(Model.CurrentBooks.Select(_ => _.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last()))
+    @Html.BooksAsCards(Model.CurrentBooks)
 </div>
-@*<div id="booklisting">
-        @foreach (var group in Model.CurrentBooks.GroupBy(b => b.CachedRightsHoldersText))
-        {
-            var rightsHolders = group.First().Relations.Where(r => r.Person.IsVisible).OrderBy(r => r.SequenceIdentifier).ToList();
-            <div class="book">
-                <h2>@if (rightsHolders.Any())
-                    {
-                    @Html.RelationLinkOrName(rightsHolders.First())
-                        foreach (var relation in rightsHolders.Skip(1))
-                        {
-                    @(" / ")
-                    @Html.RelationLinkOrName(relation)
-                        }
-                    }
-                    else
-                    {
-                    @("–")
-                    }
-                </h2>
-                <ul>
-                    @foreach (var book in group)
-                    {
-                        <li>
-                            @if (book.Editions.Any(e => e.LargeCoverId != null))
-                            {
-                                <a href="@Url.Action("details", new { id = book.Id })" class="coverimage">@Html.CoverImage(book.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last())</a>
-                            }
-
-                            @Html.ActionLink(book.Title, "details", new { id = book.Id }, new { @class = "title" })
-                            @if (!String.IsNullOrWhiteSpace(book.Subtitle))
-                            {
-                                <span class="subtitle">@book.Subtitle</span>
-                            }
-                            <span class="releaseyear">@book.CachedReleaseYear</span>
-                        </li>
-                    }
-                </ul>
-            </div>
-        }
-    </div>*@
