@@ -57,13 +57,12 @@
     }
     <div id="header">
         <h1>@Html.ActionLink(siteConfig.Name, "index", "home")</h1>
-        @if (!ViewContext.IsForController("home") || !ViewContext.IsForAction("search"))
+        @if (!(ViewContext.IsForController("home") && ViewContext.IsForAction("search")))
         {
             @Html.SearchForm(Url.Action("search", "home"), string.Empty)
         }
     </div>
     <ul id="sitemenu">
-        <li class="@(ViewContext.IsForController("home") && !ViewContext.IsForAction("contact") ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuHome, "index", "home")</li>
         <li class="@(ViewContext.IsForController("books") ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuBooks, "index", "books", new { id = UrlParameter.Optional }, null)</li>
         <li class="@(ViewContext.IsForController("authors") ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuAuthors, "index", "authors")</li>
         @foreach (var tab in menuTabs)

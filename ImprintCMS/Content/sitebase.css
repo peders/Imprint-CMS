@@ -23,7 +23,7 @@
 body {
     font-family: var(--font);
     margin: 0;
-    background: var(--bg-outside);
+    background: var(--bg-accent-secondary);
     color: var(--line);
     font-size: 100%;
 }
@@ -46,6 +46,10 @@ h2 {
     margin: 1rem 0 0.5rem 0;
 }
 
+p {
+    margin: 0 0 0.5rem 0;
+}
+
 a {
     color: var(--link);
     text-decoration: none;
@@ -62,24 +66,14 @@ ul {
     padding: 0;
 }
 
-#content {
-    width: var(--pagewidth);
-    margin: 0 auto;
-    background: var(--bg-accent);
+#content.home.index {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
 }
 
-    #content.home.index {
-        display: grid;
-        grid-template-columns: 4fr 2fr;
-    }
-
-    #content.home.contact {
-        padding: 2rem;
-    }
-
-    #content.home.contact article {
-        margin-bottom: 5rem;
-    }
+#content.home.contact article {
+    margin-bottom: 5rem;
+}
 
 #submenu {
     padding: 2rem;
@@ -107,8 +101,8 @@ ul {
                 color: var(--line);
             }
 
-#booklisting, #peoplelisting {
-    padding: 2rem;
+.home.index .linkcardlist.editions {
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .books.index .linkcardlist {
@@ -116,6 +110,7 @@ ul {
 }
 
 .authors.index .linkcardlist {
+    padding-top: 2rem;
     grid-template-columns: repeat(8, 1fr);
 }
 
@@ -123,45 +118,21 @@ ul {
     grid-template-columns: repeat(6, 1fr);
 }
 
-
-.booklist {
-    margin: 0;
-    padding: 2rem;
-}
-
-    .booklist h1 {
-        margin: 0 0 2rem 0;
-        font-size: 2em;
-        font-family: var(--font-variant);
-        font-weight: 500;
-    }
-
-    .booklist .linkcardlist {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
 #articles {
-    padding: 2rem 2rem 2rem 1rem;
+    padding: 0 0 0 2rem;
 }
 
     #articles article {
-        background: var(--bg-accent);
         display: block;
         padding: 1rem 0 1rem 1rem;
-        border-radius: 0.5rem;
         margin-bottom: 2rem;
     }
 
         #articles article h1 {
             margin: 0 0 0.5rem 0;
-            padding: 0;
             font-size: 1.125em;
             font-family: var(--font-variant);
             font-weight: 500;
-        }
-
-        #articles article p {
-            margin: 0 0 0.5rem 0;
         }
 
         #articles article img {
@@ -296,8 +267,8 @@ ul {
             }
 
 #searchform {
-    margin: 0;
-    padding: 2rem;
+    margin: 0 0 2rem 0;
+    padding: 0;
 }
 
     #searchform fieldset {
@@ -311,25 +282,50 @@ ul {
         padding: 0;
     }
 
+    #searchform input {
+        font-family: var(--font);
+        font-size: 1em;
+    }
+
+        #searchform input[type=search] {
+            width: 27rem;
+            padding: 0.5rem;
+            border: 0.0625rem solid var(--line-lighter);
+        }
+
+        #searchform input[type=submit] {
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            border: 0.0625rem solid var(--line-light);
+            background: var(--line-light);
+            color: var(--line-inverse);
+            text-transform: uppercase;
+        }
+
+            #searchform input[type=submit]:hover {
+                border-color: var(--line);
+                background-color: var(--line);
+            }
+
 #header #searchform {
     position: absolute;
     right: 2rem;
-    bottom: 2rem;
+    top: 4rem;
     padding: 0;
     margin: 0;
 }
 
 #sitemenu {
     width: var(--pagewidth);
-    margin: 0 auto;
-    padding: 1rem 2rem 1rem 2rem;
-    background: var(--bg-accent-tertiary);
-    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-accent-secondary);
+    display: flex;
+    justify-content: center;
 }
 
     #sitemenu ul {
         display: inline-block;
-        margin: 0 auto;
     }
 
     #sitemenu li {
@@ -339,7 +335,6 @@ ul {
         font-weight: 400;
         text-transform: uppercase;
         margin: 0 2rem 0 0;
-        padding: 0;
     }
 
         #sitemenu li:last-child {
@@ -347,16 +342,27 @@ ul {
         }
 
         #sitemenu li.selected {
-            font-weight: 700;
+            font-weight: 500;
+            background: var(--bg-accent);
         }
 
         #sitemenu li a {
+            display: block;
             color: var(--line);
+            padding: 1rem;
         }
 
             #sitemenu li a:hover, #sitemenu li a:active {
-                color: var(--line-light);
+                color: var(--line);
+                background: var(--bg-accent);
             }
+
+#content {
+    width: var(--pagewidth);
+    margin: 0 auto;
+    background: var(--bg-accent);
+    padding: 2rem;
+}
 
 #footer {
     width: var(--pagewidth);

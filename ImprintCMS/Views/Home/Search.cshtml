@@ -10,14 +10,14 @@
 @if (Model.People.Any())
 {
     <div id="peoplelisting">
-        <h2>@SitePhrases.HeadingSearchPeople</h2>
+        <h1>@SitePhrases.HeadingSearchPeople</h1>
         @Html.PersonLinkCardList(Model.People)
     </div>
 }
 @if (Model.Books.Any())
 {
     <div id="booklisting">
-        <h2>@SitePhrases.HeadingSearchBooks</h2>
+        <h1>@SitePhrases.HeadingSearchBooks</h1>
         @Html.BooksAsCards(Model.Books)
     </div>
 }
