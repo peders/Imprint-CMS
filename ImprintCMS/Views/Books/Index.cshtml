@@ -4,7 +4,6 @@
 }
 <nav id="submenu">
     <ul>
-        <li>@(Model.CurrentGenre == null ? new HtmlString("<strong>" + SitePhrases.LabelAllBooks + "</strong>") : Html.ActionLink(SitePhrases.LabelAllBooks, "index", new { id = UrlParameter.Optional }, null))</li>
         @foreach (var genre in Model.Genres)
         {
             <li>@(genre == Model.CurrentGenre ? new HtmlString("<strong>" + genre.Name + "</strong>") : Html.ActionLink(genre.Name, "index", new { id = genre.Id }))</li>

@@ -34,7 +34,7 @@ body {
 
 h1 {
     font-family: var(--font-variant);
-    font-size: 1.5em;
+    font-size: 1.75em;
     font-weight: 500;
     margin: 2rem 0 1rem 0;
 }
@@ -66,17 +66,12 @@ ul {
     padding: 0;
 }
 
-#content.home.index {
-    display: grid;
-    grid-template-columns: 4fr 2fr;
-}
-
 #content.home.contact article {
     margin-bottom: 5rem;
 }
 
 #submenu {
-    padding: 2rem;
+    padding: 2rem 0;
 }
 
     #submenu ul {
@@ -101,30 +96,34 @@ ul {
                 color: var(--line);
             }
 
-.home.index .linkcardlist.editions {
+#content.books.index, #content.home.search {
+    padding: 2rem 8.5rem;
+}
+
+#content.authors.index {
+    padding: 4rem 6.5rem 2rem 6.5rem;
+}
+
+    #content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+#booklists h1 {
+    margin: 0 0 1rem 0;
+}
+
+#booklists .linkcardlist {
     grid-template-columns: repeat(4, 1fr);
-}
-
-.books.index .linkcardlist {
-    grid-template-columns: repeat(6, 1fr);
-}
-
-.authors.index .linkcardlist {
-    padding-top: 2rem;
-    grid-template-columns: repeat(8, 1fr);
-}
-
-.home.search .linkcardlist {
-    grid-template-columns: repeat(6, 1fr);
+    margin-bottom: 2rem;
 }
 
 #articles {
-    padding: 0 0 0 2rem;
+    padding: 0 0 0 3rem;
 }
 
     #articles article {
         display: block;
-        padding: 1rem 0 1rem 1rem;
+        padding: 0;
         margin-bottom: 2rem;
     }
 
@@ -317,16 +316,12 @@ ul {
 
 #sitemenu {
     width: var(--pagewidth);
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     background: var(--bg-accent-secondary);
     display: flex;
     justify-content: center;
 }
-
-    #sitemenu ul {
-        display: inline-block;
-    }
 
     #sitemenu li {
         display: inline-block;
@@ -364,6 +359,11 @@ ul {
     padding: 2rem;
 }
 
+    #content.home.index {
+        display: grid;
+        grid-template-columns: 74fr 32fr;
+    }
+
 #footer {
     width: var(--pagewidth);
     margin: 0 auto;
@@ -379,6 +379,46 @@ ul {
         #footer a:hover {
             color: var(--link-active);
         }
+
+@media screen and (max-width: 1800px) {
+
+    * {
+        --pagewidth: 91rem;
+    }
+
+    #content.home.index {
+        grid-template-columns: 55fr 32fr;
+    }
+
+    #booklists .linkcardlist {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+@media screen and (max-width: 1496px) {
+
+    * {
+        --pagewidth: 72rem;
+    }
+
+    #content.home.index {
+        grid-template-columns: 36fr 32fr;
+    }
+
+    #booklists .linkcardlist {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
 
 
 /*LEAVE FOR ADMIN*/
