@@ -117,6 +117,45 @@ namespace ImprintCMS.Models
             return new HtmlString(buffer);
         }
 
+        public static HtmlString BookCoverSection(this HtmlHelper helper, Book book)
+        {
+            if (!book.Editions.Any(_ => _.LargeCoverId != null)) return null;
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var edition = book.Editions.Where(e => e.LargeCoverId != null).OrderBy(e => e.Number).Last();
+            var buffer = "<section class=\"cover\">";
+            buffer += "\n\t" + CoverImage(helper, edition);
+            buffer += "\n\t<p class=\"download\"><a href=\"" + urlHelper.Action("display", "upload", new { category = edition.UploadedFile.Category, fileName = edition.UploadedFile.FileName }) + "\">" + SitePhrases.LabelLargeCover + "</a></p>";
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString EditionMetadataSection(this HtmlHelper helper, Edition edition)
+        {
+            var buffer = "<section class=\"metadata\">";
+            buffer += "\n\t<h2>" + edition.Binding.Name + "</h2>";
+            buffer += "\n\t<p class=\"isbn\">" + string.Format(SitePhrases.LabelIsbn, edition.Isbn.AsIsbn()) + "</p>";
+            buffer += "\n\t<p class=\"releaseyear\">" + (edition.Binding.HideEditionNumber ? edition.ReleaseDate.Year.ToString("") : string.Format(SitePhrases.LabelEditionAndYear, edition.Number, edition.ReleaseDate.Year)) + "</p>";
+            if (edition.PageCount != null) buffer += "\n\t<p class=\"pagecount\">" + string.Format(SitePhrases.UnitPages, edition.PageCount) + "</p>";
+            if (edition.Price != null) buffer += "\n\t<p class=\"price\">" + string.Format(SitePhrases.UnitPrice, edition.Price) + "</p>";
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString EditionPurchaseOptionsSection(this HtmlHelper helper, Edition edition, IEnumerable<ExternalStore> stores)
+        {
+            if (!edition.IsForSale) return new HtmlString("<section class=\"purchaseoptions\">\n\t<p class=\"notforsale\">" + (!string.IsNullOrWhiteSpace(edition.AlternativeNotForSaleMessage) ? edition.AlternativeNotForSaleMessage : SitePhrases.LabelNotForSale) + "</p>\n</section>");
+            if (!edition.Binding.UsesExternalStores) return new HtmlString("<section class=\"purchaseoptions\">\n\t<p class=\"addtobasket\">" + helper.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" }) + "</p>\n</section>");
+            var buffer = "<section class=\"purchaseoptions\">";
+            buffer += "\n\t<ul>";
+            foreach(var store in stores)
+            {
+                buffer += "\n\t\t<li><a href=\"" + string.Format("{0}{1}{2}", store.UrlPrefix, edition.Isbn, store.UrlPostfix) + "\">" + string.Format(SitePhrases.LabelBuyFrom, store.Name) + "</a></li>";
+            }
+            buffer += "\n\t</ul>";
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
         public static HtmlString PersonLinkCard(this HtmlHelper helper, Person person)
         {
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);

@@ -111,7 +111,7 @@ ul {
 
 #content.details, #content.article {
     display: grid;
-    grid-template-columns: 68fr 25fr;
+    grid-template-columns: 1fr 25rem;
 }
 
     #content.details #main, #content.article #main {
@@ -142,6 +142,10 @@ ul {
             margin-top: 4rem;
         }
 
+#sidebar .edition {
+    margin: 2rem 0;
+}
+
 #sidebar img {
     width: 100%;
 }
@@ -149,6 +153,22 @@ ul {
     #sidebar img.person.thumbnail {
         border-radius: 50%;
     }
+
+#sidebar h2 {
+    font-family: var(--font);
+    font-size: 0.875em;
+    font-weight: 700;
+    margin: 0;
+}
+
+#sidebar p, #sidebar li {
+    font-size: 0.875em;
+    margin: 0;
+}
+
+#sidebar p.download {
+    margin-top: 0.5rem;
+}
 
 p.social {
     margin-top: 2rem;

@@ -223,6 +223,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kjøp hos {0}.
+        /// </summary>
+        public static string LabelBuyFrom {
+            get {
+                return ResourceManager.GetString("LabelBuyFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kjøp hos ….
         /// </summary>
         public static string LabelBuyThroughExternalStores {
@@ -264,6 +273,15 @@ namespace ImprintCMS.Models {
         public static string LabelEdition {
             get {
                 return ResourceManager.GetString("LabelEdition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}. utgave, {1}.
+        /// </summary>
+        public static string LabelEditionAndYear {
+            get {
+                return ResourceManager.GetString("LabelEditionAndYear", resourceCulture);
             }
         }
         
@@ -664,20 +682,11 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to sider.
+        ///   Looks up a localized string similar to {0} s.
         /// </summary>
-        public static string UnitPagesPlural {
+        public static string UnitPages {
             get {
-                return ResourceManager.GetString("UnitPagesPlural", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to side.
-        /// </summary>
-        public static string UnitPagesSingular {
-            get {
-                return ResourceManager.GetString("UnitPagesSingular", resourceCulture);
+                return ResourceManager.GetString("UnitPages", resourceCulture);
             }
         }
         
