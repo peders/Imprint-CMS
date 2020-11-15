@@ -70,13 +70,49 @@ namespace ImprintCMS.Models
             if (!articles.Any(_ => _.IsVisible)) return null;
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
             var buffer = "<section class=\"relatedarticles\">";
-            buffer += "\n\t<h2>" + string.Format(SitePhrases.HeadingArticlesAbout, subjectName) +  "</h2>";
+            buffer += "\n\t<h2>" + string.Format(SitePhrases.HeadingArticlesAbout, subjectName) + "</h2>";
             buffer += "\n\t<ul>";
             foreach (var article in articles.OrderByDescending(_ => _.Date))
             {
                 buffer += "\n\t\t<li><a href=\"" + urlHelper.Action("article", "home", new { id = article.Id }) + "\">" + article.Title + "</a></li>";
             }
             buffer += "\n\t</ul>";
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString BookTitleSection(this HtmlHelper helper, Book book)
+        {
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var buffer = "<section class=\"title\">";
+            buffer += "\n\t<ul class=\"relations\">";
+            foreach (var relation in book.Relations.OrderBy(r => r.SequenceIdentifier))
+            {
+                if (relation.Person.HasPage)
+                {
+                    buffer += "\n\t\t<li><a href=\"" + urlHelper.Action("details", "authors", new { id = relation.PersonId }) + "\">" + relation.PersonName + "</a></li>";
+                }
+                else
+                {
+                    buffer += "\n\t\t<li>" + relation.PersonName + "</li>";
+                }
+            }
+            buffer += "\n\t</ul>";
+            buffer += "\n\t<h1>" + book.Title + "</h1>";
+            if (!string.IsNullOrWhiteSpace(book.Subtitle))
+            {
+                buffer += "\n\t<p class=\"subtitle\">" + book.Subtitle + "</p>";
+            }
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString BookExcerptSection(this HtmlHelper helper, Book book)
+        {
+            if (book.ExcerptId == null) return null;
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var buffer = "<section class=\"excerpt\">";
+            buffer += "\n\t<p><a href=\"" + urlHelper.Action("display", "upload", new { category = book.UploadedFile.Category, fileName = book.UploadedFile.FileName }) + "\">" + string.Format(SitePhrases.LabelExcerpt, book.Title) + "</a></p>";
             buffer += "\n</section>";
             return new HtmlString(buffer);
         }

@@ -121,7 +121,7 @@ ul {
         #content.details #main p, #content.article #main p, #content.contact article p {
             font-size: 1.125em;
             line-height: 150%;
-            margin-bottom: 1em;
+            margin-bottom: 1rem;
         }
 
         #content.details #main li, #content.article #main li {
@@ -135,8 +135,24 @@ ul {
         }
 
         #content.details #main section.title, #content.article #main section.title {
-            margin-bottom: 2em;
+            margin-bottom: 4rem;
         }
+
+        #content.details #main h2, #content.article #main h2 {
+            margin-top: 4rem;
+        }
+
+#sidebar img {
+    width: 100%;
+}
+
+    #sidebar img.person.thumbnail {
+        border-radius: 50%;
+    }
+
+p.social {
+    margin-top: 2rem;
+}
 
 #content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
     grid-template-columns: repeat(5, 1fr);

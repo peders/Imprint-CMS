@@ -4,33 +4,9 @@
     var stores = ViewBag.Stores as IEnumerable<ExternalStore>;
 }
 <div id="main">
-    <section class="title">
-        <ul class="rightsholders">
-            @foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
-            {
-                <li>
-                    @if (relation.Person.HasPage)
-                    {
-                        @Html.ActionLink(relation.PersonName, "details", "authors", new { id = relation.PersonId }, null)
-                    }
-                    else
-                    {
-                        @relation.PersonName
-                    }
-                </li>
-            }
-        </ul>
-        <h1>@Model.Title</h1>
-        @if (!String.IsNullOrWhiteSpace(Model.Subtitle))
-        {
-            <p class="subtitle">@Model.Subtitle</p>
-        }
-    </section>
+    @Html.BookTitleSection(Model)
     @Html.RichTextSection(Model.Description)
-    @if (Model.ExcerptId != null)
-    {
-        <p class="excerpt">@Html.ActionLink(String.Format(SitePhrases.LabelExcerpt, Model.Title), "display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)</p>
-    }
+    @Html.BookExcerptSection(Model)
     @Html.RichTextSection(Model.Quotes, string.Format(SitePhrases.HeadingBookQuotes, Model.Title))
     @Html.RelatedArticlesSection(Model.BookToArticles.Select(_ => _.Article), Model.Title)
 </div>
@@ -87,8 +63,8 @@
             }
         </div>
     }
-    <div id="social">
+    <p class="social">
         @Html.Twitter(Model.Title, string.Empty)
         @Html.Facebook()
-    </div>
+    </p>
 </div>
