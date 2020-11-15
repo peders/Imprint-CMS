@@ -2,23 +2,9 @@
 @{
     ViewBag.Title = Model.Person.FullName;
 }
-<div id="image">
-    @if (Model.Person.MainImage != null)
-    {
-        @Html.PersonImage(Model.Person)
-        if (!String.IsNullOrWhiteSpace(Model.Person.MainImage.Photographer))
-        {
-            <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.Person.MainImage.Photographer)</p>
-        }
-        <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = Model.Person.MainImage.UploadedFile.Category, fileName = Model.Person.MainImage.UploadedFile.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
-    }
-</div>
 <div id="main">
     <h1>@Model.Person.FullName</h1>
-    @if (!String.IsNullOrWhiteSpace(Model.Person.Description))
-    {
-        @Model.Person.Description.ToRichText()
-    }
+    @Html.RichTextSection(Model.Person.Description)
     @foreach (var booksByRole in Model.Books.GroupBy(b => b.Relations.Single(r => r.PersonId == Model.Person.Id).Role).Where(r => r.Key.ShowBookList).OrderBy(r => r.Key.SequenceIdentifier))
     {
         <h2>@(!String.IsNullOrWhiteSpace(booksByRole.Key.BookListHeading) ? booksByRole.Key.BookListHeading : booksByRole.Key.Name)</h2>
@@ -29,25 +15,10 @@
             }
         </ul>
     }
-    @if (!String.IsNullOrWhiteSpace(Model.Person.Awards))
-    {
-        <h2>@SitePhrases.HeadingAuthorAwards</h2>
-        @Model.Person.Awards.ToRichText()
-    }
-    @if (!String.IsNullOrWhiteSpace(Model.Person.Translations))
-    {
-        <h2>@SitePhrases.HeadingAuthorTranslations</h2>
-        @Model.Person.Translations.ToRichText()
-    }
-    @if (!String.IsNullOrWhiteSpace(Model.Person.Anthologies))
-    {
-        <h2>@SitePhrases.HeadingAuthorAnthologies</h2>
-        @Model.Person.Anthologies.ToRichText()
-    }
-    @if (!String.IsNullOrWhiteSpace(Model.Person.MiscInfo))
-    {
-        @Model.Person.MiscInfo.ToRichText()
-    }
+    @Html.RichTextSection(Model.Person.Awards, SitePhrases.HeadingAuthorAwards)
+    @Html.RichTextSection(Model.Person.Translations, SitePhrases.HeadingAuthorTranslations)
+    @Html.RichTextSection(Model.Person.Anthologies, SitePhrases.HeadingAuthorAnthologies)
+    @Html.RichTextSection(Model.Person.MiscInfo)
     @if (Model.Person.PersonToArticles.Any(a => a.Article.IsVisible))
     {
         <h2>@String.Format(SitePhrases.HeadingArticlesAbout, Model.Person.FullName)</h2>
@@ -57,6 +28,17 @@
                 <li>@Html.ActionLink(article.Title, "article", "home", new { id = article.Id }, null)</li>
             }
         </ul>
+    }
+</div>
+<div id="sidebar">
+    @if (Model.Person.MainImage != null)
+    {
+        @Html.PersonImage(Model.Person)
+        if (!String.IsNullOrWhiteSpace(Model.Person.MainImage.Photographer))
+        {
+            <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.Person.MainImage.Photographer)</p>
+        }
+        <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = Model.Person.MainImage.UploadedFile.Category, fileName = Model.Person.MainImage.UploadedFile.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
     }
     @if (Model.Person.PersonImages.Count() > 1)
     {

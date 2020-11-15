@@ -50,6 +50,21 @@ namespace ImprintCMS.Models
             return string.Format(formatString, SitePhrases.UnitMonthUltimo);
         }
 
+        public static HtmlString RichTextSection(this HtmlHelper helper, string content, string heading)
+        {
+            if (string.IsNullOrWhiteSpace(content)) return null;
+            var buffer = "<section>";
+            if (!string.IsNullOrWhiteSpace(heading)) buffer += "\n\t<h2>" + heading + "</h2>";
+            buffer += "\n\t" + content.ToRichText();
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString RichTextSection(this HtmlHelper helper, string content)
+        {
+            return RichTextSection(helper, content, string.Empty);
+        }
+
         public static HtmlString PersonLinkCard(this HtmlHelper helper, Person person)
         {
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);

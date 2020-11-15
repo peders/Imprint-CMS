@@ -96,17 +96,47 @@ ul {
                 color: var(--line);
             }
 
-#content.books.index, #content.home.search {
-    padding: 2rem 8.5rem;
+#content.books.index, #content.books.details, #content.authors.index, #content.authors.details, #content.home.contact, #content.home.search {
+    padding: 4rem 8.5rem;
 }
 
-#content.authors.index {
-    padding: 4rem 6.5rem 2rem 6.5rem;
+#content.home.index {
+    display: grid;
+    grid-template-columns: 74fr 32fr;
 }
 
-    #content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
-        grid-template-columns: repeat(5, 1fr);
+#content.home.contact {
+    padding-right: 33.5rem;
+}
+
+#content.details {
+    display: grid;
+    grid-template-columns: 68fr 25fr;
+}
+
+    #content.details #main {
+        padding-right: 8.5rem;
     }
+
+        #content.details #main p, #content.home.contact article p {
+            font-size: 1.125em;
+            line-height: 150%;
+            margin-bottom: 1em;
+        }
+
+        #content.details #main li {
+            font-size: 1.125em;
+            line-height: 150%;
+            margin-bottom: 0;
+        }
+
+        #content.details #main h1 {
+            margin: 0;
+        }
+
+#content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
+    grid-template-columns: repeat(5, 1fr);
+}
 
 #booklists h1 {
     margin: 0 0 1rem 0;
@@ -359,11 +389,6 @@ ul {
     padding: 2rem;
 }
 
-    #content.home.index {
-        display: grid;
-        grid-template-columns: 74fr 32fr;
-    }
-
 #footer {
     width: var(--pagewidth);
     margin: 0 auto;
@@ -397,7 +422,6 @@ ul {
     #content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
         grid-template-columns: repeat(4, 1fr);
     }
-
 }
 
 @media screen and (max-width: 1496px) {
@@ -417,7 +441,6 @@ ul {
     #content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
         grid-template-columns: repeat(3, 1fr);
     }
-
 }
 
 
