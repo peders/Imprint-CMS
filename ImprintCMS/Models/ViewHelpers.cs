@@ -65,11 +65,11 @@ namespace ImprintCMS.Models
             return RichTextSection(helper, content, string.Empty);
         }
 
-        public static HtmlString ArticleLinkList(this HtmlHelper helper, IEnumerable<Article> articles, string subjectName)
+        public static HtmlString RelatedArticlesSection(this HtmlHelper helper, IEnumerable<Article> articles, string subjectName)
         {
             if (!articles.Any(_ => _.IsVisible)) return null;
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
-            var buffer = "<section class=\"articlelinks\">";
+            var buffer = "<section class=\"relatedarticles\">";
             buffer += "\n\t<h2>" + string.Format(SitePhrases.HeadingArticlesAbout, subjectName) +  "</h2>";
             buffer += "\n\t<ul>";
             foreach (var article in articles.OrderByDescending(_ => _.Date))

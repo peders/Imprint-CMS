@@ -2,16 +2,18 @@
 @{
     ViewBag.Title = Model.Title;
 }
-<div id="image">
-    @Html.ArticleChosenImage(Model)
-    @Html.ArticleImageCredit(Model)
-</div>
 <div id="main">
-    <h1>@Model.Title</h1>
+    <section class="title">
+        <h1>@Model.Title</h1>
+    </section>
     @Model.Description.ToRichText()
     @Html.ArticleLinks(Model)
     <p class="social">
         @Html.Twitter(Model.Title, string.Empty)<br />
         @Html.Facebook()
     </p>
+</div>
+<div id="sidebar">
+    @Html.ArticleChosenImage(Model)
+    @Html.ArticleImageCredit(Model)
 </div>

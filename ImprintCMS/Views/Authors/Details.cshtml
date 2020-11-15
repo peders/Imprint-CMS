@@ -21,16 +21,7 @@
     @Html.RichTextSection(Model.Person.Translations, SitePhrases.HeadingAuthorTranslations)
     @Html.RichTextSection(Model.Person.Anthologies, SitePhrases.HeadingAuthorAnthologies)
     @Html.RichTextSection(Model.Person.MiscInfo)
-    @if (Model.Person.PersonToArticles.Any(a => a.Article.IsVisible))
-    {
-        <h2>@String.Format(SitePhrases.HeadingArticlesAbout, Model.Person.FullName)</h2>
-        <ul>
-            @foreach (var article in Model.Person.PersonToArticles.Where(a => a.Article.IsVisible).Select(a => a.Article).OrderByDescending(a => a.Date))
-            {
-                <li>@Html.ActionLink(article.Title, "article", "home", new { id = article.Id }, null)</li>
-            }
-        </ul>
-    }
+    @Html.RelatedArticlesSection(Model.Person.PersonToArticles.Select(_ => _.Article), Model.Person.FullName)
 </div>
 <div id="sidebar">
     @if (Model.Person.MainImage != null)

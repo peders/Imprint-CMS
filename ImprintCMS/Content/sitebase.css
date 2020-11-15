@@ -96,7 +96,7 @@ ul {
                 color: var(--line);
             }
 
-#content.books.index, #content.authors.index, #content.details, #content.home.contact, #content.home.search {
+#content.books.index, #content.authors.index, #content.details, #content.article, #content.contact, #content.search {
     padding: 4rem 8.5rem;
 }
 
@@ -109,32 +109,32 @@ ul {
     padding-right: 33.5rem;
 }
 
-#content.details {
+#content.details, #content.article {
     display: grid;
     grid-template-columns: 68fr 25fr;
 }
 
-    #content.details #main {
+    #content.details #main, #content.article #main {
         padding-right: 8.5rem;
     }
 
-        #content.details #main p, #content.home.contact article p {
+        #content.details #main p, #content.article #main p, #content.contact article p {
             font-size: 1.125em;
             line-height: 150%;
             margin-bottom: 1em;
         }
 
-        #content.details #main li {
+        #content.details #main li, #content.article #main li {
             font-size: 1.125em;
             line-height: 150%;
             margin-bottom: 0;
         }
 
-        #content.details #main h1 {
+        #content.details #main h1, #content.article #main h1 {
             margin: 0;
         }
 
-        #content.details #main section.title {
+        #content.details #main section.title, #content.article #main section.title {
             margin-bottom: 2em;
         }
 

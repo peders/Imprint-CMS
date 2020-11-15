@@ -32,7 +32,7 @@
         <p class="excerpt">@Html.ActionLink(String.Format(SitePhrases.LabelExcerpt, Model.Title), "display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)</p>
     }
     @Html.RichTextSection(Model.Quotes, string.Format(SitePhrases.HeadingBookQuotes, Model.Title))
-    @Html.ArticleLinkList(Model.BookToArticles.Select(_ => _.Article), Model.Title)
+    @Html.RelatedArticlesSection(Model.BookToArticles.Select(_ => _.Article), Model.Title)
 </div>
 <div id="sidebar">
     @if (Model.Editions.Any(e => e.LargeCoverId != null))
