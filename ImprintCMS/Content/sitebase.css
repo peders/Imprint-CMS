@@ -96,7 +96,7 @@ ul {
                 color: var(--line);
             }
 
-#content.books.index, #content.books.details, #content.authors.index, #content.authors.details, #content.home.contact, #content.home.search {
+#content.books.index, #content.authors.index, #content.details, #content.home.contact, #content.home.search {
     padding: 4rem 8.5rem;
 }
 
@@ -132,6 +132,10 @@ ul {
 
         #content.details #main h1 {
             margin: 0;
+        }
+
+        #content.details #main section.title {
+            margin-bottom: 2em;
         }
 
 #content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {

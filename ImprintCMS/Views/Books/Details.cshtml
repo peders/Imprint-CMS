@@ -4,49 +4,35 @@
     var stores = ViewBag.Stores as IEnumerable<ExternalStore>;
 }
 <div id="main">
-    <ul class="rightsholders">
-        @foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
+    <section class="title">
+        <ul class="rightsholders">
+            @foreach (var relation in Model.Relations.OrderBy(r => r.SequenceIdentifier))
+            {
+                <li>
+                    @if (relation.Person.HasPage)
+                    {
+                        @Html.ActionLink(relation.PersonName, "details", "authors", new { id = relation.PersonId }, null)
+                    }
+                    else
+                    {
+                        @relation.PersonName
+                    }
+                </li>
+            }
+        </ul>
+        <h1>@Model.Title</h1>
+        @if (!String.IsNullOrWhiteSpace(Model.Subtitle))
         {
-            <li>
-                @if (relation.Person.HasPage)
-                {
-                    @Html.ActionLink(relation.PersonName, "details", "authors", new { id = relation.PersonId }, null)
-                }
-                else
-                {
-                    @relation.PersonName
-                }
-            </li>
+            <p class="subtitle">@Model.Subtitle</p>
         }
-    </ul>
-    <h1>@Model.Title</h1>
-    @if (!String.IsNullOrWhiteSpace(Model.Subtitle))
-    {
-        <p class="subtitle">@Model.Subtitle</p>
-    }
-    @if (!String.IsNullOrWhiteSpace(Model.Description))
-    {
-        @Model.Description.ToRichText()
-    }
+    </section>
+    @Html.RichTextSection(Model.Description)
     @if (Model.ExcerptId != null)
     {
         <p class="excerpt">@Html.ActionLink(String.Format(SitePhrases.LabelExcerpt, Model.Title), "display", "upload", new { category = Model.UploadedFile.Category, fileName = Model.UploadedFile.FileName }, null)</p>
     }
-    @if (!String.IsNullOrWhiteSpace(Model.Quotes))
-    {
-        <h2>@String.Format(SitePhrases.HeadingBookQuotes, Model.Title)</h2>
-        @Model.Quotes.ToRichText()
-    }
-    @if (Model.BookToArticles.Any(a => a.Article.IsVisible))
-    {
-        <h2>@String.Format(SitePhrases.HeadingArticlesAbout, Model.Title)</h2>
-        <ul>
-            @foreach (var article in Model.BookToArticles.Where(a => a.Article.IsVisible).Select(a => a.Article).OrderByDescending(a => a.Date))
-            {
-                <li>@Html.ActionLink(article.Title, "article", "home", new { id = article.Id }, null)</li>
-            }
-        </ul>
-    }
+    @Html.RichTextSection(Model.Quotes, string.Format(SitePhrases.HeadingBookQuotes, Model.Title))
+    @Html.ArticleLinkList(Model.BookToArticles.Select(_ => _.Article), Model.Title)
 </div>
 <div id="sidebar">
     @if (Model.Editions.Any(e => e.LargeCoverId != null))
@@ -65,40 +51,40 @@
                     <h2>@edition.Binding.Name</h2>
                     <p class="metadata">
                         @String.Format(SitePhrases.LabelIsbn, edition.Isbn.AsIsbn())<br />
-                    <span class="releaseyear">@(!edition.Binding.HideEditionNumber ? String.Format(SitePhrases.LabelEdition, edition.Number) + ", " + edition.ReleaseDate.Year : edition.ReleaseDate.Year.ToString())</span><br />
-                    @if (edition.PageCount != null)
+                        <span class="releaseyear">@(!edition.Binding.HideEditionNumber ? String.Format(SitePhrases.LabelEdition, edition.Number) + ", " + edition.ReleaseDate.Year : edition.ReleaseDate.Year.ToString())</span><br />
+                        @if (edition.PageCount != null)
+                        {
+                            <span class="pagecount">@String.Format("{0} {1}", edition.PageCount, SitePhrases.UnitPagesPlural)</span><br />
+                        }
+                        @if (edition.Price != null)
+                        {
+                            @String.Format(SitePhrases.UnitPrice, edition.Price)
+                        }
+                    </p>
+                    @if (edition.IsForSale)
                     {
-                        <span class="pagecount">@String.Format("{0} {1}", edition.PageCount, SitePhrases.UnitPagesPlural)</span><br />
-                    }
-                    @if (edition.Price != null)
-                    {
-                        @String.Format(SitePhrases.UnitPrice, edition.Price)
-                    }
-                </p>
-                @if (edition.IsForSale)
-                {
-                    if (!edition.Binding.UsesExternalStores)
-                    {
-                        <p class="addtoshop">@Html.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" })</p>
+                        if (!edition.Binding.UsesExternalStores)
+                        {
+                            <p class="addtoshop">@Html.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" })</p>
+                        }
+                        else
+                        {
+                            <div class="externalstores">
+                                <p>@SitePhrases.LabelBuyThroughExternalStores</p>
+                                <ul>
+                                    @foreach (var store in stores)
+                                    {
+                                        <li><a href="@String.Format("{0}{1}{2}", store.UrlPrefix, edition.Isbn, store.UrlPostfix)">@store.Name</a></li>}
+                                </ul>
+                            </div>
+                        }
                     }
                     else
                     {
-                        <div class="externalstores">
-                            <p>@SitePhrases.LabelBuyThroughExternalStores</p>
-                            <ul>
-                                @foreach (var store in stores)
-                                {
-                                    <li><a href="@String.Format("{0}{1}{2}", store.UrlPrefix, edition.Isbn, store.UrlPostfix)">@store.Name</a></li>}
-                            </ul>
-                        </div>
+                        <p class="notforsale">@(!String.IsNullOrWhiteSpace(edition.AlternativeNotForSaleMessage) ? edition.AlternativeNotForSaleMessage : SitePhrases.LabelNotForSale)</p>
                     }
-                }
-                else
-                {
-                    <p class="notforsale">@(!String.IsNullOrWhiteSpace(edition.AlternativeNotForSaleMessage) ? edition.AlternativeNotForSaleMessage : SitePhrases.LabelNotForSale)</p>
-                }
-            </div>
-        }
+                </div>
+            }
         </div>
     }
     <div id="social">

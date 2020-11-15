@@ -3,7 +3,9 @@
     ViewBag.Title = Model.Person.FullName;
 }
 <div id="main">
-    <h1>@Model.Person.FullName</h1>
+    <section class="title">
+        <h1>@Model.Person.FullName</h1>
+    </section>
     @Html.RichTextSection(Model.Person.Description)
     @foreach (var booksByRole in Model.Books.GroupBy(b => b.Relations.Single(r => r.PersonId == Model.Person.Id).Role).Where(r => r.Key.ShowBookList).OrderBy(r => r.Key.SequenceIdentifier))
     {

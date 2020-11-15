@@ -10,7 +10,7 @@ namespace ImprintCMS.Models
 		{
 			get
 			{
-				return String.Format("{0}{1}", Person.ReverseName, !String.IsNullOrWhiteSpace(Role.ShortName) ? String.Format(" ({0})", Role.ShortName) : string.Empty).Trim();
+				return string.Format("{0}{1}", Person.ReverseName, !String.IsNullOrWhiteSpace(Role.ShortName) ? String.Format(" ({0})", Role.ShortName) : string.Empty).Trim();
 			}
 		}
 
@@ -18,7 +18,7 @@ namespace ImprintCMS.Models
 		{
 			get
 			{
-				return String.Format("{0} {1}{2}", Person.FirstName, Person.LastName, !String.IsNullOrWhiteSpace(Role.ShortName) ? String.Format(" ({0})", Role.ShortName) : string.Empty).Trim();
+				return string.Format("{0} {1}{2}", Person.FirstName, Person.LastName, !String.IsNullOrWhiteSpace(Role.ShortName) ? String.Format(" ({0})", Role.ShortName) : string.Empty).Trim();
 			}
 		}
 	}

@@ -65,6 +65,22 @@ namespace ImprintCMS.Models
             return RichTextSection(helper, content, string.Empty);
         }
 
+        public static HtmlString ArticleLinkList(this HtmlHelper helper, IEnumerable<Article> articles, string subjectName)
+        {
+            if (!articles.Any(_ => _.IsVisible)) return null;
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var buffer = "<section class=\"articlelinks\">";
+            buffer += "\n\t<h2>" + string.Format(SitePhrases.HeadingArticlesAbout, subjectName) +  "</h2>";
+            buffer += "\n\t<ul>";
+            foreach (var article in articles.OrderByDescending(_ => _.Date))
+            {
+                buffer += "\n\t\t<li><a href=\"" + urlHelper.Action("article", "home", new { id = article.Id }) + "\">" + article.Title + "</a></li>";
+            }
+            buffer += "\n\t</ul>";
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
         public static HtmlString PersonLinkCard(this HtmlHelper helper, Person person)
         {
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
