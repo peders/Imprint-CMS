@@ -138,7 +138,6 @@
       <DependentUpon>ImprintCMS.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\MenuShortcut.cs" />
-    <Compile Include="Models\ModelExtensions.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonImage.cs" />
@@ -157,7 +156,6 @@
     <Compile Include="Models\ViewModels\OpenGraph.cs" />
     <Compile Include="Models\ViewModels\OrderDetails.cs" />
     <Compile Include="Models\ViewModels\OrderReceipt.cs" />
-    <Compile Include="Models\ViewModels\PersonPage.cs" />
     <Compile Include="Models\ViewModels\SearchResult.cs" />
     <Compile Include="Models\ViewModels\SiteFrontPage.cs" />
     <Compile Include="Models\ViewModels\UploadCategory.cs" />

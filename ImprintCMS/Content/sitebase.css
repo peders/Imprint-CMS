@@ -34,14 +34,14 @@ body {
 
 h1 {
     font-family: var(--font-variant);
-    font-size: 1.75em;
+    font-size: 1.75rem;
     font-weight: 500;
     margin: 2rem 0 1rem 0;
 }
 
 h2 {
     font-family: var(--font-variant);
-    font-size: 1.25em;
+    font-size: 1.25rem;
     font-weight: 500;
     margin: 1rem 0 0.5rem 0;
 }
@@ -49,6 +49,10 @@ h2 {
 p {
     margin: 0 0 0.5rem 0;
 }
+
+    p.social {
+        margin-top: 2rem;
+    }
 
 a {
     color: var(--link);
@@ -66,81 +70,62 @@ ul {
     padding: 0;
 }
 
-#content.home.contact article {
-    margin-bottom: 5rem;
+#content {
+    width: var(--pagewidth);
+    margin: 0 auto;
+    background: var(--bg-accent);
+    padding: 3rem 2rem;
 }
 
-#submenu {
-    padding: 2rem 0;
-}
-
-    #submenu ul {
-        display: flex;
-        justify-content: center;
+    #content.home.index {
+        display: grid;
+        grid-template-columns: 74fr 32fr;
     }
 
-    #submenu li {
-        display: inline-block;
-        margin-right: 2rem;
+    #content.home.contact {
+        padding-right: 33.5rem;
     }
 
-        #submenu li:last-child {
-            margin-right: 0;
+        #content.home.contact article {
+            margin-bottom: 5rem;
         }
 
-        #submenu li a {
-            color: var(--line-lighter);
+    #content.books.index, #content.authors.index, #content.details, #content.article, #content.contact, #content.search {
+        padding: 4rem 8.5rem;
+    }
+
+    #content.details, #content.article {
+        display: grid;
+        grid-template-columns: 1fr 25rem;
+    }
+
+        #content.details #main, #content.article #main {
+            padding-right: 8.5rem;
         }
 
-            #submenu li a:hover {
-                color: var(--line);
+            #content.details #main p, #content.article #main p, #content.contact article p {
+                font-size: 1.125rem;
+                line-height: 150%;
+                margin-bottom: 1rem;
             }
 
-#content.books.index, #content.authors.index, #content.details, #content.article, #content.contact, #content.search {
-    padding: 4rem 8.5rem;
-}
+            #content.details #main li, #content.article #main li {
+                font-size: 1.125rem;
+                line-height: 150%;
+                margin-bottom: 0;
+            }
 
-#content.home.index {
-    display: grid;
-    grid-template-columns: 74fr 32fr;
-}
+            #content.details #main h1, #content.article #main h1 {
+                margin: 0;
+            }
 
-#content.home.contact {
-    padding-right: 33.5rem;
-}
+            #content.details #main section.title, #content.article #main section.title {
+                margin-bottom: 4rem;
+            }
 
-#content.details, #content.article {
-    display: grid;
-    grid-template-columns: 1fr 25rem;
-}
-
-    #content.details #main, #content.article #main {
-        padding-right: 8.5rem;
-    }
-
-        #content.details #main p, #content.article #main p, #content.contact article p {
-            font-size: 1.125em;
-            line-height: 150%;
-            margin-bottom: 1rem;
-        }
-
-        #content.details #main li, #content.article #main li {
-            font-size: 1.125em;
-            line-height: 150%;
-            margin-bottom: 0;
-        }
-
-        #content.details #main h1, #content.article #main h1 {
-            margin: 0;
-        }
-
-        #content.details #main section.title, #content.article #main section.title {
-            margin-bottom: 4rem;
-        }
-
-        #content.details #main h2, #content.article #main h2 {
-            margin-top: 4rem;
-        }
+            #content.details #main h2, #content.article #main h2 {
+                margin-top: 4rem;
+            }
 
 #sidebar .edition {
     margin: 2rem 0;
@@ -150,32 +135,37 @@ ul {
     width: 100%;
 }
 
-    #sidebar img.person.thumbnail {
-        border-radius: 50%;
+#sidebar .secondaryimages {
+    margin-top: 4rem;
+    width: 50%;
+}
+
+    #sidebar .secondaryimages li {
+        margin-top: 2rem;
     }
+
+#sidebar img.person.thumbnail {
+    border-radius: 50%;
+}
 
 #sidebar h2 {
     font-family: var(--font);
-    font-size: 0.875em;
+    font-size: 0.875rem;
     font-weight: 700;
     margin: 0;
 }
 
 #sidebar p, #sidebar li {
-    font-size: 0.875em;
+    font-size: 0.875rem;
     margin: 0;
 }
 
-#sidebar p.download {
-    margin-top: 0.5rem;
-}
+    #sidebar p.download {
+        margin-top: 0.5rem;
+    }
 
-p.social {
-    margin-top: 2rem;
-}
-
-#content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
-    grid-template-columns: repeat(5, 1fr);
+#sidebar .thumbnail p.photographer {
+    text-align: center;
 }
 
 #booklists h1 {
@@ -184,7 +174,7 @@ p.social {
 
 #booklists .linkcardlist {
     grid-template-columns: repeat(4, 1fr);
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 #articles {
@@ -194,14 +184,12 @@ p.social {
     #articles article {
         display: block;
         padding: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
     }
 
         #articles article h1 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.125em;
-            font-family: var(--font-variant);
-            font-weight: 500;
+            margin: 0 0 1rem 0;
+            font-size: 1.125rem;
         }
 
         #articles article img {
@@ -213,6 +201,19 @@ p.social {
             #articles article img.person {
                 border-radius: 50%;
             }
+
+        #articles article p {
+            line-height: 135%;
+            margin-bottom: 1rem;
+        }
+
+        #articles article li {
+            line-height: 135%;
+        }
+
+#content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
+    grid-template-columns: repeat(5, 1fr);
+}
 
 /* COMPONENTS */
 
@@ -251,12 +252,20 @@ p.social {
                 background: var(--bg-accent);
             }
 
+            .linkcardlist li a img {
+                width: 100%;
+            }
+
             .linkcardlist li a.person img {
                 border-radius: 50%;
             }
 
-            .linkcardlist li a img {
-                width: 100%;
+            .linkcardlist li a .imageplaceholder {
+                background: var(--bg);
+                display: block;
+                width: 15rem;
+                height: 15rem;
+                border-radius: 50%;
             }
 
             .linkcardlist li a p {
@@ -267,14 +276,14 @@ p.social {
     .linkcardlist.editions p.people {
         color: var(--line);
         font-family: var(--font-variant);
-        font-size: 1em;
+        font-size: 1rem;
         margin-top: 0.5rem;
     }
 
     .linkcardlist.editions p.title {
         color: var(--line);
         font-family: var(--font-variant);
-        font-size: 1.25em;
+        font-size: 1.25rem;
         font-weight: 500;
         margin-bottom: 0.5rem;
     }
@@ -282,7 +291,7 @@ p.social {
     .linkcardlist.people p.name {
         color: var(--line);
         font-family: var(--font-variant);
-        font-size: 1.25em;
+        font-size: 1.25rem;
         font-weight: 500;
         margin: 1rem 0.5rem 0.5rem 0.5rem;
         text-align: center;
@@ -317,7 +326,7 @@ p.social {
         margin: 0;
         padding: 0;
         font-family: var(--font-variant);
-        font-size: 1em;
+        font-size: 1rem;
         font-weight: normal;
     }
 
@@ -353,7 +362,7 @@ p.social {
 
     #searchform input {
         font-family: var(--font);
-        font-size: 1em;
+        font-size: 1rem;
     }
 
         #searchform input[type=search] {
@@ -396,7 +405,7 @@ p.social {
     #sitemenu li {
         display: inline-block;
         font-family: var(--font);
-        font-size: 1.125em;
+        font-size: 1.125rem;
         font-weight: 400;
         text-transform: uppercase;
         margin: 0 2rem 0 0;
@@ -422,12 +431,31 @@ p.social {
                 background: var(--bg-accent);
             }
 
-#content {
-    width: var(--pagewidth);
-    margin: 0 auto;
-    background: var(--bg-accent);
-    padding: 2rem;
+#submenu {
+    padding: 2rem 0;
 }
+
+    #submenu ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    #submenu li {
+        display: inline-block;
+        margin-right: 2rem;
+    }
+
+        #submenu li:last-child {
+            margin-right: 0;
+        }
+
+        #submenu li a {
+            color: var(--line-lighter);
+        }
+
+            #submenu li a:hover {
+                color: var(--line);
+            }
 
 #footer {
     width: var(--pagewidth);
@@ -455,6 +483,14 @@ p.social {
         grid-template-columns: 55fr 32fr;
     }
 
+    #content.details, #content.article {
+        grid-template-columns: 1fr 20rem;
+    }
+
+        #content.details #main, #content.article #main {
+            padding-right: 6rem;
+        }
+
     #booklists .linkcardlist {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -474,12 +510,33 @@ p.social {
         grid-template-columns: 36fr 32fr;
     }
 
+    #content.details, #content.article {
+        grid-template-columns: 1fr 15rem;
+    }
+
+        #content.details #main, #content.article #main {
+            padding-right: 4rem;
+        }
+
     #booklists .linkcardlist {
         grid-template-columns: repeat(2, 1fr);
     }
 
     #content.books.index .linkcardlist, #content.authors.index .linkcardlist, #content.home.search .linkcardlist {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    #content.books.index {
+        padding: 4rem 0;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+        #content.books.index .linkcardlist {
+            padding: 0 8.5rem;
+        }
+
+    #content.home.contact {
+        padding-right: 8.5rem;
     }
 }
 
@@ -489,11 +546,11 @@ p.social {
 #editshortcut {
     position: fixed;
     bottom: 0;
-    right: 1em;
-    padding: 1em;
+    right: 1rem;
+    padding: 1rem;
     background: #ffa500;
-    border-radius: 0.5em 0.5em 0 0;
-    box-shadow: -0.1em -0.1em 0.3em 0.1em rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem 0.5rem 0 0;
+    box-shadow: -0.1rem -0.1rem 0.3rem 0.1rem rgba(0, 0, 0, 0.1);
     color: rgba(255,255,255,0.5);
     font-family: sans-serif;
     z-index: 99;

@@ -1,54 +1,20 @@
-﻿@model PersonPage
+﻿@model Person
 @{
-    ViewBag.Title = Model.Person.FullName;
+    ViewBag.Title = Model.FullName;
 }
 <div id="main">
     <section class="title">
-        <h1>@Model.Person.FullName</h1>
+        <h1>@Model.FullName</h1>
     </section>
-    @Html.RichTextSection(Model.Person.Description)
-    @foreach (var booksByRole in Model.Books.GroupBy(b => b.Relations.Single(r => r.PersonId == Model.Person.Id).Role).Where(r => r.Key.ShowBookList).OrderBy(r => r.Key.SequenceIdentifier))
-    {
-        <h2>@(!String.IsNullOrWhiteSpace(booksByRole.Key.BookListHeading) ? booksByRole.Key.BookListHeading : booksByRole.Key.Name)</h2>
-        <ul>
-            @foreach (var book in booksByRole.OrderBy(b => b.CachedReleaseYear))
-            {
-                <li>@Html.BookPersonPageEntry(book)</li>
-            }
-        </ul>
-    }
-    @Html.RichTextSection(Model.Person.Awards, SitePhrases.HeadingAuthorAwards)
-    @Html.RichTextSection(Model.Person.Translations, SitePhrases.HeadingAuthorTranslations)
-    @Html.RichTextSection(Model.Person.Anthologies, SitePhrases.HeadingAuthorAnthologies)
-    @Html.RichTextSection(Model.Person.MiscInfo)
-    @Html.RelatedArticlesSection(Model.Person.PersonToArticles.Select(_ => _.Article), Model.Person.FullName)
+    @Html.RichTextSection(Model.Description)
+    @Html.PersonBooksSection(Model)
+    @Html.RichTextSection(Model.Awards, SitePhrases.HeadingAuthorAwards)
+    @Html.RichTextSection(Model.Translations, SitePhrases.HeadingAuthorTranslations)
+    @Html.RichTextSection(Model.Anthologies, SitePhrases.HeadingAuthorAnthologies)
+    @Html.RichTextSection(Model.MiscInfo)
+    @Html.RelatedArticlesSection(Model.PersonToArticles.Select(_ => _.Article), Model.FullName)
 </div>
 <div id="sidebar">
-    @if (Model.Person.MainImage != null)
-    {
-        @Html.PersonImage(Model.Person)
-        if (!String.IsNullOrWhiteSpace(Model.Person.MainImage.Photographer))
-        {
-            <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.Person.MainImage.Photographer)</p>
-        }
-        <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = Model.Person.MainImage.UploadedFile.Category, fileName = Model.Person.MainImage.UploadedFile.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
-    }
-    @if (Model.Person.PersonImages.Count() > 1)
-    {
-        <h2>@SitePhrases.HeadingMoreImages</h2>
-        <ul id="gallery">
-            @foreach (var image in Model.Person.PersonImages.OrderBy(_ => _.SequenceIdentifier).Skip(1))
-            {
-                <li>
-                    @Html.PersonThumbnail(image.LargeImageId, Model.Person.FullName)
-                    @if (!string.IsNullOrWhiteSpace(image.Photographer))
-                    {
-                        <p class="photographer">@string.Format(SitePhrases.LabelPhotoCredit, image.Photographer)</p>
-                    }
-                    <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = image.UploadedFile.Category, fileName = image.UploadedFile.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
-
-                </li>
-            }
-        </ul>
-    }
+    @Html.PersonMainImageSection(Model)
+    @Html.PersonSecondaryImagesSection(Model)
 </div>

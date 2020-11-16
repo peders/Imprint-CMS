@@ -147,9 +147,59 @@ namespace ImprintCMS.Models
             if (!edition.Binding.UsesExternalStores) return new HtmlString("<section class=\"purchaseoptions\">\n\t<p class=\"addtobasket\">" + helper.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" }) + "</p>\n</section>");
             var buffer = "<section class=\"purchaseoptions\">";
             buffer += "\n\t<ul>";
-            foreach(var store in stores)
+            foreach (var store in stores)
             {
-                buffer += "\n\t\t<li><a href=\"" + string.Format("{0}{1}{2}", store.UrlPrefix, edition.Isbn, store.UrlPostfix) + "\">" + string.Format(SitePhrases.LabelBuyFrom, store.Name) + "</a></li>";
+                buffer += "\n\t\t<li><a href=\"" + string.Format("{0}{1}{2}", store.UrlPrefix, edition.Isbn, store.UrlPostfix) + "\" target=\"_blank\">" + string.Format(SitePhrases.LabelBuyFrom, store.Name) + "</a></li>";
+            }
+            buffer += "\n\t</ul>";
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString PersonBooksSection(this HtmlHelper helper, Person person)
+        {
+            var relationsToShow = person.Relations.Where(_ => _.Role.ShowBookList && _.Book.IsVisible);
+            if (!relationsToShow.Any()) return null;
+            var buffer = "<section class=\"books\">";
+            foreach (var role in relationsToShow.GroupBy(_ => _.Role).OrderBy(_ => _.Key.SequenceIdentifier))
+            {
+                buffer += "\n\t<h2>" + (role.Key.BookListHeading ?? role.Key.Name) + "</h2>";
+                buffer += "\n\t<ul>";
+                foreach (var book in role.Select(_ => _.Book).OrderBy(_ => _.CachedReleaseYear))
+                {
+                    buffer += "\n\t\t<li>" + BookPersonPageEntry(helper, book) + "</li>";
+                }
+                buffer += "\n\t</ul>";
+            }
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString PersonMainImageSection(this HtmlHelper helper, Person person)
+        {
+            if (person.MainImage == null) return null;
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var buffer = "<section class=\"mainimage\">";
+            buffer += "\n\t" + PersonImage(helper, person);
+            if (!string.IsNullOrWhiteSpace(person.MainImage.Photographer)) buffer += "\n\t<p class=\"photographer\">" + string.Format(SitePhrases.LabelPhotoCredit, person.MainImage.Photographer) + "</p>";
+            buffer += "\n\t<p class=\"download\"><a href=\"" + urlHelper.Action("display", "upload", new { category = person.MainImage.UploadedFile.Category, fileName = person.MainImage.UploadedFile.FileName }) + "\">" + SitePhrases.LabelLargePortrait + "</a></p>";
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
+        public static HtmlString PersonSecondaryImagesSection(this HtmlHelper helper, Person person)
+        {
+            if (person.PersonImages.Count() < 2) return null;
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var buffer = "<section class=\"secondaryimages\">";
+            buffer += "\n\t<ul>";
+            foreach (var image in person.PersonImages.OrderBy(_ => _.SequenceIdentifier).Skip(1))
+            {
+                buffer += "\n\t\t<li>";
+                buffer += "\n\t\t\t" + PersonImage(helper, person, image.LargeImageId);
+                if (!string.IsNullOrWhiteSpace(image.Photographer)) buffer += "\n\t\t\t<p class=\"photographer\">" + string.Format(SitePhrases.LabelPhotoCredit, image.Photographer) + "</p>";
+                buffer += "\n\t\t\t<p class=\"download\"><a href=\"" + urlHelper.Action("display", "upload", new { category = image.UploadedFile.Category, fileName = image.UploadedFile.FileName }) + "\">" + SitePhrases.LabelLargePortrait + "</a></p>";
+                buffer += "\n\t\t</li>";
             }
             buffer += "\n\t</ul>";
             buffer += "\n</section>";
@@ -161,6 +211,7 @@ namespace ImprintCMS.Models
             var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
             var buffer = "<a href=\"" + urlHelper.Action("details", "authors", new { id = person.Id }) + "\" class=\"linkcard person\">";
             buffer += "\n\t" + PersonThumbnail(helper, person);
+            if (person.MainImage == null) buffer += "<span class=\"imageplaceholder\"></span>";
             buffer += "\n\t<p class=\"name\">" + person.FullName + "</p>";
             buffer += "\n</a>";
             return new HtmlString(buffer);
@@ -264,13 +315,18 @@ namespace ImprintCMS.Models
             return PersonThumbnail(helper, person.MainImage.LargeImageId, person.FullName);
         }
 
+        public static HtmlString PersonImage(this HtmlHelper helper, Person person, int imageId)
+        {
+            var legend = helper.Encode(string.Format(SitePhrases.LabelAuthorImage, person.FullName));
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var source = urlHelper.Action("cachedportrait", "upload", new { id = imageId });
+            return new HtmlString("<img src=\"" + source + "\" class=\"person\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
+        }
+
         public static HtmlString PersonImage(this HtmlHelper helper, Person person)
         {
             if (person.MainImage == null) return null;
-            var legend = helper.Encode(string.Format(SitePhrases.LabelAuthorImage, person.FullName));
-            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
-            var source = urlHelper.Action("cachedportrait", "upload", new { id = person.MainImage.LargeImageId });
-            return new HtmlString("<img src=\"" + source + "\" class=\"person\" alt=\"" + legend + "\" title=\"" + legend + "\" />");
+            return PersonImage(helper, person, person.MainImage.LargeImageId);
         }
 
         public static HtmlString CoverImage(this HtmlHelper helper, Edition edition)
@@ -293,10 +349,17 @@ namespace ImprintCMS.Models
 
         public static HtmlString ArticleChosenImage(this HtmlHelper helper, Article article)
         {
-            if (article.ImageId != null) return ArticleImage(helper, article);
-            if (article.ImagePerson != null) return PersonThumbnail(helper, article.ImagePerson);
-            if (article.ImageEdition != null) return CoverImage(helper, article.ImageEdition);
-            return null;
+            switch (article.ImageType())
+            {
+                case ArticleImageTypes.ArticleImage:
+                    return ArticleImage(helper, article);
+                case ArticleImageTypes.BookCover:
+                    return CoverImage(helper, article.ImageEdition);
+                case ArticleImageTypes.PersonThumbnail:
+                    return PersonThumbnail(helper, article.ImagePerson);
+                default:
+                    return null;
+            }
         }
 
         public static HtmlString ArticleChosenImageInLink(this HtmlHelper helper, Article article)
@@ -309,16 +372,17 @@ namespace ImprintCMS.Models
             return null;
         }
 
-        public static HtmlString ArticleImageCredit(this HtmlHelper helper, Article article)
+        public static HtmlString ArticleChosenImageSection(this HtmlHelper helper, Article article)
         {
-            if (article.ImageId == null && article.ImagePerson != null)
-            {
-                if (!string.IsNullOrWhiteSpace(article.ImagePerson.MainImage.Photographer))
-                {
-                    return new HtmlString("<p class=\"photographer\">" + string.Format(SitePhrases.LabelPhotoCredit, article.ImagePerson.MainImage.Photographer) + "</p>");
-                }
-            }
-            return null;
+            if (article.ImageType() == ArticleImageTypes.None) return null;
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var buffer = "<section class=\"image";
+            if (article.ImageType() == ArticleImageTypes.PersonThumbnail) buffer += " thumbnail";
+            buffer += "\">";
+            buffer += "\n\t" + ArticleChosenImage(helper, article);
+            if (article.ImageType() == ArticleImageTypes.PersonThumbnail && !string.IsNullOrWhiteSpace(article.ImagePerson.MainImage.Photographer)) buffer += "\n\t<p class=\"photographer article\">" + string.Format(SitePhrases.LabelPhotoCredit, article.ImagePerson.MainImage.Photographer) + "</p>";
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
         }
 
         public static HtmlString ArticleLinks(this HtmlHelper helper, Article article)
