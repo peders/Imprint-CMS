@@ -1,79 +1,20 @@
-﻿@model PersonPage
+﻿@model Person
 @{
-    ViewBag.Title = Model.Person.FullName;
+    ViewBag.Title = Model.FullName;
 }
-<div id="image">
-    @if (Model.Person.MainImage != null)
-    {
-        @Html.PersonImage(Model.Person)
-        if (!String.IsNullOrWhiteSpace(Model.Person.MainImage.Photographer))
-        {
-            <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.Person.MainImage.Photographer)</p>
-        }
-        <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = Model.Person.MainImage.UploadedFile.Category, fileName = Model.Person.MainImage.UploadedFile.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
-    }
-</div>
 <div id="main">
-    <h1>@Model.Person.FullName</h1>
-    @if (!String.IsNullOrWhiteSpace(Model.Person.Description))
-    {
-        @Model.Person.Description.ToRichText()
-    }
-    @foreach (var booksByRole in Model.Books.GroupBy(b => b.Relations.Single(r => r.PersonId == Model.Person.Id).Role).Where(r => r.Key.ShowBookList).OrderBy(r => r.Key.SequenceIdentifier))
-    {
-        <h2>@(!String.IsNullOrWhiteSpace(booksByRole.Key.BookListHeading) ? booksByRole.Key.BookListHeading : booksByRole.Key.Name)</h2>
-        <ul>
-            @foreach (var book in booksByRole.OrderBy(b => b.CachedReleaseYear))
-            {
-                <li>@Html.BookPersonPageEntry(book)</li>
-            }
-        </ul>
-    }
-    @if (!String.IsNullOrWhiteSpace(Model.Person.Awards))
-    {
-        <h2>@SitePhrases.HeadingAuthorAwards</h2>
-        @Model.Person.Awards.ToRichText()
-    }
-    @if (!String.IsNullOrWhiteSpace(Model.Person.Translations))
-    {
-        <h2>@SitePhrases.HeadingAuthorTranslations</h2>
-        @Model.Person.Translations.ToRichText()
-    }
-    @if (!String.IsNullOrWhiteSpace(Model.Person.Anthologies))
-    {
-        <h2>@SitePhrases.HeadingAuthorAnthologies</h2>
-        @Model.Person.Anthologies.ToRichText()
-    }
-    @if (!String.IsNullOrWhiteSpace(Model.Person.MiscInfo))
-    {
-        @Model.Person.MiscInfo.ToRichText()
-    }
-    @if (Model.Person.PersonToArticles.Any(a => a.Article.IsVisible))
-    {
-        <h2>@String.Format(SitePhrases.HeadingArticlesAbout, Model.Person.FullName)</h2>
-        <ul>
-            @foreach (var article in Model.Person.PersonToArticles.Where(a => a.Article.IsVisible).Select(a => a.Article).OrderByDescending(a => a.Date))
-            {
-                <li>@Html.ActionLink(article.Title, "article", "home", new { id = article.Id }, null)</li>
-            }
-        </ul>
-    }
-    @if (Model.Person.PersonImages.Count() > 1)
-    {
-        <h2>@SitePhrases.HeadingMoreImages</h2>
-        <ul id="gallery">
-            @foreach (var image in Model.Person.PersonImages.OrderBy(_ => _.SequenceIdentifier).Skip(1))
-            {
-                <li>
-                    @Html.PersonThumbnail(image.LargeImageId, Model.Person.FullName)
-                    @if (!string.IsNullOrWhiteSpace(image.Photographer))
-                    {
-                        <p class="photographer">@string.Format(SitePhrases.LabelPhotoCredit, image.Photographer)</p>
-                    }
-                    <p class="download">@Html.ImageDownload(Url.Action("display", "upload", new { category = image.UploadedFile.Category, fileName = image.UploadedFile.FileName }), SitePhrases.LabelLargePortrait, ((SiteConfig)ViewBag.Config).PersonImageDownloadNotice)</p>
-
-                </li>
-            }
-        </ul>
-    }
+    <section class="title">
+        <h1>@Model.FullName</h1>
+    </section>
+    @Html.RichTextSection(Model.Description)
+    @Html.PersonBooksSection(Model)
+    @Html.RichTextSection(Model.Awards, SitePhrases.HeadingAuthorAwards)
+    @Html.RichTextSection(Model.Translations, SitePhrases.HeadingAuthorTranslations)
+    @Html.RichTextSection(Model.Anthologies, SitePhrases.HeadingAuthorAnthologies)
+    @Html.RichTextSection(Model.MiscInfo)
+    @Html.RelatedArticlesSection(Model.PersonToArticles.Select(_ => _.Article), Model.FullName)
+</div>
+<div id="sidebar">
+    @Html.PersonMainImageSection(Model)
+    @Html.PersonSecondaryImagesSection(Model)
 </div>

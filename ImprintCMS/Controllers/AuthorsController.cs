@@ -1,7 +1,6 @@
-﻿using System.Linq;
+﻿using ImprintCMS.Models;
+using System.Linq;
 using System.Web.Mvc;
-using ImprintCMS.Models;
-using ImprintCMS.Models.ViewModels;
 
 namespace ImprintCMS.Controllers
 {
@@ -16,15 +15,10 @@ namespace ImprintCMS.Controllers
 
         public ActionResult Details(int id)
         {
-            var person = Repository.GetPerson(id);
-            if (person == null) return HttpNotFound();
-            if (!person.IsVisible || !person.HasPage) return HttpNotFound();
-            var vm = new PersonPage
-            {
-                Person = person,
-                Books = person.Relations.Where(r => r.Book.IsVisible).Select(r => r.Book)
-            };
-            ViewBag.OpenGraph = person.OpenGraph(Config.Name, Request.RequestContext);
+            var vm = Repository.GetPerson(id);
+            if (vm == null) return HttpNotFound();
+            if (!vm.IsVisible || !vm.HasPage) return HttpNotFound();
+            ViewBag.OpenGraph = vm.OpenGraph(Config.Name, Request.RequestContext);
             return View(vm);
         }
 

@@ -1,17 +1,11 @@
-﻿@model ContactPage
+﻿@model ArticleGroup
 @{
-    ViewBag.Title = SitePhrases.MenuContact;
+    ViewBag.Title = Model.Title;
 }
-<ul id="articlemenu">
-    @foreach (var article in Model.Articles)
-    {
-        <li>@(article == Model.CurrentArticle ? new HtmlString("<strong>" + article.Title + "</strong>") : Html.ActionLink(article.Title, "contact", new { id = article.Id }))</li>
-    }
-</ul>
-<div class="article">
-    @if (Model.CurrentArticle != null)
-    {
-        <h1>@Model.CurrentArticle.Title</h1>
-        @Model.CurrentArticle.BodyText.ToRichText()
-    }
-</div>
+@foreach (var article in Model.ContactArticles.OrderBy(_ => _.SequenceIdentifier))
+{
+    <article>
+        <h1 id="@string.Format("article{0}", article.Id)">@article.Title</h1>
+        @article.BodyText.ToRichText()
+    </article>
+}

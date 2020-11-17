@@ -130,11 +130,9 @@
     <value>{0}. utgave</value>
     <comment>Insert edition number</comment>
   </data>
-  <data name="UnitPagesPlural" xml:space="preserve">
-    <value>sider</value>
-  </data>
-  <data name="UnitPagesSingular" xml:space="preserve">
-    <value>side</value>
+  <data name="UnitPages" xml:space="preserve">
+    <value>{0} s</value>
+    <comment>Insert page count</comment>
   </data>
   <data name="UnitPrice" xml:space="preserve">
     <value>{0:F2} kr</value>
@@ -163,9 +161,6 @@
   </data>
   <data name="HeadingAuthorTranslations" xml:space="preserve">
     <value>Oversettelser</value>
-  </data>
-  <data name="MenuContact" xml:space="preserve">
-    <value>Kontakt oss</value>
   </data>
   <data name="HeadingSearchBooks" xml:space="preserve">
     <value>Bøker</value>
@@ -352,5 +347,13 @@
   <data name="LabelArticleImage" xml:space="preserve">
     <value>Bilde til artikkelen {0}</value>
     <comment>Insert article title</comment>
+  </data>
+  <data name="LabelBuyFrom" xml:space="preserve">
+    <value>Kjøp hos {0}</value>
+    <comment>Insert shop name</comment>
+  </data>
+  <data name="LabelEditionAndYear" xml:space="preserve">
+    <value>{0}. utgave, {1}</value>
+    <comment>Insert edition number and year</comment>
   </data>
 </root>

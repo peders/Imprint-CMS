@@ -2,48 +2,17 @@
 @{
     ViewBag.Title = Model.Title;
 }
-<div id="image">
-    @if (Model.ImageId != null)
-    {
-        @Html.ArticleImage(Model)
-    }
-    else
-    {
-        if (Model.ImagePerson != null)
-        {
-            <a href="@Url.Action("details", "authors", new { id = Model.ImagePerson.Id })">@Html.PersonThumbnail(Model.ImagePerson)</a>
-            if (!String.IsNullOrWhiteSpace(Model.ImagePerson.MainImage.Photographer))
-            {
-                <p class="photographer">@String.Format(SitePhrases.LabelPhotoCredit, Model.ImagePerson.MainImage.Photographer)</p>
-            }
-        }
-        else
-        {
-            if (Model.ImageEdition != null)
-            {
-                <a href="@Url.Action("details", "books", new { id = Model.ImageEdition.BookId })">@Html.CoverImage(Model.ImageEdition)</a>
-            }
-        }
-    }
-</div>
 <div id="main">
-    <h1>@Model.Title</h1>
+    <section class="title">
+        <h1>@Model.Title</h1>
+    </section>
     @Model.Description.ToRichText()
-    @if (Model.PersonToArticles.Any(p => p.Person.IsVisible && p.Person.HasPage) || Model.BookToArticles.Any(b => b.Book.IsVisible))
-    {
-        <ul class="links">
-            @foreach (var person in Model.PersonToArticles.OrderBy(p => p.SequenceIdentifier).Select(p => p.Person))
-            {
-                <li>@Html.ActionLink(person.FullName, "details", "authors", new { id = person.Id }, null)</li>
-            }
-            @foreach (var book in Model.BookToArticles.OrderBy(b => b.SequenceIdentifier).Select(b => b.Book))
-            {
-                <li>@Html.ActionLink(book.Title, "details", "books", new { id = book.Id }, null)</li>
-            }
-        </ul>
-    }
+    @Html.ArticleLinks(Model)
     <p class="social">
         @Html.Twitter(Model.Title, string.Empty)<br />
         @Html.Facebook()
     </p>
+</div>
+<div id="sidebar">
+    @Html.ArticleChosenImageSection(Model)
 </div>
