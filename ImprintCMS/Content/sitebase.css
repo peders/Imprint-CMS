@@ -540,6 +540,16 @@ ul {
     }
 }
 
+@media screen and (max-width: 1192px) {
+
+    * {
+        --pagewidth: 100%;
+    }
+
+    #header {
+        background-color: yellow;
+    }
+}
 
 /*LEAVE FOR ADMIN*/
 
