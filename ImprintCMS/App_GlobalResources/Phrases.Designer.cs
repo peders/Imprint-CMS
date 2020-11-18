@@ -205,6 +205,51 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Format.
+        /// </summary>
+        public static string LabelBookDeliveryFormat {
+            get {
+                return ResourceManager.GetString("LabelBookDeliveryFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports download.
+        /// </summary>
+        public static string LabelBookDeliveryFormatDownloadSupported {
+            get {
+                return ResourceManager.GetString("LabelBookDeliveryFormatDownloadSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports ebook.
+        /// </summary>
+        public static string LabelBookDeliveryFormatEbookSupported {
+            get {
+                return ResourceManager.GetString("LabelBookDeliveryFormatEbookSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supports physical.
+        /// </summary>
+        public static string LabelBookDeliveryFormatPhysicalSupported {
+            get {
+                return ResourceManager.GetString("LabelBookDeliveryFormatPhysicalSupported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Formats.
+        /// </summary>
+        public static string LabelBookDeliveryFormats {
+            get {
+                return ResourceManager.GetString("LabelBookDeliveryFormats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Book list.
         /// </summary>
         public static string LabelBookList {

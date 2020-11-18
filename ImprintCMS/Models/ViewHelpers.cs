@@ -147,7 +147,7 @@ namespace ImprintCMS.Models
             if (!edition.Binding.UsesExternalStores) return new HtmlString("<section class=\"purchaseoptions\">\n\t<p class=\"addtobasket\">" + helper.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" }) + "</p>\n</section>");
             var buffer = "<section class=\"purchaseoptions\">";
             buffer += "\n\t<ul>";
-            foreach (var store in stores)
+            foreach (var store in edition.Binding.SupportedStores(stores).OrderBy(_ => _.SequenceIdentifier))
             {
                 buffer += "\n\t\t<li><a href=\"" + string.Format("{0}{1}{2}", store.UrlPrefix, edition.Isbn, store.UrlPostfix) + "\" target=\"_blank\">" + string.Format(SitePhrases.LabelBuyFrom, store.Name) + "</a></li>";
             }

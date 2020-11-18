@@ -728,4 +728,19 @@
   <data name="LabelFaviconLegend" xml:space="preserve">
     <value>Files with names starting with 'favicon' will be served as icons in site markup.</value>
   </data>
+  <data name="LabelBookDeliveryFormat" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="LabelBookDeliveryFormatDownloadSupported" xml:space="preserve">
+    <value>Supports download</value>
+  </data>
+  <data name="LabelBookDeliveryFormatEbookSupported" xml:space="preserve">
+    <value>Supports ebook</value>
+  </data>
+  <data name="LabelBookDeliveryFormatPhysicalSupported" xml:space="preserve">
+    <value>Supports physical</value>
+  </data>
+  <data name="LabelBookDeliveryFormats" xml:space="preserve">
+    <value>Formats</value>
+  </data>
 </root>

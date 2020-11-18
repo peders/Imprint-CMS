@@ -749,6 +749,8 @@ namespace ImprintCMS.Models
 		
 		private bool _HideEditionNumber;
 		
+		private string _DeliveryFormat;
+		
 		private EntitySet<Edition> _Editions;
 		
     #region Extensibility Method Definitions
@@ -763,6 +765,8 @@ namespace ImprintCMS.Models
     partial void OnUsesExternalStoresChanged();
     partial void OnHideEditionNumberChanging(bool value);
     partial void OnHideEditionNumberChanged();
+    partial void OnDeliveryFormatChanging(string value);
+    partial void OnDeliveryFormatChanged();
     #endregion
 		
 		public Binding()
@@ -847,6 +851,26 @@ namespace ImprintCMS.Models
 					this._HideEditionNumber = value;
 					this.SendPropertyChanged("HideEditionNumber");
 					this.OnHideEditionNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveryFormat", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string DeliveryFormat
+		{
+			get
+			{
+				return this._DeliveryFormat;
+			}
+			set
+			{
+				if ((this._DeliveryFormat != value))
+				{
+					this.OnDeliveryFormatChanging(value);
+					this.SendPropertyChanging();
+					this._DeliveryFormat = value;
+					this.SendPropertyChanged("DeliveryFormat");
+					this.OnDeliveryFormatChanged();
 				}
 			}
 		}
@@ -3197,6 +3221,12 @@ namespace ImprintCMS.Models
 		
 		private int _SequenceIdentifier;
 		
+		private bool _SupportsPhysical;
+		
+		private bool _SupportsEbook;
+		
+		private bool _SupportsDownload;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3211,6 +3241,12 @@ namespace ImprintCMS.Models
     partial void OnUrlPostfixChanged();
     partial void OnSequenceIdentifierChanging(int value);
     partial void OnSequenceIdentifierChanged();
+    partial void OnSupportsPhysicalChanging(bool value);
+    partial void OnSupportsPhysicalChanged();
+    partial void OnSupportsEbookChanging(bool value);
+    partial void OnSupportsEbookChanged();
+    partial void OnSupportsDownloadChanging(bool value);
+    partial void OnSupportsDownloadChanged();
     #endregion
 		
 		public ExternalStore()
@@ -3314,6 +3350,66 @@ namespace ImprintCMS.Models
 					this._SequenceIdentifier = value;
 					this.SendPropertyChanged("SequenceIdentifier");
 					this.OnSequenceIdentifierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportsPhysical", DbType="Bit NOT NULL")]
+		public bool SupportsPhysical
+		{
+			get
+			{
+				return this._SupportsPhysical;
+			}
+			set
+			{
+				if ((this._SupportsPhysical != value))
+				{
+					this.OnSupportsPhysicalChanging(value);
+					this.SendPropertyChanging();
+					this._SupportsPhysical = value;
+					this.SendPropertyChanged("SupportsPhysical");
+					this.OnSupportsPhysicalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportsEbook", DbType="Bit NOT NULL")]
+		public bool SupportsEbook
+		{
+			get
+			{
+				return this._SupportsEbook;
+			}
+			set
+			{
+				if ((this._SupportsEbook != value))
+				{
+					this.OnSupportsEbookChanging(value);
+					this.SendPropertyChanging();
+					this._SupportsEbook = value;
+					this.SendPropertyChanged("SupportsEbook");
+					this.OnSupportsEbookChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportsDownload", DbType="Bit NOT NULL")]
+		public bool SupportsDownload
+		{
+			get
+			{
+				return this._SupportsDownload;
+			}
+			set
+			{
+				if ((this._SupportsDownload != value))
+				{
+					this.OnSupportsDownloadChanging(value);
+					this.SendPropertyChanging();
+					this._SupportsDownload = value;
+					this.SendPropertyChanged("SupportsDownload");
+					this.OnSupportsDownloadChanged();
 				}
 			}
 		}

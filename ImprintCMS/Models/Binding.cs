@@ -13,4 +13,12 @@ namespace ImprintCMS.Models
 		public string Name { get; set; }
 
 	}
+
+    public enum BookDeliveryFormats
+    {
+        Physical,
+        Download,
+        Ebook
+    }
+
 }

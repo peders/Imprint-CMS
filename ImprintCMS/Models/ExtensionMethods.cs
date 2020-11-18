@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using ImprintCMS.Models.ViewModels;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace ImprintCMS.Models
 {
@@ -210,6 +211,15 @@ namespace ImprintCMS.Models
             if (article.ImagePerson != null) return ArticleImageTypes.PersonThumbnail;
             if (article.ImageEdition != null) return ArticleImageTypes.BookCover;
             return ArticleImageTypes.None;
+        }
+
+        public static IEnumerable<ExternalStore> SupportedStores(this Binding binding, IEnumerable<ExternalStore> stores)
+        {
+            if (!binding.UsesExternalStores) return null;
+            if (binding.DeliveryFormat.Equals(BookDeliveryFormats.Physical.ToString(), StringComparison.InvariantCultureIgnoreCase)) return stores.Where(_ => _.SupportsPhysical);
+            if (binding.DeliveryFormat.Equals(BookDeliveryFormats.Ebook.ToString(), StringComparison.InvariantCultureIgnoreCase)) return stores.Where(_ => _.SupportsEbook);
+            if (binding.DeliveryFormat.Equals(BookDeliveryFormats.Download.ToString(), StringComparison.InvariantCultureIgnoreCase)) return stores.Where(_ => _.SupportsDownload);
+            return null;
         }
 
     }

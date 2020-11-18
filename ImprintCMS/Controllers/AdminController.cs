@@ -274,7 +274,10 @@ namespace ImprintCMS.Controllers
 
         public ActionResult CreateBinding()
         {
-            var vm = new Binding();
+            var vm = new Binding
+            {
+                DeliveryFormat = BookDeliveryFormats.Physical.ToString()
+            };
             return View(vm);
         }
 

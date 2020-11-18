@@ -28,6 +28,7 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UsesExternalStores" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="HideEditionNumber" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DeliveryFormat" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Binding_Edition" Member="Editions" ThisKey="Id" OtherKey="BindingId" Type="Edition" />
     </Type>
   </Table>
@@ -142,6 +143,9 @@
       <Column Name="UrlPrefix" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="UrlPostfix" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SupportsPhysical" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SupportsEbook" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SupportsDownload" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.Genre" Member="Genres">
