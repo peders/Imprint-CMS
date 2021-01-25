@@ -448,6 +448,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Additional edition info.
+        /// </summary>
+        public static string LabelEditionAdditionalInfo {
+            get {
+                return ResourceManager.GetString("LabelEditionAdditionalInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Marketing blurb (shown in front page book lists).
         /// </summary>
         public static string LabelEditionBlurb {

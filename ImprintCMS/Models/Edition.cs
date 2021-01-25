@@ -38,5 +38,8 @@ namespace ImprintCMS.Models
 
         [StringLength(50, ErrorMessageResourceType = typeof(Phrases), ErrorMessageResourceName = "ValidationStringLength50")]
         public string AlternativeNotForSaleMessage { get; set; }
+
+        [StringLength(50, ErrorMessageResourceType = typeof(Phrases), ErrorMessageResourceName = "ValidationStringLength50")]
+        public string AdditionalInfo { get; set; }
     }
 }

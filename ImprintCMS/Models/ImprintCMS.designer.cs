@@ -2730,6 +2730,8 @@ namespace ImprintCMS.Models
 		
 		private string _AlternativeNotForSaleMessage;
 		
+		private string _AdditionalInfo;
+		
 		private EntitySet<BookListMembership> _BookListMemberships;
 		
 		private EntitySet<OrderLine> _OrderLines;
@@ -2768,6 +2770,8 @@ namespace ImprintCMS.Models
     partial void OnBlurbChanged();
     partial void OnAlternativeNotForSaleMessageChanging(string value);
     partial void OnAlternativeNotForSaleMessageChanged();
+    partial void OnAdditionalInfoChanging(string value);
+    partial void OnAdditionalInfoChanged();
     #endregion
 		
 		public Edition()
@@ -3028,6 +3032,26 @@ namespace ImprintCMS.Models
 					this._AlternativeNotForSaleMessage = value;
 					this.SendPropertyChanged("AlternativeNotForSaleMessage");
 					this.OnAlternativeNotForSaleMessageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdditionalInfo", DbType="NVarChar(50)")]
+		public string AdditionalInfo
+		{
+			get
+			{
+				return this._AdditionalInfo;
+			}
+			set
+			{
+				if ((this._AdditionalInfo != value))
+				{
+					this.OnAdditionalInfoChanging(value);
+					this.SendPropertyChanging();
+					this._AdditionalInfo = value;
+					this.SendPropertyChanged("AdditionalInfo");
+					this.OnAdditionalInfoChanged();
 				}
 			}
 		}

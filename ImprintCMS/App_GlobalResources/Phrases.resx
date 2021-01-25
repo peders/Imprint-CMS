@@ -743,4 +743,7 @@
   <data name="LabelBookDeliveryFormats" xml:space="preserve">
     <value>Formats</value>
   </data>
+  <data name="LabelEditionAdditionalInfo" xml:space="preserve">
+    <value>Additional edition info</value>
+  </data>
 </root>

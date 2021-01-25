@@ -129,6 +129,7 @@
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
       <Column Name="Blurb" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="AlternativeNotForSaleMessage" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AdditionalInfo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Edition_BookListMembership" Member="BookListMemberships" ThisKey="Id" OtherKey="EditionId" Type="BookListMembership" />
       <Association Name="Edition_OrderLine" Member="OrderLines" ThisKey="Id" OtherKey="EditionId" Type="OrderLine" />
       <Association Name="Binding_Edition" Member="Binding" ThisKey="BindingId" OtherKey="Id" Type="Binding" IsForeignKey="true" />

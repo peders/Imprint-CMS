@@ -133,6 +133,7 @@ namespace ImprintCMS.Models
         {
             var buffer = "<section class=\"metadata\">";
             buffer += "\n\t<h2>" + edition.Binding.Name + "</h2>";
+            if (!string.IsNullOrWhiteSpace(edition.AdditionalInfo)) buffer += "\n\t<p class=\"additionalinfo\">" + edition.AdditionalInfo + "</p>";
             buffer += "\n\t<p class=\"isbn\">" + string.Format(SitePhrases.LabelIsbn, edition.Isbn.AsIsbn()) + "</p>";
             buffer += "\n\t<p class=\"releaseyear\">" + (edition.Binding.HideEditionNumber ? edition.ReleaseDate.Year.ToString("") : string.Format(SitePhrases.LabelEditionAndYear, edition.Number, edition.ReleaseDate.Year)) + "</p>";
             if (edition.PageCount != null) buffer += "\n\t<p class=\"pagecount\">" + string.Format(SitePhrases.UnitPages, edition.PageCount) + "</p>";
