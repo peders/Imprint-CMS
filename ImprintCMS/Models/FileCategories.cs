@@ -6,6 +6,7 @@
 		LargePortrait,
         ArticleImage,
 		Excerpt,
+        AudioExcerpt,
 		Attachment,
 		Layout,
 		Script,

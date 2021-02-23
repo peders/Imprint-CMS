@@ -746,4 +746,7 @@
   <data name="LabelEditionAdditionalInfo" xml:space="preserve">
     <value>Additional edition info</value>
   </data>
+  <data name="LabelAudioExcerpt" xml:space="preserve">
+    <value>Audio excerpt</value>
+  </data>
 </root>

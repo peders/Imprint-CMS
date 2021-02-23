@@ -117,6 +117,16 @@ namespace ImprintCMS.Models
             return new HtmlString(buffer);
         }
 
+        public static HtmlString BookAudioExcerptSection(this HtmlHelper helper, Book book)
+        {
+            if (book.AudioExcerptId == null) return null;
+            var urlHelper = new UrlHelper(helper.ViewContext.RequestContext);
+            var buffer = "<section class=\"audioexcerpt\">";
+            buffer += "\n\t<audio controls=\"true\" src=\"" + urlHelper.Action("display", "upload", new { category = book.UploadedFile1.Category, fileName = book.UploadedFile1.FileName }) + "\">" + SitePhrases.LabelAudioExcerptPlaceholder + "</audio>";
+            buffer += "\n</section>";
+            return new HtmlString(buffer);
+        }
+
         public static HtmlString BookCoverSection(this HtmlHelper helper, Book book)
         {
             if (!book.Editions.Any(_ => _.LargeCoverId != null)) return null;

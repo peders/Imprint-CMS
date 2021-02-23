@@ -160,6 +160,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Audio excerpt.
+        /// </summary>
+        public static string LabelAudioExcerpt {
+            get {
+                return ResourceManager.GetString("LabelAudioExcerpt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Awards.
         /// </summary>
         public static string LabelAwards {

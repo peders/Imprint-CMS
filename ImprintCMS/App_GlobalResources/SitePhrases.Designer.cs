@@ -214,6 +214,15 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Her skal det vises en lydavspiller. Din nettleser kan ikke vise denne..
+        /// </summary>
+        public static string LabelAudioExcerptPlaceholder {
+            get {
+                return ResourceManager.GetString("LabelAudioExcerptPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bilde av {0}.
         /// </summary>
         public static string LabelAuthorImage {

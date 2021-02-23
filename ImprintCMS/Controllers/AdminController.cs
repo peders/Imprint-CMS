@@ -671,6 +671,7 @@ namespace ImprintCMS.Controllers
                 IsVisible = true
             };
             ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
+            ViewBag.AudioExcerpts = FileList(FileCategories.AudioExcerpt, vm.AudioExcerptId);
             ViewBag.Genres = GenreList(vm.GenreId);
             return View(vm);
         }
@@ -682,6 +683,7 @@ namespace ImprintCMS.Controllers
             if (!ModelState.IsValid)
             {
                 ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
+                ViewBag.AudioExcerpts = FileList(FileCategories.AudioExcerpt, vm.AudioExcerptId);
                 ViewBag.Genres = GenreList(vm.GenreId);
                 return View(vm);
             }
@@ -695,6 +697,7 @@ namespace ImprintCMS.Controllers
         {
             var vm = Repository.GetBook(id);
             ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
+            ViewBag.AudioExcerpts = FileList(FileCategories.AudioExcerpt, vm.AudioExcerptId);
             ViewBag.Genres = GenreList(vm.GenreId);
             return View(vm);
         }
@@ -706,6 +709,7 @@ namespace ImprintCMS.Controllers
             if (!ModelState.IsValid)
             {
                 ViewBag.Excerpts = FileList(FileCategories.Excerpt, vm.ExcerptId);
+                ViewBag.AudioExcerpts = FileList(FileCategories.AudioExcerpt, vm.AudioExcerptId);
                 ViewBag.Genres = GenreList(vm.GenreId);
                 return View(vm);
             }

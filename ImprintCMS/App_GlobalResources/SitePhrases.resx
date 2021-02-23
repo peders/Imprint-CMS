@@ -356,4 +356,7 @@
     <value>{0}. utgave, {1}</value>
     <comment>Insert edition number and year</comment>
   </data>
+  <data name="LabelAudioExcerptPlaceholder" xml:space="preserve">
+    <value>Her skal det vises en lydavspiller. Din nettleser kan ikke vise denne.</value>
+  </data>
 </root>

@@ -33,6 +33,9 @@ namespace ImprintCMS.Models
     partial void InsertArticle(Article instance);
     partial void UpdateArticle(Article instance);
     partial void DeleteArticle(Article instance);
+    partial void InsertUploadedFile(UploadedFile instance);
+    partial void UpdateUploadedFile(UploadedFile instance);
+    partial void DeleteUploadedFile(UploadedFile instance);
     partial void InsertArticleGroup(ArticleGroup instance);
     partial void UpdateArticleGroup(ArticleGroup instance);
     partial void DeleteArticleGroup(ArticleGroup instance);
@@ -90,9 +93,6 @@ namespace ImprintCMS.Models
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
-    partial void InsertUploadedFile(UploadedFile instance);
-    partial void UpdateUploadedFile(UploadedFile instance);
-    partial void DeleteUploadedFile(UploadedFile instance);
     #endregion
 		
 		public ImprintCMSDataContext() :
@@ -130,6 +130,14 @@ namespace ImprintCMS.Models
 			get
 			{
 				return this.GetTable<Article>();
+			}
+		}
+		
+		public System.Data.Linq.Table<UploadedFile> UploadedFiles
+		{
+			get
+			{
+				return this.GetTable<UploadedFile>();
 			}
 		}
 		
@@ -282,14 +290,6 @@ namespace ImprintCMS.Models
 			get
 			{
 				return this.GetTable<Role>();
-			}
-		}
-		
-		public System.Data.Linq.Table<UploadedFile> UploadedFiles
-		{
-			get
-			{
-				return this.GetTable<UploadedFile>();
 			}
 		}
 	}
@@ -594,6 +594,328 @@ namespace ImprintCMS.Models
 		{
 			this.SendPropertyChanging();
 			entity.Article = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UploadedFile")]
+	public partial class UploadedFile : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _FileName;
+		
+		private string _ContentType;
+		
+		private System.Data.Linq.Binary _Data;
+		
+		private string _Category;
+		
+		private int _ContentLength;
+		
+		private EntitySet<Article> _Articles;
+		
+		private EntitySet<Book> _Books;
+		
+		private EntitySet<Book> _Books1;
+		
+		private EntitySet<Edition> _Editions;
+		
+		private EntitySet<PersonImage> _PersonImages;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnFileNameChanging(string value);
+    partial void OnFileNameChanged();
+    partial void OnContentTypeChanging(string value);
+    partial void OnContentTypeChanged();
+    partial void OnDataChanging(System.Data.Linq.Binary value);
+    partial void OnDataChanged();
+    partial void OnCategoryChanging(string value);
+    partial void OnCategoryChanged();
+    partial void OnContentLengthChanging(int value);
+    partial void OnContentLengthChanged();
+    #endregion
+		
+		public UploadedFile()
+		{
+			this._Articles = new EntitySet<Article>(new Action<Article>(this.attach_Articles), new Action<Article>(this.detach_Articles));
+			this._Books = new EntitySet<Book>(new Action<Book>(this.attach_Books), new Action<Book>(this.detach_Books));
+			this._Books1 = new EntitySet<Book>(new Action<Book>(this.attach_Books1), new Action<Book>(this.detach_Books1));
+			this._Editions = new EntitySet<Edition>(new Action<Edition>(this.attach_Editions), new Action<Edition>(this.detach_Editions));
+			this._PersonImages = new EntitySet<PersonImage>(new Action<PersonImage>(this.attach_PersonImages), new Action<PersonImage>(this.detach_PersonImages));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string FileName
+		{
+			get
+			{
+				return this._FileName;
+			}
+			set
+			{
+				if ((this._FileName != value))
+				{
+					this.OnFileNameChanging(value);
+					this.SendPropertyChanging();
+					this._FileName = value;
+					this.SendPropertyChanged("FileName");
+					this.OnFileNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ContentType
+		{
+			get
+			{
+				return this._ContentType;
+			}
+			set
+			{
+				if ((this._ContentType != value))
+				{
+					this.OnContentTypeChanging(value);
+					this.SendPropertyChanging();
+					this._ContentType = value;
+					this.SendPropertyChanged("ContentType");
+					this.OnContentTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Data
+		{
+			get
+			{
+				return this._Data;
+			}
+			set
+			{
+				if ((this._Data != value))
+				{
+					this.OnDataChanging(value);
+					this.SendPropertyChanging();
+					this._Data = value;
+					this.SendPropertyChanged("Data");
+					this.OnDataChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
+				{
+					this.OnCategoryChanging(value);
+					this.SendPropertyChanging();
+					this._Category = value;
+					this.SendPropertyChanged("Category");
+					this.OnCategoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentLength", DbType="Int NOT NULL")]
+		public int ContentLength
+		{
+			get
+			{
+				return this._ContentLength;
+			}
+			set
+			{
+				if ((this._ContentLength != value))
+				{
+					this.OnContentLengthChanging(value);
+					this.SendPropertyChanging();
+					this._ContentLength = value;
+					this.SendPropertyChanged("ContentLength");
+					this.OnContentLengthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Article", Storage="_Articles", ThisKey="Id", OtherKey="ImageId")]
+		public EntitySet<Article> Articles
+		{
+			get
+			{
+				return this._Articles;
+			}
+			set
+			{
+				this._Articles.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Book", Storage="_Books", ThisKey="Id", OtherKey="ExcerptId")]
+		public EntitySet<Book> Books
+		{
+			get
+			{
+				return this._Books;
+			}
+			set
+			{
+				this._Books.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Book1", Storage="_Books1", ThisKey="Id", OtherKey="AudioExcerptId")]
+		public EntitySet<Book> Books1
+		{
+			get
+			{
+				return this._Books1;
+			}
+			set
+			{
+				this._Books1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Edition", Storage="_Editions", ThisKey="Id", OtherKey="LargeCoverId")]
+		public EntitySet<Edition> Editions
+		{
+			get
+			{
+				return this._Editions;
+			}
+			set
+			{
+				this._Editions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_PersonImage", Storage="_PersonImages", ThisKey="Id", OtherKey="LargeImageId")]
+		public EntitySet<PersonImage> PersonImages
+		{
+			get
+			{
+				return this._PersonImages;
+			}
+			set
+			{
+				this._PersonImages.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Articles(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile = this;
+		}
+		
+		private void detach_Articles(Article entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile = null;
+		}
+		
+		private void attach_Books(Book entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile = this;
+		}
+		
+		private void detach_Books(Book entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile = null;
+		}
+		
+		private void attach_Books1(Book entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile1 = this;
+		}
+		
+		private void detach_Books1(Book entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile1 = null;
+		}
+		
+		private void attach_Editions(Edition entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile = this;
+		}
+		
+		private void detach_Editions(Edition entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile = null;
+		}
+		
+		private void attach_PersonImages(PersonImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile = this;
+		}
+		
+		private void detach_PersonImages(PersonImage entity)
+		{
+			this.SendPropertyChanging();
+			entity.UploadedFile = null;
 		}
 	}
 	
@@ -953,15 +1275,19 @@ namespace ImprintCMS.Models
 		
 		private System.Nullable<int> _CachedReleaseYear;
 		
+		private System.Nullable<int> _AudioExcerptId;
+		
 		private EntitySet<BookToArticle> _BookToArticles;
 		
 		private EntitySet<Edition> _Editions;
 		
 		private EntitySet<Relation> _Relations;
 		
-		private EntityRef<Genre> _Genre;
-		
 		private EntityRef<UploadedFile> _UploadedFile;
+		
+		private EntityRef<UploadedFile> _UploadedFile1;
+		
+		private EntityRef<Genre> _Genre;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -993,6 +1319,8 @@ namespace ImprintCMS.Models
     partial void OnCachedRightsHoldersTextChanged();
     partial void OnCachedReleaseYearChanging(System.Nullable<int> value);
     partial void OnCachedReleaseYearChanged();
+    partial void OnAudioExcerptIdChanging(System.Nullable<int> value);
+    partial void OnAudioExcerptIdChanged();
     #endregion
 		
 		public Book()
@@ -1000,8 +1328,9 @@ namespace ImprintCMS.Models
 			this._BookToArticles = new EntitySet<BookToArticle>(new Action<BookToArticle>(this.attach_BookToArticles), new Action<BookToArticle>(this.detach_BookToArticles));
 			this._Editions = new EntitySet<Edition>(new Action<Edition>(this.attach_Editions), new Action<Edition>(this.detach_Editions));
 			this._Relations = new EntitySet<Relation>(new Action<Relation>(this.attach_Relations), new Action<Relation>(this.detach_Relations));
-			this._Genre = default(EntityRef<Genre>);
 			this._UploadedFile = default(EntityRef<UploadedFile>);
+			this._UploadedFile1 = default(EntityRef<UploadedFile>);
+			this._Genre = default(EntityRef<Genre>);
 			OnCreated();
 		}
 		
@@ -1273,6 +1602,30 @@ namespace ImprintCMS.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AudioExcerptId", DbType="Int")]
+		public System.Nullable<int> AudioExcerptId
+		{
+			get
+			{
+				return this._AudioExcerptId;
+			}
+			set
+			{
+				if ((this._AudioExcerptId != value))
+				{
+					if (this._UploadedFile1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAudioExcerptIdChanging(value);
+					this.SendPropertyChanging();
+					this._AudioExcerptId = value;
+					this.SendPropertyChanged("AudioExcerptId");
+					this.OnAudioExcerptIdChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Book_BookToArticle", Storage="_BookToArticles", ThisKey="Id", OtherKey="BookId")]
 		public EntitySet<BookToArticle> BookToArticles
 		{
@@ -1312,40 +1665,6 @@ namespace ImprintCMS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Genre_Book", Storage="_Genre", ThisKey="GenreId", OtherKey="Id", IsForeignKey=true)]
-		public Genre Genre
-		{
-			get
-			{
-				return this._Genre.Entity;
-			}
-			set
-			{
-				Genre previousValue = this._Genre.Entity;
-				if (((previousValue != value) 
-							|| (this._Genre.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Genre.Entity = null;
-						previousValue.Books.Remove(this);
-					}
-					this._Genre.Entity = value;
-					if ((value != null))
-					{
-						value.Books.Add(this);
-						this._GenreId = value.Id;
-					}
-					else
-					{
-						this._GenreId = default(int);
-					}
-					this.SendPropertyChanged("Genre");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Book", Storage="_UploadedFile", ThisKey="ExcerptId", OtherKey="Id", IsForeignKey=true)]
 		public UploadedFile UploadedFile
 		{
@@ -1376,6 +1695,74 @@ namespace ImprintCMS.Models
 						this._ExcerptId = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("UploadedFile");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Book1", Storage="_UploadedFile1", ThisKey="AudioExcerptId", OtherKey="Id", IsForeignKey=true)]
+		public UploadedFile UploadedFile1
+		{
+			get
+			{
+				return this._UploadedFile1.Entity;
+			}
+			set
+			{
+				UploadedFile previousValue = this._UploadedFile1.Entity;
+				if (((previousValue != value) 
+							|| (this._UploadedFile1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UploadedFile1.Entity = null;
+						previousValue.Books1.Remove(this);
+					}
+					this._UploadedFile1.Entity = value;
+					if ((value != null))
+					{
+						value.Books1.Add(this);
+						this._AudioExcerptId = value.Id;
+					}
+					else
+					{
+						this._AudioExcerptId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("UploadedFile1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Genre_Book", Storage="_Genre", ThisKey="GenreId", OtherKey="Id", IsForeignKey=true)]
+		public Genre Genre
+		{
+			get
+			{
+				return this._Genre.Entity;
+			}
+			set
+			{
+				Genre previousValue = this._Genre.Entity;
+				if (((previousValue != value) 
+							|| (this._Genre.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Genre.Entity = null;
+						previousValue.Books.Remove(this);
+					}
+					this._Genre.Entity = value;
+					if ((value != null))
+					{
+						value.Books.Add(this);
+						this._GenreId = value.Id;
+					}
+					else
+					{
+						this._GenreId = default(int);
+					}
+					this.SendPropertyChanged("Genre");
 				}
 			}
 		}
@@ -5559,300 +5946,6 @@ namespace ImprintCMS.Models
 		{
 			this.SendPropertyChanging();
 			entity.Role = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UploadedFile")]
-	public partial class UploadedFile : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _FileName;
-		
-		private string _ContentType;
-		
-		private System.Data.Linq.Binary _Data;
-		
-		private string _Category;
-		
-		private int _ContentLength;
-		
-		private EntitySet<Article> _Articles;
-		
-		private EntitySet<Book> _Books;
-		
-		private EntitySet<Edition> _Editions;
-		
-		private EntitySet<PersonImage> _PersonImages;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnFileNameChanging(string value);
-    partial void OnFileNameChanged();
-    partial void OnContentTypeChanging(string value);
-    partial void OnContentTypeChanged();
-    partial void OnDataChanging(System.Data.Linq.Binary value);
-    partial void OnDataChanged();
-    partial void OnCategoryChanging(string value);
-    partial void OnCategoryChanged();
-    partial void OnContentLengthChanging(int value);
-    partial void OnContentLengthChanged();
-    #endregion
-		
-		public UploadedFile()
-		{
-			this._Articles = new EntitySet<Article>(new Action<Article>(this.attach_Articles), new Action<Article>(this.detach_Articles));
-			this._Books = new EntitySet<Book>(new Action<Book>(this.attach_Books), new Action<Book>(this.detach_Books));
-			this._Editions = new EntitySet<Edition>(new Action<Edition>(this.attach_Editions), new Action<Edition>(this.detach_Editions));
-			this._PersonImages = new EntitySet<PersonImage>(new Action<PersonImage>(this.attach_PersonImages), new Action<PersonImage>(this.detach_PersonImages));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FileName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string FileName
-		{
-			get
-			{
-				return this._FileName;
-			}
-			set
-			{
-				if ((this._FileName != value))
-				{
-					this.OnFileNameChanging(value);
-					this.SendPropertyChanging();
-					this._FileName = value;
-					this.SendPropertyChanged("FileName");
-					this.OnFileNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ContentType
-		{
-			get
-			{
-				return this._ContentType;
-			}
-			set
-			{
-				if ((this._ContentType != value))
-				{
-					this.OnContentTypeChanging(value);
-					this.SendPropertyChanging();
-					this._ContentType = value;
-					this.SendPropertyChanged("ContentType");
-					this.OnContentTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Data
-		{
-			get
-			{
-				return this._Data;
-			}
-			set
-			{
-				if ((this._Data != value))
-				{
-					this.OnDataChanging(value);
-					this.SendPropertyChanging();
-					this._Data = value;
-					this.SendPropertyChanged("Data");
-					this.OnDataChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Category
-		{
-			get
-			{
-				return this._Category;
-			}
-			set
-			{
-				if ((this._Category != value))
-				{
-					this.OnCategoryChanging(value);
-					this.SendPropertyChanging();
-					this._Category = value;
-					this.SendPropertyChanged("Category");
-					this.OnCategoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContentLength", DbType="Int NOT NULL")]
-		public int ContentLength
-		{
-			get
-			{
-				return this._ContentLength;
-			}
-			set
-			{
-				if ((this._ContentLength != value))
-				{
-					this.OnContentLengthChanging(value);
-					this.SendPropertyChanging();
-					this._ContentLength = value;
-					this.SendPropertyChanged("ContentLength");
-					this.OnContentLengthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Article", Storage="_Articles", ThisKey="Id", OtherKey="ImageId")]
-		public EntitySet<Article> Articles
-		{
-			get
-			{
-				return this._Articles;
-			}
-			set
-			{
-				this._Articles.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Book", Storage="_Books", ThisKey="Id", OtherKey="ExcerptId")]
-		public EntitySet<Book> Books
-		{
-			get
-			{
-				return this._Books;
-			}
-			set
-			{
-				this._Books.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_Edition", Storage="_Editions", ThisKey="Id", OtherKey="LargeCoverId")]
-		public EntitySet<Edition> Editions
-		{
-			get
-			{
-				return this._Editions;
-			}
-			set
-			{
-				this._Editions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UploadedFile_PersonImage", Storage="_PersonImages", ThisKey="Id", OtherKey="LargeImageId")]
-		public EntitySet<PersonImage> PersonImages
-		{
-			get
-			{
-				return this._PersonImages;
-			}
-			set
-			{
-				this._PersonImages.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Articles(Article entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile = this;
-		}
-		
-		private void detach_Articles(Article entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile = null;
-		}
-		
-		private void attach_Books(Book entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile = this;
-		}
-		
-		private void detach_Books(Book entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile = null;
-		}
-		
-		private void attach_Editions(Edition entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile = this;
-		}
-		
-		private void detach_Editions(Edition entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile = null;
-		}
-		
-		private void attach_PersonImages(PersonImage entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile = this;
-		}
-		
-		private void detach_PersonImages(PersonImage entity)
-		{
-			this.SendPropertyChanging();
-			entity.UploadedFile = null;
 		}
 	}
 }
