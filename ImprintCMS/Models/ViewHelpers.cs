@@ -472,7 +472,7 @@ namespace ImprintCMS.Models
 		<input type=""search"" name=""q"" id=""query"" value=""{1}"" placeholder=""{2}"" />
 		<input type=""submit"" id=""button"" value=""{3}"" /></p>
 </fieldset>
-</form>", action, query, SitePhrases.LabelSearchPlaceholder, SitePhrases.LabelSearch));
+</form>", action, helper.AttributeEncode(query), SitePhrases.LabelSearchPlaceholder, SitePhrases.LabelSearch));
         }
 
         public static HtmlString Legend(this HtmlHelper helper, string text)
