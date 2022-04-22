@@ -245,7 +245,7 @@ fieldset {
     }
 
     fieldset.fields input {
-        width: 30em;
+        width: 50em;
     }
 
         fieldset.fields input[type=radio] {
@@ -253,11 +253,11 @@ fieldset {
         }
 
     fieldset.fields select {
-        width: 30em;
+        width: 50em;
     }
 
     fieldset.fields textarea {
-        width: 30em;
+        width: 50em;
         height: 5em;
     }
 
