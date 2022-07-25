@@ -1194,37 +1194,6 @@ namespace ImprintCMS.Controllers
             return RedirectToAction("editarticlegroup", new { id = article.GroupId });
         }
 
-        public ActionResult Orders()
-        {
-            var vm =
-                Repository.Orders.Where(o => o.ClosedAt != null)
-                          .OrderByDescending(o => o.ClosedAt)
-                          .ThenByDescending(o => o.Id);
-            return View(vm);
-        }
-
-        public ActionResult Order(int id)
-        {
-            var vm = Repository.GetOrder(id);
-            if (vm == null) return HttpNotFound();
-            return View(vm);
-        }
-
-        public ActionResult DeleteOrder(int id)
-        {
-            var vm = Repository.GetOrder(id);
-            if (vm == null) return HttpNotFound();
-            return View(vm);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteOrder(Order vm)
-        {
-            Repository.Delete(Repository.GetOrder(vm.Id));
-            Repository.Save();
-            return RedirectToAction("orders");
-        }
-
         [HttpPost]
         public ActionResult StorePersonImageOrder()
         {

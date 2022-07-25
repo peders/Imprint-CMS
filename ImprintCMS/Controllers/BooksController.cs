@@ -30,10 +30,7 @@ namespace ImprintCMS.Controllers
             if (vm == null) return HttpNotFound();
             if (!vm.IsVisible || vm.HasExternalPublisher) return HttpNotFound();
             ViewBag.OpenGraph = vm.OpenGraph(Config.Name, Request.RequestContext);
-            if (vm.Editions.Any(e => e.Binding.UsesExternalStores))
-            {
-                ViewBag.Stores = Repository.ExternalStores.OrderBy(s => s.SequenceIdentifier);
-            }
+            ViewBag.Stores = Repository.ExternalStores.OrderBy(s => s.SequenceIdentifier);
             return View(vm);
         }
 

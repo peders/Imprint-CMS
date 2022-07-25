@@ -142,60 +142,6 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Handlekurv.
-        /// </summary>
-        public static string HeadingShopBasket {
-            get {
-                return ResourceManager.GetString("HeadingShopBasket", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bekreft og send.
-        /// </summary>
-        public static string HeadingShopConfirm {
-            get {
-                return ResourceManager.GetString("HeadingShopConfirm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Navn og adresse.
-        /// </summary>
-        public static string HeadingShopDetails {
-            get {
-                return ResourceManager.GetString("HeadingShopDetails", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bestillingen er mottatt.
-        /// </summary>
-        public static string HeadingShopReceipt {
-            get {
-                return ResourceManager.GetString("HeadingShopReceipt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Adresse.
-        /// </summary>
-        public static string LabelAddress {
-            get {
-                return ResourceManager.GetString("LabelAddress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Kjøp.
-        /// </summary>
-        public static string LabelAddToShop {
-            get {
-                return ResourceManager.GetString("LabelAddToShop", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Alle bøker.
         /// </summary>
         public static string LabelAllBooks {
@@ -255,15 +201,6 @@ namespace ImprintCMS.Models {
         public static string LabelCancel {
             get {
                 return ResourceManager.GetString("LabelCancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Poststed.
-        /// </summary>
-        public static string LabelCity {
-            get {
-                return ResourceManager.GetString("LabelCity", resourceCulture);
             }
         }
         
@@ -394,29 +331,11 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Telefon.
-        /// </summary>
-        public static string LabelPhone {
-            get {
-                return ResourceManager.GetString("LabelPhone", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Foto: {0}.
         /// </summary>
         public static string LabelPhotoCredit {
             get {
                 return ResourceManager.GetString("LabelPhotoCredit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Postnummer.
-        /// </summary>
-        public static string LabelPostcode {
-            get {
-                return ResourceManager.GetString("LabelPostcode", resourceCulture);
             }
         }
         
@@ -475,141 +394,6 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Send bestilling.
-        /// </summary>
-        public static string LabelShopConfirm {
-            get {
-                return ResourceManager.GetString("LabelShopConfirm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Din bestilling har ordrenummer {0}.&lt;br/&gt;&lt;br/&gt;{1}&lt;br/&gt;{2}&lt;br/&gt;{3} {4}&lt;br/&gt;Telefon: {5}&lt;br/&gt;E-post: {6}&lt;br/&gt;{7}&lt;br/&gt;&lt;br/&gt;Subtotal: {8:f2}&lt;br/&gt;Frakt: {9:f2}&lt;br/&gt;Total: {10:f2}.
-        /// </summary>
-        public static string LabelShopCustomerReceiptBody {
-            get {
-                return ResourceManager.GetString("LabelShopCustomerReceiptBody", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;br/&gt;ISBN {0} : {1} : {2:f2}.
-        /// </summary>
-        public static string LabelShopCustomerReceiptBodyOrderLine {
-            get {
-                return ResourceManager.GetString("LabelShopCustomerReceiptBodyOrderLine", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Frakt.
-        /// </summary>
-        public static string LabelShopDistributionCost {
-            get {
-                return ResourceManager.GetString("LabelShopDistributionCost", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gratis frakt på alle ordre over {0:F2} kr..
-        /// </summary>
-        public static string LabelShopDistributionCostLegend {
-            get {
-                return ResourceManager.GetString("LabelShopDistributionCostLegend", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Du har ingen bøker i handlekurven.
-        /// </summary>
-        public static string LabelShopEmpty {
-            get {
-                return ResourceManager.GetString("LabelShopEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to En bekreftelse er forsøkt sendt til {0}, men e-posten kunne ikke sendes. Bestillingen er likevel registrert i vårt system..
-        /// </summary>
-        public static string LabelShopOrderReceiptEmailFailure {
-            get {
-                return ResourceManager.GetString("LabelShopOrderReceiptEmailFailure", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to En bekreftelse er også sendt til {0}..
-        /// </summary>
-        public static string LabelShopOrderReceiptEmailSuccess {
-            get {
-                return ResourceManager.GetString("LabelShopOrderReceiptEmailSuccess", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ved henvendelser om bestillingen, vennligst oppgi ordrenummer {0}..
-        /// </summary>
-        public static string LabelShopReceipt {
-            get {
-                return ResourceManager.GetString("LabelShopReceipt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Din bestilling på {0}.
-        /// </summary>
-        public static string LabelShopReceiptSubject {
-            get {
-                return ResourceManager.GetString("LabelShopReceiptSubject", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tøm handlekurv.
-        /// </summary>
-        public static string LabelShopRemoveAll {
-            get {
-                return ResourceManager.GetString("LabelShopRemoveAll", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fjern.
-        /// </summary>
-        public static string LabelShopRemoveOne {
-            get {
-                return ResourceManager.GetString("LabelShopRemoveOne", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Send bestilling.
-        /// </summary>
-        public static string LabelShopSendOrder {
-            get {
-                return ResourceManager.GetString("LabelShopSendOrder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Subtotal.
-        /// </summary>
-        public static string LabelShopSubtotal {
-            get {
-                return ResourceManager.GetString("LabelShopSubtotal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Å betale.
-        /// </summary>
-        public static string LabelShopTotal {
-            get {
-                return ResourceManager.GetString("LabelShopTotal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Kommer.
         /// </summary>
         public static string LabelToBeReleased {
@@ -655,15 +439,6 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kjøp.
-        /// </summary>
-        public static string MenuShop {
-            get {
-                return ResourceManager.GetString("MenuShop", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to medio.
         /// </summary>
         public static string UnitMonthMedio {
@@ -705,24 +480,6 @@ namespace ImprintCMS.Models {
         public static string UnitPrice {
             get {
                 return ResourceManager.GetString("UnitPrice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dette er ikke en gyldig e-postadresse.
-        /// </summary>
-        public static string ValidationInvalidEmailFormat {
-            get {
-                return ResourceManager.GetString("ValidationInvalidEmailFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to *.
-        /// </summary>
-        public static string ValidationRequired {
-            get {
-                return ResourceManager.GetString("ValidationRequired", resourceCulture);
             }
         }
     }

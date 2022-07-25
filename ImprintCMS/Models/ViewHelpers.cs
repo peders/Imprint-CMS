@@ -155,7 +155,6 @@ namespace ImprintCMS.Models
         public static HtmlString EditionPurchaseOptionsSection(this HtmlHelper helper, Edition edition, IEnumerable<ExternalStore> stores)
         {
             if (!edition.IsForSale) return new HtmlString("<section class=\"purchaseoptions\">\n\t<p class=\"notforsale\">" + (!string.IsNullOrWhiteSpace(edition.AlternativeNotForSaleMessage) ? edition.AlternativeNotForSaleMessage : SitePhrases.LabelNotForSale) + "</p>\n</section>");
-            if (!edition.Binding.UsesExternalStores) return new HtmlString("<section class=\"purchaseoptions\">\n\t<p class=\"addtobasket\">" + helper.ActionLink(SitePhrases.LabelAddToShop, "add", "shop", new { id = edition.Id }, new { @class = "addtobasket" }) + "</p>\n</section>");
             var buffer = "<section class=\"purchaseoptions\">";
             buffer += "\n\t<ul>";
             foreach (var store in edition.Binding.SupportedStores(stores).OrderBy(_ => _.SequenceIdentifier))

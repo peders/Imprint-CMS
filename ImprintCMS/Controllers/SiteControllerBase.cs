@@ -12,7 +12,6 @@ namespace ImprintCMS.Controllers
         {
             Config = new SiteConfig(Repository);
             ViewBag.Config = Config;
-            ViewBag.ShowShop = Config.ShopIsVisible;
             ViewBag.MenuShortcuts = Repository.MenuShortcuts.OrderBy(_ => _.SequenceIdentifier).ToList();
             ViewBag.ArticleGroups = Repository.ArticleGroups.Where(_ => _.ContactArticles.Any()).OrderBy(_ => _.SequenceIdentifier).ToList();
             ViewBag.StylesheetUrls = Repository.Stylesheets.Select(u => Url.Action("display", "upload", new { category = u.Category, fileName = u.FileName }));

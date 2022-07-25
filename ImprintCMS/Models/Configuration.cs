@@ -27,22 +27,6 @@ namespace ImprintCMS.Models
         public string CoverImageDownloadNotice { get; set; }
 
         [Required(ErrorMessage = "*")]
-        [StringLength(50, ErrorMessageResourceName = "ValidationStringLength50", ErrorMessageResourceType = typeof(Phrases))]
-        public string ShopEmailRecipient { get; set; }
-        [AllowHtml]
-        public string ShopDisclaimer { get; set; }
-        [Required(ErrorMessage = "*")]
-        [StringLength(50, ErrorMessageResourceName = "ValidationStringLength50", ErrorMessageResourceType = typeof(Phrases))]
-        public string EmailSenderAddress { get; set; }
-        [Required(ErrorMessage = "*")]
-        [StringLength(50, ErrorMessageResourceName = "ValidationStringLength50", ErrorMessageResourceType = typeof(Phrases))]
-        public string EmailSenderName { get; set; }
-        [Required(ErrorMessage = "*")]
-        public decimal DistributionCostAmount { get; set; }
-        [Required(ErrorMessage = "*")]
-        public decimal DistributionCostLimit { get; set; }
-        public bool ShopIsVisible { get; set; }
-        [Required(ErrorMessage = "*")]
         public int CachedCoverWidth { get; set; }
         [Required(ErrorMessage = "*")]
         public int CachedPortraitWidth { get; set; }

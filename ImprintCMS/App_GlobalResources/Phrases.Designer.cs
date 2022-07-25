@@ -304,15 +304,6 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Closed orders.
-        /// </summary>
-        public static string LabelClosedOrders {
-            get {
-                return ResourceManager.GetString("LabelClosedOrders", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Articles.
         /// </summary>
         public static string LabelContactArticles {
@@ -421,24 +412,6 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Distribution cost (if above limit).
-        /// </summary>
-        public static string LabelDistributionCostAmount {
-            get {
-                return ResourceManager.GetString("LabelDistributionCostAmount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Distribution cost limit (free below limit).
-        /// </summary>
-        public static string LabelDistributionCostLimit {
-            get {
-                return ResourceManager.GetString("LabelDistributionCostLimit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Hide from front page.
         /// </summary>
         public static string LabelDontShowOnFrontPage {
@@ -480,24 +453,6 @@ namespace ImprintCMS.Models {
         public static string LabelEditions {
             get {
                 return ResourceManager.GetString("LabelEditions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to E-mail sender address.
-        /// </summary>
-        public static string LabelEmailSenderAddress {
-            get {
-                return ResourceManager.GetString("LabelEmailSenderAddress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to E-mail sender name.
-        /// </summary>
-        public static string LabelEmailSenderName {
-            get {
-                return ResourceManager.GetString("LabelEmailSenderName", resourceCulture);
             }
         }
         
@@ -808,69 +763,6 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Orders.
-        /// </summary>
-        public static string LabelOrderContent {
-            get {
-                return ResourceManager.GetString("LabelOrderContent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Name and address.
-        /// </summary>
-        public static string LabelOrderDetails {
-            get {
-                return ResourceManager.GetString("LabelOrderDetails", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Distribution cost.
-        /// </summary>
-        public static string LabelOrderDistributionCost {
-            get {
-                return ResourceManager.GetString("LabelOrderDistributionCost", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Order ID.
-        /// </summary>
-        public static string LabelOrderId {
-            get {
-                return ResourceManager.GetString("LabelOrderId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Books.
-        /// </summary>
-        public static string LabelOrderLines {
-            get {
-                return ResourceManager.GetString("LabelOrderLines", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Subtotal.
-        /// </summary>
-        public static string LabelOrderSubtotal {
-            get {
-                return ResourceManager.GetString("LabelOrderSubtotal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total.
-        /// </summary>
-        public static string LabelOrderTotal {
-            get {
-                return ResourceManager.GetString("LabelOrderTotal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Number of pages.
         /// </summary>
         public static string LabelPageCount {
@@ -1069,42 +961,6 @@ namespace ImprintCMS.Models {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shop disclaimer.
-        /// </summary>
-        public static string LabelShopDisclaimer {
-            get {
-                return ResourceManager.GetString("LabelShopDisclaimer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Shop e-mail recipient.
-        /// </summary>
-        public static string LabelShopEmailRecipient {
-            get {
-                return ResourceManager.GetString("LabelShopEmailRecipient", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show shop on site.
-        /// </summary>
-        public static string LabelShopIsVisible {
-            get {
-                return ResourceManager.GetString("LabelShopIsVisible", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to [#{0}] New {1} shop order.
-        /// </summary>
-        public static string LabelShopOrderEmailSubject {
-            get {
-                return ResourceManager.GetString("LabelShopOrderEmailSubject", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Short version.
         /// </summary>
         public static string LabelShortName {
@@ -1236,15 +1092,6 @@ namespace ImprintCMS.Models {
         public static string LabelUsername {
             get {
                 return ResourceManager.GetString("LabelUsername", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sell through external stores.
-        /// </summary>
-        public static string LabelUsesExternalStores {
-            get {
-                return ResourceManager.GetString("LabelUsesExternalStores", resourceCulture);
             }
         }
         
@@ -1686,24 +1533,6 @@ namespace ImprintCMS.Models {
         public static string PagenameMenuShortcuts {
             get {
                 return ResourceManager.GetString("PagenameMenuShortcuts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Order details.
-        /// </summary>
-        public static string PagenameOrderDetails {
-            get {
-                return ResourceManager.GetString("PagenameOrderDetails", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Orders.
-        /// </summary>
-        public static string PagenameOrders {
-            get {
-                return ResourceManager.GetString("PagenameOrders", resourceCulture);
             }
         }
         

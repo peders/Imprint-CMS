@@ -112,7 +112,6 @@
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\SiteControllerBase.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
@@ -138,7 +137,6 @@
       <DependentUpon>ImprintCMS.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\MenuShortcut.cs" />
-    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonImage.cs" />
     <Compile Include="Models\PersonToArticle.cs" />
@@ -154,8 +152,6 @@
     <Compile Include="Models\ViewModels\ListFile.cs" />
     <Compile Include="Models\ViewModels\Login.cs" />
     <Compile Include="Models\ViewModels\OpenGraph.cs" />
-    <Compile Include="Models\ViewModels\OrderDetails.cs" />
-    <Compile Include="Models\ViewModels\OrderReceipt.cs" />
     <Compile Include="Models\ViewModels\SearchResult.cs" />
     <Compile Include="Models\ViewModels\SiteFrontPage.cs" />
     <Compile Include="Models\ViewModels\UploadCategory.cs" />
@@ -222,7 +218,6 @@
     <Content Include="Views\Admin\DeleteEdition.cshtml" />
     <Content Include="Views\Admin\DeleteExternalStore.cshtml" />
     <Content Include="Views\Admin\DeleteGenre.cshtml" />
-    <Content Include="Views\Admin\DeleteOrder.cshtml" />
     <Content Include="Views\Admin\DeletePerson.cshtml" />
     <Content Include="Views\Admin\DeleteRole.cshtml" />
     <Content Include="Views\Admin\DeleteUpload.cshtml" />
@@ -240,8 +235,6 @@
     <Content Include="Views\Admin\ExternalStores.cshtml" />
     <Content Include="Views\Admin\Genres.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Order.cshtml" />
-    <Content Include="Views\Admin\Orders.cshtml" />
     <Content Include="Views\Admin\People.cshtml" />
     <Content Include="Views\Admin\RemoveBookListMembership.cshtml" />
     <Content Include="Views\Admin\RemoveBookToArticle.cshtml" />
@@ -276,11 +269,6 @@
     <Content Include="Views\Shared\NotEmpty.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_SiteLayout.cshtml" />
-    <Content Include="Views\Shop\Basket.cshtml" />
-    <Content Include="Views\Shop\Confirm.cshtml" />
-    <Content Include="Views\Shop\Details.cshtml" />
-    <Content Include="Views\Shop\Index.cshtml" />
-    <Content Include="Views\Shop\Receipt.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\PersonImage.cshtml" />
     <Content Include="Views\Admin\CreatePersonImage.cshtml" />
@@ -331,6 +319,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SitePhrases.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ImprintCMS.Models</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

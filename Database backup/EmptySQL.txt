@@ -4,8 +4,6 @@ delete from BookToArticle
 delete from BookListMembership
 delete from Relation
 delete from Article
-delete from OrderLine
-delete from [dbo].[Order]
 delete from BookList
 delete from ContactArticle
 delete from ArticleGroup

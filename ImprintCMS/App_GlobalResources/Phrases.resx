@@ -476,9 +476,6 @@
   <data name="PagenameRemove" xml:space="preserve">
     <value>Remove</value>
   </data>
-  <data name="LabelClosedOrders" xml:space="preserve">
-    <value>Closed orders</value>
-  </data>
   <data name="LabelArticles" xml:space="preserve">
     <value>Articles</value>
   </data>
@@ -490,33 +487,6 @@
   </data>
   <data name="FileTypeJavascript" xml:space="preserve">
     <value>Javascript</value>
-  </data>
-  <data name="LabelOrderContent" xml:space="preserve">
-    <value>Orders</value>
-  </data>
-  <data name="LabelOrderDetails" xml:space="preserve">
-    <value>Name and address</value>
-  </data>
-  <data name="LabelOrderDistributionCost" xml:space="preserve">
-    <value>Distribution cost</value>
-  </data>
-  <data name="LabelOrderId" xml:space="preserve">
-    <value>Order ID</value>
-  </data>
-  <data name="LabelOrderLines" xml:space="preserve">
-    <value>Books</value>
-  </data>
-  <data name="LabelOrderSubtotal" xml:space="preserve">
-    <value>Subtotal</value>
-  </data>
-  <data name="LabelOrderTotal" xml:space="preserve">
-    <value>Total</value>
-  </data>
-  <data name="PagenameOrderDetails" xml:space="preserve">
-    <value>Order details</value>
-  </data>
-  <data name="PagenameOrders" xml:space="preserve">
-    <value>Orders</value>
   </data>
   <data name="LabelReplace" xml:space="preserve">
     <value>Replace</value>
@@ -550,9 +520,6 @@
   </data>
   <data name="LabelUrlPrefix" xml:space="preserve">
     <value>Part of URL before ISBN</value>
-  </data>
-  <data name="LabelUsesExternalStores" xml:space="preserve">
-    <value>Sell through external stores</value>
   </data>
   <data name="PagenameCreateExternalStore" xml:space="preserve">
     <value>New external store</value>
@@ -593,10 +560,6 @@
   <data name="LabelCancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="LabelShopOrderEmailSubject" xml:space="preserve">
-    <value>[#{0}] New {1} shop order</value>
-    <comment>Insert order ID and site name</comment>
-  </data>
   <data name="EmailBodyWrapper" xml:space="preserve">
     <value>&lt;p style="font-family: sans-serif;"&gt;{0}&lt;/p&gt;</value>
     <comment>Insert text as HTML</comment>
@@ -625,18 +588,6 @@
   <data name="LabelCoverImageDownloadNotice" xml:space="preserve">
     <value>Cover image download notice</value>
   </data>
-  <data name="LabelDistributionCostAmount" xml:space="preserve">
-    <value>Distribution cost (if above limit)</value>
-  </data>
-  <data name="LabelDistributionCostLimit" xml:space="preserve">
-    <value>Distribution cost limit (free below limit)</value>
-  </data>
-  <data name="LabelEmailSenderAddress" xml:space="preserve">
-    <value>E-mail sender address</value>
-  </data>
-  <data name="LabelEmailSenderName" xml:space="preserve">
-    <value>E-mail sender name</value>
-  </data>
   <data name="LabelGoogleAnalyticsTrackingCode" xml:space="preserve">
     <value>Google Analytics tracking code</value>
   </data>
@@ -645,15 +596,6 @@
   </data>
   <data name="LabelPersonImageDownloadNotice" xml:space="preserve">
     <value>Person image download notice</value>
-  </data>
-  <data name="LabelShopDisclaimer" xml:space="preserve">
-    <value>Shop disclaimer</value>
-  </data>
-  <data name="LabelShopEmailRecipient" xml:space="preserve">
-    <value>Shop e-mail recipient</value>
-  </data>
-  <data name="LabelShopIsVisible" xml:space="preserve">
-    <value>Show shop on site</value>
   </data>
   <data name="LabelSiteFooter" xml:space="preserve">
     <value>Footer</value>

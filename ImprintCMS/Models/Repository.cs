@@ -307,7 +307,6 @@ namespace ImprintCMS.Models
         public void Delete(Edition edition)
         {
             _db.BookListMemberships.DeleteAllOnSubmit(edition.BookListMemberships);
-            _db.OrderLines.DeleteAllOnSubmit(edition.OrderLines.Where(l => l.Order.ClosedAt != null));
             _db.Editions.DeleteOnSubmit(edition);
         }
 
@@ -388,44 +387,6 @@ namespace ImprintCMS.Models
         public void Delete(ExternalStore store)
         {
             _db.ExternalStores.DeleteOnSubmit(store);
-        }
-
-        public IEnumerable<Order> Orders
-        {
-            get
-            {
-                return _db.Orders;
-            }
-        }
-        public Order GetOrder(int id)
-        {
-            return _db.Orders.SingleOrDefault(o => o.Id == id);
-        }
-        public Order GetOrder(Guid guid)
-        {
-            return _db.Orders.SingleOrDefault(o => o.ExternalId == guid);
-        }
-        public void Add(Order order)
-        {
-            _db.Orders.InsertOnSubmit(order);
-        }
-        public void Delete(Order order)
-        {
-            _db.OrderLines.DeleteAllOnSubmit(order.OrderLines);
-            _db.Orders.DeleteOnSubmit(order);
-        }
-
-        public OrderLine GetOrderLine(int id)
-        {
-            return _db.OrderLines.SingleOrDefault(l => l.Id == id);
-        }
-        public void Add(OrderLine line)
-        {
-            _db.OrderLines.InsertOnSubmit(line);
-        }
-        public void Delete(OrderLine line)
-        {
-            _db.OrderLines.DeleteOnSubmit(line);
         }
 
         public IEnumerable<Configuration> Configurations

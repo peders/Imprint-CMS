@@ -73,10 +73,6 @@
         {
             <li><a href="@shortcut.Href">@shortcut.Name</a></li>
         }
-        @if (ViewBag.ShowShop)
-        {
-            <li class="@(ViewContext.ControllerName().ToLower() == "shop" ? "selected" : string.Empty)">@Html.ActionLink(SitePhrases.MenuShop, "index", "shop", null, new { id = "shopcounter", data_shop_count_url = Url.Action("count", "shop") })</li>
-        }
     </ul>
     <div id="content" class="@String.Format("{0} {1}", ViewContext.ControllerName().ToLower(), ViewContext.ActionName().ToLower())">
         @RenderBody()

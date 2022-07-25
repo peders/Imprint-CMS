@@ -41,7 +41,6 @@
     <Type Name="Binding">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UsesExternalStores" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="HideEditionNumber" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="DeliveryFormat" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Binding_Edition" Member="Editions" ThisKey="Id" OtherKey="BindingId" Type="Edition" />
@@ -105,16 +104,9 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="SiteName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="SiteFooter" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="DistributionCostAmount" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
-      <Column Name="DistributionCostLimit" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
-      <Column Name="EmailSenderAddress" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="EmailSenderName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="GoogleAnalyticsTrackingCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="PersonImageDownloadNotice" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="CoverImageDownloadNotice" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ShopIsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="ShopEmailRecipient" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ShopDisclaimer" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CachedCoverWidth" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -148,7 +140,6 @@
       <Column Name="AlternativeNotForSaleMessage" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="AdditionalInfo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Edition_BookListMembership" Member="BookListMemberships" ThisKey="Id" OtherKey="EditionId" Type="BookListMembership" />
-      <Association Name="Edition_OrderLine" Member="OrderLines" ThisKey="Id" OtherKey="EditionId" Type="OrderLine" />
       <Association Name="Binding_Edition" Member="Binding" ThisKey="BindingId" OtherKey="Id" Type="Binding" IsForeignKey="true" />
       <Association Name="Book_Edition" Member="Book" ThisKey="BookId" OtherKey="Id" Type="Book" IsForeignKey="true" />
       <Association Name="UploadedFile_Edition" Member="UploadedFile" ThisKey="LargeCoverId" OtherKey="Id" Type="UploadedFile" IsForeignKey="true" />
@@ -180,31 +171,6 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="SequenceIdentifier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Href" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.[Order]" Member="Orders">
-    <Type Name="Order">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ExternalId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="CreatedAt" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ClosedAt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Postcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DistributionCost" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
-      <Association Name="Order_OrderLine" Member="OrderLines" ThisKey="Id" OtherKey="OrderId" Type="OrderLine" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OrderLine" Member="OrderLines">
-    <Type Name="OrderLine">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="OrderId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EditionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Edition_OrderLine" Member="Edition" ThisKey="EditionId" OtherKey="Id" Type="Edition" IsForeignKey="true" />
-      <Association Name="Order_OrderLine" Member="Order" ThisKey="OrderId" OtherKey="Id" Type="Order" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Person" Member="Persons">

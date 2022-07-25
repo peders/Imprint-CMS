@@ -207,27 +207,8 @@
     <value>Bilde av {0}</value>
     <comment>Insert name</comment>
   </data>
-  <data name="LabelShopEmpty" xml:space="preserve">
-    <value>Du har ingen bøker i handlekurven</value>
-  </data>
-  <data name="MenuShop" xml:space="preserve">
-    <value>Kjøp</value>
-  </data>
-  <data name="LabelAddToShop" xml:space="preserve">
-    <value>Kjøp</value>
-  </data>
   <data name="LabelNotForSale" xml:space="preserve">
     <value>Ikke i salg</value>
-  </data>
-  <data name="LabelShopRemoveAll" xml:space="preserve">
-    <value>Tøm handlekurv</value>
-  </data>
-  <data name="LabelShopRemoveOne" xml:space="preserve">
-    <value>Fjern</value>
-  </data>
-  <data name="LabelShopDistributionCostLegend" xml:space="preserve">
-    <value>Gratis frakt på alle ordre over {0:F2} kr.</value>
-    <comment>Insert limit</comment>
   </data>
   <data name="LabelCancel" xml:space="preserve">
     <value>Avbryt</value>
@@ -247,63 +228,14 @@
   <data name="LabelNext" xml:space="preserve">
     <value>Neste</value>
   </data>
-  <data name="LabelShopDistributionCost" xml:space="preserve">
-    <value>Frakt</value>
-  </data>
-  <data name="LabelShopSubtotal" xml:space="preserve">
-    <value>Subtotal</value>
-  </data>
-  <data name="LabelShopTotal" xml:space="preserve">
-    <value>Å betale</value>
-  </data>
-  <data name="HeadingShopBasket" xml:space="preserve">
-    <value>Handlekurv</value>
-  </data>
   <data name="LabelPrevious" xml:space="preserve">
     <value>Tilbake</value>
-  </data>
-  <data name="LabelShopSendOrder" xml:space="preserve">
-    <value>Send bestilling</value>
-  </data>
-  <data name="ValidationInvalidEmailFormat" xml:space="preserve">
-    <value>Dette er ikke en gyldig e-postadresse</value>
-  </data>
-  <data name="ValidationRequired" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="HeadingShopConfirm" xml:space="preserve">
-    <value>Bekreft og send</value>
-  </data>
-  <data name="HeadingShopDetails" xml:space="preserve">
-    <value>Navn og adresse</value>
-  </data>
-  <data name="LabelAddress" xml:space="preserve">
-    <value>Adresse</value>
-  </data>
-  <data name="LabelCity" xml:space="preserve">
-    <value>Poststed</value>
   </data>
   <data name="LabelEmail" xml:space="preserve">
     <value>E-post</value>
   </data>
   <data name="LabelName" xml:space="preserve">
     <value>Navn</value>
-  </data>
-  <data name="LabelPhone" xml:space="preserve">
-    <value>Telefon</value>
-  </data>
-  <data name="LabelPostcode" xml:space="preserve">
-    <value>Postnummer</value>
-  </data>
-  <data name="LabelShopConfirm" xml:space="preserve">
-    <value>Send bestilling</value>
-  </data>
-  <data name="HeadingShopReceipt" xml:space="preserve">
-    <value>Bestillingen er mottatt</value>
-  </data>
-  <data name="LabelShopReceipt" xml:space="preserve">
-    <value>Ved henvendelser om bestillingen, vennligst oppgi ordrenummer {0}.</value>
-    <comment>Insert order id</comment>
   </data>
   <data name="MenuSearch" xml:space="preserve">
     <value>Søk</value>
@@ -320,26 +252,6 @@
   </data>
   <data name="LabelBuyThroughExternalStores" xml:space="preserve">
     <value>Kjøp hos …</value>
-  </data>
-  <data name="LabelShopCustomerReceiptBody" xml:space="preserve">
-    <value>Din bestilling har ordrenummer {0}.&lt;br/&gt;&lt;br/&gt;{1}&lt;br/&gt;{2}&lt;br/&gt;{3} {4}&lt;br/&gt;Telefon: {5}&lt;br/&gt;E-post: {6}&lt;br/&gt;{7}&lt;br/&gt;&lt;br/&gt;Subtotal: {8:f2}&lt;br/&gt;Frakt: {9:f2}&lt;br/&gt;Total: {10:f2}</value>
-    <comment>Insert order id, name, address, postcode, city, phone, email, order lines, subtotal, distribution cost, total</comment>
-  </data>
-  <data name="LabelShopCustomerReceiptBodyOrderLine" xml:space="preserve">
-    <value>&lt;br/&gt;ISBN {0} : {1} : {2:f2}</value>
-    <comment>Insert isbn, title, price</comment>
-  </data>
-  <data name="LabelShopOrderReceiptEmailFailure" xml:space="preserve">
-    <value>En bekreftelse er forsøkt sendt til {0}, men e-posten kunne ikke sendes. Bestillingen er likevel registrert i vårt system.</value>
-    <comment>Insert email</comment>
-  </data>
-  <data name="LabelShopOrderReceiptEmailSuccess" xml:space="preserve">
-    <value>En bekreftelse er også sendt til {0}.</value>
-    <comment>Insert email</comment>
-  </data>
-  <data name="LabelShopReceiptSubject" xml:space="preserve">
-    <value>Din bestilling på {0}</value>
-    <comment>Insert site name</comment>
   </data>
   <data name="HeadingMoreImages" xml:space="preserve">
     <value>Flere bilder</value>
