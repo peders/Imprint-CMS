@@ -31,3 +31,6 @@ packages
 /ImprintCMS/Properties/PublishProfiles/kolonwebdev - Web Deploy.pubxml
 ImprintCMS/Web.Release.config
 *.pubxml
+/.vs/ImprintCMS/FileContentIndex
+/ImprintCMS/Properties/ServiceDependencies/kolonwebproduction - Web Deploy
+/UpgradeLog.htm
